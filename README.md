@@ -1,2 +1,2 @@
 # enterprise-workshop
-Collection of enterprise web application.
+Collection of demo enterprise web application.
