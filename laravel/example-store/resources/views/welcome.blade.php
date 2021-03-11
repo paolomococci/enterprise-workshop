@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../css/welcome.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="http://127.0.0.1:8000/css/welcome.css" type="text/css" media="screen"/>
         <title>example store</title>
     </head>
     <body>
