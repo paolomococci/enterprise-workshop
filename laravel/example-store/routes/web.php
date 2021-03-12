@@ -21,3 +21,7 @@ Route::match(['get', 'post'], '/match', function () {
 Route::any('/any', function () {
     return 'Hello World, from any method';
 });
+
+Route::get('/parametric/path/{id?}', function ($id=1) {
+    return 'Your request has an identification parameter: ' . $id;
+});
