@@ -7,5 +7,9 @@ Route::get('/', function () {
 });
  
 Route::get('/hello', function () {
-    return 'Hello World!';
+    return 'Hello World, from GET method.';
+});
+
+Route::post('/hello', function () {
+    return 'Hello World, from POST method.';
 });
