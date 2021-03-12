@@ -23,5 +23,5 @@ Route::any('/any', function () {
 });
 
 Route::get('/parametric/path/{id?}', function ($id=1) {
-    return 'Your request has an identification parameter: ' . $id;
-});
+    return 'Your request has an identifying numeric parameter: ' . $id;
+})->where(['id' => '[0-9]+']);
