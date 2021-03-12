@@ -13,3 +13,11 @@ Route::get('/hello', function () {
 Route::post('/hello', function () {
     return 'Hello World, from POST method.';
 });
+
+Route::match(['get', 'post'], '/match', function () {
+    return 'Hello World, from some specific methods.';
+});
+
+Route::any('/any', function () {
+    return 'Hello World, from any method';
+});
