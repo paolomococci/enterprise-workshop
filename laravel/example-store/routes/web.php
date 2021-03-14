@@ -31,3 +31,7 @@ Route::get('/parametric/path/{id?}', function ($id=1) {
 })->where(['id' => '[0-9]+']);
 
 Route::get('/item/{id}', [ 'as' => 'itemDetail', 'uses' => 'ItemController@getItemDetail']);
+
+Route::get('/info', function () {
+    phpinfo();
+});
