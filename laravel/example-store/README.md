@@ -1,7 +1,12 @@
 # example-store developed thanks to Laravel framework
 
 ## some preparatory steps:
-1. make sure you have installed php-mysql
+1. make sure you have installed php-mysql, to verify this, you can add an info path to your file routes/web.php, type the link in your browser and look for the presence of driver in the PDO section
+```
+Route::get('/info', function () {
+    phpinfo();
+});
+```
 2. create database example_store
 ```
 CREATE DATABASE example_store;
