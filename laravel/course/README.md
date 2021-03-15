@@ -1,2 +1,2 @@
 # course
-demo web application
+Demo web application developed thanks to Laravel framework.
