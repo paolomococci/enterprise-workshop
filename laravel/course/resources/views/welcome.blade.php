@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link rel="stylesheet" href="{{ url('css/welcome.css')}}" type="text/css" media="screen"/>
         <title>course</title>
     </head>
     <body>
