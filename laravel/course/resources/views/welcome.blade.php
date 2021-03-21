@@ -27,6 +27,31 @@
                     course
                 </div>
 
+                @isset($tutors)
+                    <div class="container mt-5">
+                        <table class="table table-inverse">
+                            <thead>
+                                <tr>
+                                    <th>tutor identifier</th>
+                                    <th>name</th>
+                                    <th>surname</th>
+                                    <th>email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($tutors as $tutor)
+                                    <tr id="tutor{{$tutor->id}}">
+                                        <td>{{$tutor->id}}</td>
+                                        <td>{{$tutor->name}}</td>
+                                        <td>{{$tutor->surname}}</td>
+                                        <td>{{$tutor->email}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @endisset
+
                 <div class="links">
                     <a href="#">todo</a>
                     <a href="#">todo</a>
