@@ -1,5 +1,5 @@
 # food-cart demo web application developed thanks to Laravel
-![food-card]()
+![food-card](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/food_cart_screenshot01.png)
 
 ## how I proceeded:
 
