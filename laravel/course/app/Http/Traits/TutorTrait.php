@@ -2,7 +2,7 @@
 
 namespace App\Http\Traits;
 
-use App\Tutor;
+use App\Models\Tutor;
 
 trait TutorTrait {
     public function index() {
