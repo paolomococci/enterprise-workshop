@@ -200,8 +200,26 @@ Access-Control-Allow-Origin: *
 * Closing connection 0
 []
 ```
+### I modified composer.json
+```
+...
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Seeds\\": "database/seeds",
+            "Database\\Factories\\": "database/factories",
+            "DatabaseSeeder\\": "database/seeds/"
+        }
+    },
+...
+```
 ### after editing the files in the directory database/seeds, I ran the command
 ```
 $ php artisan db:seed --class=CustomerSeeder
-$ php artisan serve
+```
+### it returns me an error
+```
+...
+Target class [CustomerSeeder] does not exist.
+...
 ```
