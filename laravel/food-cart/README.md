@@ -200,3 +200,7 @@ Access-Control-Allow-Origin: *
 * Closing connection 0
 []
 ```
+### after editing the files in the directory database/seeds, I ran the command
+```
+php artisan db:seed
+```
