@@ -1,6 +1,9 @@
 <?php
 
+namespace Database\Seeds;
+
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CustomerSeeder extends Seeder
 {
@@ -11,7 +14,7 @@ class CustomerSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('customers')->insert([
+        DB::table('customers')->insert(array(
             // a series of completely invented names for the sole purpose of example
             [
                 'name' => 'Susan',
@@ -39,6 +42,6 @@ class CustomerSeeder extends Seeder
                 'email' => 'bob.swing@example.local',
             ],
             // TODO
-        ]);
+        ));
     }
 }
