@@ -11,6 +11,8 @@ class RecipeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('recipes')->insert([
+            // TODO
+        ]);
     }
 }
