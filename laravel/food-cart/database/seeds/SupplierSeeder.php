@@ -11,6 +11,8 @@ class SupplierSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('suppliers')->insert([
+            // TODO
+        ]);
     }
 }
