@@ -202,5 +202,6 @@ Access-Control-Allow-Origin: *
 ```
 ### after editing the files in the directory database/seeds, I ran the command
 ```
-php artisan db:seed
+$ php artisan db:seed --class=CustomerSeeder
+$ php artisan serve
 ```
