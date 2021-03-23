@@ -11,6 +11,8 @@ class MealSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('meals')->insert([
+            // TODO
+        ]);
     }
 }
