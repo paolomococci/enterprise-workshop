@@ -11,6 +11,8 @@ class CustomerSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('customers')->insert([
+            // TODO
+        ]);
     }
 }
