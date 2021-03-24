@@ -1,9 +1,8 @@
 <?php
 
-namespace Database\Seeds;
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //$this->call(UserSeeder::class);
-        $this->call(CustomerSeeder::class);
-        //$this->call(IngredientSeeder::class);
-        //$this->call(MealSeeder::class);
-        //$this->call(RecipeSeeder::class);
-        //$this->call(SupplierSeeder::class);
+        $this->call(
+            UserSeeder::class,
+            CustomerSeeder::class,
+            IngredientSeeder::class,
+            MealSeeder::class,
+            RecipeSeeder::class,
+            SupplierSeeder::class
+        );
     }
 }
