@@ -206,9 +206,9 @@ Access-Control-Allow-Origin: *
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Database\\Seeds\\": "database/seeds",
+            "Database\\Seeders\\": "database/seeders",
             "Database\\Factories\\": "database/factories",
-            "DatabaseSeeder\\": "database/seeds/"
+            "DatabaseSeeder\\": "database/seeders/"
         }
     },
 ...
