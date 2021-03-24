@@ -1,8 +1,9 @@
 <?php
 
-namespace Database\Seeds;
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 class CustomerSeeder extends Seeder
@@ -14,34 +15,10 @@ class CustomerSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('customers')->insert(array(
-            // a series of completely invented names for the sole purpose of example
-            [
-                'name' => 'Susan',
-                'surname' => 'Weave',
-                'email' => 'susan.weave@example.local',
-            ],
-            [
-                'name' => 'Fiona',
-                'surname' => 'Win',
-                'email' => 'fiona.win@example.local',
-            ],
-            [
-                'name' => 'John',
-                'surname' => 'Tell',
-                'email' => 'john.tell@example.local',
-            ],
-            [
-                'name' => 'Ann',
-                'surname' => 'Think',
-                'email' => 'ann.think@example.local',
-            ],
-            [
-                'name' => 'Bob',
-                'surname' => 'Swing',
-                'email' => 'bob.swing@example.local',
-            ],
-            // TODO
-        ));
+        DB::table('customers')->insert([
+            'name' => Str::random(6),
+            'surname' => Str::random(6),
+            'email' => Str::random(12).'@example.local'
+        ]);
     }
 }
