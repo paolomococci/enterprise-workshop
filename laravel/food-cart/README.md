@@ -223,3 +223,64 @@ $ php artisan db:seed --class=CustomerSeeder
 Target class [CustomerSeeder] does not exist.
 ...
 ```
+### I proceeded to create the many-to-many relationship tables
+```
+$ php artisan make:migration create_ingredient_recipe_relation_table
+Created Migration: 2021_03_24_140125_create_ingredient_recipe_relation_table
+
+$ php artisan make:migration create_recipe_meal_relation_table
+Created Migration: 2021_03_24_140424_create_recipe_meal_relation_table
+
+$ php artisan make:migration create_meal_customer_relation_table
+Created Migration: 2021_03_24_140535_create_meal_customer_relation_table
+
+$ php artisan make:migration create_ingredient_supplier_relation_table
+Created Migration: 2021_03_24_140608_create_ingredient_supplier_relation_table
+
+$ php artisan migrate:refresh --seed
+Rolling back: 2021_03_21_082737_create_meals_table
+Rolled back:  2021_03_21_082737_create_meals_table (0.01 seconds)
+Rolling back: 2021_03_21_082128_create_recipes_table
+Rolled back:  2021_03_21_082128_create_recipes_table (0 seconds)
+Rolling back: 2021_03_21_070930_create_ingredients_table
+Rolled back:  2021_03_21_070930_create_ingredients_table (0.01 seconds)
+Rolling back: 2021_03_21_070514_create_suppliers_table
+Rolled back:  2021_03_21_070514_create_suppliers_table (0 seconds)
+Rolling back: 2021_03_21_065811_create_customers_table
+Rolled back:  2021_03_21_065811_create_customers_table (0 seconds)
+Rolling back: 2019_08_19_000000_create_failed_jobs_table
+Rolled back:  2019_08_19_000000_create_failed_jobs_table (0.01 seconds)
+Rolling back: 2014_10_12_100000_create_password_resets_table
+Rolled back:  2014_10_12_100000_create_password_resets_table (0 seconds)
+Rolling back: 2014_10_12_000000_create_users_table
+Rolled back:  2014_10_12_000000_create_users_table (0 seconds)
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table (0.02 seconds)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table (0.02 seconds)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated:  2019_08_19_000000_create_failed_jobs_table (0.01 seconds)
+Migrating: 2021_03_21_065811_create_customers_table
+Migrated:  2021_03_21_065811_create_customers_table (0.01 seconds)
+Migrating: 2021_03_21_070514_create_suppliers_table
+Migrated:  2021_03_21_070514_create_suppliers_table (0.01 seconds)
+Migrating: 2021_03_21_070930_create_ingredients_table
+Migrated:  2021_03_21_070930_create_ingredients_table (0.01 seconds)
+Migrating: 2021_03_21_082128_create_recipes_table
+Migrated:  2021_03_21_082128_create_recipes_table (0.02 seconds)
+Migrating: 2021_03_21_082737_create_meals_table
+Migrated:  2021_03_21_082737_create_meals_table (0.01 seconds)
+Migrating: 2021_03_24_140125_create_ingredient_recipe_relation_table
+Migrated:  2021_03_24_140125_create_ingredient_recipe_relation_table (0.01 seconds)
+Migrating: 2021_03_24_140424_create_recipe_meal_relation_table
+Migrated:  2021_03_24_140424_create_recipe_meal_relation_table (0.01 seconds)
+Migrating: 2021_03_24_140535_create_meal_customer_relation_table
+Migrated:  2021_03_24_140535_create_meal_customer_relation_table (0.01 seconds)
+Migrating: 2021_03_24_140608_create_ingredient_supplier_relation_table
+Migrated:  2021_03_24_140608_create_ingredient_supplier_relation_table (0.01 seconds)
+
+   Illuminate\Contracts\Container\BindingResolutionException 
+
+  Target class [DatabaseSeeder] does not exist.
+...
+```
