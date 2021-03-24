@@ -1,8 +1,9 @@
 <?php
 
-namespace Database\Seeds;
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 class MealSeeder extends Seeder
@@ -15,7 +16,10 @@ class MealSeeder extends Seeder
     public function run()
     {
         DB::table('meals')->insert([
-            // TODO
+            'name' => Str::random(6),
+            'category' => Str::random(6),
+            'description' => Str::random(12),
+            'price' => 0.0
         ]);
     }
 }
