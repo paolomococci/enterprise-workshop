@@ -14,7 +14,7 @@ class CreateIngredientSupplierRelationTable extends Migration
     public function up()
     {
         Schema::create('ingredient_supplier_relation', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->timestamps();
         });
     }
