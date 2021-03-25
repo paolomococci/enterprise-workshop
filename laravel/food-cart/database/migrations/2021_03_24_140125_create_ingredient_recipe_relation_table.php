@@ -14,7 +14,7 @@ class CreateIngredientRecipeRelationTable extends Migration
     public function up()
     {
         Schema::create('ingredient_recipe_relation', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->timestamps();
         });
     }
