@@ -18,6 +18,9 @@ class CreateRecipeMealRelationTable extends Migration
             $table->bigInteger('recipe_id')->unsigned()->index();
             $table->bigInteger('meal_id')->unsigned()->index();
             $table->timestamps();
+            
+            $table->foreign('recipe_id')->references('id')->on('recipes');
+            $table->foreign('meal_id')->references('id')->on('meals');
         });
     }
 
