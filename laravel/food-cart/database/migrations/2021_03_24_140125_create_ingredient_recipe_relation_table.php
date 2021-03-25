@@ -18,6 +18,9 @@ class CreateIngredientRecipeRelationTable extends Migration
             $table->bigInteger('ingredient_id')->unsigned()->index();
             $table->bigInteger('recipe_id')->unsigned()->index();
             $table->timestamps();
+            
+            $table->foreign('ingredient_id')->references('id')->on('ingredients');
+            $table->foreign('recipe_id')->references('id')->on('recipes');
         });
     }
 
