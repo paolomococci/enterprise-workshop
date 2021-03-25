@@ -15,6 +15,8 @@ class CreateIngredientSupplierRelationTable extends Migration
     {
         Schema::create('ingredient_supplier_relation', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('ingredient_id')->unsigned()->index();
+            $table->bigInteger('supplier_id')->unsigned()->index();
             $table->timestamps();
         });
     }
