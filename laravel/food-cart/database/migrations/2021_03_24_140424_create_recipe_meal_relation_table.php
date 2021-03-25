@@ -15,6 +15,8 @@ class CreateRecipeMealRelationTable extends Migration
     {
         Schema::create('recipe_meal_relation', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('recipe_id')->unsigned()->index();
+            $table->bigInteger('meal_id')->unsigned()->index();
             $table->timestamps();
         });
     }
