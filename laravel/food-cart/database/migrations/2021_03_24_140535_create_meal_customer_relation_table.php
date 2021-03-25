@@ -18,6 +18,9 @@ class CreateMealCustomerRelationTable extends Migration
             $table->bigInteger('meal_id')->unsigned()->index();
             $table->bigInteger('customer_id')->unsigned()->index();
             $table->timestamps();
+            
+            $table->foreign('meal_id')->references('id')->on('meals');
+            $table->foreign('customer_id')->references('id')->on('customers');
         });
     }
 
