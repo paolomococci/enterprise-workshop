@@ -15,6 +15,8 @@ class CreateIngredientRecipeRelationTable extends Migration
     {
         Schema::create('ingredient_recipe_relation', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('ingredient_id')->unsigned()->index();
+            $table->bigInteger('recipe_id')->unsigned()->index();
             $table->timestamps();
         });
     }
