@@ -14,7 +14,7 @@ class CreateMealCustomerRelationTable extends Migration
     public function up()
     {
         Schema::create('meal_customer_relation', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->timestamps();
         });
     }
