@@ -284,3 +284,9 @@ Migrated:  2021_03_24_140608_create_ingredient_supplier_relation_table (0.01 sec
   Target class [DatabaseSeeder] does not exist.
 ...
 ```
+
+### after I have edited the files dedicated to database modification
+```
+$ php artisan migrate:refresh
+...
+```
