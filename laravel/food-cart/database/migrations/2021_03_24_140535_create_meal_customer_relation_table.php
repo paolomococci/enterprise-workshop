@@ -15,6 +15,8 @@ class CreateMealCustomerRelationTable extends Migration
     {
         Schema::create('meal_customer_relation', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('meal_id')->unsigned()->index();
+            $table->bigInteger('customer_id')->unsigned()->index();
             $table->timestamps();
         });
     }
