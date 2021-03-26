@@ -2,6 +2,7 @@ CREATE TABLE food_cart_db.ingredient_recipe_relation (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `ingredient_id` bigint(20) unsigned NOT NULL,
   `recipe_id` bigint(20) unsigned NOT NULL,
+  `quantity` decimal(5,3) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
