@@ -26,6 +26,21 @@ class RecipeController extends Controller
     {
         //
     }
+    
+    
+    /**
+     * Save a resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function save(Request $request) {
+        $recipe = new Recipe();
+        $recipe->name = $request->input('name');
+        // TODO
+        $recipe->save();
+        
+    }
 
     /**
      * Store a newly created resource in storage.
