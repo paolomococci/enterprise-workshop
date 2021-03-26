@@ -17,6 +17,7 @@ class CreateIngredientRecipeRelationTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('ingredient_id')->unsigned()->index();
             $table->bigInteger('recipe_id')->unsigned()->index();
+            $table->decimal('quantity', 5, 3);
             $table->timestamps();
             
             $table->foreign('ingredient_id')->references('id')->on('ingredients');
