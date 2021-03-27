@@ -26,6 +26,20 @@ class IngredientController extends Controller
     {
         //
     }
+    
+    /**
+     * Save a resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function save(Request $request) {
+        $ingredient = new Ingredient();
+        $ingredient->name = $request->input('name');
+        // TODO
+        $ingredient->save();
+        
+    }
 
     /**
      * Store a newly created resource in storage.
