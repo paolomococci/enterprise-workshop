@@ -41,7 +41,14 @@ class RecipeController extends Controller
         $recipe->todo = $request->input('todo');
         $recipe->save();
         // TODO
-        
+
+        return response()->json([
+            'id' => $recipe->id,
+            'name' => 'Recipe ' . $recipe->name,
+            'category' => 'Category ' . $recipe->category,
+            'todo' => 'To do ' . $recipe->todo,
+            'url' => '/api/recipe/' . $recipe->id,
+        ]);
     }
 
     /**
