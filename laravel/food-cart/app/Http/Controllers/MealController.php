@@ -27,7 +27,6 @@ class MealController extends Controller
         //
     }
     
-    
     /**
      * Save a resource in storage.
      *
