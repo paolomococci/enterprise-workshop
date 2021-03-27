@@ -17,6 +17,7 @@ class CreateIngredientSupplierRelationTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('ingredient_id')->unsigned()->index();
             $table->bigInteger('supplier_id')->unsigned()->index();
+            $table->decimal('quantity', 5, 3);
             $table->timestamps();
             
             $table->foreign('ingredient_id')->references('id')->on('ingredients');
