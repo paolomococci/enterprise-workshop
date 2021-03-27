@@ -26,6 +26,21 @@ class MealController extends Controller
     {
         //
     }
+    
+    
+    /**
+     * Save a resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function save(Request $request) {
+        $meal = new Meal();
+        $meal->name = $request->input('name');
+        // TODO
+        $meal->save();
+        
+    }
 
     /**
      * Store a newly created resource in storage.
