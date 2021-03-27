@@ -37,8 +37,10 @@ class RecipeController extends Controller
     public function save(Request $request) {
         $recipe = new Recipe();
         $recipe->name = $request->input('name');
-        // TODO
+        $recipe->category = $request->input('category');
+        $recipe->todo = $request->input('todo');
         $recipe->save();
+        // TODO
         
     }
 
