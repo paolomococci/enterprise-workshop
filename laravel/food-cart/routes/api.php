@@ -18,3 +18,5 @@ Route::get('/ingredients', [IngredientController::class, 'index']);
 Route::get('/meals', [MealController::class, 'index']);
 Route::get('/recipes', [RecipeController::class, 'index']);
 Route::get('/suppliers', [SupplierController::class, 'index']);
+
+Route::post('/recipes', 'RecipeController@save');
