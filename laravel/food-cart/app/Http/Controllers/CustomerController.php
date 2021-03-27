@@ -25,6 +25,20 @@ class CustomerController extends Controller
     public function create()
     {
         //
+    } 
+    
+    /**
+     * Save a resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function save(Request $request) {
+        $customer = new Customer();
+        $customer->name = $request->input('name');
+        // TODO
+        $customer->save();
+        
     }
 
     /**
