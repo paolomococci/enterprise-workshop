@@ -17,6 +17,7 @@ class CreateMealCustomerRelationTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('meal_id')->unsigned()->index();
             $table->bigInteger('customer_id')->unsigned()->index();
+            $table->decimal('quantity', 5, 3);
             $table->timestamps();
             
             $table->foreign('meal_id')->references('id')->on('meals');
