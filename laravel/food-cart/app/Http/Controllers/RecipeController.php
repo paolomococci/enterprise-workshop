@@ -68,6 +68,17 @@ class RecipeController extends Controller
     {
         // TODO
     }
+    
+    /**
+     * Set Fields a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function setField(Request $request)
+    {
+        // TODO
+    }
 
     /**
      * Store a newly created resource in storage.
