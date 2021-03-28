@@ -35,20 +35,12 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function save(Request $request) {
-        $recipe = new Recipe();
-        $recipe->name = $request->input('name');
-        $recipe->category = $request->input('category');
-        $recipe->todo = $request->input('todo');
+        $recipe = new Recipe;
+        $this->setField($recipe, 'name', $request, 'anonymouus');
+        $this->setField($recipe, 'category', $request, 'sample');
+        $this->setField($recipe, 'todo', $request, 'some');
         $recipe->save();
         // TODO
-
-        return response()->json([
-            'id' => $recipe->id,
-            'name' => 'Recipe ' . $recipe->name,
-            'category' => 'Category ' . $recipe->category,
-            'todo' => 'To do ' . $recipe->todo,
-            'url' => '/api/recipe/' . $recipe->id,
-        ]);
     }
 
     /**
