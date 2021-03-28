@@ -48,7 +48,7 @@ class RecipeController extends Controller
     }
     
     /**
-     * Fetch a newly created resource in storage.
+     * Fetch a resource in storage.
      *
      * @param  $id
      * @return \Illuminate\Http\Response
@@ -59,7 +59,7 @@ class RecipeController extends Controller
     }
     
     /**
-     * Preview a newly created resource in storage.
+     * Preview a resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -70,12 +70,23 @@ class RecipeController extends Controller
     }
     
     /**
-     * Set Fields a newly created resource in storage.
+     * Set Fields.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function setField(Request $request)
+    {
+        // TODO
+    }
+    
+    /**
+     * Compute Price.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function computePrice(Request $request)
     {
         // TODO
     }
