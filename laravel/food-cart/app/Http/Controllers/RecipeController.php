@@ -40,7 +40,12 @@ class RecipeController extends Controller
         $this->setField($recipe, 'category', $request, 'sample');
         $this->setField($recipe, 'todo', $request, 'some');
         $recipe->save();
-        // TODO
+
+        return response()->json([
+            'id' => $recipe->id,
+            'name' => 'Recipe ' . $recipe->name . ' (' . $recipe->size . ')',
+            'url' => '/api/recipe/' . $recipe->id,
+        ]);
     }
 
     /**
