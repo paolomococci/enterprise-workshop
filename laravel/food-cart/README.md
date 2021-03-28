@@ -291,3 +291,11 @@ $ php artisan make:model Models/IngredientRecipe
 $ php artisan migrate:refresh
 ...
 ```
+# now I have added support to Vue.js
+```
+$ composer require laravel/ui
+$ php artisan ui vue
+$ npm install
+$ npm run dev
+$ npm run watch
+```
