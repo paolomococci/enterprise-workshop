@@ -27,7 +27,6 @@ class RecipeController extends Controller
         //
     }
     
-    
     /**
      * Save a resource in storage.
      *
@@ -46,6 +45,17 @@ class RecipeController extends Controller
             'name' => 'Recipe ' . $recipe->name . ' (' . $recipe->size . ')',
             'url' => '/api/recipe/' . $recipe->id,
         ]);
+    }
+    
+    /**
+     * Fetch a newly created resource in storage.
+     *
+     * @param  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function fetch($id)
+    {
+        // TODO
     }
 
     /**
