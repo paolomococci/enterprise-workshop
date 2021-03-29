@@ -17,8 +17,8 @@
 
 export default {
     name: 'ExampleComponent'
-	mounted() {
-		console.log('sample component mounted')
-	}
+    mounted() {
+	console.log('sample component mounted')
+    }
 }
 </script>
