@@ -13,7 +13,8 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        // TODO
+        $repipes['recipes'] = Recipe::all();
+        return view('recipes.index', $repipes);
     }
 
     /**
