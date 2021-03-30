@@ -92,6 +92,7 @@ class IngredientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Ingredient $ingredient) {
-        // TODO
+        $ingredient->delete();
+        return redirect()->route('ingredient.index')->with('success', 'ingredient has been deleted');
     }
 }
