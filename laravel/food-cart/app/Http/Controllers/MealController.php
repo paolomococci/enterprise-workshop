@@ -13,7 +13,8 @@ class MealController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        // TODO
+        $meals['meals'] = Meal::all();
+        return view('meals.index', $meals);
     }
 
     /**
