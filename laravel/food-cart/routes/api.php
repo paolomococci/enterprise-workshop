@@ -13,10 +13,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/customers', [CustomerController::class, 'index']);
-Route::get('/ingredients', [IngredientController::class, 'index']);
-Route::get('/meals', [MealController::class, 'index']);
-Route::get('/recipes', [RecipeController::class, 'index']);
-Route::get('/suppliers', [SupplierController::class, 'index']);
-
-Route::post('/recipes', 'RecipeController@save');
+Route::get('/customers', [CustomerController::class, 'read']);
+Route::get('/ingredients', [IngredientController::class, 'read']);
+Route::get('/meals', [MealController::class, 'read']);
+Route::get('/recipes', [RecipeController::class, 'read']);
+Route::get('/suppliers', [SupplierController::class, 'read']);
