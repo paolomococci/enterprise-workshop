@@ -92,6 +92,7 @@ class SupplierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Supplier $supplier) {
-        // TODO
+        $supplier->delete();
+        return redirect()->route('suppliers.index')->with('success', 'supplier has been deleted');
     }
 }
