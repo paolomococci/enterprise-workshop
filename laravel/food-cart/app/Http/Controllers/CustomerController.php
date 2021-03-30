@@ -63,7 +63,19 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // TODO
+        $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required'
+        ]);
+        
+        $customer = new Customer;
+        $customer->name = $request->name;
+        $customer->surname = $request->surname;
+        $customer->email = $request->email;
+        $customer->save();
+        
+        return redirect()->route('customers.index')->with('success', 'customer has been created');
     }
 
     /**
