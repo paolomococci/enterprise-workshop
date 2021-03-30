@@ -13,7 +13,8 @@ class SupplierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        // TODO
+        $suppliers['suppliers'] = Supplier::all();
+        return view('suppliers.index', $suppliers);
     }
 
     /**
