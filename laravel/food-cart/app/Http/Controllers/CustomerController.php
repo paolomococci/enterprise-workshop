@@ -92,6 +92,7 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Customer $customer) {
-        // TODO
+        $customer->delete();
+        return redirect()->route('customer.index')->with('success', 'customer has been deleted');
     }
 }
