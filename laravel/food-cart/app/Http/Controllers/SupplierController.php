@@ -12,9 +12,8 @@ class SupplierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return response()->json(Supplier::all()->jsonSerialize());
+    public function index() {
+        // TODO
     }
 
     /**
@@ -22,9 +21,38 @@ class SupplierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
+    }
+    
+    /**
+     * Read a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function read() {
+        return response()->json(Supplier::all()->jsonSerialize());
+    }
+    
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Supplier  $supplier
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Supplier $supplier) {
+        //
+    }
+    
+    /**
+     * Delete the specified resource from storage.
+     *
+     * @param  \App\Models\Supplier  $supplier
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Supplier $supplier) {
+        // TODO
     }
 
     /**
@@ -33,9 +61,8 @@ class SupplierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        // TODO
     }
 
     /**
@@ -44,9 +71,8 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function show(Supplier $supplier)
-    {
-        //
+    public function show(Supplier $supplier) {
+        // TODO
     }
 
     /**
@@ -55,21 +81,8 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplier $supplier)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Supplier  $supplier
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Supplier $supplier)
-    {
-        //
+    public function edit(Supplier $supplier) {
+        // TODO
     }
 
     /**
@@ -78,8 +91,7 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supplier $supplier)
-    {
-        //
+    public function destroy(Supplier $supplier) {
+        // TODO
     }
 }
