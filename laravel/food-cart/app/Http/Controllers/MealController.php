@@ -12,9 +12,8 @@ class MealController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return response()->json(Meal::all()->jsonSerialize());
+    public function index() {
+        // TODO
     }
 
     /**
@@ -22,23 +21,38 @@ class MealController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        // TODO
     }
     
     /**
-     * Save a resource in storage.
+     * Read a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function save(Request $request) {
-        $meal = new Meal();
-        $meal->name = $request->input('name');
+    public function read() {
+        return response()->json(Meal::all()->jsonSerialize());
+    }
+    
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Meal  $meal
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Meal $meal) {
         // TODO
-        $meal->save();
-        
+    }
+    
+    /**
+     * Delete the specified resource from storage.
+     *
+     * @param  \App\Models\Meal  $meal
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Meal $meal) {
+        // TODO
     }
 
     /**
@@ -47,9 +61,8 @@ class MealController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        // TODO
     }
 
     /**
@@ -58,9 +71,8 @@ class MealController extends Controller
      * @param  \App\Models\Meal  $meal
      * @return \Illuminate\Http\Response
      */
-    public function show(Meal $meal)
-    {
-        //
+    public function show(Meal $meal) {
+        // TODO
     }
 
     /**
@@ -69,21 +81,8 @@ class MealController extends Controller
      * @param  \App\Models\Meal  $meal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Meal $meal)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Meal  $meal
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Meal $meal)
-    {
-        //
+    public function edit(Meal $meal) {
+        // TODO
     }
 
     /**
@@ -92,8 +91,7 @@ class MealController extends Controller
      * @param  \App\Models\Meal  $meal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Meal $meal)
-    {
-        //
+    public function destroy(Meal $meal) {
+        // TODO
     }
 }
