@@ -12,9 +12,8 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return response()->json(Recipe::all()->jsonSerialize());
+    public function index() {
+        // TODO
     }
 
     /**
@@ -22,72 +21,37 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-    
-    /**
-     * Save a resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function save(Request $request) {
-        $recipe = new Recipe;
-        $this->setField($recipe, 'name', $request, 'anonymouus');
-        $this->setField($recipe, 'category', $request, 'sample');
-        $this->setField($recipe, 'todo', $request, 'some');
-        $recipe->save();
-
-        return response()->json([
-            'id' => $recipe->id,
-            'name' => 'Recipe ' . $recipe->name . ' (' . $recipe->size . ')',
-            'url' => '/api/recipe/' . $recipe->id,
-        ]);
-    }
-    
-    /**
-     * Fetch a resource in storage.
-     *
-     * @param  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function fetch($id)
-    {
+    public function create() {
         // TODO
     }
     
     /**
-     * Preview a resource in storage.
+     * Read a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function preview(Request $request)
-    {
+    public function read() {
+        return response()->json(Recipe::all()->jsonSerialize());
+    }
+    
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Recipe  $recipe
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Recipe $recipe) {
         // TODO
     }
     
     /**
-     * Set Fields.
+     * Delete the specified resource from storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function setField(Request $request)
-    {
-        // TODO
-    }
-    
-    /**
-     * Compute Price.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function computePrice(Request $request)
-    {
+    public function delete(Recipe $recipe) {
         // TODO
     }
 
@@ -97,9 +61,8 @@ class RecipeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        // TODO
     }
 
     /**
@@ -108,9 +71,8 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function show(Recipe $recipe)
-    {
-        //
+    public function show(Recipe $recipe) {
+        // TODO
     }
 
     /**
@@ -119,21 +81,8 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function edit(Recipe $recipe)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Recipe  $recipe
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Recipe $recipe)
-    {
-        //
+    public function edit(Recipe $recipe) {
+        // TODO
     }
 
     /**
@@ -142,8 +91,7 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recipe $recipe)
-    {
-        //
+    public function destroy(Recipe $recipe) {
+        // TODO
     }
 }
