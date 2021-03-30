@@ -92,6 +92,7 @@ class MealController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Meal $meal) {
-        // TODO
+        $meal->delete();
+        return redirect()->route('meals.index')->with('success', 'meal has been deleted');
     }
 }
