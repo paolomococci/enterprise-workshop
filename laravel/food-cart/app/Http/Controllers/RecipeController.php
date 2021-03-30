@@ -92,6 +92,7 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Recipe $recipe) {
-        // TODO
+        $recipe->delete();
+        return redirect()->route('recipes.index')->with('success', 'recipe has been deleted');
     }
 }
