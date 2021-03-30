@@ -13,7 +13,10 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $repipes['recipes'] = Recipe::all();
+        $repipes['recipes'] = Recipe::all()->sortBy([
+            fn ($a, $b) => $a['id'] <=> $b['id'],
+            fn ($a, $b) => $a['name'] <=> $b['name'], 
+        ]);
         return view('recipes.index', $repipes);
     }
 
