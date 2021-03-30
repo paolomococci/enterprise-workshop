@@ -12,9 +12,8 @@ class IngredientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return response()->json(Ingredient::all()->jsonSerialize());
+    public function index() {
+        // TODO
     }
 
     /**
@@ -22,23 +21,38 @@ class IngredientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        // TODO
     }
     
     /**
-     * Save a resource in storage.
+     * Read a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function save(Request $request) {
-        $ingredient = new Ingredient();
-        $ingredient->name = $request->input('name');
+    public function read() {
+        return response()->json(Ingredient::all()->jsonSerialize());
+    }
+    
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Ingredient  $ingredient
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Ingredient $ingredient) {
         // TODO
-        $ingredient->save();
-        
+    }
+    
+    /**
+     * Delete the specified resource from storage.
+     *
+     * @param  \App\Models\Ingredient  $ingredient
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Ingredient $ingredient) {
+        // TODO
     }
 
     /**
@@ -47,9 +61,8 @@ class IngredientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        // TODO
     }
 
     /**
@@ -58,9 +71,8 @@ class IngredientController extends Controller
      * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function show(Ingredient $ingredient)
-    {
-        //
+    public function show(Ingredient $ingredient) {
+        // TODO
     }
 
     /**
@@ -69,21 +81,8 @@ class IngredientController extends Controller
      * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ingredient $ingredient)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ingredient  $ingredient
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Ingredient $ingredient)
-    {
-        //
+    public function edit(Ingredient $ingredient) {
+        // TODO
     }
 
     /**
@@ -92,8 +91,7 @@ class IngredientController extends Controller
      * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ingredient $ingredient)
-    {
-        //
+    public function destroy(Ingredient $ingredient) {
+        // TODO
     }
 }
