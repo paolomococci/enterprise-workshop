@@ -13,7 +13,8 @@ class IngredientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        // TODO
+        $ingredients['ingredients'] = Ingredient::all();
+        return view('ingredients.index', $ingredients);
     }
 
     /**
