@@ -12,9 +12,8 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return response()->json(Customer::all()->jsonSerialize());
+    public function index() {
+        // TODO
     }
 
     /**
@@ -22,23 +21,38 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    } 
+    public function create() {
+        // TODO
+    }
     
     /**
-     * Save a resource in storage.
+     * Read a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function save(Request $request) {
-        $customer = new Customer();
-        $customer->name = $request->input('name');
+    public function read() {
+        return response()->json(Customer::all()->jsonSerialize());
+    }
+    
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Customer  $customer
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Customer $customer) {
         // TODO
-        $customer->save();
-        
+    }
+    
+    /**
+     * Delete the specified resource from storage.
+     *
+     * @param  \App\Models\Customer  $customer
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Customer $customer) {
+        // TODO
     }
 
     /**
@@ -47,9 +61,8 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        // TODO
     }
 
     /**
@@ -58,9 +71,8 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
-    {
-        //
+    public function show(Customer $customer) {
+        // TODO
     }
 
     /**
@@ -69,21 +81,8 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Customer $customer)
-    {
-        //
+    public function edit(Customer $customer) {
+        // TODO
     }
 
     /**
@@ -92,8 +91,7 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
-    {
-        //
+    public function destroy(Customer $customer) {
+        // TODO
     }
 }
