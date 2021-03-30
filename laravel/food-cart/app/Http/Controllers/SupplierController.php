@@ -13,7 +13,7 @@ class SupplierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $suppliers['suppliers'] = Supplier::all();
+        $suppliers['suppliers'] = Supplier::all()->sortKeysDesc()->setPerPage(5);
         return view('suppliers.index', $suppliers);
     }
 
