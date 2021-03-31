@@ -64,8 +64,11 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function delete(Customer $customer) {
-        // TODO
+    public function delete(int $id) {
+        $isDeleted = Customer::query()->find($id)->delete();
+        if ($isDeleted) {
+            // TODO;
+        }
     }
 
     /**
