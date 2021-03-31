@@ -64,8 +64,11 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function delete(Supplier $supplier) {
-        // TODO
+    public function delete(int $id) {
+        $isDeleted = Supplier::query()->find($id)->delete();
+        if ($isDeleted) {
+            // TODO;
+        }
     }
 
     /**
