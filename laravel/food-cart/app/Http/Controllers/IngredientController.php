@@ -114,7 +114,7 @@ class IngredientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Ingredient $ingredient) {
-        // TODO
+        return view('ingredients.edit', compact('ingredient'));
     }
 
     /**
