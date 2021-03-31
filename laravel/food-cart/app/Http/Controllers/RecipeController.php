@@ -45,8 +45,20 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recipe $recipe) {
-        // TODO
+    public function update(Request $request, int $id) {
+        $request->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'todo' => 'required'
+        ]);
+        
+        $recipe = Recipe::query()->find($id);
+        $recipe->name = $request->name;
+        $recipe->category = $request->category;
+        $recipe->todo = $request->todo;
+        $recipe->save();
+        
+        return redirect()->route('recipes.index')->with('success', 'recipe has been updated');
     }
     
     /**
