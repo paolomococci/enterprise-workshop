@@ -103,7 +103,7 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Recipe $recipe) {
-        // TODO
+        return view('recipes.show', compact('recipe'));
     }
 
     /**
