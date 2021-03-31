@@ -104,7 +104,7 @@ class MealController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Meal $meal) {
-        // TODO
+        return view('meals.show', compact('meals'));
     }
 
     /**
