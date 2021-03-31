@@ -80,7 +80,21 @@ class IngredientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // TODO
+        $request->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+            'price' => 'required'
+        ]);
+        
+        $ingredient = new Ingredient;
+        $ingredient->name = $request->name;
+        $ingredient->category = $request->category;
+        $ingredient->description = $request->description;
+        $ingredient->price = $request->price;
+        $ingredient->save();
+        
+        return redirect()->route('ingredients.index')->with('success', 'ingredient has been created');
     }
 
     /**
