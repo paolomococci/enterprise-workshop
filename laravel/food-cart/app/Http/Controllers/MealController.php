@@ -66,8 +66,11 @@ class MealController extends Controller
      * @param  \App\Models\Meal  $meal
      * @return \Illuminate\Http\Response
      */
-    public function delete(Meal $meal) {
-        // TODO
+    public function delete(int $id) {
+        $isDeleted = Meal::query()->find($id)->delete();
+        if ($isDeleted) {
+            // TODO;
+        }
     }
 
     /**
