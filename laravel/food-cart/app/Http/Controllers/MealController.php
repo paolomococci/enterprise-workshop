@@ -42,8 +42,22 @@ class MealController extends Controller
      * @param  \App\Models\Meal  $meal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Meal $meal) {
-        // TODO
+    public function update(Request $request, int $id) {
+        $request->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+            'price' => 'required'
+        ]);
+        
+        $meal = Meal::query()->find($id);
+        $meal->name = $request->name;
+        $meal->category = $request->category;
+        $meal->description = $request->description;
+        $meal->price = $request->price;
+        $meal->save();
+        
+        return redirect()->route('meals.index')->with('success', 'meal has been updated');
     }
     
     /**
