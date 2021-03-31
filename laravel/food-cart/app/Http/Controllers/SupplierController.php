@@ -100,7 +100,7 @@ class SupplierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Supplier $supplier) {
-        // TODO
+        return view('suppliers.show', compact('supplier'));
     }
 
     /**
