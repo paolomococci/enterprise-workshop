@@ -110,7 +110,7 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Customer $customer) {
-        // TODO
+        return view('customers.edit', compact('customer'));
     }
 
     /**
