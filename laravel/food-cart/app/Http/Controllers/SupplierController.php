@@ -42,8 +42,20 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supplier $supplier) {
-        //
+    public function update(Request $request, int $id) {
+        $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required'
+        ]);
+        
+        $supplier = Supplier::query()->find($id);
+        $supplier->name = $request->name;
+        $supplier->surname = $request->surname;
+        $supplier->email = $request->email;
+        $supplier->save();
+        
+        return redirect()->route('suppliers.index')->with('success', 'supplier has been updated');
     }
     
     /**
