@@ -80,7 +80,21 @@ class MealController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // TODO
+        $request->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+            'price' => 'required'
+        ]);
+        
+        $meal = new Meal;
+        $meal->name = $request->name;
+        $meal->category = $request->category;
+        $meal->description = $request->description;
+        $meal->price = $request->price;
+        $meal->save();
+        
+        return redirect()->route('meals.index')->with('success', 'meal has been created');
     }
 
     /**
