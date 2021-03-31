@@ -81,7 +81,19 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // TODO
+        $request->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'todo' => 'required'
+        ]);
+        
+        $recipe = new Recipe;
+        $recipe->name = $request->name;
+        $recipe->category = $request->category;
+        $recipe->todo = $request->todo;
+        $recipe->save();
+        
+        return redirect()->route('recipes.index')->with('success', 'recipe has been created');
     }
 
     /**
