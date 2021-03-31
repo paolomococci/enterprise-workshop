@@ -104,7 +104,7 @@ class IngredientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Ingredient $ingredient) {
-        // TODO
+        return view('ingredients.show', compact('ingredient'));
     }
 
     /**
