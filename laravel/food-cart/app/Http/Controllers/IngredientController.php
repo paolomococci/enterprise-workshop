@@ -42,8 +42,22 @@ class IngredientController extends Controller
      * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ingredient $ingredient) {
-        // TODO
+    public function update(Request $request, int $id) {
+        $request->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+            'price' => 'required'
+        ]);
+        
+        $ingredient = Ingredient::query()->find($id);
+        $ingredient->name = $request->name;
+        $ingredient->category = $request->category;
+        $ingredient->description = $request->description;
+        $ingredient->price = $request->price;
+        $ingredient->save();
+        
+        return redirect()->route('ingredients.index')->with('success', 'ingredient has been updated');
     }
     
     /**
