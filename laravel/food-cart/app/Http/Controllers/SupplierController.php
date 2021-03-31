@@ -78,7 +78,19 @@ class SupplierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // TODO
+        $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required'
+        ]);
+        
+        $supplier = new Supplier;
+        $supplier->name = $request->name;
+        $supplier->surname = $request->surname;
+        $supplier->email = $request->email;
+        $supplier->save();
+        
+        return redirect()->route('suppliers.index')->with('success', 'supplier has been created');
     }
 
     /**
