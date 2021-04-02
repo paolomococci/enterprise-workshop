@@ -12,27 +12,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource(
-    'customers',
-    CustomerController::class
-);
+Route::get('/customers', [CustomerController::class, 'index']);
 
-Route::resource(
-    'ingredients',
-    IngredientController::class
-);
+Route::get('/ingredients', [IngredientController::class, 'index']);
 
-Route::resource(
-    'meals',
-    MealController::class
-);
+Route::get('/meals', [MealController::class, 'index']);
 
-Route::resource(
-    'recipes',
-    RecipeController::class
-);
+Route::get('/recipes', [RecipeController::class, 'index']);
 
-Route::resource(
-    'suppliers', 
-    SupplierController::class
-);
+Route::get('/suppliers', [SupplierController::class, 'index']);
