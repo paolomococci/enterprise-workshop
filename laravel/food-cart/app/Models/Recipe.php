@@ -7,5 +7,5 @@ use Illuminate\Support\Str;
 
 class Recipe extends Model
 {
-    protected $fillable = ['id', 'name', 'category', 'todo'];
+    protected $guarded = ['id'];
 }
