@@ -44,9 +44,9 @@ class CustomerController extends Controller
      */
     public function update(Request $request, int $id) {
         $request->validate([
-            'name' => 'required',
-            'surname' => 'required',
-            'email' => 'required'
+            'name' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'email' => 'required|max:255'
         ]);
         
         $customer = Customer::query()->find($id);
@@ -79,9 +79,9 @@ class CustomerController extends Controller
      */
     public function store(Request $request) {
         $request->validate([
-            'name' => 'required',
-            'surname' => 'required',
-            'email' => 'required'
+            'name' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'email' => 'required|max:255'
         ]);
         
         $customer = new Customer;
