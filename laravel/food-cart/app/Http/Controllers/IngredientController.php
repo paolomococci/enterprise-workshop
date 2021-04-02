@@ -67,10 +67,8 @@ class IngredientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function delete(int $id) {
-        $isDeleted = Ingredient::query()->find($id)->delete();
-        if ($isDeleted) {
-            // TODO;
-        }
+        $ingredient = Ingredient::query()->findOrFail($id);
+        $ingredient->delete();
     }
 
     /**
