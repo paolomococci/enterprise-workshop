@@ -46,7 +46,7 @@ class CustomerController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'surname' => 'required|max:255',
-            'email' => 'required|email|max:255'
+            'email' => 'required|email|max:255|unique:customers,email'
         ]);
         
         $customer = Customer::query()->find($id);
@@ -81,7 +81,7 @@ class CustomerController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'surname' => 'required|max:255',
-            'email' => 'required|email|max:255'
+            'email' => 'required|email|max:255|unique:customers,email'
         ]);
         
         $customer = new Customer;
