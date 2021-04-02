@@ -25,7 +25,7 @@ class LowerCase implements Rule
      */
     public function passes($attribute, $value)
     {
-        // TODO
+        return strtolower($value) === $value;
     }
 
     /**
@@ -35,6 +35,6 @@ class LowerCase implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'the validation of :attribute must be lowercase';
     }
 }
