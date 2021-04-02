@@ -68,10 +68,8 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function delete(int $id) {
-        $isDeleted = Recipe::query()->find($id)->delete();
-        if ($isDeleted) {
-            // TODO;
-        }
+        $recipe = Recipe::query()->findOrFail($id);
+        $recipe->delete();
     }
 
     /**
