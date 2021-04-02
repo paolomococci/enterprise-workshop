@@ -299,3 +299,25 @@ $ npm install
 $ npm run dev
 $ npm run watch
 ```
+
+# when I need to know the route list
+```
+$ php artisan route:list
++--------+----------+-----------------+------+-------------------------------------------------+------------+
+| Domain | Method   | URI             | Name | Action                                          | Middleware |
++--------+----------+-----------------+------+-------------------------------------------------+------------+
+|        | GET|HEAD | /               |      | Closure                                         | web        |
+|        | GET|HEAD | api/customers   |      | App\Http\Controllers\CustomerController@read    | api        |
+|        | GET|HEAD | api/ingredients |      | App\Http\Controllers\IngredientController@read  | api        |
+|        | GET|HEAD | api/meals       |      | App\Http\Controllers\MealController@read        | api        |
+|        | GET|HEAD | api/recipes     |      | App\Http\Controllers\RecipeController@read      | api        |
+|        | GET|HEAD | api/suppliers   |      | App\Http\Controllers\SupplierController@read    | api        |
+|        | GET|HEAD | api/user        |      | Closure                                         | api        |
+|        |          |                 |      |                                                 | auth:api   |
+|        | GET|HEAD | customers       |      | App\Http\Controllers\CustomerController@index   | web        |
+|        | GET|HEAD | ingredients     |      | App\Http\Controllers\IngredientController@index | web        |
+|        | GET|HEAD | meals           |      | App\Http\Controllers\MealController@index       | web        |
+|        | GET|HEAD | recipes         |      | App\Http\Controllers\RecipeController@index     | web        |
+|        | GET|HEAD | suppliers       |      | App\Http\Controllers\SupplierController@index   | web        |
++--------+----------+-----------------+------+-------------------------------------------------+------------+
+```
