@@ -35,6 +35,6 @@ class Price implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'price must be a number with two decimal places';
     }
 }
