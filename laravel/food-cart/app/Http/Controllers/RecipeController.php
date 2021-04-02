@@ -49,7 +49,7 @@ class RecipeController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'category' => 'required|max:255',
-            'todo' => 'required'
+            'todo' => 'required|max:2048'
         ]);
         
         $recipe = Recipe::query()->find($id);
@@ -84,7 +84,7 @@ class RecipeController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'category' => 'required|max:255',
-            'todo' => 'required'
+            'todo' => 'required|max:2048'
         ]);
         
         $recipe = new Recipe;
