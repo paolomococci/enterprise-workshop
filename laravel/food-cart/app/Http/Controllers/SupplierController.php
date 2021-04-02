@@ -66,7 +66,7 @@ class SupplierController extends Controller
      */
     public function delete(int $id) {
         $supplier = Supplier::query()->findOrFail($id);
-        $supplier->delete();        
+        $supplier->delete();
     }
 
     /**
