@@ -46,7 +46,7 @@ class SupplierController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'surname' => 'required|max:255',
-            'email' => 'required|max:255'
+            'email' => 'required|email|max:255'
         ]);
         
         $supplier = Supplier::query()->find($id);
@@ -81,7 +81,7 @@ class SupplierController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'surname' => 'required|max:255',
-            'email' => 'required|max:255'
+            'email' => 'required|email|max:255'
         ]);
         
         $supplier = new Supplier;
