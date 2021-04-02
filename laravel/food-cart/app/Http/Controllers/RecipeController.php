@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use App\Rules\LowerCase;
 
 class RecipeController extends Controller
 {
@@ -47,7 +48,7 @@ class RecipeController extends Controller
      */
     public function update(Request $request, int $id) {
         $request->validate([
-            'name' => 'required|max:255',
+            'name' => ['required', 'max:255', new LowerCase],
             'category' => 'required|max:255',
             'todo' => 'required|max:2048'
         ]);
@@ -80,7 +81,7 @@ class RecipeController extends Controller
      */
     public function store(Request $request) {
         $request->validate([
-            'name' => 'required|max:255',
+            'name' => ['required', 'max:255', new LowerCase],
             'category' => 'required|max:255',
             'todo' => 'required|max:2048'
         ]);
