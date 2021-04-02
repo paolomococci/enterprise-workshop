@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Meal;
 use Illuminate\Http\Request;
+use App\Rules\LowerCase;
 
 class MealController extends Controller
 {
@@ -44,7 +45,7 @@ class MealController extends Controller
      */
     public function update(Request $request, int $id) {
         $request->validate([
-            'name' => 'required|max:255',
+            'name' => ['required', 'max:255', new LowerCase],
             'category' => 'required|max:255',
             'description' => 'required|max:1024',
             'price' => 'required|numeric'
@@ -79,7 +80,7 @@ class MealController extends Controller
      */
     public function store(Request $request) {
         $request->validate([
-            'name' => 'required|max:255',
+            'name' => ['required', 'max:255', new LowerCase],
             'category' => 'required|max:255',
             'description' => 'required|max:1024',
             'price' => 'required|numeric'
