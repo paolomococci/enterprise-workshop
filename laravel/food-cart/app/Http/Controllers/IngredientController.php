@@ -44,8 +44,8 @@ class IngredientController extends Controller
      */
     public function update(Request $request, int $id) {
         $request->validate([
-            'name' => 'required',
-            'category' => 'required',
+            'name' => 'required|max:255',
+            'category' => 'required|max:255',
             'description' => 'required',
             'price' => 'required'
         ]);
@@ -81,8 +81,8 @@ class IngredientController extends Controller
      */
     public function store(Request $request) {
         $request->validate([
-            'name' => 'required',
-            'category' => 'required',
+            'name' => 'required|max:255',
+            'category' => 'required|max:255',
             'description' => 'required',
             'price' => 'required'
         ]);
