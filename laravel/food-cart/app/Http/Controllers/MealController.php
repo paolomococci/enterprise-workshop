@@ -46,8 +46,8 @@ class MealController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'category' => 'required|max:255',
-            'description' => 'required',
-            'price' => 'required'
+            'description' => 'required|max:1024',
+            'price' => 'required|numeric'
         ]);
         
         $meal = Meal::query()->find($id);
@@ -83,8 +83,8 @@ class MealController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'category' => 'required|max:255',
-            'description' => 'required',
-            'price' => 'required'
+            'description' => 'required|max:1024',
+            'price' => 'required|numeric'
         ]);
         
         $meal = new Meal;
