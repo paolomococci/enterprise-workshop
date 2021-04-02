@@ -67,10 +67,8 @@ class MealController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function delete(int $id) {
-        $isDeleted = Meal::query()->find($id)->delete();
-        if ($isDeleted) {
-            // TODO;
-        }
+        $meal = Meal::query()->findOrFail($id);
+        $meal->delete();
     }
 
     /**
