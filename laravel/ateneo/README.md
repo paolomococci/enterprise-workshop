@@ -20,21 +20,21 @@ $ php artisan migrate
 ```
 $ php artisan make:controller StudentController --resource
 ```
-
+## I added user iinterface support
 ```
 $ composer require laravel/ui
 $ php artisan ui bootstrap
 $ npm install
 ```
-
+## possibly, if necessary
 ```
 $ npm audit fix --force
 ```
-
+# finally
 ```
 $ npm run dev
 ```
-
+## I check the resource path
 ```
 $ php artisan route:list
 +--------+-----------+-------------------------+------------------+------------------------------------------------+------------+
@@ -52,7 +52,7 @@ $ php artisan route:list
 |        | GET|HEAD  | students/{student}/edit | students.edit    | App\Http\Controllers\StudentController@edit    | web        |
 +--------+-----------+-------------------------+------------------+------------------------------------------------+------------+
 ```
-
+## I start the server for the usage test
 ```
 $ php artisan serve
 ```
