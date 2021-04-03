@@ -1,23 +1,37 @@
 # ateneo
 
+## I started with creating the project
 ```
 $ composer create-project laravel/laravel ateneo
 $ cd ateneo
 $ composer update
 ```
-
+## I checked the version of the framework
 ```
 $ php artisan --version
 Laravel Framework 7.30.4
 ```
-
+## I created the model of interest
 ```
 $ php artisan make:model Models/Student -m
 $ php artisan migrate
 ```
+## I created the controller
+```
+$ php artisan make:controller StudentController --resource
+```
 
 ```
 $ composer require laravel/ui
+$ php artisan ui bootstrap
+$ npm install
+```
+
+```
+$ npm audit fix --force
+```
+
+```
 $ npm run dev
 ```
 
