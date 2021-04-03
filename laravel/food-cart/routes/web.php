@@ -2,22 +2,31 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\RecipeController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\IngredientController;
-use App\Http\Controllers\MealController;
-use App\Http\Controllers\SupplierController;
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/customers', [CustomerController::class, 'index']);
+Route::resource(
+    'customers',
+    'CustomerController'
+);
 
-Route::get('/ingredients', [IngredientController::class, 'index']);
+Route::resource(
+    'ingredients',
+    'IngredientController'
+);
 
-Route::get('/meals', [MealController::class, 'index']);
+Route::resource(
+    'meals',
+    'MealController'
+);
 
-Route::get('/recipes', [RecipeController::class, 'index']);
+Route::resource(
+    'recipes',
+    'RecipeController'
+);
 
-Route::get('/suppliers', [SupplierController::class, 'index']);
+Route::resource(
+    'suppliers', 
+    'SupplierController'
+);
