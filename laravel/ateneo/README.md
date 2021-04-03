@@ -34,7 +34,7 @@ $ npm audit fix --force
 ```
 $ npm run dev
 ```
-## I check the resource path
+## I check the paths list
 ```
 $ php artisan route:list
 +--------+-----------+-------------------------+------------------+------------------------------------------------+------------+
