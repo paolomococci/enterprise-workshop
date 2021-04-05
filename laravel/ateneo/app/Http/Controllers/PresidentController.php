@@ -14,7 +14,8 @@ class PresidentController extends Controller
      */
     public function index()
     {
-        //
+        $presidents = President::all();
+        return view('presidents.index')->with('president', $presidents);
     }
 
     /**
