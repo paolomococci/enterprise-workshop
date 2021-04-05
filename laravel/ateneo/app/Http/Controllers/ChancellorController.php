@@ -14,7 +14,8 @@ class ChancellorController extends Controller
      */
     public function index()
     {
-        //
+        $chancellors = Chancellor::all();
+        return view('chancellors.index')->with('chancellor', $chancellors);
     }
 
     /**
