@@ -1,4 +1,4 @@
-# ateneo
+# ateneo demo web application
 
 ## I started with creating the project
 ```
@@ -34,7 +34,7 @@ $ npm audit fix --force
 ```
 $ npm run dev
 ```
-## I check the paths list
+## I check the path of the resources
 ```
 $ php artisan route:list
 +--------+-----------+-------------------------+------------------+------------------------------------------------+------------+
@@ -56,4 +56,11 @@ $ php artisan route:list
 ```
 $ php artisan serve
 ```
-
+## I resize the application by adding five more entities
+```
+$ php artisan make:model -a Models/Tutor
+$ php artisan make:model -a Models/Teacher
+$ php artisan make:model -a Models/Employee
+$ php artisan make:model -a Models/Chancellor
+$ php artisan make:model -a Models/President
+```
