@@ -66,7 +66,7 @@ class StudentController extends Controller
     public function edit($id)
     {
         $student = Student::findOrFail($id);
-        return view('edit')->with('student', $student);
+        return view('students.edit')->with('student', $student);
     }
 
     /**
