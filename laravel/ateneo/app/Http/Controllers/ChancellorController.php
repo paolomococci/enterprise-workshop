@@ -25,7 +25,7 @@ class ChancellorController extends Controller
      */
     public function create()
     {
-        //
+        return view('chancellors.create');
     }
 
     /**
