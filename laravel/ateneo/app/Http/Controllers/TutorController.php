@@ -14,7 +14,8 @@ class TutorController extends Controller
      */
     public function index()
     {
-        //
+        $tutors = Tutor::all();
+        return view('tutors.index')->with('tutor', $tutors);
     }
 
     /**
