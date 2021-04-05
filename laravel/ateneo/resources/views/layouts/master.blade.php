@@ -16,46 +16,46 @@
 
 				<nav class="navbar navbar-expand-lg navbar-light bg-light">
 					<div class="container-fluid">
-						<a class="navbar-brand" href="/"><span class="badge rounded-pill bg-info text-dark">ATENEO</span></a>
+						<a class="navbar-brand" href="/"><span class="badge rounded-pill bg-primary">ATENEO</span></a>
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 							<li class="nav-link active">
-								<a href="/students">studests</a>
+								<a href="/students"><span class="badge rounded-pill bg-info text-dark">studests</span></a>
 							</li>
 							<li class="nav-link active">
-								<a href="/students/create">add student</a>
+								<a href="/students/create"><span class="badge rounded-pill bg-info text-dark">add student</span></a>
 							</li>
 							<li class="nav-link disabled">
-								<a href="#">tutors</a>						
+								<a href="#"><span class="badge rounded-pill bg-info text-dark">tutors</span></a>						
 							</li>
 							<li class="nav-link disabled">
-								<a href="#">add tutor</a>						
+								<a href="#"><span class="badge rounded-pill bg-info text-dark">add tutor</span></a>						
 							</li>
 							<li class="nav-link disabled">
-								<a href="#">teachers</a>						
+								<a href="#"><span class="badge rounded-pill bg-info text-dark">teachers</span></a>						
 							</li>
 							<li class="nav-link disabled">
-								<a href="#">add teacher</a>						
+								<a href="#"><span class="badge rounded-pill bg-info text-dark">add teacher</span></a>						
 							</li>
 							<li class="nav-link disabled">
-								<a href="#">employees</a>						
+								<a href="#"><span class="badge rounded-pill bg-info text-dark">employees</span></a>						
 							</li>
 							<li class="nav-link disabled">
-								<a href="#">add employee</a>						
+								<a href="#"><span class="badge rounded-pill bg-info text-dark">add employee</span></a>						
 							</li>
 							<li class="nav-link disabled">
-								<a href="#">todo</a>						
+								<a href="#"><span class="badge rounded-pill bg-info text-dark">todo</span></a>						
 							</li>
 							<li class="nav-link disabled">
-								<a href="#">chancellors</a>						
+								<a href="#"><span class="badge rounded-pill bg-info text-dark">chancellors</span></a>						
 							</li>
 							<li class="nav-link disabled">
-								<a href="#">add chancellor</a>						
+								<a href="#"><span class="badge rounded-pill bg-info text-dark">add chancellor</span></a>						
 							</li>
 							<li class="nav-link disabled">
-								<a href="#">presidents</a>						
+								<a href="#"><span class="badge rounded-pill bg-info text-dark">presidents</span></a>						
 							</li>
 							<li class="nav-link disabled">
-								<a href="#">add president</a>						
+								<a href="#"><span class="badge rounded-pill bg-info text-dark">add president</span></a>						
 							</li>
 						</ul>
 						<form class="d-flex">
