@@ -15,6 +15,10 @@ class CreateChancellorsTable extends Migration
     {
         Schema::create('chancellors', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('surname');
+            $table->string('emai');
+            $table->string('phone');
             $table->timestamps();
         });
     }
