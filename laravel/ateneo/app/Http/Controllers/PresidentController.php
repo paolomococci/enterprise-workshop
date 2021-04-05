@@ -25,7 +25,7 @@ class PresidentController extends Controller
      */
     public function create()
     {
-        //
+        return view('presidents.create');
     }
 
     /**
