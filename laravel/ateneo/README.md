@@ -118,3 +118,18 @@ $ php artisan route:list
 |        | GET|HEAD  | tutors/{tutor}/edit           | tutors.edit         | App\Http\Controllers\TutorController@edit         | web        |
 +--------+-----------+-------------------------------+---------------------+---------------------------------------------------+------------+
 ```
+
+## migrating
+```
+$ php artisan migrate
+Migrating: 2021_04_05_014745_create_tutors_table
+Migrated:  2021_04_05_014745_create_tutors_table (0.02 seconds)
+Migrating: 2021_04_05_014837_create_teachers_table
+Migrated:  2021_04_05_014837_create_teachers_table (0.02 seconds)
+Migrating: 2021_04_05_014853_create_employees_table
+Migrated:  2021_04_05_014853_create_employees_table (0.02 seconds)
+Migrating: 2021_04_05_014948_create_chancellors_table
+Migrated:  2021_04_05_014948_create_chancellors_table (0.02 seconds)
+Migrating: 2021_04_05_015019_create_presidents_table
+Migrated:  2021_04_05_015019_create_presidents_table (0.02 seconds)
+```
