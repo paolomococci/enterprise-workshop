@@ -17,7 +17,7 @@ class CreateChancellorsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('surname');
-            $table->string('emai');
+            $table->string('email');
             $table->string('phone');
             $table->timestamps();
         });
