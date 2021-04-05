@@ -31,8 +31,10 @@ html, body {
 	text-align: center;
 }
   
-.title {
+.title > a {
 	font-size: 84px;
+	text-decoration: none;
+	text-transform: uppercase;
 }
   
 .links > a {
