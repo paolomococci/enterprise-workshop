@@ -64,7 +64,6 @@ $ php artisan make:model -a Models/Employee
 $ php artisan make:model -a Models/Chancellor
 $ php artisan make:model -a Models/President
 ```
-
 ## again, I check the path of the resources
 ```
 $ php artisan route:list
@@ -118,7 +117,6 @@ $ php artisan route:list
 |        | GET|HEAD  | tutors/{tutor}/edit           | tutors.edit         | App\Http\Controllers\TutorController@edit         | web        |
 +--------+-----------+-------------------------------+---------------------+---------------------------------------------------+------------+
 ```
-
 ## migrating
 ```
 $ php artisan migrate
@@ -132,4 +130,9 @@ Migrating: 2021_04_05_014948_create_chancellors_table
 Migrated:  2021_04_05_014948_create_chancellors_table (0.02 seconds)
 Migrating: 2021_04_05_015019_create_presidents_table
 Migrated:  2021_04_05_015019_create_presidents_table (0.02 seconds)
+```
+## if corrections need to be made
+```
+$ php artisan migrate:refresh
+...
 ```
