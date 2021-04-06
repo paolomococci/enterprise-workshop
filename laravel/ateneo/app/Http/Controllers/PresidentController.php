@@ -56,6 +56,16 @@ class PresidentController extends Controller
     {
         //
     }
+    
+    /**
+     * Display all resource in JSON format.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restShowAll()
+    {
+        return response()->json(President::all()->jsonSerialize());
+    }
 
     /**
      * Show the form for editing the specified resource.
