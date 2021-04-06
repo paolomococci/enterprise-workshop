@@ -84,6 +84,8 @@ class PresidentController extends Controller
             'email' => 'required|max:255',
             'phone' => 'required|numeric',
         ]);
+        President::whereId($id)->update($updated);
+        return redirect('/presidents')->with('completed', 'president has been updated');
     }
 
     /**
