@@ -84,6 +84,8 @@ class TutorController extends Controller
             'email' => 'required|max:255',
             'phone' => 'required|numeric',
         ]);
+        Tutor::whereId($id)->update($updated);
+        return redirect('/tutors')->with('completed', 'tutor has been updated');
     }
 
     /**
