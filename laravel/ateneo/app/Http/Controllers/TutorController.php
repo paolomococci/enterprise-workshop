@@ -42,6 +42,8 @@ class TutorController extends Controller
             'email' => 'required|max:255',
             'phone' => 'required|numeric',
         ]);
+        Tutor::create($data);
+        return redirect('/tutors')->with('completed', 'tutor has been saved!');
     }
 
     /**
