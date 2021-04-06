@@ -63,9 +63,10 @@ class TutorController extends Controller
      * @param  \App\Models\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tutor $tutor)
+    public function edit(Tutor $id)
     {
-        //
+        $tutor = Tutor::findOrFail($id);
+        return view('tutors.edit')->with('tutor', $tutor);
     }
 
     /**
