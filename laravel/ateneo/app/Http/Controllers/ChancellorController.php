@@ -76,7 +76,7 @@ class ChancellorController extends Controller
      * @param  \App\Models\Chancellor  $chancellor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Chancellor $chancellor)
+    public function update(Request $request, $id)
     {
         $updated = $request->validate([
             'name' => 'required|max:255',
