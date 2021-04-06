@@ -63,9 +63,10 @@ class ChancellorController extends Controller
      * @param  \App\Models\Chancellor  $chancellor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Chancellor $chancellor)
+    public function edit(Chancellor $id)
     {
-        //
+        $chancellor = Chancellor::findOrFail($id);
+        return view('chancellors.edit')->with('chancellor', $chancellor);
     }
 
     /**
