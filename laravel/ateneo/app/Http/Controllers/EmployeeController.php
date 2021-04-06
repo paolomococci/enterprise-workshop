@@ -84,6 +84,8 @@ class EmployeeController extends Controller
             'email' => 'required|max:255',
             'phone' => 'required|numeric',
         ]);
+        Employee::whereId($id)->update($updated);
+        return redirect('/employees')->with('completed', 'employee has been updated');
     }
 
     /**
