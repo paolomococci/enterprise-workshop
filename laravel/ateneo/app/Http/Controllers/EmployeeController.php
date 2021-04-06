@@ -96,6 +96,8 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = Employee::findOrFail($id);
+        $employee->delete();
+        return redirect('/employees')->with('completed', 'employee has been deleted');
     }
 }
