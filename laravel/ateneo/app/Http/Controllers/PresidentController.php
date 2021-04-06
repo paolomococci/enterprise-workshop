@@ -63,9 +63,10 @@ class PresidentController extends Controller
      * @param  \App\Models\President  $president
      * @return \Illuminate\Http\Response
      */
-    public function edit(President $president)
+    public function edit(President $id)
     {
-        //
+        $president = President::findOrFail($id);
+        return view('presidents.edit')->with('president', $president);
     }
 
     /**
