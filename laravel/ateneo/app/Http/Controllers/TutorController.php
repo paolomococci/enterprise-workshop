@@ -49,21 +49,31 @@ class TutorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tutor  $tutor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Tutor $tutor)
+    public function show($id)
     {
         //
+    }
+    
+    /**
+     * Display all resources in JSON format.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restShowAll()
+    {
+        return response()->json(Tutor::all()->jsonSerialize());
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tutor  $tutor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tutor $id)
+    public function edit($id)
     {
         $tutor = Tutor::findOrFail($id);
         return view('tutors.edit')->with('tutor', $tutor);
@@ -73,7 +83,7 @@ class TutorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tutor  $tutor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -91,7 +101,7 @@ class TutorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tutor  $tutor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
