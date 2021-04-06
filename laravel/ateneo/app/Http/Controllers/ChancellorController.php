@@ -42,6 +42,8 @@ class ChancellorController extends Controller
             'email' => 'required|max:255',
             'phone' => 'required|numeric',
         ]);
+        Chancellor::create($data);
+        return redirect('/chancellors')->with('completed', 'chancellor has been saved!');
     }
 
     /**
