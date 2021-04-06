@@ -84,6 +84,8 @@ class ChancellorController extends Controller
             'email' => 'required|max:255',
             'phone' => 'required|numeric',
         ]);
+        Chancellor::whereId($id)->update($updated);
+        return redirect('/chancellors')->with('completed', 'chancellor has been updated');
     }
 
     /**
