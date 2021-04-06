@@ -96,6 +96,8 @@ class TeacherController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $teacher = Teacher::findOrFail($id);
+        $teacher->delete();
+        return redirect('/teachers')->with('completed', 'teacher has been deleted');
     }
 }
