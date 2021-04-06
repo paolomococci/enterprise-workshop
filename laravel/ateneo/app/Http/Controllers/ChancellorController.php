@@ -94,7 +94,7 @@ class ChancellorController extends Controller
      * @param  \App\Models\Chancellor  $chancellor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Chancellor $chancellor)
+    public function destroy($id)
     {
         //
     }
