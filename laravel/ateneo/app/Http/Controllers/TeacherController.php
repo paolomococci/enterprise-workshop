@@ -42,6 +42,8 @@ class TeacherController extends Controller
             'email' => 'required|max:255',
             'phone' => 'required|numeric',
         ]);
+        Teacher::create($data);
+        return redirect('/teachers')->with('completed', 'teacher has been saved!');
     }
 
     /**
