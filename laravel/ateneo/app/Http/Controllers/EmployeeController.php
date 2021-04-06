@@ -42,6 +42,8 @@ class EmployeeController extends Controller
             'email' => 'required|max:255',
             'phone' => 'required|numeric',
         ]);
+        Employee::create($data);
+        return redirect('/employees')->with('completed', 'employee has been saved!');
     }
 
     /**
