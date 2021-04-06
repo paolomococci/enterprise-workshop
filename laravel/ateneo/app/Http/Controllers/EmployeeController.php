@@ -63,9 +63,10 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit(Employee $id)
     {
-        //
+        $employee = Employee::findOrFail($id);
+        return view('employees.edit')->with('employee', $employee);
     }
 
     /**
