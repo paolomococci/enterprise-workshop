@@ -96,6 +96,8 @@ class ChancellorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $chancellor = Chancellor::findOrFail($id);
+        $chancellor->delete();
+        return redirect('/chancellors')->with('completed', 'chancellor has been deleted');
     }
 }
