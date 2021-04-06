@@ -94,7 +94,7 @@ class PresidentController extends Controller
      * @param  \App\Models\President  $president
      * @return \Illuminate\Http\Response
      */
-    public function destroy(President $president)
+    public function destroy($id)
     {
         //
     }
