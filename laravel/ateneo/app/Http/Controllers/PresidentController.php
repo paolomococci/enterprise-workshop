@@ -42,6 +42,8 @@ class PresidentController extends Controller
             'email' => 'required|max:255',
             'phone' => 'required|numeric',
         ]);
+        President::create($data);
+        return redirect('/presidents')->with('completed', 'president has been saved!');
     }
 
     /**
