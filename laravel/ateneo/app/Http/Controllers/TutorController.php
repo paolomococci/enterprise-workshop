@@ -76,7 +76,7 @@ class TutorController extends Controller
      * @param  \App\Models\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tutor $tutor)
+    public function update(Request $request, $id)
     {
         $updated = $request->validate([
             'name' => 'required|max:255',
