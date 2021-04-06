@@ -49,21 +49,31 @@ class TeacherController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Teacher  $teacher
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Teacher $teacher)
+    public function show($id)
     {
         //
+    }
+    
+    /**
+     * Display all resources in JSON format.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restShowAll()
+    {
+        return response()->json(Teacher::all()->jsonSerialize());
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Teacher  $teacher
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Teacher $id)
+    public function edit($id)
     {
         $teacher = Teacher::findOrFail($id);
         return view('teachers.edit')->with('teacher', $teacher);
@@ -73,7 +83,7 @@ class TeacherController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Teacher  $teacher
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -91,7 +101,7 @@ class TeacherController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Teacher  $teacher
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
