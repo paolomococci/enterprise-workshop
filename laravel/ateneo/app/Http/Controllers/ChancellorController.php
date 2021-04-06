@@ -49,21 +49,31 @@ class ChancellorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Chancellor  $chancellor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Chancellor $chancellor)
+    public function show($id)
     {
         //
+    }
+    
+    /**
+     * Display all resources in JSON format.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restShowAll()
+    {
+        return response()->json(Chancellor::all()->jsonSerialize());
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Chancellor  $chancellor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Chancellor $id)
+    public function edit($id)
     {
         $chancellor = Chancellor::findOrFail($id);
         return view('chancellors.edit')->with('chancellor', $chancellor);
@@ -73,7 +83,7 @@ class ChancellorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Chancellor  $chancellor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -91,7 +101,7 @@ class ChancellorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Chancellor  $chancellor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
