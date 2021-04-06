@@ -96,6 +96,8 @@ class TutorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tutor = Tutor::findOrFail($id);
+        $tutor->delete();
+        return redirect('/tutors')->with('completed', 'tutor has been deleted');
     }
 }
