@@ -96,6 +96,8 @@ class PresidentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $president = President::findOrFail($id);
+        $president->delete();
+        return redirect('/presidents')->with('completed', 'president has been deleted');
     }
 }
