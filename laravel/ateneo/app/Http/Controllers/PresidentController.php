@@ -76,7 +76,7 @@ class PresidentController extends Controller
      * @param  \App\Models\President  $president
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, President $president)
+    public function update(Request $request, $id)
     {
         $updated = $request->validate([
             'name' => 'required|max:255',
