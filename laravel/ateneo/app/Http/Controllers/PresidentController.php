@@ -49,17 +49,18 @@ class PresidentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\President  $president
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(President $president)
+    public function show($id)
     {
         //
     }
     
     /**
-     * Display all resource in JSON format.
+     * Display all resources in JSON format.
      *
+     * @param  \App\Models\President  $president
      * @return \Illuminate\Http\Response
      */
     public function restShowAll()
@@ -70,10 +71,10 @@ class PresidentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\President  $president
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(President $id)
+    public function edit($id)
     {
         $president = President::findOrFail($id);
         return view('presidents.edit')->with('president', $president);
@@ -83,7 +84,7 @@ class PresidentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\President  $president
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -101,7 +102,7 @@ class PresidentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\President  $president
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
