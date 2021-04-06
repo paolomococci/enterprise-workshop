@@ -58,7 +58,7 @@ class StudentController extends Controller
     }
     
     /**
-     * Display all resource in JSON format.
+     * Display all resources in JSON format.
      *
      * @return \Illuminate\Http\Response
      */
