@@ -1,5 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
-	<!-- TODO -->
+<div class="card push-top">
+	<div class="card-header">
+		add employee
+	</div>
+
+	<div class="card-body">
+	   <!-- TODO -->
+	</div>
+</div>
 @endsection
