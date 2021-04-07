@@ -3,7 +3,7 @@
 @section('content')
 <div class="card push-top">
 	<div class="card-header">
-		add student
+		add chancellor
 	</div>
 
 	<div class="card-body">
