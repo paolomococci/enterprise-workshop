@@ -7,6 +7,36 @@
 		{{ session()->get('success') }}
 	</div><br/>
 	@endif
-	<!-- TODO -->
+	<table class="table">
+		<thead>
+			<tr class="table-warning">
+				<td>id</td>
+				<td>name</td>
+				<td>surname</td>
+				<td>email</td>
+				<td>phone</td>
+				<td class="text-center">action</td>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($tutor as $tutors)
+			<tr>
+				<td>{{$tutors->id}}</td>
+				<td>{{$tutors->name}}</td>
+				<td>{{$tutors->surname}}</td>
+				<td>{{$tutors->email}}</td>
+				<td>{{$tutors->phone}}</td>
+				<td class="text-center">
+					<a href="{{ route('tutors.edit', $tutors->id)}}" class="btn btn-primary btn-sm"">edit</a>
+					<form action="{{ route('tutors.destroy', $tutors->id)}}" method="post" style="display: inline-block">
+						@csrf
+						@method('DELETE')
+						<button class="btn btn-danger btn-sm"" type="submit">delete</button>
+					</form>
+				</td>
+			</tr>
+			@endforeach
+		</tbody>
+	</table>
 </div>
 @endsection
