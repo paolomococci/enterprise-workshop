@@ -96,6 +96,8 @@ class FacultyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $faculty = Faculty::findOrFail($id);
+        $faculty->delete();
+        return redirect('/faculties')->with('completed', 'faculty has been deleted');
     }
 }
