@@ -85,7 +85,11 @@ class FacultyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $updated = $request->validate([
+            'name' => 'required|max:255',
+        ]);
+        Faculty::whereId($id)->update($updated);
+        return redirect('/faculties')->with('completed', 'faculty has been updated');
     }
 
     /**
