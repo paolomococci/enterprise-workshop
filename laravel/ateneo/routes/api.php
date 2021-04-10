@@ -16,11 +16,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/students', [StudentController::class, 'restShowAll']);
-Route::get('/tutors', [TutorController::class, 'restShowAll']);
-Route::get('/teachers', [TeacherController::class, 'restShowAll']);
-Route::get('/employees', [EmployeeController::class, 'restShowAll']);
 Route::get('/chancellors', [ChancellorController::class, 'restShowAll']);
-Route::get('/presidents', [PresidentController::class, 'restShowAll']);
-
+Route::get('/employees', [EmployeeController::class, 'restShowAll']);
 Route::get('/faculties', [FacultyController::class, 'restShowAll']);
+Route::get('/presidents', [PresidentController::class, 'restShowAll']);
+Route::get('/students', [StudentController::class, 'restShowAll']);
+Route::get('/teachers', [TeacherController::class, 'restShowAll']);
+Route::get('/tutors', [TutorController::class, 'restShowAll']);
