@@ -47,7 +47,7 @@ class FacultyController extends Controller
      */
     public function show($id)
     {
-        //
+        // TODO
     }
     
     /**
