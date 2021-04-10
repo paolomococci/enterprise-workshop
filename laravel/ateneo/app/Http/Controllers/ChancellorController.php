@@ -54,7 +54,7 @@ class ChancellorController extends Controller
      */
     public function show($id)
     {
-        //
+        // TODO
     }
     
     /**
