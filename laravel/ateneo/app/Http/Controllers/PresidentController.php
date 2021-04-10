@@ -54,7 +54,7 @@ class PresidentController extends Controller
      */
     public function show($id)
     {
-        //
+        // TODO
     }
     
     /**
