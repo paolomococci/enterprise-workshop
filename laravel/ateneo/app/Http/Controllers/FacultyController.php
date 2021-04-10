@@ -41,21 +41,31 @@ class FacultyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Faculty  $faculty
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Faculty $faculty)
+    public function show($id)
     {
         //
+    }
+    
+    /**
+     * Display all resources in JSON format.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restShowAll()
+    {
+        return response()->json(Faculty::all()->jsonSerialize());
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Faculty  $faculty
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Faculty $faculty)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +74,10 @@ class FacultyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Faculty  $faculty
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Faculty $faculty)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +85,10 @@ class FacultyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Faculty  $faculty
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Faculty $faculty)
+    public function destroy($id)
     {
         //
     }
