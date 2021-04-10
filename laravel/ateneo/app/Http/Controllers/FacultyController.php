@@ -72,7 +72,8 @@ class FacultyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $faculty = Faculty::findOrFail($id);
+        return view('faculties.edit')->with('faculty', $faculty);
     }
 
     /**
