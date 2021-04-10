@@ -14,7 +14,8 @@ class FacultyController extends Controller
      */
     public function index()
     {
-        //
+        $faculties = Faculty::all();
+        return view('faculties.index')->with('faculty', $faculties);
     }
 
     /**
