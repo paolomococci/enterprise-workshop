@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ChancellorController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\PresidentController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
@@ -21,3 +22,5 @@ Route::get('/teachers', [TeacherController::class, 'restShowAll']);
 Route::get('/employees', [EmployeeController::class, 'restShowAll']);
 Route::get('/chancellors', [ChancellorController::class, 'restShowAll']);
 Route::get('/presidents', [PresidentController::class, 'restShowAll']);
+
+Route::get('/faculties', [FacultyController::class, 'restShowAll']);
