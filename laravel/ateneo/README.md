@@ -136,3 +136,7 @@ Migrated:  2021_04_05_015019_create_presidents_table (0.02 seconds)
 $ php artisan migrate:refresh
 ...
 ```
+## I maked the Faculty entity
+```
+$ php artisan make:model -a Models/Faculty
+```
