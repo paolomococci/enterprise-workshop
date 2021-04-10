@@ -54,7 +54,7 @@ class TutorController extends Controller
      */
     public function show($id)
     {
-        //
+        // TODO
     }
     
     /**
@@ -70,7 +70,7 @@ class TutorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
