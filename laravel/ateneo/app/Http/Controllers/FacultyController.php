@@ -36,7 +36,11 @@ class FacultyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|max:255',
+        ]);
+        Faculty::create($data);
+        return redirect('/faculties')->with('completed', 'faculty has been saved!');
     }
 
     /**
