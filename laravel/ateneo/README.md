@@ -350,5 +350,10 @@ Migrated:  2021_04_14_091507_create_teachers_faculties_relation_table (0.11 seco
 ```
 ## I'm going to structure the relationship between the president and the chancellors
 ```
+$ php artisan make:migration create_presidents_chancellors_relation_table
+Created Migration: 2021_04_14_155436_create_presidents_chancellors_relation_table
+$ php artisan migrate
+Migrating: 2021_04_14_155436_create_presidents_chancellors_relation_table
+Migrated:  2021_04_14_155436_create_presidents_chancellors_relation_table (0.02 seconds)
 
 ```
