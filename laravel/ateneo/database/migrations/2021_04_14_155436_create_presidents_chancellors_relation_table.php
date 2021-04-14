@@ -14,8 +14,15 @@ class CreatePresidentsChancellorsRelationTable extends Migration
     public function up()
     {
         Schema::create('presidents_chancellors_relation', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->bigInteger('president_id')->unsigned()->index();
+            $table->bigInteger('chancellor_id')->unsigned()->index();
+            $table->string('title');
+            $table->string('directive');
             $table->timestamps();
+            
+            $table->foreign('president_id')->references('id')->on('presidents');
+            $table->foreign('chancellor_id')->references('id')->on('chancellors');
         });
     }
 
