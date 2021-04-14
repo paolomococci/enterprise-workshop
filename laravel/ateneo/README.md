@@ -288,3 +288,62 @@ Access-Control-Allow-Origin: *
 []
 ...
 ```
+## after I edited the following three files
+* 2021_04_14_091407_create_students_faculties_relation_table.php
+* 2021_04_14_091436_create_tutors_faculties_relation_table.php
+* 2021_04_14_091507_create_teachers_faculties_relation_table.php
+```
+$ php artisan migrate:refresh
+Rolling back: 2021_04_14_091507_create_teachers_faculties_relation_table
+Rolled back:  2021_04_14_091507_create_teachers_faculties_relation_table (0.01 seconds)
+Rolling back: 2021_04_14_091436_create_tutors_faculties_relation_table
+Rolled back:  2021_04_14_091436_create_tutors_faculties_relation_table (0 seconds)
+Rolling back: 2021_04_14_091407_create_students_faculties_relation_table
+Rolled back:  2021_04_14_091407_create_students_faculties_relation_table (0 seconds)
+Rolling back: 2021_04_10_045743_create_faculties_table
+Rolled back:  2021_04_10_045743_create_faculties_table (0.01 seconds)
+Rolling back: 2021_04_05_015019_create_presidents_table
+Rolled back:  2021_04_05_015019_create_presidents_table (0.01 seconds)
+Rolling back: 2021_04_05_014948_create_chancellors_table
+Rolled back:  2021_04_05_014948_create_chancellors_table (0 seconds)
+Rolling back: 2021_04_05_014853_create_employees_table
+Rolled back:  2021_04_05_014853_create_employees_table (0.01 seconds)
+Rolling back: 2021_04_05_014837_create_teachers_table
+Rolled back:  2021_04_05_014837_create_teachers_table (0 seconds)
+Rolling back: 2021_04_05_014745_create_tutors_table
+Rolled back:  2021_04_05_014745_create_tutors_table (0 seconds)
+Rolling back: 2021_04_03_072541_create_students_table
+Rolled back:  2021_04_03_072541_create_students_table (0.01 seconds)
+Rolling back: 2019_08_19_000000_create_failed_jobs_table
+Rolled back:  2019_08_19_000000_create_failed_jobs_table (0.01 seconds)
+Rolling back: 2014_10_12_100000_create_password_resets_table
+Rolled back:  2014_10_12_100000_create_password_resets_table (0 seconds)
+Rolling back: 2014_10_12_000000_create_users_table
+Rolled back:  2014_10_12_000000_create_users_table (0 seconds)
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table (0.03 seconds)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table (0.02 seconds)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated:  2019_08_19_000000_create_failed_jobs_table (0.01 seconds)
+Migrating: 2021_04_03_072541_create_students_table
+Migrated:  2021_04_03_072541_create_students_table (0.01 seconds)
+Migrating: 2021_04_05_014745_create_tutors_table
+Migrated:  2021_04_05_014745_create_tutors_table (0.01 seconds)
+Migrating: 2021_04_05_014837_create_teachers_table
+Migrated:  2021_04_05_014837_create_teachers_table (0.01 seconds)
+Migrating: 2021_04_05_014853_create_employees_table
+Migrated:  2021_04_05_014853_create_employees_table (0.02 seconds)
+Migrating: 2021_04_05_014948_create_chancellors_table
+Migrated:  2021_04_05_014948_create_chancellors_table (0.01 seconds)
+Migrating: 2021_04_05_015019_create_presidents_table
+Migrated:  2021_04_05_015019_create_presidents_table (0.01 seconds)
+Migrating: 2021_04_10_045743_create_faculties_table
+Migrated:  2021_04_10_045743_create_faculties_table (0.01 seconds)
+Migrating: 2021_04_14_091407_create_students_faculties_relation_table
+Migrated:  2021_04_14_091407_create_students_faculties_relation_table (0.1 seconds)
+Migrating: 2021_04_14_091436_create_tutors_faculties_relation_table
+Migrated:  2021_04_14_091436_create_tutors_faculties_relation_table (0.11 seconds)
+Migrating: 2021_04_14_091507_create_teachers_faculties_relation_table
+Migrated:  2021_04_14_091507_create_teachers_faculties_relation_table (0.11 seconds)
+```
