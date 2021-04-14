@@ -214,3 +214,77 @@ Migrated:  2021_04_14_091436_create_tutors_faculties_relation_table (0.01 second
 Migrating: 2021_04_14_091507_create_teachers_faculties_relation_table
 Migrated:  2021_04_14_091507_create_teachers_faculties_relation_table (0.01 seconds)
 ```
+## I test API from another terminal window
+```
+$ curl -v -i http://localhost:8000/api/students
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 8000 (#0)
+> GET /api/students HTTP/1.1
+> Host: localhost:8000
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+< Host: localhost:8000
+Host: localhost:8000
+< Date: Wed, 14 Apr 2021 09:31:17 GMT
+Date: Wed, 14 Apr 2021 09:31:17 GMT
+< Connection: close
+Connection: close
+< X-Powered-By: PHP/7.2.24-0ubuntu0.18.04.7
+X-Powered-By: PHP/7.2.24-0ubuntu0.18.04.7
+< Cache-Control: no-cache, private
+Cache-Control: no-cache, private
+< Date: Wed, 14 Apr 2021 09:31:17 GMT
+Date: Wed, 14 Apr 2021 09:31:17 GMT
+< Content-Type: application/json
+Content-Type: application/json
+< X-RateLimit-Limit: 60
+X-RateLimit-Limit: 60
+< X-RateLimit-Remaining: 59
+X-RateLimit-Remaining: 59
+< Access-Control-Allow-Origin: *
+Access-Control-Allow-Origin: *
+
+< 
+* Closing connection 0
+[]
+$ curl -v -i http://localhost:8000/api/tutors
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 8000 (#0)
+> GET /api/tutors HTTP/1.1
+> Host: localhost:8000
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+< Host: localhost:8000
+Host: localhost:8000
+< Date: Wed, 14 Apr 2021 09:33:52 GMT
+Date: Wed, 14 Apr 2021 09:33:52 GMT
+< Connection: close
+Connection: close
+< X-Powered-By: PHP/7.2.24-0ubuntu0.18.04.7
+X-Powered-By: PHP/7.2.24-0ubuntu0.18.04.7
+< Cache-Control: no-cache, private
+Cache-Control: no-cache, private
+< Date: Wed, 14 Apr 2021 09:33:52 GMT
+Date: Wed, 14 Apr 2021 09:33:52 GMT
+< Content-Type: application/json
+Content-Type: application/json
+< X-RateLimit-Limit: 60
+X-RateLimit-Limit: 60
+< X-RateLimit-Remaining: 59
+X-RateLimit-Remaining: 59
+< Access-Control-Allow-Origin: *
+Access-Control-Allow-Origin: *
+
+< 
+* Closing connection 0
+[]
+...
+```
