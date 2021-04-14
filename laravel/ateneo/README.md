@@ -355,5 +355,6 @@ Created Migration: 2021_04_14_155436_create_presidents_chancellors_relation_tabl
 $ php artisan migrate
 Migrating: 2021_04_14_155436_create_presidents_chancellors_relation_table
 Migrated:  2021_04_14_155436_create_presidents_chancellors_relation_table (0.02 seconds)
-
+$ php artisan migrate:refresh
+...
 ```
