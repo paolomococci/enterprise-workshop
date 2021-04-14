@@ -14,8 +14,13 @@ class CreateTutorsFacultiesRelationTable extends Migration
     public function up()
     {
         Schema::create('tutors_faculties_relation', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->bigInteger('tutor_id')->unsigned()->index();
+            $table->bigInteger('faculty_id')->unsigned()->index();
             $table->timestamps();
+            
+            $table->foreign('tutor_id')->references('id')->on('tutors');
+            $table->foreign('faculty_id')->references('id')->on('faculties');
         });
     }
 
