@@ -292,6 +292,7 @@ Access-Control-Allow-Origin: *
 * 2021_04_14_091407_create_students_faculties_relation_table.php
 * 2021_04_14_091436_create_tutors_faculties_relation_table.php
 * 2021_04_14_091507_create_teachers_faculties_relation_table.php
+
 ```
 $ php artisan migrate:refresh
 Rolling back: 2021_04_14_091507_create_teachers_faculties_relation_table
