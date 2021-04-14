@@ -198,4 +198,19 @@ $ php artisan route:list
 |        | GET|HEAD  | tutors/{tutor}/edit           | tutors.edit         | App\Http\Controllers\TutorController@edit             | web        |
 +--------+-----------+-------------------------------+---------------------+-------------------------------------------------------+------------+
 ```
-
+## I added the following relationships between entities
+```
+$ php artisan make:migration create_students_faculties_relation_table
+Created Migration: 2021_04_14_091407_create_students_faculties_relation_table
+$ php artisan make:migration create_tutors_faculties_relation_table
+Created Migration: 2021_04_14_091436_create_tutors_faculties_relation_table
+$ php artisan make:migration create_teachers_faculties_relation_table
+Created Migration: 2021_04_14_091507_create_teachers_faculties_relation_table
+$ php artisan migrate
+Migrating: 2021_04_14_091407_create_students_faculties_relation_table
+Migrated:  2021_04_14_091407_create_students_faculties_relation_table (0.02 seconds)
+Migrating: 2021_04_14_091436_create_tutors_faculties_relation_table
+Migrated:  2021_04_14_091436_create_tutors_faculties_relation_table (0.01 seconds)
+Migrating: 2021_04_14_091507_create_teachers_faculties_relation_table
+Migrated:  2021_04_14_091507_create_teachers_faculties_relation_table (0.01 seconds)
+```
