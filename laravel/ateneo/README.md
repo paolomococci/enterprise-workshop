@@ -348,3 +348,7 @@ Migrated:  2021_04_14_091436_create_tutors_faculties_relation_table (0.11 second
 Migrating: 2021_04_14_091507_create_teachers_faculties_relation_table
 Migrated:  2021_04_14_091507_create_teachers_faculties_relation_table (0.11 seconds)
 ```
+## I'm going to structure the relationship between the president and the chancellors
+```
+
+```
