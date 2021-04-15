@@ -7,7 +7,8 @@
 		{{ session()->get('success') }}
 	</div><br/>
 	@endif
-	<table class="table">
+	<h3>list of registered teachers</h3>
+	<table class="table" summary="list of registered teachers">
 		<thead>
 			<tr class="table-warning">
 				<td>id</td>
