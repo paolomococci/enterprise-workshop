@@ -24,8 +24,8 @@
 							<li class="nav-link active">
 								<a href="/students/create"><span class="badge rounded-pill bg-info text-dark">add student</span></a>
 							</li>
-							<li class="nav-link disabled">
-								<a href="#"><span class="badge rounded-pill bg-info text-dark">tutors</span></a>						
+							<li class="nav-link active">
+								<a href="/tutors"><span class="badge rounded-pill bg-info text-dark">tutors</span></a>						
 							</li>
 							<li class="nav-link disabled">
 								<a href="#"><span class="badge rounded-pill bg-info text-dark">add tutor</span></a>						
