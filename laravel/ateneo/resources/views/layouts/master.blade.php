@@ -54,6 +54,9 @@
 							<li class="nav-link active">
 								<a href="/presidents/create"><span class="badge rounded-pill bg-info text-dark">add president</span></a>						
 							</li>
+							<!--li class="nav-link disabled">
+								<a href="#"><span class="badge rounded-pill bg-info text-dark">todo</span></a>						
+							</li-->
 						</ul>
 						<form class="d-flex">
 							<input class="form-control me-2" type="search" placeholder="search" aria-label="search">
