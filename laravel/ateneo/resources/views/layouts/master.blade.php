@@ -51,8 +51,8 @@
 							<li class="nav-link active">
 								<a href="/presidents"><span class="badge rounded-pill bg-info text-dark">presidents</span></a>						
 							</li>
-							<li class="nav-link disabled">
-								<a href="#"><span class="badge rounded-pill bg-info text-dark">add president</span></a>						
+							<li class="nav-link active">
+								<a href="/presidents/create"><span class="badge rounded-pill bg-info text-dark">add president</span></a>						
 							</li>
 						</ul>
 						<form class="d-flex">
