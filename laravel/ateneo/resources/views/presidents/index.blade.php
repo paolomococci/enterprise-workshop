@@ -7,7 +7,8 @@
 		{{ session()->get('success') }}
 	</div><br/>
 	@endif
-	<table class="table">
+	<h3></h3>
+	<table class="table" summary="">
 		<thead>
 			<tr class="table-warning">
 				<td>id</td>
