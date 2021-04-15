@@ -43,9 +43,6 @@
 								<a href="#"><span class="badge rounded-pill bg-info text-dark">add employee</span></a>						
 							</li>
 							<li class="nav-link disabled">
-								<a href="#"><span class="badge rounded-pill bg-info text-dark">todo</span></a>						
-							</li>
-							<li class="nav-link disabled">
 								<a href="#"><span class="badge rounded-pill bg-info text-dark">chancellors</span></a>						
 							</li>
 							<li class="nav-link disabled">
