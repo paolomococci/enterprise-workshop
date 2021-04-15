@@ -7,8 +7,8 @@
 		{{ session()->get('success') }}
 	</div><br/>
 	@endif
-	<h3></h3>
-	<table class="table" summary="">
+	<h3>list of presidents who have alternated</h3>
+	<table class="table" summary="list of presidents who have alternated">
 		<thead>
 			<tr class="table-warning">
 				<td>id</td>
