@@ -39,8 +39,8 @@
 							<li class="nav-link active">
 								<a href="/employees"><span class="badge rounded-pill bg-info text-dark">employees</span></a>						
 							</li>
-							<li class="nav-link disabled">
-								<a href="#"><span class="badge rounded-pill bg-info text-dark">add employee</span></a>						
+							<li class="nav-link active">
+								<a href="/employees/create"><span class="badge rounded-pill bg-info text-dark">add employee</span></a>						
 							</li>
 							<li class="nav-link disabled">
 								<a href="#"><span class="badge rounded-pill bg-info text-dark">chancellors</span></a>						
