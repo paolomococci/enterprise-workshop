@@ -45,8 +45,8 @@
 							<li class="nav-link active">
 								<a href="/chancellors"><span class="badge rounded-pill bg-info text-dark">chancellors</span></a>						
 							</li>
-							<li class="nav-link disabled">
-								<a href="#"><span class="badge rounded-pill bg-info text-dark">add chancellor</span></a>						
+							<li class="nav-link active">
+								<a href="/chancellors/create"><span class="badge rounded-pill bg-info text-dark">add chancellor</span></a>						
 							</li>
 							<li class="nav-link disabled">
 								<a href="#"><span class="badge rounded-pill bg-info text-dark">presidents</span></a>						
