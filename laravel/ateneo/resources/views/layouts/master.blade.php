@@ -52,6 +52,9 @@
 								<a href="/faculties"><span class="badge rounded-pill bg-info text-dark">faculties</span></a>						
 							</li>
 							<li class="nav-link active">
+								<a href="/faculties/create"><span class="badge rounded-pill bg-info text-dark">add faculty</span></a>						
+							</li>
+							<li class="nav-link active">
 								<a href="/presidents"><span class="badge rounded-pill bg-info text-dark">presidents</span></a>						
 							</li>
 							<li class="nav-link active">
