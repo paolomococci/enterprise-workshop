@@ -11,4 +11,5 @@ Route::resource('tutors', 'TutorController');
 Route::resource('teachers', 'TeacherController');
 Route::resource('employees', 'EmployeeController');
 Route::resource('chancellors', 'ChancellorController');
+Route::resource('faculties', 'FacultyController');
 Route::resource('presidents', 'PresidentController');
