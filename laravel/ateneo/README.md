@@ -1,4 +1,7 @@
 # ateneo demo web application
+![]()
+![]()
+![]()
 
 ## I started with creating the project
 ```
