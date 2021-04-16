@@ -1,6 +1,6 @@
 # ateneo demo web application
 
-![ateneo home page]()
+![ateneo home page](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_ateneo_home_page.png)
 
 ![index of students]()
 
