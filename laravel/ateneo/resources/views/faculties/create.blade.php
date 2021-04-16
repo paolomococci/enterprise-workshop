@@ -24,7 +24,7 @@
 					type="text" 
 					class="form-control" 
 					name="name" 
-					placeholder="John"/>
+					placeholder="Management Science and Engineering"/>
 			</div>
 			<button type="submit" class="btn btn-block btn-danger">create faculty</button>
 		</form>
