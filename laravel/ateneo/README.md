@@ -3,6 +3,7 @@
 ## screenshot of home page
 ![ateneo home page](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_ateneo_home_page.png)
 
+## screenshot of index of registered students page
 ![index of students](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_ateneo_students_index.png)
 
 ![add student](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_ateneo_add_student.png)
