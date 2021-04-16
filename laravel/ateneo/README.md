@@ -2,7 +2,7 @@
 
 ![ateneo home page](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_ateneo_home_page.png)
 
-![index of students]()
+![index of students](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_ateneo_students_index.png)
 
 ![add student]()
 
