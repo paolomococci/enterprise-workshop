@@ -1,7 +1,10 @@
 # ateneo demo web application
-![]()
-![]()
-![]()
+
+![ateneo home page]()
+
+![index of students]()
+
+![add student]()
 
 ## I started with creating the project
 ```
