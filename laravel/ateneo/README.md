@@ -4,7 +4,7 @@
 
 ![index of students](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_ateneo_students_index.png)
 
-![add student]()
+![add student](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_ateneo_add_student.png)
 
 ## I started with creating the project
 ```
