@@ -29,7 +29,7 @@
 				<td>{{$employees->phone}}</td>
 				<td class="text-center">
 					<nobr>
-						<a href="{{ route('employees.edit', $employees->id)}}" class="btn btn-primary btn-sm"">edit</a>
+						<a href="{{ route('employees.edit', $employees->id)}}" class="btn btn-outline-success btn-sm"">edit</a>
 						<form action="{{ route('employees.destroy', $employees->id)}}" method="post" style="display: inline-block">
 							@csrf
 							@method('DELETE')
