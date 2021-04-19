@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chancellor;
 use App\Models\Faculty;
 use Illuminate\Http\Request;
 
@@ -15,18 +16,8 @@ class FacultyController extends Controller
     public function index()
     {
         $faculties = Faculty::all();
-        return view('faculties.index')->with('faculty', $faculties);
-    }
-    
-    /**
-     * Display a listing of faculties which have a chancellor.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function indexOfFcultiesWhichHaveAChancellor()
-    {
-        $faculties = Faculty::all();
-        return view('faculties.assigned')->with('faculty', $faculties);
+        $key = array('faculty', $faculties);
+        return view('faculties.index')->with($key[0], $key[1]);
     }
 
     /**
@@ -55,14 +46,19 @@ class FacultyController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display a listing of faculties which have a chancellor.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        // TODO
+        $faculties = Faculty::all();
+        $facultyKey = array('faculty', $faculties);
+        $chancellors = Chancellor::all();
+        $chancellorKey = array('chancellor', $chancellors);
+        return view('faculties.assigned')
+            ->with($facultyKey[0], $facultyKey[1])
+            ->with($chancellorKey[0], $chancellorKey[1]);
     }
     
     /**
