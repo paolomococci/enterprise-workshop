@@ -51,8 +51,8 @@
 					pattern="^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" 
 					placeholder="+12 1234567890"/>
 			</div>
-			<button type="submit" class="btn btn-block btn-primary">create chancellor</button>
-			<button type="button" onclick="window.location='/chancellors'" class="btn btn-block btn-secondary">cancel</button>
+			<button type="submit" class="btn btn-block btn-outline-primary">create chancellor</button>
+			<button type="button" onclick="window.location='/chancellors'" class="btn btn-block btn-outline-secondary">cancel</button>
 		</form>
 	</div>
 </div>
