@@ -27,8 +27,8 @@
 					name="name" 
 					value="{{ $faculty->name }}"/>
 			</div>
-			<button type="submit" class="btn btn-block btn-danger">update faculty</button>
-			<button type="button" onclick="window.location='/faculties'" class="btn btn-block btn-secondary">cancel</button>
+			<button type="submit" class="btn btn-block btn-outline-danger">update faculty</button>
+			<button type="button" onclick="window.location='/faculties'" class="btn btn-block btn-outline-secondary">cancel</button>
 		</form>
 	</div>
 </div>
