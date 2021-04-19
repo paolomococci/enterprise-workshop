@@ -26,7 +26,7 @@
 					name="name" 
 					placeholder="Management Science and Engineering"/>
 			</div>
-			<button type="submit" class="btn btn-block btn-danger">create faculty</button>
+			<button type="submit" class="btn btn-block btn-primary">create faculty</button>
 			<button type="button" onclick="window.location='/faculties'" class="btn btn-block btn-secondary">cancel</button>
 		</form>
 	</div>
