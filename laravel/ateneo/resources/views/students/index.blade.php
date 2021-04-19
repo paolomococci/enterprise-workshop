@@ -16,6 +16,8 @@
 				<td>surname</td>
 				<td>email</td>
 				<td>phone</td>
+				<td>registered</td>
+				<td>updated</td>
 				<td class="text-center">action</td>
 			</tr>
 		</thead>
@@ -27,6 +29,8 @@
 				<td>{{$students->surname}}</td>
 				<td>{{$students->email}}</td>
 				<td>{{$students->phone}}</td>
+				<td>{{$students->created_at}}</td>
+				<td>{{$students->updated_at}}</td>
 				<td class="text-center">
 					<nobr>
 						<a href="{{ route('students.edit', $students->id)}}" class="btn btn-primary btn-sm"">edit</a>
