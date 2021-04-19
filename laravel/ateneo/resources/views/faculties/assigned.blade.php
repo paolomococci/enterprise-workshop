@@ -7,7 +7,7 @@
 		{{ session()->get('success') }}
 	</div><br/>
 	@endif
-	<h3>list of active faculties</h3>
+	<h3>list of faculties which have a chancellor</h3>
 	<table class="table" summary="list of active faculties">
 		<thead>
 			<tr class="table-warning">
