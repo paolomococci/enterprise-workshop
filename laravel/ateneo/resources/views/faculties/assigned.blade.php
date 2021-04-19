@@ -27,7 +27,7 @@
 					<td>{{$faculties->chancellor_id}}</td>
 					<td class="text-center">
 						<nobr>
-							<a href="{{ route('faculties.edit', $faculties->id)}}" class="btn btn-primary btn-sm"">edit</a>
+							<a href="{{ route('faculties.edit', $faculties->id)}}" class="btn btn-outline-success btn-sm"">edit</a>
 							<form action="{{ route('faculties.destroy', $faculties->id)}}" method="post" style="display: inline-block">
 								@csrf
 								@method('DELETE')
@@ -63,7 +63,7 @@
 					<td>{{$chancellors->phone}}</td>
 					<td class="text-center">
 						<nobr>
-							<a href="{{ route('chancellors.edit', $chancellors->id)}}" class="btn btn-primary btn-sm"">edit</a>
+							<a href="{{ route('chancellors.edit', $chancellors->id)}}" class="btn btn-outline-success btn-sm"">edit</a>
 							<form action="{{ route('chancellors.destroy', $chancellors->id)}}" method="post" style="display: inline-block">
 								@csrf
 								@method('DELETE')
