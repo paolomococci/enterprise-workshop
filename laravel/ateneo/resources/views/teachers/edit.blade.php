@@ -53,7 +53,7 @@
 					value="{{ $teacher->phone }}"/>
 			</div>
 			<button type="submit" class="btn btn-block btn-danger">update teacher</button>
-			<button type="button" onclick="window.location='/teachers'" class="btn btn-block">cancel</button>
+			<button type="button" onclick="window.location='/teachers'" class="btn btn-block btn-secondary">cancel</button>
 		</form>
 	</div>
 </div>
