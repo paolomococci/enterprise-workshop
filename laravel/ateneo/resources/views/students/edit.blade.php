@@ -52,8 +52,8 @@
 					pattern="^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" 
 					value="{{ $student->phone }}"/>
 			</div>
-			<button type="submit" class="btn btn-block btn-danger">update student</button>
-			<button type="button" onclick="window.location='/students'" class="btn btn-block btn-secondary">cancel</button>
+			<button type="submit" class="btn btn-block btn-outline-danger">update student</button>
+			<button type="button" onclick="window.location='/students'" class="btn btn-block btn-outline-secondary">cancel</button>
 		</form>
 	</div>
 </div>
