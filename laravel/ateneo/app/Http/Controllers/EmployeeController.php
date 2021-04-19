@@ -15,7 +15,8 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::all();
-        return view('employees.index')->with('employee', $employees);
+        $key = array('employee', $employees);
+        return view('employees.index')->with($key[0], $key[1]);
     }
 
     /**
