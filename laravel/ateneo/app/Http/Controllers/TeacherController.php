@@ -15,7 +15,8 @@ class TeacherController extends Controller
     public function index()
     {
         $teachers = Teacher::all();
-        return view('teachers.index')->with('teacher', $teachers);
+        $key = array('teacher', $teachers);
+        return view('teachers.index')->with($key[0], $key[1]);
     }
 
     /**
