@@ -52,6 +52,7 @@
 					placeholder="+12 1234567890"/>
 			</div>
 			<button type="submit" class="btn btn-block btn-danger">create student</button>
+			<button type="button" onclick="window.location='/students'" class="btn btn-block">cancel</button>
 		</form>
 	</div>
 </div>
