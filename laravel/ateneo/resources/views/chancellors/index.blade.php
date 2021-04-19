@@ -28,12 +28,14 @@
 				<td>{{$chancellors->email}}</td>
 				<td>{{$chancellors->phone}}</td>
 				<td class="text-center">
-					<a href="{{ route('chancellors.edit', $chancellors->id)}}" class="btn btn-primary btn-sm"">edit</a>
-					<form action="{{ route('chancellors.destroy', $chancellors->id)}}" method="post" style="display: inline-block">
-						@csrf
-						@method('DELETE')
-						<button class="btn btn-danger btn-sm"" type="submit">delete</button>
-					</form>
+					<nobr>
+						<a href="{{ route('chancellors.edit', $chancellors->id)}}" class="btn btn-primary btn-sm"">edit</a>
+						<form action="{{ route('chancellors.destroy', $chancellors->id)}}" method="post" style="display: inline-block">
+							@csrf
+							@method('DELETE')
+							<button class="btn btn-danger btn-sm"" type="submit">delete</button>
+						</form>
+					</nobr>
 				</td>
 			</tr>
 			@endforeach
