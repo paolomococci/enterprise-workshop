@@ -33,7 +33,7 @@
 				<td>{{$students->updated_at}}</td>
 				<td class="text-center">
 					<nobr>
-						<a href="{{ route('students.edit', $students->id)}}" class="btn btn-primary btn-sm"">edit</a>
+						<a href="{{ route('students.edit', $students->id)}}" class="btn btn-outline-success btn-sm"">edit</a>
 						<form action="{{ route('students.destroy', $students->id)}}" method="post" style="display: inline-block">
 							@csrf
 							@method('DELETE')
