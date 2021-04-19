@@ -17,6 +17,17 @@ class FacultyController extends Controller
         $faculties = Faculty::all();
         return view('faculties.index')->with('faculty', $faculties);
     }
+    
+    /**
+     * Display a listing of faculties which have a chancellor.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexOfFcultiesWhichHaveAChancellor()
+    {
+        $faculties = Faculty::all();
+        return view('faculties.assigned')->with('faculty', $faculties);
+    }
 
     /**
      * Show the form for creating a new resource.
