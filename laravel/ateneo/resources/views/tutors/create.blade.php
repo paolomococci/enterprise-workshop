@@ -51,7 +51,7 @@
 					pattern="^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" 
 					placeholder="+12 1234567890"/>
 			</div>
-			<button type="submit" class="btn btn-block btn-danger">create tutor</button>
+			<button type="submit" class="btn btn-block btn-primary">create tutor</button>
 			<button type="button" onclick="window.location='/tutors'" class="btn btn-block btn-secondary">cancel</button>
 		</form>
 	</div>
