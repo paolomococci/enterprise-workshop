@@ -15,8 +15,11 @@ class CreateFacultiesTable extends Migration
     {
         Schema::create('faculties', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('chancellor_id')->unsigned()->nullable()->index();
             $table->string('name');
             $table->timestamps();
+            
+            $table->foreign('chancellor_id')->references('id')->on('chancellors');
         });
     }
 
