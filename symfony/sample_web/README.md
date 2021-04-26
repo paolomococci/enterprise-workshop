@@ -270,3 +270,65 @@ $ php bin/console debug:router
   sample                     GET|HEAD   ANY      ANY    /sample                            
  -------------------------- ---------- -------- ------ ----------------------------------- 
 ```
+## finally I create an entity giving it the name Item
+```
+$ php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. GentlePuppy):
+ > Item
+
+ created: src/Entity/Item.php
+ created: src/Repository/ItemRepository.php
+ 
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > name
+
+ Field type (enter ? to see all types) [string]:
+ > string
+
+ Field length [255]:
+ > 255
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > no
+
+ updated: src/Entity/Item.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > description
+
+ Field type (enter ? to see all types) [string]:
+ > string
+
+ Field length [255]:
+ > 512
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > yes
+
+ updated: src/Entity/Item.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > price
+
+ Field type (enter ? to see all types) [string]:
+ > integer
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > yes
+
+ updated: src/Entity/Item.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > 
+
+
+           
+  Success! 
+           
+
+ Next: When you're ready, create a migration with php bin/console make:migration
+```
