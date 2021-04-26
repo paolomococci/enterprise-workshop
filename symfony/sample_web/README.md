@@ -49,3 +49,18 @@ composer/package-versions-deprecated: ...done generating version class
 Use the `composer fund` command to find out more!
 ...
 ```
+## I start the server, really useful in this development phase
+```
+$ php bin/console server:run
+
+                                                                                                                        
+ [OK] Server listening on http://127.0.0.1:8000                                                                         
+                                                                                                                        
+
+ // Quit the server with CONTROL-C.                                                                                     
+
+PHP 7.2.24-0ubuntu0.18.04.7 Development Server started at Sun Apr 25 09:04:04 2021
+Listening on http://127.0.0.1:8000
+Document root is /home/paolo/Workbench/workspace/enterprise-workshop/symfony/sample_web/public
+Press Ctrl-C to quit.
+```
