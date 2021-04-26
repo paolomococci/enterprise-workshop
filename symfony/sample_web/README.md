@@ -355,3 +355,25 @@ $ php bin/console doctrine:migrations:migrate
 [notice] Migrating up to DoctrineMigrations\Version20210425163729
 [notice] finished in 31.5ms, used 20M memory, 1 migrations executed, 1 sql queries
 ```
+## and now I make the CRUD interface
+```
+$ php bin/console make:crud Item
+
+ Choose a name for your controller class (e.g. ItemController) [ItemController]:
+ > ItemController
+
+ created: src/Controller/ItemController.php
+ created: src/Form/ItemType.php
+ created: templates/item/_delete_form.html.twig
+ created: templates/item/_form.html.twig
+ created: templates/item/edit.html.twig
+ created: templates/item/index.html.twig
+ created: templates/item/new.html.twig
+ created: templates/item/show.html.twig
+
+           
+  Success! 
+           
+
+ Next: Check your new CRUD by going to /item/
+```
