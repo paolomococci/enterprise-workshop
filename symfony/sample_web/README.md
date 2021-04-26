@@ -64,3 +64,33 @@ Listening on http://127.0.0.1:8000
 Document root is /home/paolo/Workbench/workspace/enterprise-workshop/symfony/sample_web/public
 Press Ctrl-C to quit.
 ```
+## after stopping the server, I integrate an bug fixing component
+```
+$ composer require friendsofphp/php-cs-fixer
+Using version ^2.18 for friendsofphp/php-cs-fixer
+./composer.json has been updated
+Running composer update friendsofphp/php-cs-fixer
+Loading composer repositories with package information
+Updating dependencies
+Lock file operations: 5 installs, 0 updates, 0 removals
+  - Locking composer/semver (3.2.4)
+  - Locking composer/xdebug-handler (2.0.0)
+  - Locking friendsofphp/php-cs-fixer (v2.18.6)
+  - Locking php-cs-fixer/diff (v1.3.1)
+  - Locking symfony/polyfill-php70 (v1.20.0)
+Writing lock file
+Installing dependencies from lock file (including require-dev)
+Nothing to install, update or remove
+Generating optimized autoload files
+composer/package-versions-deprecated: Generating version class...
+composer/package-versions-deprecated: ...done generating version class
+87 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+
+Run composer recipes at any time to see the status of your Symfony recipes.
+
+Executing script cache:clear [OK]
+Executing script assets:install public [OK]
+
+Nothing to unpack
+```
