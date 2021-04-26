@@ -332,3 +332,17 @@ $ php bin/console make:entity
 
  Next: When you're ready, create a migration with php bin/console make:migration
 ```
+## now I create the file necessary for the so-called "migration"
+```
+$ php bin/console make:migration
+
+
+           
+  Success! 
+           
+
+ Next: Review the new migration "migrations/Version20210425163729.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ ...
+```
+
