@@ -345,4 +345,13 @@ $ php bin/console make:migration
  Then: Run the migration with php bin/console doctrine:migrations:migrate
  ...
 ```
+## and I carry out the actual "migration"
+```
+$ php bin/console doctrine:migrations:migrate
 
+ WARNING! You are about to execute a migration in database "sample_web_db" that could result in schema changes and data loss. Are you sure you wish to continue? (yes/no) [yes]:
+ > yes
+
+[notice] Migrating up to DoctrineMigrations\Version20210425163729
+[notice] finished in 31.5ms, used 20M memory, 1 migrations executed, 1 sql queries
+```
