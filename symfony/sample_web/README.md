@@ -221,3 +221,29 @@ Available commands:
  translation
   translation:update                         Update the translation file
 ```
+## now I check the route /sample
+```
+$ php bin/console router:match /sample
+
+
+                                                                                                                        
+ [OK] Route "sample" matches                                                                                            
+                                                                                                                        
+
++--------------+---------------------------------------------------------+
+| Property     | Value                                                   |
++--------------+---------------------------------------------------------+
+| Route Name   | sample                                                  |
+| Path         | /sample                                                 |
+| Path Regex   | {^/sample$}sDu                                          |
+| Host         | ANY                                                     |
+| Host Regex   |                                                         |
+| Scheme       | ANY                                                     |
+| Method       | GET|HEAD                                                |
+| Requirements | NO CUSTOM                                               |
+| Class        | Symfony\Component\Routing\Route                         |
+| Defaults     | _controller: App\Controller\SampleController::index()   |
+| Options      | compiler_class: Symfony\Component\Routing\RouteCompiler |
+|              | utf8: true                                              |
++--------------+---------------------------------------------------------+
+```
