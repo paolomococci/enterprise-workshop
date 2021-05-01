@@ -22,3 +22,7 @@ composer require friendsofphp/php-cs-fixer
 ```
 $ composer require symfony/security-bundle
 ```
+# I add User class
+```
+$ php bin/console make:user 
+```
