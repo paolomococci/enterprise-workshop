@@ -26,3 +26,9 @@ $ composer require symfony/security-bundle
 ```
 $ php bin/console make:user 
 ```
+## I create the user entity and perform the migration
+```
+$ php bin/console make:entity
+$ php bin/console make:migration
+$ php bin/console doctrine:migrations:migrate
+```
