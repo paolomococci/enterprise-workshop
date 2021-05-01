@@ -14,3 +14,7 @@ DATABASE_URL="mysql://username:password@127.0.0.1:3306/e_teams_simple_db"
 ```
 $ composer require symfony/web-server-bundle 4.4
 ```
+## I integrate an bug fixing component
+```
+composer require friendsofphp/php-cs-fixer
+```
