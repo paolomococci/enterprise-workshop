@@ -18,3 +18,7 @@ $ composer require symfony/web-server-bundle 4.4
 ```
 composer require friendsofphp/php-cs-fixer
 ```
+## Integrate the Symfony security-bundle component
+```
+$ composer require symfony/security-bundle
+```
