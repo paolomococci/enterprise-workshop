@@ -144,7 +144,7 @@ $ php bin/console make:crud User
 ```
 ## summarizing what I have done so far
 ```
-$ php bin/console debug:router                                                                                                                               
+$ php bin/console debug:router                                                                                                                           
  -------------------------- ---------- -------- ------ -----------------------------------                                                                                                                                             
   Name                       Method     Scheme   Host   Path                                                                                                                                                                           
  -------------------------- ---------- -------- ------ -----------------------------------                                                                                                                                             
@@ -160,7 +160,17 @@ $ php bin/console debug:router
   _profiler_router           ANY        ANY      ANY    /_profiler/{token}/router                                                                                                                                                      
   _profiler_exception        ANY        ANY      ANY    /_profiler/{token}/exception       
   _profiler_exception_css    ANY        ANY      ANY    /_profiler/{token}/exception.css   
+  category_crud_index        GET        ANY      ANY    /category/crud/                    
+  category_crud_new          GET|POST   ANY      ANY    /category/crud/new                 
+  category_crud_show         GET        ANY      ANY    /category/crud/{id}                
+  category_crud_edit         GET|POST   ANY      ANY    /category/crud/{id}/edit           
+  category_crud_delete       POST       ANY      ANY    /category/crud/{id}                
   index                      GET|HEAD   ANY      ANY    /index                             
+  post_crud_index            GET        ANY      ANY    /post/crud/                        
+  post_crud_new              GET|POST   ANY      ANY    /post/crud/new                     
+  post_crud_show             GET        ANY      ANY    /post/crud/{id}                    
+  post_crud_edit             GET|POST   ANY      ANY    /post/crud/{id}/edit               
+  post_crud_delete           POST       ANY      ANY    /post/crud/{id}                    
   app_login                  ANY        ANY      ANY    /login                             
   app_logout                 ANY        ANY      ANY    /logout                            
   user_crud_index            GET        ANY      ANY    /user/crud/                        
