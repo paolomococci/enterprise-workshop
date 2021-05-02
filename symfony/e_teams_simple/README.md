@@ -94,3 +94,29 @@ $ php bin/console router:match /index
 |              | utf8: true                                              |
 +--------------+---------------------------------------------------------+
 ```
+## I check the path index again
+```
+$ php bin/console router:match /index                                                                                                                    
+                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                       
+ [OK] Route "index" matches                                                                                                                                                                                                            
+                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                       
++--------------+---------------------------------------------------------+                                                                                                                                                             
+| Property     | Value                                                   |                                                                                                                                                             
++--------------+---------------------------------------------------------+                                                                                                                                                             
+| Route Name   | index                                                   |                                                                                                                                                             
+| Path         | /index                                                  |                                                                                                                                                             
+| Path Regex   | {^/index$}sDu                                           |                                                                                                                                                             
+| Host         | ANY                                                     |                                                                                                                                                             
+| Host Regex   |                                                         |
+| Scheme       | ANY                                                     |
+| Method       | GET|HEAD                                                |
+| Requirements | NO CUSTOM                                               |
+| Class        | Symfony\Component\Routing\Route                         |
+| Defaults     | _controller: App\Controller\IndexController::index()    |
+| Options      | compiler_class: Symfony\Component\Routing\RouteCompiler |
+|              | utf8: true                                              |
++--------------+---------------------------------------------------------+
+```
