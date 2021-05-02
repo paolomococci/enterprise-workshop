@@ -120,3 +120,25 @@ $ php bin/console router:match /index
 |              | utf8: true                                              |
 +--------------+---------------------------------------------------------+
 ```
+## I create an administrative interface for users
+```
+$ php bin/console make:crud User                                                                                                                         
+                                                                                                                                                                                                                                       
+ Choose a name for your controller class (e.g. UserController) [UserController]:                                                                                                                                                       
+ > UserCrudController                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                       
+ created: src/Controller/UserCrudController.php                                                                                                                                                                                        
+ created: src/Form/UserType.php                                                                                                                                                                                                        
+ created: templates/user_crud/_delete_form.html.twig                                                                                                                                                                                   
+ created: templates/user_crud/_form.html.twig                                                                                                                                                                                          
+ created: templates/user_crud/edit.html.twig                                                                                                                                                                                           
+ created: templates/user_crud/index.html.twig                                                                                                                                                                                          
+ created: templates/user_crud/new.html.twig                                                                                                                                                                                            
+ created: templates/user_crud/show.html.twig                                                                                                                                                                                           
+                                                                                                                                                                                                                                       
+           
+  Success! 
+           
+
+ Next: Check your new CRUD by going to /user/crud/
+```
