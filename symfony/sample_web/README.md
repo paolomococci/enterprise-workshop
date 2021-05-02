@@ -2,7 +2,7 @@
 
 ## I make a new Symfony project with website-skeleton
 ```
-$ composer2 create-project symfony/website-skeleton sample_web
+$ composer create-project symfony/website-skeleton sample_web
 ...
 ```
 ## and I edit .env
