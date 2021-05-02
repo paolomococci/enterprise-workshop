@@ -55,3 +55,42 @@ $ bin/console debug:router
   app_logout                 ANY      ANY      ANY    /logout                            
  -------------------------- -------- -------- ------ -----------------------------------
 ```
+## I make index controller and test this path
+```
+$ php bin/console make:controller                                                                                                                        
+
+ Choose a name for your controller class (e.g. VictoriousPuppyController):
+ > IndexController
+
+ created: src/Controller/IndexController.php
+ created: templates/index/index.html.twig
+
+           
+  Success! 
+           
+
+ Next: Open your new controller class and add some pages!
+$ php bin/console router:match /index                                                                                                                    
+
+
+                                                                                                                        
+ [OK] Route "index" matches                                                                                             
+                                                                                                                        
+
++--------------+---------------------------------------------------------+
+| Property     | Value                                                   |
++--------------+---------------------------------------------------------+
+| Route Name   | index                                                   |
+| Path         | /index                                                  |
+| Path Regex   | {^/index$}sDu                                           |
+| Host         | ANY                                                     |
+| Host Regex   |                                                         |
+| Scheme       | ANY                                                     |
+| Method       | ANY                                                     |
+| Requirements | NO CUSTOM                                               |
+| Class        | Symfony\Component\Routing\Route                         |
+| Defaults     | _controller: App\Controller\IndexController::index()    |
+| Options      | compiler_class: Symfony\Component\Routing\RouteCompiler |
+|              | utf8: true                                              |
++--------------+---------------------------------------------------------+
+```
