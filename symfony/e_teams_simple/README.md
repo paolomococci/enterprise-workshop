@@ -35,7 +35,7 @@ $ php bin/console make:auth
 ```
 ## Debug of routes
 ```
-$ bin/console debug:router                                                                                                                               
+$ php bin/console debug:router                                                                                                                               
  -------------------------- -------- -------- ------ -----------------------------------                                                                                         
   Name                       Method   Scheme   Host   Path                                                                                                                       
  -------------------------- -------- -------- ------ -----------------------------------                                                                                         
@@ -144,7 +144,7 @@ $ php bin/console make:crud User
 ```
 ## summarizing what I have done so far
 ```
-$ bin/console debug:router                                                                                                                               
+$ php bin/console debug:router                                                                                                                               
  -------------------------- ---------- -------- ------ -----------------------------------                                                                                                                                             
   Name                       Method     Scheme   Host   Path                                                                                                                                                                           
  -------------------------- ---------- -------- ------ -----------------------------------                                                                                                                                             
