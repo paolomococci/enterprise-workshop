@@ -4,3 +4,4 @@
 * sample_std
 * e_teams_simple
 * e_teams_containerized
+* e_community
