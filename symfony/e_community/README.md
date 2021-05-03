@@ -205,3 +205,14 @@ $ php bin/console debug:router
   user_crud_delete           POST       ANY      ANY    /user/crud/{id}                    
  -------------------------- ---------- -------- ------ -----------------------------------
 ```
+## finally I start the test server
+```
+$ php bin/console server:run
+
+                                                                                                                        
+ [OK] Server listening on http://127.0.0.1:8000                                                                         
+                                                                                                                        
+
+ // Quit the server with CONTROL-C.
+...
+```
