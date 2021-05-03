@@ -216,4 +216,4 @@ $ php bin/console server:run
  // Quit the server with CONTROL-C.
 ...
 ```
-![admin add user]()
+![admin add user](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/e_community_admin_add_user.png)
