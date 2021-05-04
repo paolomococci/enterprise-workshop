@@ -5,3 +5,4 @@
 * e_teams_simple
 * e_teams_containerized
 * e_community
+* e_tryst
