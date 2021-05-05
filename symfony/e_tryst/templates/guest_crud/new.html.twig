@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Guest{% endblock %}
+
+{% block body %}
+    <h1>Create new Guest</h1>
+
+    {{ include('guest_crud/_form.html.twig') }}
+
+    <a href="{{ path('guest_crud_index') }}">back to list</a>
+{% endblock %}
