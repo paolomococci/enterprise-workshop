@@ -59,4 +59,6 @@ $ php bin/console debug:router
   component_delete           POST       ANY      ANY    /component/{id}                    
   home                       ANY        ANY      ANY    /home                              
  -------------------------- ---------- -------- ------ -----------------------------------
+ $ php bin/console server:run
+ ...
 ```
