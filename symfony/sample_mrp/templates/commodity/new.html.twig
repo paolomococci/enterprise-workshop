@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Commodity{% endblock %}
+
+{% block body %}
+    <h1>Create new Commodity</h1>
+
+    {{ include('commodity/_form.html.twig') }}
+
+    <a href="{{ path('commodity_index') }}">back to list</a>
+{% endblock %}
