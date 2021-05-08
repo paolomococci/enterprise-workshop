@@ -39,6 +39,11 @@ class Commodity
      */
     private $items;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="goods")
+     */
+    private $customer;
+
     public function __construct()
     {
         $this->items = new ArrayCollection();
@@ -111,6 +116,18 @@ class Commodity
                 $item->setCommodity(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCustomer(): ?Customer
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer(?Customer $customer): self
+    {
+        $this->customer = $customer;
 
         return $this;
     }
