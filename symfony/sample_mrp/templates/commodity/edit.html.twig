@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Commodity{% endblock %}
+
+{% block body %}
+    <h1>Edit Commodity</h1>
+
+    {{ include('commodity/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('commodity_index') }}">back to list</a>
+
+    {{ include('commodity/_delete_form.html.twig') }}
+{% endblock %}
