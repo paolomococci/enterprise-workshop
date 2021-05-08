@@ -37,6 +37,11 @@ class Component
      */
     private $commodity;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Supplier::class, inversedBy="elements")
+     */
+    private $supplier;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Component
     public function setCommodity(?Commodity $commodity): self
     {
         $this->commodity = $commodity;
+
+        return $this;
+    }
+
+    public function getSupplier(): ?Supplier
+    {
+        return $this->supplier;
+    }
+
+    public function setSupplier(?Supplier $supplier): self
+    {
+        $this->supplier = $supplier;
 
         return $this;
     }
