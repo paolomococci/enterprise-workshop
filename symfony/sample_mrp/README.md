@@ -1,4 +1,4 @@
-# sample_mrp, Material Requirements Planning demo web application
+# Material Requirements Planning demo web application
 
 ## I make a new Symfony project with website-skeleton
 ```
