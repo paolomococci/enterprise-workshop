@@ -30,7 +30,7 @@ $ php bin/console make:controller
 ```
 ## finally
 ```
-$ php bin/console debug:router
+$ php bin/console debug:router                                                                                                                               
  -------------------------- ---------- -------- ------ ----------------------------------- 
   Name                       Method     Scheme   Host   Path                               
  -------------------------- ---------- -------- ------ ----------------------------------- 
@@ -57,7 +57,17 @@ $ php bin/console debug:router
   component_show             GET        ANY      ANY    /component/{id}                    
   component_edit             GET|POST   ANY      ANY    /component/{id}/edit               
   component_delete           POST       ANY      ANY    /component/{id}                    
-  home                       ANY        ANY      ANY    /home                              
+  customer_index             GET        ANY      ANY    /customer/                         
+  customer_new               GET|POST   ANY      ANY    /customer/new                      
+  customer_show              GET        ANY      ANY    /customer/{id}                     
+  customer_edit              GET|POST   ANY      ANY    /customer/{id}/edit                
+  customer_delete            POST       ANY      ANY    /customer/{id}                     
+  home                       GET|HEAD   ANY      ANY    /                                  
+  supplier_index             GET        ANY      ANY    /supplier/                         
+  supplier_new               GET|POST   ANY      ANY    /supplier/new                      
+  supplier_show              GET        ANY      ANY    /supplier/{id}                     
+  supplier_edit              GET|POST   ANY      ANY    /supplier/{id}/edit                
+  supplier_delete            POST       ANY      ANY    /supplier/{id}                     
  -------------------------- ---------- -------- ------ -----------------------------------
  $ php bin/console server:run
  ...
