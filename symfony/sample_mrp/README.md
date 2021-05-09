@@ -72,3 +72,7 @@ $ php bin/console debug:router
  $ php bin/console server:run
  ...
 ```
+## I add webpack support
+```
+$ composer require symfony/webpack-encore-bundle
+```
