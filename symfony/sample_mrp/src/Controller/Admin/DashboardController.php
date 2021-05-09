@@ -22,25 +22,31 @@ class DashboardController extends AbstractDashboardController
     /**
      * @Route("/admin", name="admin")
      */
-    public function index(): Response
-    {
+    public function index(): Response {
         $routeBuilder = $this->get(CrudUrlGenerator::class)->build();
         $url = $routeBuilder->setController(CommodityCrudController::class)->generateUrl();
         return $this->redirect($url);
     }
-
-    public function configureDashboard(): Dashboard
-    {
+    
+    /**
+     * @Route("/", name="home")
+     */
+    public function home(): Response {
+        return $this->render('home/index.html.twig');
+    }
+    
+    public function configureDashboard(): Dashboard {
         return Dashboard::new()
             ->setTitle('Sample Mrp');
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoDashboard('Admin', 'fa fa-home');
-        yield MenuItem::linkToCrud('commodities', 'fas fa-caret-square-down', Commodity::class);
-        yield MenuItem::linkToCrud('components', 'fas fa-caret-square-up', Component::class);
-        yield MenuItem::linkToCrud('commodities', 'fas fa-address-book', Customer::class);
-        yield MenuItem::linkToCrud('components', 'fas fa-address-book', Supplier::class);
+        yield MenuItem::linkToRoute('Home', 'fas fa-home', 'home');
+        yield MenuItem::linktoDashboard('Admin', 'fas fa-users-cog');
+        yield MenuItem::linkToCrud('Commodities', 'fas fa-gift', Commodity::class);
+        yield MenuItem::linkToCrud('Components', 'fas fa-barcode', Component::class);
+        yield MenuItem::linkToCrud('Customers', 'fas fa-users', Customer::class);
+        yield MenuItem::linkToCrud('Suppliers', 'fas fa-address-book', Supplier::class);
     }
 }
