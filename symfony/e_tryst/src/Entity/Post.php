@@ -36,6 +36,11 @@ class Post
      * @ORM\ManyToOne(targetEntity=Guest::class, inversedBy="posts")
      */
     private $guest;
+    
+    public function __construct() 
+    {
+        $this->at = new \DateTime();
+    }
 
     public function getId(): ?int
     {
