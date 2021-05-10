@@ -37,6 +37,11 @@ class Guest
      */
     private $birthday;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Tryst::class, inversedBy="guests")
+     */
+    private $tryst;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Guest
     public function setBirthday(\DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    public function getTryst(): ?Tryst
+    {
+        return $this->tryst;
+    }
+
+    public function setTryst(?Tryst $tryst): self
+    {
+        $this->tryst = $tryst;
 
         return $this;
     }
