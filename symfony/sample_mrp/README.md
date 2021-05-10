@@ -78,4 +78,5 @@ $ composer require symfony/webpack-encore-bundle
 $ yarn install
 $ yarn add bootstrap --dev
 $ yarn add jquery popper.js --dev
+$ yarn encore dev --watch
 ```
