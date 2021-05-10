@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Tryst{% endblock %}
+
+{% block body %}
+    <h1>Edit Tryst</h1>
+
+    {{ include('tryst_crud/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('tryst_crud_index') }}">back to list</a>
+
+    {{ include('tryst_crud/_delete_form.html.twig') }}
+{% endblock %}
