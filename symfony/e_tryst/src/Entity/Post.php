@@ -32,6 +32,11 @@ class Post
      */
     private $at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Guest::class, inversedBy="posts")
+     */
+    private $guest;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Post
     public function setAt(\DateTimeInterface $at): self
     {
         $this->at = $at;
+
+        return $this;
+    }
+
+    public function getGuest(): ?Guest
+    {
+        return $this->guest;
+    }
+
+    public function setGuest(?Guest $guest): self
+    {
+        $this->guest = $guest;
 
         return $this;
     }
