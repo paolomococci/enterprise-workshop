@@ -36,42 +36,6 @@ $ php bin/console make:controller
  Choose a name for your controller class (e.g. AgreeableChefController):
  > IndexController
 ...
-$ php bin/console debug:router
- -------------------------- ---------- -------- ------ ----------------------------------- 
-  Name                       Method     Scheme   Host   Path                               
- -------------------------- ---------- -------- ------ ----------------------------------- 
-  _preview_error             ANY        ANY      ANY    /_error/{code}.{_format}           
-  _wdt                       ANY        ANY      ANY    /_wdt/{token}                      
-  _profiler_home             ANY        ANY      ANY    /_profiler/                        
-  _profiler_search           ANY        ANY      ANY    /_profiler/search                  
-  _profiler_search_bar       ANY        ANY      ANY    /_profiler/search_bar              
-  _profiler_phpinfo          ANY        ANY      ANY    /_profiler/phpinfo                 
-  _profiler_search_results   ANY        ANY      ANY    /_profiler/{token}/search/results  
-  _profiler_open_file        ANY        ANY      ANY    /_profiler/open                    
-  _profiler                  ANY        ANY      ANY    /_profiler/{token}                 
-  _profiler_router           ANY        ANY      ANY    /_profiler/{token}/router          
-  _profiler_exception        ANY        ANY      ANY    /_profiler/{token}/exception       
-  _profiler_exception_css    ANY        ANY      ANY    /_profiler/{token}/exception.css   
-  admin                      ANY        ANY      ANY    /admin                             
-  guest_crud_index           GET        ANY      ANY    /guest/crud/                       
-  guest_crud_new             GET|POST   ANY      ANY    /guest/crud/new                    
-  guest_crud_show            GET        ANY      ANY    /guest/crud/{id}                   
-  guest_crud_edit            GET|POST   ANY      ANY    /guest/crud/{id}/edit              
-  guest_crud_delete          POST       ANY      ANY    /guest/crud/{id}                   
-  index                      ANY        ANY      ANY    /index                             
- -------------------------- ---------- -------- ------ ----------------------------------- 
-
-$ php bin/console server:run
-
-                                                                                                                        
- [OK] Server listening on http://127.0.0.1:8000                                                                         
-                                                                                                                        
-
- // Quit the server with CONTROL-C.                                                                                     
-...
-```
-## I give the command to summarize the routes after modifying IndexController
-```
 $ php bin/console debug:router                                                                                                                                  
  -------------------------- ---------- -------- ------ -----------------------------------                                                                                                                                             
   Name                       Method     Scheme   Host   Path                                                                                                                                                                           
@@ -94,8 +58,17 @@ $ php bin/console debug:router
   guest_crud_show            GET        ANY      ANY    /guest/crud/{id}                                                                                                                                                               
   guest_crud_edit            GET|POST   ANY      ANY    /guest/crud/{id}/edit                                                                                                                                                          
   guest_crud_delete          POST       ANY      ANY    /guest/crud/{id}                                                                                                                                                               
-  home                       GET|HEAD   ANY      ANY    /                                                                                                                                                                              
- -------------------------- ---------- -------- ------ -----------------------------------
+  index                      GET|HEAD   ANY      ANY    /                                                                                                                                                                              
+ -------------------------- ---------- -------- ------ ----------------------------------- 
+
+$ php bin/console server:run
+
+                                                                                                                        
+ [OK] Server listening on http://127.0.0.1:8000                                                                         
+                                                                                                                        
+
+ // Quit the server with CONTROL-C.                                                                                     
+...
 ```
 ## I add webpack support
 ```
