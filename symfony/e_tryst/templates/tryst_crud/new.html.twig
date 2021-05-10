@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Tryst{% endblock %}
+
+{% block body %}
+    <h1>Create new Tryst</h1>
+
+    {{ include('tryst_crud/_form.html.twig') }}
+
+    <a href="{{ path('tryst_crud_index') }}">back to list</a>
+{% endblock %}
