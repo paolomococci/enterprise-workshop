@@ -84,3 +84,9 @@ $ php bin/console make:entity Guest
 $ php bin/console make:entity Post
 $ php bin/console make:entity Tryst
 ```
+## and then continue with the following commands
+```
+$ php bin/console make:crud Post
+$ php bin/console make:crud Tryst
+
+```
