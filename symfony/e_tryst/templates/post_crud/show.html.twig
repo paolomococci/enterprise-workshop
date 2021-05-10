@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post{% endblock %}
+
+{% block body %}
+    <h1>Post</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ post.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ post.title }}</td>
+            </tr>
+            <tr>
+                <th>Merit</th>
+                <td>{{ post.merit }}</td>
+            </tr>
+            <tr>
+                <th>At</th>
+                <td>{{ post.at ? post.at|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('post_crud_index') }}">back to list</a>
+
+    <a href="{{ path('post_crud_edit', {'id': post.id}) }}">edit</a>
+
+    {{ include('post_crud/_delete_form.html.twig') }}
+{% endblock %}
