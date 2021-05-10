@@ -97,3 +97,11 @@ $ php bin/console debug:router
   home                       GET|HEAD   ANY      ANY    /                                                                                                                                                                              
  -------------------------- ---------- -------- ------ -----------------------------------
 ```
+## I add webpack support
+```
+$ composer require symfony/webpack-encore-bundle
+$ yarn install
+$ yarn add bootstrap --dev
+$ yarn add jquery popper.js --dev
+$ yarn encore dev
+```
