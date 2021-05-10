@@ -16,6 +16,7 @@ class GuestType extends AbstractType
             ->add('surname')
             ->add('email')
             ->add('birthday')
+            ->add('tryst')
         ;
     }
 
