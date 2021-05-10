@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TrystRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class Tryst
      * @ORM\Column(type="time", nullable=true)
      */
     private $hour;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Guest::class, mappedBy="tryst")
+     */
+    private $guests;
+
+    public function __construct()
+    {
+        $this->guests = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,36 @@ class Tryst
     public function setHour(?\DateTimeInterface $hour): self
     {
         $this->hour = $hour;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Guest[]
+     */
+    public function getGuests(): Collection
+    {
+        return $this->guests;
+    }
+
+    public function addGuest(Guest $guest): self
+    {
+        if (!$this->guests->contains($guest)) {
+            $this->guests[] = $guest;
+            $guest->setTryst($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGuest(Guest $guest): self
+    {
+        if ($this->guests->removeElement($guest)) {
+            // set the owning side to null (unless already changed)
+            if ($guest->getTryst() === $this) {
+                $guest->setTryst(null);
+            }
+        }
 
         return $this;
     }
