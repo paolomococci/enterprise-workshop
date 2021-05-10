@@ -78,3 +78,9 @@ $ yarn add bootstrap --dev
 $ yarn add jquery popper.js --dev
 $ yarn encore dev
 ```
+## I update Guest and add two new entities
+```
+$ php bin/console make:entity Guest
+$ php bin/console make:entity Post
+$ php bin/console make:entity Tryst
+```
