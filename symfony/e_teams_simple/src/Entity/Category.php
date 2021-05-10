@@ -31,6 +31,11 @@ class Category
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
+    
+    public function __construct() 
+    {
+        $this->updated = new \DateTime();
+    }
 
     public function getId(): ?int
     {
