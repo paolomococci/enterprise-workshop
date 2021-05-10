@@ -88,5 +88,7 @@ $ php bin/console make:entity Tryst
 ```
 $ php bin/console make:crud Post
 $ php bin/console make:crud Tryst
-
+$ php bin/console make:admin:crud
+$ php bin/console make:admin:crud
 ```
+once for Post and once for Tryst
