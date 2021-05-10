@@ -75,4 +75,7 @@ $ php bin/console debug:router
 ## I add webpack support
 ```
 $ composer require symfony/webpack-encore-bundle
+$ yarn install
+$ yarn add bootstrap --dev
+$ yarn add jquery popper.js --dev
 ```
