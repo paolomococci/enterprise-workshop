@@ -15,6 +15,7 @@ class CommodityType extends AbstractType
             ->add('code')
             ->add('name')
             ->add('batch')
+            ->add('customer')
         ;
     }
 
