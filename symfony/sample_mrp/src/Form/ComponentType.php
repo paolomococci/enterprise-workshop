@@ -16,6 +16,7 @@ class ComponentType extends AbstractType
             ->add('name')
             ->add('quantity')
             ->add('commodity')
+            ->add('supplier')
         ;
     }
 
