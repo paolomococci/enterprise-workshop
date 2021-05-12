@@ -17,8 +17,8 @@ class GuestCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud 
     {
         return $crud
-                ->setEntityLabelInSingular('Tryst Guest')
-                ->setEntityLabelInPlural('Tryst Guests')
+                ->setEntityLabelInSingular('a Guest on Tryst')
+                ->setEntityLabelInPlural('some Guests on Tryst')
                 ->setSearchFields(['name', 'surname','email','birthday'])
                 ->setDefaultSort(['email' => 'DESC']);
     }
