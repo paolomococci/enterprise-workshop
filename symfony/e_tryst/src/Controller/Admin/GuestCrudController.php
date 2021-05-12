@@ -6,8 +6,12 @@ use App\Entity\Guest;
 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
-use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class GuestCrudController extends AbstractCrudController
 {
@@ -29,6 +33,22 @@ class GuestCrudController extends AbstractCrudController
     {
         return $filters->add(EntityFilter::new('email'));
     }
-
-    // TODO
+    
+    public function configureFields(string $pageName): iterable 
+    {
+        yield AssociationField::new('tryst');
+        yield TextField::new('name');
+        yield TextField::new('surname');
+        yield EmailField::new('email');
+        $birthday = DateField::new('birthday')->setFormTypeOptions([
+            'html5' => true,
+            'years' => range(date('Y'), date('Y')),
+            'widget' => 'single_text',
+        ]);
+        if (Crud::PAGE_EDIT === $pageName) {
+            yield $birthday->setFormTypeOption('disabled', true);
+        } else {
+            yield $birthday;
+        }
+    }
 }
