@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Guest;
+
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class GuestCrudController extends AbstractCrudController
@@ -12,14 +13,5 @@ class GuestCrudController extends AbstractCrudController
         return Guest::class;
     }
 
-    /*
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
-    }
-    */
+    // TODO
 }
