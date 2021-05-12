@@ -97,6 +97,6 @@ class Post
     
     public function __toString(): string
     {
-        return (string) $this->id.' '.$this->title;
+        return (string) $this->id.') '.$this->title;
     }
 }
