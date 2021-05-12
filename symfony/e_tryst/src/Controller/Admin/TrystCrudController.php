@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Tryst;
+
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class TrystCrudController extends AbstractCrudController
@@ -12,14 +13,5 @@ class TrystCrudController extends AbstractCrudController
         return Tryst::class;
     }
 
-    /*
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
-    }
-    */
+    // TODO
 }
