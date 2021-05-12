@@ -151,6 +151,6 @@ class Tryst
     
     public function __toString(): string
     {
-        return (string) $this->id.' '.$this->name;
+        return (string) $this->name.' - '.$this->title;
     }
 }
