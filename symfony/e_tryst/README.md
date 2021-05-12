@@ -1,5 +1,5 @@
 # e_tryst
-![e_tryst]()
+![e_tryst](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_e-tryst_guest.png)
 
 ## I make a new Symfony project with website-skeleton
 ```
