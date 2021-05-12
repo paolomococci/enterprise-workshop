@@ -5,6 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\Guest;
 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class GuestCrudController extends AbstractCrudController
@@ -21,6 +23,11 @@ class GuestCrudController extends AbstractCrudController
                 ->setEntityLabelInPlural('some Guests on Tryst')
                 ->setSearchFields(['name', 'surname','email','birthday'])
                 ->setDefaultSort(['email' => 'DESC']);
+    }
+    
+    public function configureFilters(Filters $filters): Filters 
+    {
+        return $filters->add(EntityFilter::new('email'));
     }
 
     // TODO
