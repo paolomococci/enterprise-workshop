@@ -25,7 +25,7 @@ class TrystCrudController extends AbstractCrudController
         return $crud
                 ->setEntityLabelInSingular('a Guest Tryst')
                 ->setEntityLabelInPlural('some Guest Trysts')
-                ->setSearchFields(['name', 'title','topic','day','hour'])
+                ->setSearchFields(['name', 'title','topic'])
                 ->setDefaultSort(['day' => 'DESC']);
     }
     
