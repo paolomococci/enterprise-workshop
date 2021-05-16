@@ -18,11 +18,17 @@ $router->get('/', function () use ($router) {
 $router->get('/api/items', 'ItemController@readAllItems');
 $router->get('/api/item/{id}', 'ItemController@readItem');
 $router->post('/api/item', 'ItemController@createItem');
-$router->get('/api/item/{id}', 'ItemController@updateItem');
-$router->get('/api/item/{id}', 'ItemController@deleteItem');
+$router->put('/api/item/{id}', 'ItemController@updateItem');
+$router->delete('/api/item/{id}', 'ItemController@deleteItem');
 
 $router->get('/api/customers', 'CustomerController@readAllCustomers');
 $router->get('/api/customer/{id}', 'CustomerController@readCustomer');
 $router->post('/api/customer', 'CustomerController@createCustomer');
-$router->get('/api/customer/{id}', 'CustomerController@updateCustomer');
-$router->get('/api/customer/{id}', 'CustomerController@deleteCustomer');
+$router->put('/api/customer/{id}', 'CustomerController@updateCustomer');
+$router->delete('/api/customer/{id}', 'CustomerController@deleteCustomer');
+
+$router->get('/api/suppliers', 'SupplierController@readAllSuppliers');
+$router->get('/api/supplier/{id}', 'SupplierController@readSupplier');
+$router->post('/api/supplier', 'SupplierController@createSupplier');
+$router->put('/api/supplier/{id}', 'SupplierController@updateSupplier');
+$router->delete('/api/supplier/{id}', 'SupplierController@deleteSupplier');
