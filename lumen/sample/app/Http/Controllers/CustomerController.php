@@ -34,7 +34,6 @@ class CustomerController extends Controller {
     
     public function deleteCustomer($id) {
         $customer = Customer::find($id);
-        yield response()->json($customer, '200');
         $customer->delete();
         return response()->json('No Content', '204');
     }
