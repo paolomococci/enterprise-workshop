@@ -1,4 +1,4 @@
-CREATE TABLE lumen_sample_db.item (
+CREATE TABLE lumen_sample_db.items (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
