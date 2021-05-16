@@ -14,3 +14,9 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/api/items', 'ItemController@readAllItems');
+$router->get('/api/item/{id}', 'ItemController@readItem');
+$router->post('/api/item', 'ItemController@createItem');
+$router->get('/api/item/{id}', 'ItemController@updateItem');
+$router->get('/api/item/{id}', 'ItemController@deleteItem');
