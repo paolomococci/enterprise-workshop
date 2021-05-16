@@ -14,4 +14,8 @@ class Supplier extends Model {
     protected $fillable = [
         'code', 'name', 'email',
     ];
+    
+    public function items() {
+        return $this->belongsToMany(Item::class);
+    }
 }
