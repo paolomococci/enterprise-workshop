@@ -23,5 +23,6 @@ Migrated:  2021_05_15_043452_create_customer_table (0.01 seconds)
 ```
 ## after I edited the flies in database/migrations
 ```
-
+$ php artisan migrate:refresh
+$ php -S localhost:8000 -t public
 ```
