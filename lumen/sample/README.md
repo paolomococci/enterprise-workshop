@@ -21,3 +21,7 @@ Migrated:  2021_05_15_043353_create_supplier_table (0.01 seconds)
 Migrating: 2021_05_15_043452_create_customer_table
 Migrated:  2021_05_15_043452_create_customer_table (0.01 seconds)
 ```
+## after I edited the flies in database/migrations
+```
+
+```
