@@ -34,7 +34,6 @@ class ItemController extends Controller {
     
     public function deleteItem($id) {
         $item = Item::find($id);
-        yield response()->json($item, '200');
         $item->delete();
         return response()->json('No Content', '204');
     }
