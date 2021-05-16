@@ -20,3 +20,9 @@ $router->get('/api/item/{id}', 'ItemController@readItem');
 $router->post('/api/item', 'ItemController@createItem');
 $router->get('/api/item/{id}', 'ItemController@updateItem');
 $router->get('/api/item/{id}', 'ItemController@deleteItem');
+
+$router->get('/api/customers', 'CustomerController@readAllCustomers');
+$router->get('/api/customer/{id}', 'CustomerController@readCustomer');
+$router->post('/api/customer', 'CustomerController@createCustomer');
+$router->get('/api/customer/{id}', 'CustomerController@updateCustomer');
+$router->get('/api/customer/{id}', 'CustomerController@deleteCustomer');
