@@ -26,3 +26,10 @@ Migrated:  2021_05_15_043452_create_customer_table (0.01 seconds)
 $ php artisan migrate:refresh
 $ php -S localhost:8000 -t public
 ```
+## now I add the tables to relate the entities
+```
+$ php artisan make:migration create_customers_items_relation_table
+$ php artisan make:migration create_suppliers_items_relation_table
+$ php artisan migrate:refresh
+...
+```
