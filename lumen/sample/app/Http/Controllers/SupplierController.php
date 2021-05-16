@@ -34,7 +34,6 @@ class SupplierController extends Controller {
     
     public function deleteSupplier($id) {
         $supplier = Supplier::find($id);
-        yield response()->json($supplier, '200');
         $supplier->delete();
         return response()->json('No Content', '204');
     }
