@@ -4,25 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Item;
+
 class ItemController extends Controller {
 
-    public function index() {
-        // TODO
+    public function readAllItems() {
+        $items = Item::all();
+        return response()->json($items, '200');
     }
     
-    public function getItem($id) {
-        // TODO
+    public function readItem($id) {
+        $item = Item::find($id);
+        return response()->json($item, '200');
     }
     
     public function createItem(Request $request) {
-        // TODO
+        $item = Item::create($request->all());
+        return response()->json($item, '201');
     }
     
     public function updateItem(Request $request, $id) {
-        // TODO
+        $item = Item::find($id);
+        $item->code = $request->input('code');
+        $item->name = $request->input('name');
+        $item->description = $request->input('description');
+        $item->save();
+        return response()->json($item, '205');
     }
     
     public function deleteItem($id) {
-        // TODO
+        $item = Item::find($id);
+        yield response()->json($item, '200');
+        $item->delete();
+        return response()->json('No Content', '204');
     }
 }
