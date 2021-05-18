@@ -29,7 +29,7 @@ $ php artisan migrate
 ```
 $ php artisan make:controller StudentController --resource
 ```
-## I added user iinterface support
+## I added user interface support
 ```
 $ composer require laravel/ui
 $ php artisan ui bootstrap
