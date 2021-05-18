@@ -4,4 +4,4 @@
 * food-cart
 * course
 * ateneo
-* estore
+* platano
