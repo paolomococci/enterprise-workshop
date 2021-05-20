@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class InvoiceSeeder extends Seeder
 {
@@ -11,6 +12,9 @@ class InvoiceSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('customers')->insert([
+            'status' => 'sample',
+            'amount' => 0.0,
+        ]);
     }
 }
