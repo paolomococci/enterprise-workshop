@@ -21,4 +21,11 @@ $ php artisan ui bootstrap
 $ npm install
 $ npm audit fix --force
 $ npm run dev
+$ php artisan make:seeder CategorySeeder
+$ php artisan make:seeder CustomerSeeder
+$ php artisan make:seeder InvoiceSeeder
+$ php artisan make:seeder ItemSeeder
+$ php artisan make:seeder OrderSeeder
+$ php artisan make:seeder SubcategorySeeder
+$ php artisan make:seeder TransactionSeeder
 ```
