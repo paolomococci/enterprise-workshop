@@ -29,3 +29,5 @@ $ php artisan make:seeder OrderSeeder
 $ php artisan make:seeder SubcategorySeeder
 $ php artisan make:seeder TransactionSeeder
 ```
+
+![platano_db scheme]()
