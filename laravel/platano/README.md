@@ -30,4 +30,4 @@ $ php artisan make:seeder SubcategorySeeder
 $ php artisan make:seeder TransactionSeeder
 ```
 
-![platano_db scheme]()
+![platano_db scheme](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/platano_db.png)
