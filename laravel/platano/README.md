@@ -28,6 +28,13 @@ $ php artisan make:seeder ItemSeeder
 $ php artisan make:seeder OrderSeeder
 $ php artisan make:seeder SubcategorySeeder
 $ php artisan make:seeder TransactionSeeder
+$ php artisan make:factory CategoryFactory --model=Models/Category 
+$ php artisan make:factory CustomerFactory --model=Models/Customer 
+$ php artisan make:factory InvoiceFactory --model=Models/Invoice 
+$ php artisan make:factory ItemFactory --model=Models/Item 
+$ php artisan make:factory OrderFactory --model=Models/Order
+$ php artisan make:factory SubcategoryFactory --model=Models/Subcategory
+$ php artisan make:factory TransactionFactory --model=Models/Transaction
 ```
 
 ![platano_db scheme](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/platano_db.png)
