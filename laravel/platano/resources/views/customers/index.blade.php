@@ -12,7 +12,8 @@
 		<thead>
 			<tr class="table-warning">
 				<td>id</td>
-				<td>todo</td>
+				<td>name</td>
+				<td>email</td>
 				<td class="text-center">action</td>
 			</tr>
 		</thead>
@@ -20,7 +21,8 @@
 			@foreach($customer as $customers)
 			<tr>
 				<td>{{$customers->id}}</td>
-				<td>{{$customers->todo}}</td>
+				<td>{{$customers->name}}</td>
+				<td>{{$customers->email}}</td>
 				<td class="text-center">
 					<nobr>
 						<a href="{{ route('customers.edit', $customers->id)}}" class="btn btn-outline-success btn-sm"">edit</a>
