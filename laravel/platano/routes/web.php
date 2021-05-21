@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route::resource('customers', 'CustomerController');
+//Route::resource('categories', 'CategoryController');
+//Route::resource('subcategories', 'SubcategoryController');
+//Route::resource('items', 'ItemController');
+//Route::resource('orders', 'OrderController');
+//Route::resource('invoices', 'InvoiceController');
+//Route::resource('transactions', 'TransactionController');
