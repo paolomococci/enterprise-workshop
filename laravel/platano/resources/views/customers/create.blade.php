@@ -19,12 +19,20 @@
 		<form method="post" action="{{ route('customers.store') }}">
 			<div class="form-group">
 				@csrf
-				<label for="todo">todo</label>
+				<label for="name">name</label>
 				<input 
 					type="text" 
 					class="form-control" 
-					name="todo" 
-					placeholder="todo"/>
+					name="name" 
+					placeholder="John"/>
+			</div>
+			<div class="form-group">
+				<label for="email">email</label>
+				<input 
+					type="email" 
+					class="form-control" 
+					name="email" 
+					placeholder="john@example.local"/>
 			</div>
 			<button type="submit" class="btn btn-block btn-outline-primary">create customer</button>
 			<button type="button" onclick="window.location='/customers'" class="btn btn-block btn-outline-secondary">cancel</button>
