@@ -20,12 +20,20 @@
 			<div class="form-group">
 				@csrf
 				@method('PATCH')
-				<label for="todo">todo</label>
+				<label for="name">name</label>
 				<input 
 					type="text" 
 					class="form-control" 
-					name="todo" 
-					value="{{ $customer->todo }}"/>
+					name="name" 
+					value="{{ $customer->name }}"/>
+			</div>
+			<div class="form-group">
+				<label for="email">email</label>
+				<input 
+					type="email" 
+					class="form-control" 
+					name="email" 
+					value="{{ $customer->email }}"/>
 			</div>
 			<button type="submit" class="btn btn-block btn-outline-danger">update customer</button>
 			<button type="button" onclick="window.location='/customers'" class="btn btn-block btn-outline-secondary">cancel</button>
