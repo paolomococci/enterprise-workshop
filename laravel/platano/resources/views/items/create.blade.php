@@ -27,7 +27,7 @@
 					placeholder="todo"/>
 			</div>
 			<button type="submit" class="btn btn-block btn-outline-primary">create invoice</button>
-			<button type="button" onclick="window.location='/categories'" class="btn btn-block btn-outline-secondary">cancel</button>
+			<button type="button" onclick="window.location='/items'" class="btn btn-block btn-outline-secondary">cancel</button>
 		</form>
 	</div>
 </div>
