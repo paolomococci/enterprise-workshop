@@ -32,6 +32,7 @@ dependencies {
 	implementation 'org.slf4j:slf4j-api:1.7.30'
 	implementation 'com.helger:ph-commons:9.5.5'
 	implementation 'com.vaadin.external.atmosphere:atmosphere-runtime:2.7.0.slf4jvaadin1'
+	//implementation 'org.vaadin.artur:a-vaadin-helper:1.6.0'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
