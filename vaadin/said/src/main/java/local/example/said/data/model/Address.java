@@ -19,18 +19,56 @@
 package local.example.said.data.model;
 
 import local.example.said.data.AbstractData;
+
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Data
 public class Address
         extends AbstractData {
 
+    @NotNull
+    @Size(min = 5, max = 50, message = "size range of this field is 5 to 50 characters")
+    @Pattern(
+            regexp = "^[a-zA-Z0-9_-]*$",
+            message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
+    )
     private String street;
+    
+    @NotNull
+    @Size(min = 5, max = 6, message = "size range of this field is 5 to 6 characters")
+    @Pattern(
+            regexp = "^[a-zA-Z0-9]*$",
+            message = "only the characters `a-z`, `A-Z` and `0-9` are allowed"
+    )
     private String postalCode;
+
+    @NotNull
+    @Size(min = 3, max = 50, message = "size range of this field is 3 to 50 characters")
+    @Pattern(
+            regexp = "^[a-zA-Z_-]*$",
+            message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
+    )
     private String city;
+
+    @NotNull
+    @Size(min = 3, max = 50, message = "size range of this field is 3 to 50 characters")
+    @Pattern(
+            regexp = "^[a-zA-Z_-]*$",
+            message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
+    )
     private String state;
+
+    @NotNull
+    @Size(min = 3, max = 50, message = "size range of this field is 3 to 50 characters")
+    @Pattern(
+            regexp = "^[a-zA-Z_-]*$",
+            message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
+    )
     private String country;
 }
