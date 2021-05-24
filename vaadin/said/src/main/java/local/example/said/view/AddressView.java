@@ -21,6 +21,7 @@ package local.example.said.view;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.textfield.TextField;
@@ -28,11 +29,16 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import com.vaadin.flow.theme.Theme;
+import com.vaadin.flow.theme.lumo.Lumo;
 import local.example.said.data.model.Address;
 import local.example.said.data.repository.AddressRepository;
+import local.example.said.view.layout.MainLayout;
 
 @PageTitle("Address")
-@Route(value = "address", layout = MainView.class)
+@Theme(variant = Lumo.DARK)
+@CssImport(value = "styles.css")
+@Route(value = "address", layout = MainLayout.class)
 public class AddressView
         extends Div {
 
