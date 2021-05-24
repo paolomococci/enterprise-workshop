@@ -19,10 +19,18 @@
 package local.example.said.data.model;
 
 import local.example.said.data.AbstractData;
+import lombok.Data;
 
 import javax.persistence.Entity;
 
 @Entity
+@Data
 public class Address
         extends AbstractData {
+
+    private String street;
+    private String postalCode;
+    private String city;
+    private String state;
+    private String country;
 }
