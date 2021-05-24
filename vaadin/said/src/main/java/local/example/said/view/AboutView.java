@@ -23,10 +23,10 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
+import local.example.said.view.layout.MainLayout;
 
 @PageTitle("About")
-@Route(value = "about", layout = MainView.class)
-@RouteAlias(value = "", layout = MainView.class)
+@Route(value = "about", layout = MainLayout.class)
 public class AboutView
         extends Div {
 
