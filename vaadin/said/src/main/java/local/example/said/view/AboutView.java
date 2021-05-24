@@ -19,6 +19,7 @@
 package local.example.said.view;
 
 import com.vaadin.flow.component.Text;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -26,6 +27,7 @@ import com.vaadin.flow.router.RouteAlias;
 import local.example.said.view.layout.MainLayout;
 
 @PageTitle("About")
+@CssImport(value = "styles.css")
 @Route(value = "about", layout = MainLayout.class)
 public class AboutView
         extends Div {
