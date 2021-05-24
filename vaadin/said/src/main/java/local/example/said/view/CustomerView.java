@@ -18,5 +18,58 @@
 
 package local.example.said.view;
 
-public class CustomerView {
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.textfield.EmailField;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+
+import local.example.said.data.model.Customer;
+import local.example.said.data.repository.CustomerRepository;
+import local.example.said.view.component.PhoneNumberComponent;
+
+@PageTitle("Customer")
+@Route(value = "customer", layout = MainView.class)
+public class CustomerView
+        extends Div {
+
+    private TextField firstName = new TextField("First name");
+    private TextField lastName = new TextField("Last name");
+    private EmailField email = new EmailField("Email address");
+    private DatePicker dateOfBirth = new DatePicker("Birthday");
+    private PhoneNumberComponent phone = new PhoneNumberComponent("Phone number");
+    private TextField occupation = new TextField("Occupation");
+
+    private Button cancel = new Button("Cancel");
+    private Button save = new Button("Save");
+
+    private Binder<Customer> binder = new Binder(Customer.class);
+
+    public CustomerView(CustomerRepository customerRepository) {
+        this.addClassName("customer-form-view");
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private Component createTitle() {
+        //TODO
+        return null;
+    }
+
+    private Component createFormLayout() {
+        // TODO
+        return null;
+    }
+
+    private Component createButtonLayout() {
+        // TODO
+        return null;
+    }
 }
