@@ -24,9 +24,12 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
+import com.vaadin.flow.theme.Theme;
+import com.vaadin.flow.theme.lumo.Lumo;
 import local.example.said.view.layout.MainLayout;
 
 @PageTitle("About")
+@Theme(variant = Lumo.DARK)
 @CssImport(value = "styles.css")
 @Route(value = "about", layout = MainLayout.class)
 public class AboutView
