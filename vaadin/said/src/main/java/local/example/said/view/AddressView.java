@@ -18,5 +18,54 @@
 
 package local.example.said.view;
 
-public class AddressView {
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+
+import local.example.said.data.model.Address;
+import local.example.said.data.repository.AddressRepository;
+
+@PageTitle("Address")
+@Route(value = "address", layout = MainView.class)
+public class AddressView
+        extends Div {
+
+    private TextField street = new TextField("Street address");
+    private TextField postalCode = new TextField("Postal code");
+    private TextField city = new TextField("City");
+    private ComboBox<String> state = new ComboBox<>("State");
+    private ComboBox<String> country = new ComboBox<>("Country");
+    private Button cancel = new Button("Cancel");
+    private Button save = new Button("Save");
+
+    private Binder<Address> binder = new Binder<>(Address.class);
+
+    public AddressView(AddressRepository addressRepository) {
+        this.addClassName("address-form-view");
+        // TODO
+    }
+
+    private Component createTitle() {
+        return new H1("Address");
+    }
+
+    private Component createFormLayout() {
+        // TODO
+        return null;
+    }
+
+    private Component createButtonLayout() {
+        // TODO
+        return null;
+    }
+
+    private void clearForm() {
+        // TODO
+    }
 }
