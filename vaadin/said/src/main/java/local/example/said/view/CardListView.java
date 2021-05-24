@@ -18,6 +18,7 @@
 
 package local.example.said.view;
 
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -25,10 +26,15 @@ import com.vaadin.flow.router.AfterNavigationEvent;
 import com.vaadin.flow.router.AfterNavigationObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.theme.Theme;
+import com.vaadin.flow.theme.lumo.Lumo;
 import local.example.said.data.model.Customer;
+import local.example.said.view.layout.MainLayout;
 
 @PageTitle("Card List")
-@Route(value = "card-list", layout = MainView.class)
+@Theme(variant = Lumo.DARK)
+@CssImport(value = "styles.css")
+@Route(value = "card-list", layout = MainLayout.class)
 public class CardListView
         extends Div
         implements AfterNavigationObserver {
