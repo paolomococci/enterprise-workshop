@@ -21,6 +21,7 @@ package local.example.said.view;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -28,12 +29,17 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import com.vaadin.flow.theme.Theme;
+import com.vaadin.flow.theme.lumo.Lumo;
 import local.example.said.data.model.Customer;
 import local.example.said.data.repository.CustomerRepository;
 import local.example.said.view.component.PhoneNumberComponent;
+import local.example.said.view.layout.MainLayout;
 
 @PageTitle("Customer")
-@Route(value = "customer", layout = MainView.class)
+@Theme(variant = Lumo.DARK)
+@CssImport(value = "styles.css")
+@Route(value = "customer", layout = MainLayout.class)
 public class CustomerView
         extends Div {
 
