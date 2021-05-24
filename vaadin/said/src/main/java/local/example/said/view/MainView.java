@@ -20,6 +20,7 @@ package local.example.said.view;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.tabs.Tab;
@@ -31,6 +32,7 @@ import com.vaadin.flow.theme.lumo.Lumo;
 import java.util.Optional;
 
 @Theme(variant = Lumo.DARK)
+@CssImport(value = "themes/said/styles.css")
 @PWA(name = "the customer said, feedback from customers", shortName = "said")
 public class MainView
         extends AppLayout {
