@@ -32,6 +32,6 @@ public class AboutView
 
     public AboutView() {
         this.addClassName("about-view");
-        this.add(new Text("Description about this demo web application"));
+        this.add(new Text("brief description of this demonstrative web application"));
     }
 }
