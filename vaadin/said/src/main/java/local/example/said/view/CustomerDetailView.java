@@ -21,6 +21,7 @@ package local.example.said.view;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.textfield.TextField;
@@ -29,12 +30,17 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.theme.Theme;
+import com.vaadin.flow.theme.lumo.Lumo;
 import local.example.said.data.model.Customer;
 import local.example.said.data.repository.CustomerRepository;
+import local.example.said.view.layout.MainLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @PageTitle("Customer-Detail")
-@Route(value = "customer-detail/:customerID?/:action?(edit)", layout = MainView.class)
+@Theme(variant = Lumo.DARK)
+@CssImport(value = "styles.css")
+@Route(value = "customer-detail/:customerID?/:action?(edit)", layout = MainLayout.class)
 public class CustomerDetailView
         extends Div
         implements BeforeEnterObserver {
