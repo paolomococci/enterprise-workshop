@@ -18,70 +18,31 @@
 
 package local.example.said.view;
 
-import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.html.H1;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.tabs.Tab;
-import com.vaadin.flow.component.tabs.Tabs;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteAlias;
 import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.theme.lumo.Lumo;
+import local.example.said.view.layout.MainLayout;
 
-import java.util.Optional;
-
+@PageTitle("Main")
 @Theme(variant = Lumo.DARK)
 @CssImport(value = "styles.css")
+@Route(value = "main", layout = MainLayout.class)
+@RouteAlias(value = "", layout = MainLayout.class)
 public class MainView
-        extends AppLayout {
-
-    private final Tabs tabs;
-    private H1 headTitle;
+        extends Div {
 
     public MainView() {
-        this.setPrimarySection(Section.DRAWER);
-        this.addToNavbar(true, this.createHeaderContent());
-        this.tabs = null;
-    }
-
-    private Component createHeaderContent() {
-        HorizontalLayout layout = new HorizontalLayout();
-        // TODO
-        return layout;
-    }
-
-    private Component createDrawerContent(Tabs tabs) {
-        // TODO
-        return null;
-    }
-
-    private Tabs createMenuTabs() {
-        // TODO
-        return null;
-    }
-
-    private Component[] createMenuItems() {
-        // TODO
-        return null;
-    }
-
-    private static Tab createTab(String text, Class<? extends Component> navigationTarget) {
-        //TODO
-        return null;
-    }
-
-    @Override
-    protected void afterNavigation() {
-        // TODO
-    }
-
-    private Optional<Tab> getTabForComponent(Component component) {
-        // TODO
-        return null;
-    }
-
-    private String getCurrentPageTitle() {
-        // TODO
-        return null;
+        addClassName("main-view");
+        add(
+                new VerticalLayout(
+                        new Label("the content of the main page has yet to be developed")
+                )
+        );
     }
 }
