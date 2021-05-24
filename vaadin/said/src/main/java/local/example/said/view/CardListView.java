@@ -18,5 +18,36 @@
 
 package local.example.said.view;
 
-public class CardListView {
+import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.router.AfterNavigationEvent;
+import com.vaadin.flow.router.AfterNavigationObserver;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+import local.example.said.data.model.Customer;
+
+@PageTitle("Card List")
+@Route(value = "card-list", layout = MainView.class)
+public class CardListView
+        extends Div
+        implements AfterNavigationObserver {
+
+    Grid<Customer> grid = new Grid<>();
+
+    public CardListView() {
+        this.addClassName("card-list-view");
+        setSizeFull();
+        // TODO
+    }
+
+    private HorizontalLayout createCard(Customer customer) {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public void afterNavigation(AfterNavigationEvent event) {
+        // TODO
+    }
 }
