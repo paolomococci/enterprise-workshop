@@ -19,10 +19,21 @@
 package local.example.said.data.model;
 
 import local.example.said.data.AbstractData;
+import lombok.Data;
 
 import javax.persistence.Entity;
+import java.time.LocalDate;
 
 @Entity
+@Data
 public class Customer
         extends AbstractData {
+
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phone;
+    private LocalDate dateOfBirth;
+    private String occupation;
+    private boolean important;
 }
