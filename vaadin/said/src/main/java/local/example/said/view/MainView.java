@@ -18,5 +18,70 @@
 
 package local.example.said.view;
 
-public class MainView {
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.tabs.Tab;
+import com.vaadin.flow.component.tabs.Tabs;
+import com.vaadin.flow.server.PWA;
+import com.vaadin.flow.theme.Theme;
+import com.vaadin.flow.theme.lumo.Lumo;
+
+import java.util.Optional;
+
+@Theme(variant = Lumo.DARK)
+@PWA(name = "the customer said, feedback from customers", shortName = "said")
+public class MainView
+        extends AppLayout {
+
+    private final Tabs tabs;
+    private H1 headTitle;
+
+    public MainView() {
+        this.setPrimarySection(Section.DRAWER);
+        this.addToNavbar(true, this.createHeaderContent());
+        this.tabs = null;
+    }
+
+    private Component createHeaderContent() {
+        HorizontalLayout layout = new HorizontalLayout();
+        // TODO
+        return layout;
+    }
+
+    private Component createDrawerContent(Tabs tabs) {
+        // TODO
+        return null;
+    }
+
+    private Tabs createMenuTabs() {
+        // TODO
+        return null;
+    }
+
+    private Component[] createMenuItems() {
+        // TODO
+        return null;
+    }
+
+    private static Tab createTab(String text, Class<? extends Component> navigationTarget) {
+        //TODO
+        return null;
+    }
+
+    @Override
+    protected void afterNavigation() {
+        // TODO
+    }
+
+    private Optional<Tab> getTabForComponent(Component component) {
+        // TODO
+        return null;
+    }
+
+    private String getCurrentPageTitle() {
+        // TODO
+        return null;
+    }
 }
