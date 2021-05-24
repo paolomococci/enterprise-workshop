@@ -25,15 +25,13 @@ import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
-import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.theme.lumo.Lumo;
 
 import java.util.Optional;
 
 @Theme(variant = Lumo.DARK)
-@CssImport(value = "themes/said/styles.css")
-@PWA(name = "the customer said, feedback from customers", shortName = "said")
+@CssImport(value = "styles.css")
 public class MainView
         extends AppLayout {
 
