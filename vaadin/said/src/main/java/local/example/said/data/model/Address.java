@@ -24,9 +24,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Data
@@ -73,4 +77,7 @@ public class Address
             message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
     )
     private String country;
+
+    @OneToMany(mappedBy = "address", fetch = FetchType.EAGER)
+    private List<Customer> customers = new LinkedList<>();
 }
