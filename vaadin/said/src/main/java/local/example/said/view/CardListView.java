@@ -19,41 +19,25 @@
 package local.example.said.view;
 
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.router.AfterNavigationEvent;
-import com.vaadin.flow.router.AfterNavigationObserver;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.theme.Theme;
-import com.vaadin.flow.theme.lumo.Lumo;
-import local.example.said.data.model.Customer;
 import local.example.said.view.layout.MainLayout;
 
-@PageTitle("Card List")
-@Theme(variant = Lumo.DARK)
-@CssImport(value = "styles.css")
+@PageTitle("card-list")
+@CssImport("style.css")
 @Route(value = "card-list", layout = MainLayout.class)
 public class CardListView
-        extends Div
-        implements AfterNavigationObserver {
-
-    Grid<Customer> grid = new Grid<>();
+        extends Div {
 
     public CardListView() {
-        this.addClassName("card-list-view");
-        setSizeFull();
-        // TODO
-    }
-
-    private HorizontalLayout createCard(Customer customer) {
-        // TODO
-        return null;
-    }
-
-    @Override
-    public void afterNavigation(AfterNavigationEvent event) {
-        // TODO
+        addClassName("main-view");
+        add(
+                new VerticalLayout(
+                        new Label("the content of the about page has yet to be developed")
+                )
+        );
     }
 }
