@@ -71,7 +71,7 @@ public class MainLayout
         verticalLayout.setAlignItems(FlexComponent.Alignment.CENTER);
         HorizontalLayout horizontalLayout = new HorizontalLayout();
         horizontalLayout.setAlignItems(FlexComponent.Alignment.END);
-        horizontalLayout.add(new H1("empty"));
+        horizontalLayout.add(new H1("said"));
         verticalLayout.addClassName("nav-view");
         verticalLayout.add(horizontalLayout, tabs);
         return verticalLayout;
