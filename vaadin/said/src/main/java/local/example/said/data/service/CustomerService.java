@@ -18,8 +18,51 @@
 
 package local.example.said.data.service;
 
+import local.example.said.data.model.Customer;
+import local.example.said.data.repository.AddressRepository;
+import local.example.said.data.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Service
 public class CustomerService {
+
+    private static final Logger LOGGER = Logger
+            .getLogger(CustomerService.class.getName());
+    private CustomerRepository customerRepository;
+    private AddressRepository addressRepository;
+
+    public CustomerService(
+            CustomerRepository customerRepository,
+            AddressRepository addressRepository
+    ) {
+        this.customerRepository = customerRepository;
+        this.addressRepository = addressRepository;
+    }
+
+    public List<Customer> findAll() {
+        return (List<Customer>) customerRepository.findAll();
+    }
+
+    public long count() {
+        return customerRepository.count();
+    }
+
+    public void delete(Customer customer) {
+        customerRepository.delete(customer);
+    }
+
+    public void save(Customer customer) {
+        if (customer == null) {
+            LOGGER.log(
+                    Level.SEVERE,
+                    "Customer cannot be null!"
+            );
+            return;
+        }
+        customerRepository.save(customer);
+    }
 }
