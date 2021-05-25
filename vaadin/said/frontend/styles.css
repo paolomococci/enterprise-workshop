@@ -1,8 +1,0 @@
-@charset "UTF-8";
-
-@import url('./themes/said/views/main-view.css');
-@import url('./themes/said/views/about-view.css');
-@import url('./themes/said/views/person-form-view.css');
-@import url('./themes/said/views/address-form-view.css');
-@import url('./themes/said/views/card-list-view.css');
-@import url('lumo-css-framework/all-classes.css');
