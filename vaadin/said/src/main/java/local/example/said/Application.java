@@ -18,22 +18,22 @@
 
 package local.example.said;
 
-import java.util.TimeZone;
-
-import javax.annotation.PostConstruct;
-
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.server.PWA;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+import javax.annotation.PostConstruct;
+import java.util.TimeZone;
 
 @SpringBootApplication
 @PWA(name = "the customer said, feedback from customers", shortName = "said")
 public class Application
 		extends SpringBootServletInitializer
 		implements AppShellConfigurator {
-	
+
 	@PostConstruct
 	void started() {
 		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
