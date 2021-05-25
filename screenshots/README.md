@@ -5,3 +5,4 @@
 * screenshot_ateneo_add_student.png
 * e_community_admin_add_user.png
 * screenshot_e-tryst_guest.png
+* screenshot_said_main_view.png
