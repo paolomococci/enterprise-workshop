@@ -32,9 +32,8 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLink;
-import local.example.said.view.AboutView;
-import local.example.said.view.HelpView;
-import local.example.said.view.MainView;
+
+import local.example.said.view.*;
 
 import java.util.Optional;
 
@@ -90,7 +89,11 @@ public class MainLayout
         return new Tab[] {
                 createTab("Main", MainView.class),
                 createTab("Help", HelpView.class),
-                createTab("About", AboutView.class)
+                createTab("About", AboutView.class),
+                createTab("Address", AddressView.class),
+                createTab("Customer", CustomerView.class),
+                createTab("Customer Detail", CustomerDetailView.class),
+                createTab("Card List", CardListView.class)
         };
     }
 
