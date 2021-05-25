@@ -32,15 +32,13 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLink;
-import com.vaadin.flow.theme.Theme;
-import com.vaadin.flow.theme.lumo.Lumo;
-
+import local.example.said.view.AboutView;
+import local.example.said.view.HelpView;
 import local.example.said.view.MainView;
 
 import java.util.Optional;
 
-@CssImport("styles.css")
-@Theme(variant = Lumo.DARK)
+@CssImport("style.css")
 public class MainLayout
         extends AppLayout {
 
@@ -90,7 +88,9 @@ public class MainLayout
 
     private Component[] createMenuItems() {
         return new Tab[] {
-                createTab("Main", MainView.class)
+                createTab("Main", MainView.class),
+                createTab("Help", HelpView.class),
+                createTab("About", AboutView.class)
         };
     }
 
