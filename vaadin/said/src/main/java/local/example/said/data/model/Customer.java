@@ -21,6 +21,7 @@ package local.example.said.data.model;
 import local.example.said.data.AbstractData;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
@@ -31,6 +32,7 @@ import java.time.LocalDate;
 
 @Entity
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class Customer
         extends AbstractData {
 
