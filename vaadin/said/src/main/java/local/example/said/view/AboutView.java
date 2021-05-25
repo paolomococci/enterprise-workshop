@@ -18,25 +18,27 @@
 
 package local.example.said.view;
 
-import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouteAlias;
-import com.vaadin.flow.theme.Theme;
-import com.vaadin.flow.theme.lumo.Lumo;
+
 import local.example.said.view.layout.MainLayout;
 
-@PageTitle("About")
-@Theme(variant = Lumo.DARK)
-@CssImport(value = "styles.css")
+@PageTitle("about")
+@CssImport("style.css")
 @Route(value = "about", layout = MainLayout.class)
 public class AboutView
         extends Div {
 
     public AboutView() {
-        this.addClassName("about-view");
-        this.add(new Text("brief description of this demonstrative web application"));
+        addClassName("main-view");
+        add(
+                new VerticalLayout(
+                        new Label("the content of the about page has yet to be developed")
+                )
+        );
     }
 }
