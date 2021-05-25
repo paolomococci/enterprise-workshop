@@ -18,60 +18,26 @@
 
 package local.example.said.view;
 
-import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.H1;
-import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
-import com.vaadin.flow.theme.Theme;
-import com.vaadin.flow.theme.lumo.Lumo;
-import local.example.said.data.model.Address;
-import local.example.said.data.repository.AddressRepository;
 import local.example.said.view.layout.MainLayout;
 
-@PageTitle("Address")
-@Theme(variant = Lumo.DARK)
-@CssImport(value = "styles.css")
+@PageTitle("address")
+@CssImport("style.css")
 @Route(value = "address", layout = MainLayout.class)
 public class AddressView
         extends Div {
 
-    private TextField street = new TextField("Street address");
-    private TextField postalCode = new TextField("Postal code");
-    private TextField city = new TextField("City");
-    private ComboBox<String> state = new ComboBox<>("State");
-    private ComboBox<String> country = new ComboBox<>("Country");
-    private Button cancel = new Button("Cancel");
-    private Button save = new Button("Save");
-
-    private Binder<Address> binder = new Binder<>(Address.class);
-
-    public AddressView(AddressRepository addressRepository) {
-        this.addClassName("address-form-view");
-        // TODO
-    }
-
-    private Component createTitle() {
-        return new H1("Address");
-    }
-
-    private Component createFormLayout() {
-        // TODO
-        return null;
-    }
-
-    private Component createButtonLayout() {
-        // TODO
-        return null;
-    }
-
-    private void clearForm() {
-        // TODO
+    public AddressView() {
+        addClassName("main-view");
+        add(
+                new VerticalLayout(
+                        new Label("the content of the about page has yet to be developed")
+                )
+        );
     }
 }
