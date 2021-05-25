@@ -31,6 +31,6 @@ import java.util.List;
 public interface CustomerRepository
         extends CrudRepository<Customer, Long> {
 
-    @Query("SELECT c FROM customer WHERE LOWER(c.firstName) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR LOWER(c.lastName) LIKE LOWER(CONCAT('%', :searchTerm, '%'))")
-    List<Customer> search(@Param("searchTerm") String searchTerm);
+    /*@Query("SELECT c FROM customer WHERE LOWER(c.firstName) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR LOWER(c.lastName) LIKE LOWER(CONCAT('%', :searchTerm, '%'))")
+    List<Customer> search(@Param("searchTerm") String searchTerm);*/
 }
