@@ -24,6 +24,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -74,4 +76,8 @@ public class Customer
     private String occupation;
 
     private boolean important;
+
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 }
