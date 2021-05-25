@@ -25,13 +25,11 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
-import com.vaadin.flow.theme.Theme;
-import com.vaadin.flow.theme.lumo.Lumo;
+
 import local.example.said.view.layout.MainLayout;
 
-@PageTitle("Main")
-@Theme(variant = Lumo.DARK)
-@CssImport(value = "styles.css")
+@PageTitle("main")
+@CssImport("style.css")
 @Route(value = "main", layout = MainLayout.class)
 @RouteAlias(value = "", layout = MainLayout.class)
 public class MainView
