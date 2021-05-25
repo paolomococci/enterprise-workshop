@@ -37,7 +37,7 @@ public class AboutView
         addClassName("main-view");
         add(
                 new VerticalLayout(
-                        new Label("the content of the about page has yet to be developed")
+                        new Label("brief description of this demonstrative web application")
                 )
         );
     }
