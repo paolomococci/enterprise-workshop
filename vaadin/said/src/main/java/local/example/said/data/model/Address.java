@@ -21,6 +21,7 @@ package local.example.said.data.model;
 import local.example.said.data.AbstractData;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
@@ -29,6 +30,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class Address
         extends AbstractData {
 
@@ -39,7 +41,7 @@ public class Address
             message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
     )
     private String street;
-    
+
     @NotNull
     @Size(min = 5, max = 6, message = "size range of this field is 5 to 6 characters")
     @Pattern(
