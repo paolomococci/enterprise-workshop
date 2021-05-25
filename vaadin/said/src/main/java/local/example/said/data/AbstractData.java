@@ -21,6 +21,7 @@ package local.example.said.data;
 import lombok.Getter;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.sql.Timestamp;
@@ -29,8 +30,8 @@ import java.sql.Timestamp;
 public abstract class AbstractData {
 
     @Id
-    @GeneratedValue
     @Getter
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Getter
