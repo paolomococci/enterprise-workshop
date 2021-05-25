@@ -18,8 +18,22 @@
 
 package local.example.said.data.service;
 
+import local.example.said.data.model.Address;
+import local.example.said.data.repository.AddressRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AddressService {
+
+    private AddressRepository addressRepository;
+
+    public AddressService(AddressRepository addressRepository) {
+        this.addressRepository = addressRepository;
+    }
+
+    public List<Address> findAll() {
+        return (List<Address>) addressRepository.findAll();
+    }
 }
