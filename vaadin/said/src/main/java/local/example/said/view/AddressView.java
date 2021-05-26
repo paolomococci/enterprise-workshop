@@ -31,10 +31,10 @@ public class AddressView
         extends Div {
 
     public AddressView() {
-        addClassName("main-view");
+        addClassName("address-view");
         add(
                 new VerticalLayout(
-                        new Label("the content of the about page has yet to be developed")
+                        new Label("the content of the address page has yet to be developed")
                 )
         );
     }
