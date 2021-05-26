@@ -31,7 +31,7 @@ public class HelpView
         extends Div {
 
     public HelpView() {
-        addClassName("main-view");
+        addClassName("help-view");
         add(
                 new VerticalLayout(
                         new Label("the content of the help page has yet to be developed")
