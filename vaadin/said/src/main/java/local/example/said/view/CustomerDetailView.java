@@ -31,10 +31,10 @@ public class CustomerDetailView
         extends Div {
 
     public CustomerDetailView() {
-        addClassName("main-view");
+        addClassName("customer-view");
         add(
                 new VerticalLayout(
-                        new Label("the content of the about page has yet to be developed")
+                        new Label("the content of the customer detail page has yet to be developed")
                 )
         );
     }
