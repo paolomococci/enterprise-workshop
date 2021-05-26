@@ -2,6 +2,7 @@
 
 @import url('./views/header-view.css');
 @import url('./views/nav-view.css');
+@import url('./views/hello-view.css');
 @import url('./views/about-view.css');
 @import url('./views/address-view.css');
 @import url('./views/card-view.css');
