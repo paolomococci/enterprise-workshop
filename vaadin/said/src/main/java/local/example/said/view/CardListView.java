@@ -31,10 +31,10 @@ public class CardListView
         extends Div {
 
     public CardListView() {
-        addClassName("main-view");
+        addClassName("card-view");
         add(
                 new VerticalLayout(
-                        new Label("the content of the about page has yet to be developed")
+                        new Label("the content of the card list page has yet to be developed")
                 )
         );
     }
