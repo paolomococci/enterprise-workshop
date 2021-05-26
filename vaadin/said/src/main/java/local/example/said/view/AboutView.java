@@ -31,7 +31,7 @@ public class AboutView
         extends Div {
 
     public AboutView() {
-        addClassName("main-view");
+        addClassName("about-view");
         add(
                 new VerticalLayout(
                         new Label("brief description of this demonstrative web application")
