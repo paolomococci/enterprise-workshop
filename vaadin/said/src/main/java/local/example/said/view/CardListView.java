@@ -18,7 +18,6 @@
 
 package local.example.said.view;
 
-import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -27,7 +26,6 @@ import com.vaadin.flow.router.Route;
 import local.example.said.view.layout.MainLayout;
 
 @PageTitle("card-list")
-@CssImport("style.css")
 @Route(value = "card-list", layout = MainLayout.class)
 public class CardListView
         extends Div {
