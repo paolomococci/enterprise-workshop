@@ -37,7 +37,6 @@ import local.example.said.view.*;
 
 import java.util.Optional;
 
-@CssImport("style.css")
 public class MainLayout
         extends AppLayout {
 
