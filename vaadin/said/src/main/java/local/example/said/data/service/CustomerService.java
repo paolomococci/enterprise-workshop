@@ -47,13 +47,13 @@ public class CustomerService {
         return (List<Customer>) customerRepository.findAll();
     }
 
-    /*public List<Customer> search(String searchString) {
+    public List<Customer> search(String searchString) {
         if (searchString == null || searchString.isEmpty()) {
             return (List<Customer>) customerRepository.findAll();
         } else {
             return customerRepository.search(searchString);
         }
-    }*/
+    }
 
     public long count() {
         return customerRepository.count();
