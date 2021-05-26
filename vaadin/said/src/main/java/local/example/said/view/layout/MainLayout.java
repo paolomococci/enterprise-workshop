@@ -85,6 +85,7 @@ public class MainLayout
     private Component[] createMenuItems() {
         return new Tab[] {
                 createTab("Main", MainView.class),
+                createTab("Hello", HelloView.class),
                 createTab("Help", HelpView.class),
                 createTab("About", AboutView.class),
                 createTab("Address", AddressView.class),
