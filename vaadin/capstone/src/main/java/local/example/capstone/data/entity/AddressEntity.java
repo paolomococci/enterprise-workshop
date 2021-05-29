@@ -19,10 +19,12 @@
 package local.example.capstone.data.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import local.example.capstone.data.AbstractNode;
 
 @Entity
+@Table(name = "addresses")
 public class AddressEntity
         extends AbstractNode {
 }
