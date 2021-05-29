@@ -19,12 +19,14 @@
 package local.example.capstone.data.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import local.example.capstone.data.AbstractEmployee;
 
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "contacts")
 public class ContactEntity
         extends AbstractEmployee {
 }
