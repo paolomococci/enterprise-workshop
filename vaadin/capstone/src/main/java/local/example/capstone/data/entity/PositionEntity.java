@@ -20,6 +20,9 @@ package local.example.capstone.data.entity;
 
 import local.example.capstone.data.AbstractNode;
 
-public class PositionEntity 
+import javax.persistence.Entity;
+
+@Entity
+public class PositionEntity
         extends AbstractNode {
 }
