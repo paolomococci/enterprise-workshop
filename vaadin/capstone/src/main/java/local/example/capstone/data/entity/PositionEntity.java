@@ -21,8 +21,10 @@ package local.example.capstone.data.entity;
 import local.example.capstone.data.AbstractNode;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "positions")
 public class PositionEntity
         extends AbstractNode {
 }
