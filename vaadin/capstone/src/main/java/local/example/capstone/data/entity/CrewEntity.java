@@ -21,8 +21,10 @@ package local.example.capstone.data.entity;
 import local.example.capstone.data.AbstractEntity;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
-public class CrewEntity 
+@Table(name = "crews")
+public class CrewEntity
         extends AbstractEntity {
 }
