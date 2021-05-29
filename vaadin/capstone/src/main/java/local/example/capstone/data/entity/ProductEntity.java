@@ -21,8 +21,10 @@ package local.example.capstone.data.entity;
 import local.example.capstone.data.AbstractItem;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "products")
 public class ProductEntity
         extends AbstractItem {
 }
