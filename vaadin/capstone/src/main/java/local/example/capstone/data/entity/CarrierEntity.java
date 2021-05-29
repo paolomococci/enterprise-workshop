@@ -21,8 +21,10 @@ package local.example.capstone.data.entity;
 import local.example.capstone.data.AbstractCompany;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "carriers")
 public class CarrierEntity
         extends AbstractCompany {
 }
