@@ -44,4 +44,12 @@ public class MachineService {
     public Optional<MachineEntity> read(Long id) {
         return machineRepository.findById(id);
     }
+    
+    public void update() {
+        // TODO
+    }
+
+    public void delete() {
+        // TODO
+    }
 }
