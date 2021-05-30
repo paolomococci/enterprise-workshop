@@ -37,6 +37,10 @@ public class InvoiceService {
         return (List<InvoiceEntity>) invoiceRepository.findAll();
     }
 
+    public void create(InvoiceEntity invoiceEntity) {
+        invoiceRepository.save(invoiceEntity);
+    }
+
     public Optional<InvoiceEntity> read(Long id) {
         return invoiceRepository.findById(id);
     }
