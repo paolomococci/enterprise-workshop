@@ -36,7 +36,11 @@ public class CarrierService {
     public List<CarrierEntity> readAll() {
         return (List<CarrierEntity>) carrierRepository.findAll();
     }
-    
+
+    public void create(CarrierEntity carrierEntity) {
+        carrierRepository.save(carrierEntity);
+    }
+
     public Optional<CarrierEntity> read(Long id) {
         return carrierRepository.findById(id);
     }
