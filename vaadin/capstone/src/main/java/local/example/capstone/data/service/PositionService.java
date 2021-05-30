@@ -44,4 +44,12 @@ public class PositionService {
     public Optional<PositionEntity> read(Long id) {
         return positionRepository.findById(id);
     }
+    
+    public void update() {
+        // TODO
+    }
+
+    public void delete() {
+        // TODO
+    }
 }
