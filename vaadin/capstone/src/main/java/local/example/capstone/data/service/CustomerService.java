@@ -37,6 +37,10 @@ public class CustomerService {
         return (List<CustomerEntity>) customerRepository.findAll();
     }
 
+    public void create(CustomerEntity customerEntity) {
+        customerRepository.save(customerEntity);
+    }
+
     public Optional<CustomerEntity> read(Long id) {
         return customerRepository.findById(id);
     }
