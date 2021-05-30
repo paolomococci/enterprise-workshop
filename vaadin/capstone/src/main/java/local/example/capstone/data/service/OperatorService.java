@@ -37,6 +37,10 @@ public class OperatorService {
         return (List<OperatorEntity>) operatorRepository.findAll();
     }
 
+    public void create(OperatorEntity operatorEntity) {
+        operatorRepository.save(operatorEntity);
+    }
+
     public Optional<OperatorEntity> read(Long id) {
         return operatorRepository.findById(id);
     }
