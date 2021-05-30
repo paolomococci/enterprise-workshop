@@ -18,8 +18,21 @@
 
 package local.example.capstone.data.service;
 
+import local.example.capstone.data.entity.MachineEntity;
+import local.example.capstone.data.repository.MachineRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MachineService {
+
+    @Autowired
+    MachineRepository machineRepository;
+
+    public List<MachineEntity> readAll() {
+        return (List<MachineEntity>) machineRepository.findAll();
+    }
 }
