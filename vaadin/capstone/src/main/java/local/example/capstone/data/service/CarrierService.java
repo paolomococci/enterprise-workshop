@@ -44,4 +44,12 @@ public class CarrierService {
     public Optional<CarrierEntity> read(Long id) {
         return carrierRepository.findById(id);
     }
+    
+    public void update() {
+        // TODO
+    }
+
+    public void delete() {
+        // TODO
+    }
 }
