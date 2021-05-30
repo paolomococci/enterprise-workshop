@@ -18,8 +18,21 @@
 
 package local.example.capstone.data.service;
 
+import local.example.capstone.data.entity.ComponentEntity;
+import local.example.capstone.data.repository.ComponentRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ComponentService {
+
+    @Autowired
+    ComponentRepository componentRepository;
+
+    public List<ComponentEntity> readAll() {
+        return (List<ComponentEntity>) componentRepository.findAll();
+    }
 }
