@@ -25,6 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OperatorService {
@@ -34,5 +35,9 @@ public class OperatorService {
 
     public List<OperatorEntity> readAll() {
         return (List<OperatorEntity>) operatorRepository.findAll();
+    }
+
+    public Optional<OperatorEntity> read(Long id) {
+        return operatorRepository.findById(id);
     }
 }
