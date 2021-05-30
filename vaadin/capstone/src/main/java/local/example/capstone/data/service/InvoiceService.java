@@ -44,4 +44,12 @@ public class InvoiceService {
     public Optional<InvoiceEntity> read(Long id) {
         return invoiceRepository.findById(id);
     }
+    
+    public void update() {
+        // TODO
+    }
+
+    public void delete() {
+        // TODO
+    }
 }
