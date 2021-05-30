@@ -37,6 +37,10 @@ public class CrewService {
         return (List<CrewEntity>) crewRepository.findAll();
     }
 
+    public void create(CrewEntity crewEntity) {
+        crewRepository.save(crewEntity);
+    }
+
     public Optional<CrewEntity> read(Long id) {
         return crewRepository.findById(id);
     }
