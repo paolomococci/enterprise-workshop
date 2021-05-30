@@ -44,4 +44,12 @@ public class SupplierService {
     public Optional<SupplierEntity> read(Long id) {
         return supplierRepository.findById(id);
     }
+    
+    public void update() {
+        // TODO
+    }
+
+    public void delete() {
+        // TODO
+    }
 }
