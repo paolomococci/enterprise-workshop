@@ -25,6 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CarrierService {
@@ -34,5 +35,9 @@ public class CarrierService {
 
     public List<CarrierEntity> readAll() {
         return (List<CarrierEntity>) carrierRepository.findAll();
+    }
+    
+    public Optional<CarrierEntity> read(Long id) {
+        return carrierRepository.findById(id);
     }
 }
