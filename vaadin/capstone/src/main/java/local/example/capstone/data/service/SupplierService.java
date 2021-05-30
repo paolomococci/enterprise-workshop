@@ -36,7 +36,11 @@ public class SupplierService {
     public List<SupplierEntity> readAll() {
         return (List<SupplierEntity>) supplierRepository.findAll();
     }
-    
+
+    public void create(SupplierEntity supplierEntity) {
+        supplierRepository.save(supplierEntity);
+    }
+
     public Optional<SupplierEntity> read(Long id) {
         return supplierRepository.findById(id);
     }
