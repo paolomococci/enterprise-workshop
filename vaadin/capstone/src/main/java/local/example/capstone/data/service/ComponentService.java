@@ -44,4 +44,12 @@ public class ComponentService {
     public Optional<ComponentEntity> read(Long id) {
         return componentRepository.findById(id);
     }
+    
+    public void update() {
+        // TODO
+    }
+
+    public void delete() {
+        // TODO
+    }
 }
