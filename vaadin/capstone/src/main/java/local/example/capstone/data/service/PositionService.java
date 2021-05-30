@@ -37,6 +37,10 @@ public class PositionService {
         return (List<PositionEntity>) positionRepository.findAll();
     }
 
+    public void create(PositionEntity positionEntity) {
+        positionRepository.save(positionEntity);
+    }
+
     public Optional<PositionEntity> read(Long id) {
         return positionRepository.findById(id);
     }
