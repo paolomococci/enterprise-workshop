@@ -44,4 +44,12 @@ public class CrewService {
     public Optional<CrewEntity> read(Long id) {
         return crewRepository.findById(id);
     }
+    
+    public void update() {
+        // TODO
+    }
+
+    public void delete() {
+        // TODO
+    }
 }
