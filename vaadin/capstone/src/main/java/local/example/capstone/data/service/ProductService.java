@@ -36,7 +36,11 @@ public class ProductService {
     public List<ProductEntity> readAll() {
         return (List<ProductEntity>) productRepository.findAll();
     }
-    
+
+    public void create(ProductEntity productEntity) {
+        productRepository.save(productEntity);
+    }
+
     public Optional<ProductEntity> read(Long id) {
         return productRepository.findById(id);
     }
