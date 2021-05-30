@@ -25,6 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CrewService {
@@ -34,5 +35,9 @@ public class CrewService {
 
     public List<CrewEntity> readAll() {
         return (List<CrewEntity>) crewRepository.findAll();
+    }
+
+    public Optional<CrewEntity> read(Long id) {
+        return crewRepository.findById(id);
     }
 }
