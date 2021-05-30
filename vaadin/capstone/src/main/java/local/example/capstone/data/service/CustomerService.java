@@ -44,4 +44,12 @@ public class CustomerService {
     public Optional<CustomerEntity> read(Long id) {
         return customerRepository.findById(id);
     }
+    
+    public void update() {
+        // TODO
+    }
+
+    public void delete() {
+        // TODO
+    }
 }
