@@ -37,6 +37,10 @@ public class MachineService {
         return (List<MachineEntity>) machineRepository.findAll();
     }
 
+    public void create(MachineEntity machineEntity) {
+        machineRepository.save(machineEntity);
+    }
+
     public Optional<MachineEntity> read(Long id) {
         return machineRepository.findById(id);
     }
