@@ -37,6 +37,10 @@ public class ComponentService {
         return (List<ComponentEntity>) componentRepository.findAll();
     }
 
+    public void create(ComponentEntity componentEntity) {
+        componentRepository.save(componentEntity);
+    }
+
     public Optional<ComponentEntity> read(Long id) {
         return componentRepository.findById(id);
     }
