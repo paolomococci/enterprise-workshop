@@ -18,8 +18,21 @@
 
 package local.example.capstone.data.service;
 
+import local.example.capstone.data.entity.OperatorEntity;
+import local.example.capstone.data.repository.OperatorRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class OperatorService {
+
+    @Autowired
+    OperatorRepository operatorRepository;
+
+    public List<OperatorEntity> readAll() {
+        return (List<OperatorEntity>) operatorRepository.findAll();
+    }
 }
