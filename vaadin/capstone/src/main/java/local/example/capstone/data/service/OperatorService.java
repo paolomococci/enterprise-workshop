@@ -44,4 +44,12 @@ public class OperatorService {
     public Optional<OperatorEntity> read(Long id) {
         return operatorRepository.findById(id);
     }
+    
+    public void update() {
+        // TODO
+    }
+
+    public void delete() {
+        // TODO
+    }
 }
