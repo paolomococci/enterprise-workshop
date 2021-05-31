@@ -62,4 +62,8 @@ public class OperatorService {
     public void delete(Long id) {
         operatorRepository.deleteById(id);
     }
+
+    public void delete(OperatorEntity operatorEntity) {
+        operatorRepository.deleteById(operatorEntity.getId());
+    }
 }
