@@ -59,7 +59,7 @@ public class CustomerService {
                 }));
     }
 
-    public void delete() {
-        // TODO
+    public void delete(Long id) {
+        customerRepository.deleteById(id);
     }
 }
