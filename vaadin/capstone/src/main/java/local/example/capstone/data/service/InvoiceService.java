@@ -60,4 +60,8 @@ public class InvoiceService {
     public void delete(Long id) {
         invoiceRepository.deleteById(id);
     }
+
+    public void delete(InvoiceEntity invoiceEntity) {
+        invoiceRepository.deleteById(Long.valueOf(invoiceEntity.getId()));
+    }
 }
