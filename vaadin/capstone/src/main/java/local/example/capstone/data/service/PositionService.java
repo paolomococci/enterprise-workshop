@@ -59,7 +59,7 @@ public class PositionService {
                 }));
     }
 
-    public void delete() {
-        // TODO
+    public void delete(Long id) {
+        positionRepository.deleteById(id);
     }
 }
