@@ -57,7 +57,7 @@ public class CrewService {
                 }));
     }
 
-    public void delete() {
-        // TODO
+    public void delete(Long id) {
+        crewRepository.deleteById(id);
     }
 }
