@@ -59,7 +59,7 @@ public class CustomerService {
                 }));
     }
 
-    public void delete(Long id) {
-        customerRepository.deleteById(id);
+    public void delete(CustomerEntity customerEntity) {
+        customerRepository.deleteById(customerEntity.getId());
     }
 }
