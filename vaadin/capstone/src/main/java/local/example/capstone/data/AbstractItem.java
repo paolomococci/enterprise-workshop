@@ -18,6 +18,7 @@
 
 package local.example.capstone.data;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +29,7 @@ import javax.persistence.MappedSuperclass;
 import java.sql.Timestamp;
 
 @MappedSuperclass
+@EqualsAndHashCode
 public abstract class AbstractItem {
 
     @Id
