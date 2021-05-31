@@ -59,7 +59,7 @@ public class OperatorService {
                 }));
     }
 
-    public void delete() {
-        // TODO
+    public void delete(Long id) {
+        operatorRepository.deleteById(id);
     }
 }
