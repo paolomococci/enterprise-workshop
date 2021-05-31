@@ -44,9 +44,19 @@ public class ComponentService {
     public Optional<ComponentEntity> read(Long id) {
         return componentRepository.findById(id);
     }
-    
-    public void update() {
-        // TODO
+
+    public void update(ComponentEntity updatedComponentEntity, Long id) {
+        Optional.of(componentRepository.findById(id).map(
+                storedComponentEntity -> {
+                    if (updatedComponentEntity.getCode() != null)
+                        storedComponentEntity.setCode(updatedComponentEntity.getCode());
+                    // TODO
+                    //storedComponentEntity.setUpdated(LocalDate.now());
+                    return componentRepository.save(storedComponentEntity);
+                }).orElseGet(
+                () -> {
+                    return componentRepository.save(updatedComponentEntity);
+                }));
     }
 
     public void delete() {
