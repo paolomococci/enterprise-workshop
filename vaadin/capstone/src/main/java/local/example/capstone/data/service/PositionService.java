@@ -44,9 +44,19 @@ public class PositionService {
     public Optional<PositionEntity> read(Long id) {
         return positionRepository.findById(id);
     }
-    
-    public void update() {
-        // TODO
+
+    public void update(PositionEntity updatedPositionEntity, Long id) {
+        Optional.of(positionRepository.findById(id).map(
+                storedPositionEntity -> {
+                    if (updatedPositionEntity.getLabel() != null)
+                        storedPositionEntity.setLabel(updatedPositionEntity.getLabel());
+                    // TODO
+                    //storedPositionEntity.setUpdated(LocalDate.now());
+                    return positionRepository.save(storedPositionEntity);
+                }).orElseGet(
+                () -> {
+                    return positionRepository.save(updatedPositionEntity);
+                }));
     }
 
     public void delete() {
