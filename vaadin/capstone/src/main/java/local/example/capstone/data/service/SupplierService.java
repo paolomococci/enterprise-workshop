@@ -59,7 +59,7 @@ public class SupplierService {
                 }));
     }
 
-    public void delete() {
-        // TODO
+    public void delete(Long id) {
+        supplierRepository.deleteById(id);
     }
 }
