@@ -59,7 +59,7 @@ public class MachineService {
                 }));
     }
 
-    public void delete() {
-        // TODO
+    public void delete(Long id) {
+        machineRepository.deleteById(id);
     }
 }
