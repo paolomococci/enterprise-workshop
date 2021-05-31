@@ -44,9 +44,21 @@ public class CarrierService {
     public Optional<CarrierEntity> read(Long id) {
         return carrierRepository.findById(id);
     }
-    
-    public void update() {
-        // TODO
+
+    public void update(CarrierEntity updatedCarrierEntity, Long id) {
+        Optional.of(carrierRepository.findById(id).map(
+                storedCarrierEntity -> {
+                    if (updatedCarrierEntity.getName() != null)
+                        storedCarrierEntity.setName(updatedCarrierEntity.getName());
+                    if (updatedCarrierEntity.getSticker() != null)
+                        storedCarrierEntity.setSticker(updatedCarrierEntity.getSticker());
+                    // TODO
+                    //storedCarrierEntity.setUpdated(LocalDate.now());
+                    return carrierRepository.save(storedCarrierEntity);
+                }).orElseGet(
+                () -> {
+                    return carrierRepository.save(updatedCarrierEntity);
+                }));
     }
 
     public void delete() {
