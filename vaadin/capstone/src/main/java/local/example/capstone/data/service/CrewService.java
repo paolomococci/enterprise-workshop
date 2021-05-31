@@ -44,9 +44,17 @@ public class CrewService {
     public Optional<CrewEntity> read(Long id) {
         return crewRepository.findById(id);
     }
-    
-    public void update() {
-        // TODO
+
+    public void update(CrewEntity updatedCrewEntity, Long id) {
+        Optional.of(crewRepository.findById(id).map(
+                storedCrewEntity -> {
+                    // TODO
+                    //storedCrewEntity.setUpdated(LocalDate.now());
+                    return crewRepository.save(storedCrewEntity);
+                }).orElseGet(
+                () -> {
+                    return crewRepository.save(updatedCrewEntity);
+                }));
     }
 
     public void delete() {
