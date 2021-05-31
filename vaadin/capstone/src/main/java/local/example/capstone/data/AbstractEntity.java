@@ -16,8 +16,9 @@
  *
  */
 
-package local.example.said.data;
+package local.example.capstone.data;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,8 @@ import javax.persistence.MappedSuperclass;
 import java.sql.Timestamp;
 
 @MappedSuperclass
-public abstract class AbstractData {
+@EqualsAndHashCode
+public abstract class AbstractEntity {
 
     @Id
     @Getter
