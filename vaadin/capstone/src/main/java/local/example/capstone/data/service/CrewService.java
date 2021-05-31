@@ -62,6 +62,6 @@ public class CrewService {
     }
 
     public void delete(CrewEntity crewEntity) {
-        crewRepository.deleteById(Long.valueOf(crewEntity.getId()));
+        crewRepository.deleteById(crewEntity.getId());
     }
 }
