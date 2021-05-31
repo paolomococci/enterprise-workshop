@@ -44,9 +44,19 @@ public class CustomerService {
     public Optional<CustomerEntity> read(Long id) {
         return customerRepository.findById(id);
     }
-    
-    public void update() {
-        // TODO
+
+    public void update(CustomerEntity updatedCustomerEntity, Long id) {
+        Optional.of(customerRepository.findById(id).map(
+                storedCustomerEntity -> {
+                    if (updatedCustomerEntity.getName() != null)
+                        storedCustomerEntity.setName(updatedCustomerEntity.getName());
+                    // TODO
+                    //storedCustomerEntity.setUpdated(LocalDate.now());
+                    return customerRepository.save(storedCustomerEntity);
+                }).orElseGet(
+                () -> {
+                    return customerRepository.save(updatedCustomerEntity);
+                }));
     }
 
     public void delete() {
