@@ -44,9 +44,19 @@ public class SupplierService {
     public Optional<SupplierEntity> read(Long id) {
         return supplierRepository.findById(id);
     }
-    
-    public void update() {
-        // TODO
+
+    public void update(SupplierEntity updatedSupplierEntity, Long id) {
+        Optional.of(supplierRepository.findById(id).map(
+                storedSupplierEntity -> {
+                    if (updatedSupplierEntity.getName() != null)
+                        storedSupplierEntity.setName(updatedSupplierEntity.getName());
+                    // TODO
+                    //storedSupplierEntity.setUpdated(LocalDate.now());
+                    return supplierRepository.save(storedSupplierEntity);
+                }).orElseGet(
+                () -> {
+                    return supplierRepository.save(updatedSupplierEntity);
+                }));
     }
 
     public void delete() {
