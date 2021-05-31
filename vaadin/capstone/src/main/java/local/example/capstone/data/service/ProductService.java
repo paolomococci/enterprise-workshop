@@ -44,9 +44,19 @@ public class ProductService {
     public Optional<ProductEntity> read(Long id) {
         return productRepository.findById(id);
     }
-    
-    public void update() {
-        // TODO
+
+    public void update(ProductEntity updatedProductEntity, Long id) {
+        Optional.of(productRepository.findById(id).map(
+                storedProductEntity -> {
+                    if (updatedProductEntity.getCode() != null)
+                        storedProductEntity.setCode(updatedProductEntity.getCode());
+                    // TODO
+                    //storedProductEntity.setUpdated(LocalDate.now());
+                    return productRepository.save(storedProductEntity);
+                }).orElseGet(
+                () -> {
+                    return productRepository.save(updatedProductEntity);
+                }));
     }
 
     public void delete() {
