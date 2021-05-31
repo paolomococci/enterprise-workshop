@@ -59,7 +59,7 @@ public class ProductService {
                 }));
     }
 
-    public void delete() {
-        // TODO
+    public void delete(Long id) {
+        productRepository.deleteById(id);
     }
 }
