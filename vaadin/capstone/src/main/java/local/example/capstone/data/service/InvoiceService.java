@@ -44,9 +44,17 @@ public class InvoiceService {
     public Optional<InvoiceEntity> read(Long id) {
         return invoiceRepository.findById(id);
     }
-    
-    public void update() {
-        // TODO
+
+    public void update(InvoiceEntity updatedInvoiceEntity, Long id) {
+        Optional.of(invoiceRepository.findById(id).map(
+                storedInvoiceEntity -> {
+                    // TODO
+                    //storedInvoiceEntity.setUpdated(LocalDate.now());
+                    return invoiceRepository.save(storedInvoiceEntity);
+                }).orElseGet(
+                () -> {
+                    return invoiceRepository.save(updatedInvoiceEntity);
+                }));
     }
 
     public void delete() {
