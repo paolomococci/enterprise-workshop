@@ -57,7 +57,7 @@ public class InvoiceService {
                 }));
     }
 
-    public void delete() {
-        // TODO
+    public void delete(Long id) {
+        invoiceRepository.deleteById(id);
     }
 }
