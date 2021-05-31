@@ -44,9 +44,19 @@ public class OperatorService {
     public Optional<OperatorEntity> read(Long id) {
         return operatorRepository.findById(id);
     }
-    
-    public void update() {
-        // TODO
+
+    public void update(OperatorEntity updatedOperatorEntity, Long id) {
+        Optional.of(operatorRepository.findById(id).map(
+                storedOperatorEntity -> {
+                    if (updatedOperatorEntity.getName() != null)
+                        storedOperatorEntity.setName(updatedOperatorEntity.getName());
+                    // TODO
+                    //storedOperatorEntity.setUpdated(LocalDate.now());
+                    return operatorRepository.save(storedOperatorEntity);
+                }).orElseGet(
+                () -> {
+                    return operatorRepository.save(updatedOperatorEntity);
+                }));
     }
 
     public void delete() {
