@@ -44,9 +44,19 @@ public class MachineService {
     public Optional<MachineEntity> read(Long id) {
         return machineRepository.findById(id);
     }
-    
-    public void update() {
-        // TODO
+
+    public void update(MachineEntity updatedMachineEntity, Long id) {
+        Optional.of(machineRepository.findById(id).map(
+                storedMachineEntity -> {
+                    if (updatedMachineEntity.getLabel() != null)
+                        storedMachineEntity.setLabel(updatedMachineEntity.getLabel());
+                    // TODO
+                    //storedMachineEntity.setUpdated(LocalDate.now());
+                    return machineRepository.save(storedMachineEntity);
+                }).orElseGet(
+                () -> {
+                    return machineRepository.save(updatedMachineEntity);
+                }));
     }
 
     public void delete() {
