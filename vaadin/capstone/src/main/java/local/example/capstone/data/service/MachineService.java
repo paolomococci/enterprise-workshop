@@ -62,4 +62,8 @@ public class MachineService {
     public void delete(Long id) {
         machineRepository.deleteById(id);
     }
+
+    public void delete(MachineEntity machineEntity) {
+        machineRepository.deleteById(machineEntity.getId());
+    }
 }
