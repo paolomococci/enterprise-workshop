@@ -59,7 +59,7 @@ public class ComponentService {
                 }));
     }
 
-    public void delete() {
-        // TODO
+    public void delete(Long id) {
+        componentRepository.deleteById(id);
     }
 }
