@@ -61,7 +61,7 @@ public class CarrierService {
                 }));
     }
 
-    public void delete() {
-        // TODO
+    public void delete(Long id) {
+        carrierRepository.deleteById(id);
     }
 }
