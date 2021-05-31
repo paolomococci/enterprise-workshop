@@ -62,4 +62,8 @@ public class PositionService {
     public void delete(Long id) {
         positionRepository.deleteById(id);
     }
+
+    public void delete(PositionEntity positionEntity) {
+        positionRepository.deleteById(positionEntity.getId());
+    }
 }
