@@ -62,4 +62,8 @@ public class ComponentService {
     public void delete(Long id) {
         componentRepository.deleteById(id);
     }
+
+    public void delete(ComponentEntity componentEntity) {
+        componentRepository.deleteById(componentEntity.getId());
+    }
 }
