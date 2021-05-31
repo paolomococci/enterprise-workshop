@@ -64,4 +64,8 @@ public class CarrierService {
     public void delete(Long id) {
         carrierRepository.deleteById(id);
     }
+
+    public void delete(CarrierEntity carrierEntity) {
+        carrierRepository.deleteById(carrierEntity.getId());
+    }
 }
