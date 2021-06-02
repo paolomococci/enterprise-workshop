@@ -18,7 +18,18 @@
 
 package local.example.capstone.view;
 
-public class AboutView {
+import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.dependency.JsModule;
+
+@Route(value = "about", layout = MainView.class)
+@PageTitle("About")
+@Tag("about-view")
+@JsModule("./views/about-view.ts")
+public class AboutView
+        extends LitTemplate {
 
     public AboutView() {
     }
