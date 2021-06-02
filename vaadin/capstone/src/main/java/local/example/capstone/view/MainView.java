@@ -65,5 +65,14 @@ public class MainView
 
     @Override
     protected void afterNavigation() {
+        super.afterNavigation();
+        this.getTabForComponent(
+                this.getContent()
+        ).ifPresent(
+                this.menuTabs::setSelectedTab
+        );
+        this.appTitle.setText(
+                this.getCurrentPageTitle()
+        );
     }
 }
