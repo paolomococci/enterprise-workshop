@@ -22,7 +22,11 @@ import java.util.Optional;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -43,6 +47,17 @@ public class MainView
     }
 
     private Component createHeaderContent() {
+        HorizontalLayout layout = new HorizontalLayout();
+        layout.setId("header");
+        layout.getThemeList().set("dark", true);
+        layout.setWidthFull();
+        layout.setSpacing(false);
+        layout.setAlignItems(FlexComponent.Alignment.CENTER);
+        layout.add(new DrawerToggle());
+        appTitle = new H1();
+        layout.add(appTitle);
+        layout.add(new Avatar());
+        return layout;
     }
 
     private Component createDrawerContent(Tabs menu) {
