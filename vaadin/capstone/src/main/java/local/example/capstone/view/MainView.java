@@ -83,6 +83,10 @@ public class MainView
     }
 
     private Component[] createMenuItems() {
+        return new Tab[] {
+                createTab("Hello", HelloView.class),
+                createTab("About", AboutView.class)
+        };
     }
 
     private static Tab createTab() {
