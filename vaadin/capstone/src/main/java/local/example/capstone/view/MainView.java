@@ -21,12 +21,16 @@ package local.example.capstone.view;
 import java.util.Optional;
 
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.applayout.AppLayout;
 
 public class MainView
         extends AppLayout {
+
+    private final Tabs menuTabs;
+    private H1 appTitle;
 
     public MainView() {
     }
