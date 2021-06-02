@@ -34,6 +34,12 @@ public class MainView
     private H1 appTitle;
 
     public MainView() {
+        this.setPrimarySection(Section.DRAWER);
+        this.addToNavbar(true, createHeaderContent());
+        this.menuTabs = createMenu();
+        this.addToDrawer(
+                this.createDrawerContent(menuTabs)
+        );
     }
 
     private Component createHeaderContent() {
