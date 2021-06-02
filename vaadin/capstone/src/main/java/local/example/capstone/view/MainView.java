@@ -47,17 +47,17 @@ public class MainView
     }
 
     private Component createHeaderContent() {
-        HorizontalLayout layout = new HorizontalLayout();
-        layout.setId("header");
-        layout.getThemeList().set("dark", true);
-        layout.setWidthFull();
-        layout.setSpacing(false);
-        layout.setAlignItems(FlexComponent.Alignment.CENTER);
-        layout.add(new DrawerToggle());
-        appTitle = new H1();
-        layout.add(appTitle);
-        layout.add(new Avatar());
-        return layout;
+        HorizontalLayout horizontalLayout = new HorizontalLayout();
+        horizontalLayout.setId("header");
+        horizontalLayout.getThemeList().set("dark", true);
+        horizontalLayout.setWidthFull();
+        horizontalLayout.setSpacing(false);
+        horizontalLayout.setAlignItems(FlexComponent.Alignment.CENTER);
+        horizontalLayout.add(new DrawerToggle());
+        this.appTitle = new H1();
+        horizontalLayout.add(appTitle);
+        horizontalLayout.add(new Avatar());
+        return horizontalLayout;
     }
 
     private Component createDrawerContent(Tabs menu) {
