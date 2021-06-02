@@ -1,3 +1,5 @@
+import '@vaadin/vaadin-button';
+import '@vaadin/vaadin-text-field';
 import { customElement, html, LitElement } from 'lit-element';
 
 @customElement('hello-view')
@@ -6,6 +8,7 @@ export class HelloView extends LitElement {
     return this;
   }
   render() {
-    return html`<div>todo</div>`;
+    return html`<vaadin-text-field id="name" label="type your name"></vaadin-text-field>
+      <vaadin-button id="helloOnClick">hello</vaadin-button>`;
   }
 }
