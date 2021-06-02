@@ -33,7 +33,7 @@ import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.router.RouterLink;
-import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.router.PageTitle;
 
 public class MainView
         extends AppLayout {
@@ -71,7 +71,7 @@ public class MainView
         verticalLayout.setSpacing(false);
         verticalLayout.getThemeList().set("spacing-s", true);
         verticalLayout.setAlignItems(FlexComponent.Alignment.STRETCH);
-        verticalLayout.add(logoLayout, tabs);
+        verticalLayout.add(tabs);
         return verticalLayout;
     }
 
@@ -91,15 +91,15 @@ public class MainView
         };
     }
 
-    private static Tab createTab() {
+    private static Tab createTab(
             String text,
             Class<? extends Component> navigationTarget
     ) {
         final Tab navigationTab = new Tab();
         navigationTab.add(new RouterLink(text, navigationTarget));
         ComponentUtil.setData(
-                navigationTab, 
-                Class.class, 
+                navigationTab,
+                Class.class,
                 navigationTarget
         );
         return navigationTab;
@@ -116,6 +116,8 @@ public class MainView
     }
 
     private String getCurrentPageTitle() {
+        PageTitle title = getContent().getClass().getAnnotation(PageTitle.class);
+        return title == null ? "" : title.value();
     }
 
     @Override
