@@ -22,4 +22,32 @@ import com.vaadin.flow.component.applayout.AppLayout;
 
 public class MainView
         extends AppLayout {
+
+    public MainView() {
+    }
+
+    private Component createHeaderContent() {
+    }
+
+    private Component createDrawerContent(Tabs menu) {
+    }
+
+    private Tabs createMenu() {
+    }
+
+    private Component[] createMenuItems() {
+    }
+
+    private static Tab createTab() {
+    }
+
+    private Optional<Tab> getTabForComponent(Component component) {
+    }
+
+    private String getCurrentPageTitle() {
+    }
+
+    @Override
+    protected void afterNavigation() {
+    }
 }
