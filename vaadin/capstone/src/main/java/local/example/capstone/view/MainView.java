@@ -106,6 +106,13 @@ public class MainView
     }
 
     private Optional<Tab> getTabForComponent(Component component) {
+        return this.menuTabs.getChildren()
+                .filter(
+                    tab -> ComponentUtil.
+                            getData(tab, Class.class)
+                            .equals(component.getClass())
+                ).findFirst()
+                .map(Tab.class::cast);
     }
 
     private String getCurrentPageTitle() {
