@@ -27,8 +27,10 @@ import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
+import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.component.applayout.AppLayout;
 
 public class MainView
@@ -60,10 +62,24 @@ public class MainView
         return horizontalLayout;
     }
 
-    private Component createDrawerContent(Tabs menu) {
+    private Component createDrawerContent(Tabs tabs) {
+        VerticalLayout verticalLayout = new VerticalLayout();
+        verticalLayout.setSizeFull();
+        verticalLayout.setPadding(false);
+        verticalLayout.setSpacing(false);
+        verticalLayout.getThemeList().set("spacing-s", true);
+        verticalLayout.setAlignItems(FlexComponent.Alignment.STRETCH);
+        verticalLayout.add(logoLayout, tabs);
+        return verticalLayout;
     }
 
     private Tabs createMenu() {
+        final Tabs menuTabs = new Tabs();
+        menuTabs.setOrientation(Tabs.Orientation.VERTICAL);
+        menuTabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
+        menuTabs.setId("tabs");
+        menuTabs.add(createMenuItems());
+        return menuTabs;
     }
 
     private Component[] createMenuItems() {
