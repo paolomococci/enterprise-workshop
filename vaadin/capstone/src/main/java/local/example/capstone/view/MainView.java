@@ -36,8 +36,8 @@ import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.router.PageTitle;
 
-import local.example.capstone.view.form.ContactFormView;
-import local.example.capstone.view.form.AddressFormView;
+//import local.example.capstone.view.form.ContactFormView;
+//import local.example.capstone.view.form.AddressFormView;
 
 public class MainView
         extends AppLayout {
