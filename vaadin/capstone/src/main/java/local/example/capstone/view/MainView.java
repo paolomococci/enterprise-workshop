@@ -25,6 +25,7 @@ import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.avatar.Avatar;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -34,6 +35,9 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.router.PageTitle;
+
+import local.example.capstone.view.form.ContactFormView;
+import local.example.capstone.view.form.AddressFormView;
 
 public class MainView
         extends AppLayout {
@@ -71,7 +75,12 @@ public class MainView
         verticalLayout.setSpacing(false);
         verticalLayout.getThemeList().set("spacing-s", true);
         verticalLayout.setAlignItems(FlexComponent.Alignment.STRETCH);
-        verticalLayout.add(tabs);
+        HorizontalLayout logoLayout = new HorizontalLayout();
+        logoLayout.setId("logo");
+        logoLayout.setAlignItems(FlexComponent.Alignment.CENTER);
+        logoLayout.add(new Image("images/logo.png", "capstone logo"));
+        logoLayout.add(new H1("capstone"));
+        verticalLayout.add(logoLayout, tabs);
         return verticalLayout;
     }
 
@@ -87,7 +96,11 @@ public class MainView
     private Component[] createMenuItems() {
         return new Tab[] {
                 createTab("Hello", HelloView.class),
-                createTab("About", AboutView.class)
+                createTab("About", AboutView.class)/*,
+                createTab("Contact Form", ContactFormView.class),
+                createTab("Address Form", AddressFormView.class),
+                createTab("Card List", CardListView.class),
+                createTab("Detail", DetailView.class)*/
         };
     }
 
