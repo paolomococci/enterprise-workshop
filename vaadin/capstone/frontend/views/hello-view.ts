@@ -8,7 +8,7 @@ export class HelloView extends LitElement {
     return this;
   }
   render() {
-    return html`<vaadin-text-field id="name" label="type your name"></vaadin-text-field>
-      <vaadin-button id="helloOnClick">hello</vaadin-button>`;
+    return html`<div class="hello-view"><vaadin-text-field id="name" label="type your name"></vaadin-text-field>
+      <vaadin-button id="helloOnClick">hello</vaadin-button><div>`;
   }
 }
