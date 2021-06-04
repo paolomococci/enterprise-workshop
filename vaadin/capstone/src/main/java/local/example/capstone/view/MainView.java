@@ -78,7 +78,7 @@ public class MainView
         HorizontalLayout logoLayout = new HorizontalLayout();
         logoLayout.setId("logo");
         logoLayout.setAlignItems(FlexComponent.Alignment.CENTER);
-        logoLayout.add(new Image("images/logo.png", "capstone logo"));
+        logoLayout.add(new Image("images/logo.svg", "capstone logo"));
         logoLayout.add(new H1("capstone"));
         verticalLayout.add(logoLayout, tabs);
         return verticalLayout;
