@@ -18,5 +18,52 @@
 
 package local.example.capstone.view.form;
 
-public class CarrierFormView {
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+
+import local.example.capstone.data.entity.CarrierEntity;
+import local.example.capstone.data.service.CarrierService;
+import local.example.capstone.view.MainView;
+
+@Route(value = "carrier-form", layout = MainView.class)
+@PageTitle("Carrier Form")
+@Tag("carrier-form-view")
+@JsModule("./views/forms/carrier-form-view.ts")
+public class CarrierFormView
+        extends LitTemplate {
+
+    @Id("carrierName")
+    private TextField name;
+    @Id("sticker")
+    private TextField sticker;
+
+    @Id("save")
+    private Button save;
+    @Id("cancel")
+    private Button cancel;
+
+    private Binder<CarrierEntity> carrierEntityBinder = new Binder<>(CarrierEntity.class);
+
+    public CarrierFormView(CarrierService carrierService) {
+        this.carrierEntityBinder.bindInstanceFields(this);
+        this.clearForm();
+        this.cancel.addClickListener(event -> this.clearForm());
+        this.save.addClickListener(event -> {
+            carrierService.create(this.carrierEntityBinder.getBean());
+            Notification.show("added an item " + this.carrierEntityBinder.getBean().getClass().getSimpleName());
+            this.clearForm();
+        });
+    }
+
+    private void clearForm() {
+        this.carrierEntityBinder.setBean(new CarrierEntity());
+    }
 }
