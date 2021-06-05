@@ -36,8 +36,8 @@ import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.router.PageTitle;
 
+import local.example.capstone.view.form.AddressFormView;
 //import local.example.capstone.view.form.ContactFormView;
-//import local.example.capstone.view.form.AddressFormView;
 
 public class MainView
         extends AppLayout {
@@ -96,9 +96,9 @@ public class MainView
     private Component[] createMenuItems() {
         return new Tab[] {
                 createTab("Hello", HelloView.class),
+                createTab("Address Form", AddressFormView.class),
                 createTab("About", AboutView.class)/*,
                 createTab("Contact Form", ContactFormView.class),
-                createTab("Address Form", AddressFormView.class),
                 createTab("Card List", CardListView.class),
                 createTab("Detail", DetailView.class)*/
         };
