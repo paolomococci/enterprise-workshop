@@ -21,10 +21,19 @@ package local.example.capstone.data.entity;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import local.example.capstone.data.AbstractNode;
+import local.example.capstone.data.AbstractEntity;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "addresses")
 public class AddressEntity
-        extends AbstractNode {
+        extends AbstractEntity {
+
+    private String street;
+    private String postalCode;
+    private String city;
+    private String state;
+    private String country;
 }
