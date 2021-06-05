@@ -18,7 +18,9 @@
 
 package local.example.capstone.data.service;
 
+import local.example.capstone.data.entity.AddressEntity;
 import local.example.capstone.data.repository.AddressRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +31,9 @@ public class AddressService {
 
     public AddressService(@Autowired AddressRepository addressRepository) {
         this.addressRepository = addressRepository;
+    }
+
+    public void create(AddressEntity addressEntityBinderBean) {
+        this.addressRepository.save(addressEntityBinderBean);
     }
 }
