@@ -5,6 +5,8 @@
 
 * address form view:
 ![capstone address form view](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_capstone_address_form.png)
+carrier form view:
+![capstone carrier form view](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_capstone_carrier_form.png)
 
 * about view:
 ![capstone about view](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_capstone_about.png)
