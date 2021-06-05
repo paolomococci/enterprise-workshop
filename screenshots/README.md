@@ -8,4 +8,5 @@
 * screenshot_said_main_view.png
 * screenshot_capstone_hello.png
 * screenshot_capstone_address_form.png
+* screenshot_capstone_carrier_form.png
 * screenshot_capstone_about.png
