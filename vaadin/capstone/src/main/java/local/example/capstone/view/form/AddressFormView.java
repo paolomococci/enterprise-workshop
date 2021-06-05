@@ -64,7 +64,7 @@ public class AddressFormView
         this.cancel.addClickListener(event -> this.clearForm());
         this.save.addClickListener(event -> {
             addressService.create(this.addressEntityBinder.getBean());
-            Notification.show(this.addressEntityBinder.getBean().getClass().getSimpleName() + " item created");
+            Notification.show("added an item " + this.addressEntityBinder.getBean().getClass().getSimpleName());
             this.clearForm();
         });
     }
