@@ -51,7 +51,6 @@ public class ComponentService {
                     if (updatedComponentEntity.getCode() != null)
                         storedComponentEntity.setCode(updatedComponentEntity.getCode());
                     // TODO
-                    //storedComponentEntity.setUpdated(LocalDate.now());
                     return componentRepository.save(storedComponentEntity);
                 }).orElseGet(
                 () -> {
