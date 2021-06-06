@@ -53,7 +53,6 @@ public class CarrierService {
                     if (updatedCarrierEntity.getSticker() != null)
                         storedCarrierEntity.setSticker(updatedCarrierEntity.getSticker());
                     // TODO
-                    //storedCarrierEntity.setUpdated(LocalDate.now());
                     return carrierRepository.save(storedCarrierEntity);
                 }).orElseGet(
                 () -> {
