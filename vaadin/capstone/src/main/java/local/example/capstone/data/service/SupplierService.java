@@ -51,7 +51,6 @@ public class SupplierService {
                     if (updatedSupplierEntity.getName() != null)
                         storedSupplierEntity.setName(updatedSupplierEntity.getName());
                     // TODO
-                    //storedSupplierEntity.setUpdated(LocalDate.now());
                     return supplierRepository.save(storedSupplierEntity);
                 }).orElseGet(
                 () -> {
