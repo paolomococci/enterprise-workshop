@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+help-view {
+  display: block;
+  margin: 0 auto;
+  max-width: 512px;
+  padding: 0 var(--lumo-space-l);
+}
+
+ul {
+  list-style: none;
+}
