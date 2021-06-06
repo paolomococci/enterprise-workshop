@@ -101,6 +101,7 @@ public class MainView
                 createTab("Address Form", AddressFormView.class),
                 createTab("Carrier Form", CarrierFormView.class),
                 createTab("Component Form", ComponentFormView.class),
+                createTab("Help", HelpView.class),
                 createTab("About", AboutView.class)/*,
                 createTab("Contact Form", ContactFormView.class),
                 createTab("Card List", CardListView.class),
