@@ -18,5 +18,52 @@
 
 package local.example.capstone.view.form;
 
-public class ComponentFormView {
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+
+import local.example.capstone.data.entity.ComponentEntity;
+import local.example.capstone.data.service.ComponentService;
+import local.example.capstone.view.MainView;
+
+@Route(value = "component-form", layout = MainView.class)
+@PageTitle("Component Form")
+@Tag("component-form-view")
+@JsModule("./views/forms/component-form-view.ts")
+public class ComponentFormView
+        extends LitTemplate {
+
+    @Id("componentCode")
+    private TextField code;
+    @Id("amount")
+    private TextField amount;
+
+    @Id("save")
+    private Button save;
+    @Id("cancel")
+    private Button cancel;
+
+    private Binder<ComponentEntity> componentEntityBinder = new Binder<>(ComponentEntity.class);
+
+    public ComponentFormView(ComponentService componentService) {
+        this.componentEntityBinder.bindInstanceFields(this);
+        this.clearForm();
+        this.cancel.addClickListener(event -> this.clearForm());
+        this.save.addClickListener(event -> {
+            componentService.create(this.componentEntityBinder.getBean());
+            Notification.show("added an item " + this.componentEntityBinder.getBean().getClass().getSimpleName());
+            this.clearForm();
+        });
+    }
+
+    private void clearForm() {
+        this.componentEntityBinder.setBean(new ComponentEntity());
+    }
 }
