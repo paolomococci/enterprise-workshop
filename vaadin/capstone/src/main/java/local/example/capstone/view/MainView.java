@@ -38,6 +38,7 @@ import com.vaadin.flow.router.PageTitle;
 
 import local.example.capstone.view.form.AddressFormView;
 import local.example.capstone.view.form.CarrierFormView;
+import local.example.capstone.view.form.ComponentFormView;
 //import local.example.capstone.view.form.ContactFormView;
 
 public class MainView
@@ -99,6 +100,7 @@ public class MainView
                 createTab("Hello", HelloView.class),
                 createTab("Address Form", AddressFormView.class),
                 createTab("Carrier Form", CarrierFormView.class),
+                createTab("Component Form", ComponentFormView.class),
                 createTab("About", AboutView.class)/*,
                 createTab("Contact Form", ContactFormView.class),
                 createTab("Card List", CardListView.class),
