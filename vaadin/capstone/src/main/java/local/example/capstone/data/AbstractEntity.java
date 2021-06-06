@@ -20,6 +20,7 @@ package local.example.capstone.data;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -38,4 +39,9 @@ public abstract class AbstractEntity {
     @UpdateTimestamp
     @Column(nullable = false)
     private Timestamp updated;
+
+    @Getter
+    @CreationTimestamp
+    @Column(nullable = false)
+    private Timestamp created;
 }
