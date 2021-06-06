@@ -24,6 +24,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
@@ -43,7 +44,7 @@ public class ComponentFormView
     @Id("componentCode")
     private TextField code;
     @Id("amount")
-    private TextField amount;
+    private IntegerField amount;
 
     @Id("save")
     private Button save;
