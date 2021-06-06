@@ -21,11 +21,9 @@ package local.example.capstone.data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @MappedSuperclass
@@ -46,5 +44,7 @@ public abstract class AbstractCompany {
     private String sticker;
 
     @Getter
+    @UpdateTimestamp
+    @Column(nullable = false)
     private Timestamp updated;
 }
