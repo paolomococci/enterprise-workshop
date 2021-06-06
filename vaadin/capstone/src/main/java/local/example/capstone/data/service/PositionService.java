@@ -51,7 +51,6 @@ public class PositionService {
                     if (updatedPositionEntity.getLabel() != null)
                         storedPositionEntity.setLabel(updatedPositionEntity.getLabel());
                     // TODO
-                    //storedPositionEntity.setUpdated(LocalDate.now());
                     return positionRepository.save(storedPositionEntity);
                 }).orElseGet(
                 () -> {
