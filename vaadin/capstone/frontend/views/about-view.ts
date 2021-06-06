@@ -6,6 +6,9 @@ export class AboutView extends LitElement {
     return this;
   }
   render() {
-    return html`<div class="about-view">brief description of this demonstrative web application</div>`;
+    return html`<section class="about-view">
+      <h3>about</h3>
+      brief description of this demonstrative web application
+    </section>`;
   }
 }
