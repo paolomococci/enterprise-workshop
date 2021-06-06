@@ -51,7 +51,6 @@ public class CustomerService {
                     if (updatedCustomerEntity.getName() != null)
                         storedCustomerEntity.setName(updatedCustomerEntity.getName());
                     // TODO
-                    //storedCustomerEntity.setUpdated(LocalDate.now());
                     return customerRepository.save(storedCustomerEntity);
                 }).orElseGet(
                 () -> {
