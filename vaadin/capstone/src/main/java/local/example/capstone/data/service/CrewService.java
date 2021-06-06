@@ -49,7 +49,6 @@ public class CrewService {
         Optional.of(crewRepository.findById(id).map(
                 storedCrewEntity -> {
                     // TODO
-                    //storedCrewEntity.setUpdated(LocalDate.now());
                     return crewRepository.save(storedCrewEntity);
                 }).orElseGet(
                 () -> {
