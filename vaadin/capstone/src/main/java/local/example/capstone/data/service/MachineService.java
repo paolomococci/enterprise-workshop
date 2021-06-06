@@ -51,7 +51,6 @@ public class MachineService {
                     if (updatedMachineEntity.getLabel() != null)
                         storedMachineEntity.setLabel(updatedMachineEntity.getLabel());
                     // TODO
-                    //storedMachineEntity.setUpdated(LocalDate.now());
                     return machineRepository.save(storedMachineEntity);
                 }).orElseGet(
                 () -> {
