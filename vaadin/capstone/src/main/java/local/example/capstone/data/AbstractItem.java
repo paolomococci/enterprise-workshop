@@ -41,10 +41,28 @@ public abstract class AbstractItem {
     @Setter
     private String code;
 
-    @Getter
-    @Setter
     private Integer amount;
 
     @Getter
     private Timestamp updated;
+
+    public String getAmount() {
+        if (this.amount == null) {
+            return "0";
+        } else {
+            return String.valueOf(amount);
+        }
+    }
+
+    public void setAmount(String amount) {
+        try {
+            if (amount == null) {
+                this.amount = 0;
+            } else {
+                this.amount = Integer.valueOf(amount);
+            }
+        } catch (NumberFormatException numberFormatException) {
+            this.amount = 0;
+        }
+    }
 }
