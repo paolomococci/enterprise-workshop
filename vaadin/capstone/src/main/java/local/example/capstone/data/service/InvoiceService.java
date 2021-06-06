@@ -49,7 +49,6 @@ public class InvoiceService {
         Optional.of(invoiceRepository.findById(id).map(
                 storedInvoiceEntity -> {
                     // TODO
-                    //storedInvoiceEntity.setUpdated(LocalDate.now());
                     return invoiceRepository.save(storedInvoiceEntity);
                 }).orElseGet(
                 () -> {
