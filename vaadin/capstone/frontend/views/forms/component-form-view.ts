@@ -24,6 +24,7 @@ export class ComponentFormView extends LitElement {
           label="amount"
           id="amount"
           helper-text="max 9999"
+          value="0"
           min="0"
           max="9999"
           has-controls>
