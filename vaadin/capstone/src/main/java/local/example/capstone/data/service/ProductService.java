@@ -51,7 +51,6 @@ public class ProductService {
                     if (updatedProductEntity.getCode() != null)
                         storedProductEntity.setCode(updatedProductEntity.getCode());
                     // TODO
-                    //storedProductEntity.setUpdated(LocalDate.now());
                     return productRepository.save(storedProductEntity);
                 }).orElseGet(
                 () -> {
