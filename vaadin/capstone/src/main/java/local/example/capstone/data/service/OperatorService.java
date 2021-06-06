@@ -51,7 +51,6 @@ public class OperatorService {
                     if (updatedOperatorEntity.getName() != null)
                         storedOperatorEntity.setName(updatedOperatorEntity.getName());
                     // TODO
-                    //storedOperatorEntity.setUpdated(LocalDate.now());
                     return operatorRepository.save(storedOperatorEntity);
                 }).orElseGet(
                 () -> {
