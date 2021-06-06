@@ -2,5 +2,7 @@
 
 about-view {
   display: block;
-  padding: 1em;
+  margin: 0 auto;
+  max-width: 512px;
+  padding: 0 var(--lumo-space-l);
 }
