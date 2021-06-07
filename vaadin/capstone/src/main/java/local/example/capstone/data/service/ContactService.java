@@ -25,9 +25,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ContactService {
 
-    private ContactRepository contactRepository;
-
-    public ContactService(@Autowired ContactRepository contactRepository) {
-        this.contactRepository = contactRepository;
-    }
+    @Autowired
+    ContactRepository contactRepository;
 }
