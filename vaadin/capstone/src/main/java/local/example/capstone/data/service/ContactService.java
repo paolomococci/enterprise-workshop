@@ -47,22 +47,22 @@ public class ContactService {
 
     public void update(ContactEntity updatedContactEntity, Long id) {
         Optional.of(contactRepository.findById(id).map(
-                storedCarrierEntity -> {
+                storedContactEntity -> {
                     if (updatedContactEntity.getFirstName() != null)
-                        storedCarrierEntity.setFirstName(updatedContactEntity.getFirstName());
+                        storedContactEntity.setFirstName(updatedContactEntity.getFirstName());
                     if (updatedContactEntity.getLastName() != null)
-                        storedCarrierEntity.setLastName(updatedContactEntity.getLastName());
+                        storedContactEntity.setLastName(updatedContactEntity.getLastName());
                     if (updatedContactEntity.getEmail() != null)
-                        storedCarrierEntity.setEmail(updatedContactEntity.getEmail());
+                        storedContactEntity.setEmail(updatedContactEntity.getEmail());
                     if (updatedContactEntity.getPhone() != null)
-                        storedCarrierEntity.setPhone(updatedContactEntity.getPhone());
+                        storedContactEntity.setPhone(updatedContactEntity.getPhone());
                     if (updatedContactEntity.getDateOfBirth() != null)
-                        storedCarrierEntity.setDateOfBirth(updatedContactEntity.getDateOfBirth());
+                        storedContactEntity.setDateOfBirth(updatedContactEntity.getDateOfBirth());
                     if (updatedContactEntity.getOccupation() != null)
-                        storedCarrierEntity.setOccupation(updatedContactEntity.getOccupation());
+                        storedContactEntity.setOccupation(updatedContactEntity.getOccupation());
                     if (updatedContactEntity.getImportant() != null)
-                        storedCarrierEntity.setImportant(updatedContactEntity.getImportant());
-                    return contactRepository.save(storedCarrierEntity);
+                        storedContactEntity.setImportant(updatedContactEntity.getImportant());
+                    return contactRepository.save(storedContactEntity);
                 }).orElseGet(
                 () -> {
                     return contactRepository.save(updatedContactEntity);
