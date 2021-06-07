@@ -64,4 +64,8 @@ public class AddressService {
                     return addressRepository.save(updatedAddressEntity);
                 }));
     }
+
+    public void delete(Long id) {
+        addressRepository.deleteById(id);
+    }
 }
