@@ -44,4 +44,24 @@ public class AddressService {
     public Optional<AddressEntity> read(Long id) {
         return addressRepository.findById(id);
     }
+
+    public void update(AddressEntity updatedAddressEntity, Long id) {
+        Optional.of(addressRepository.findById(id).map(
+                storedAddressEntity -> {
+                    if (updatedAddressEntity.getStreet() != null)
+                        storedAddressEntity.setStreet(updatedAddressEntity.getStreet());
+                    if (updatedAddressEntity.getPostalCode() != null)
+                        storedAddressEntity.setPostalCode(updatedAddressEntity.getPostalCode());
+                    if (updatedAddressEntity.getCity() != null)
+                        storedAddressEntity.setCity(updatedAddressEntity.getCity());
+                    if (updatedAddressEntity.getState() != null)
+                        storedAddressEntity.setState(updatedAddressEntity.getState());
+                    if (updatedAddressEntity.getCountry() != null)
+                        storedAddressEntity.setCountry(updatedAddressEntity.getCountry());
+                    return addressRepository.save(storedAddressEntity);
+                }).orElseGet(
+                () -> {
+                    return addressRepository.save(updatedAddressEntity);
+                }));
+    }
 }
