@@ -18,15 +18,24 @@
 
 package local.example.capstone.data.entity;
 
+import local.example.capstone.data.AbstractEmployee;
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
-import local.example.capstone.data.AbstractEmployee;
-
 import java.time.LocalDate;
 
+@Data
 @Entity
 @Table(name = "contacts")
 public class ContactEntity
         extends AbstractEmployee {
+
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phone;
+    private LocalDate dateOfBirth;
+    private String occupation;
+    private Boolean important;
 }
