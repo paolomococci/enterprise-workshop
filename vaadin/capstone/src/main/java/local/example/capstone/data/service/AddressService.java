@@ -27,13 +27,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class AddressService {
 
-    private AddressRepository addressRepository;
-
-    public AddressService(@Autowired AddressRepository addressRepository) {
-        this.addressRepository = addressRepository;
-    }
-
-    public void create(AddressEntity addressEntityBinderBean) {
-        this.addressRepository.save(addressEntityBinderBean);
-    }
+    @Autowired
+    AddressRepository addressRepository;
 }
