@@ -44,4 +44,28 @@ public class ContactService {
     public Optional<ContactEntity> read(Long id) {
         return contactRepository.findById(id);
     }
+
+    public void update(ContactEntity updatedContactEntity, Long id) {
+        Optional.of(contactRepository.findById(id).map(
+                storedCarrierEntity -> {
+                    if (updatedContactEntity.getFirstName() != null)
+                        storedCarrierEntity.setFirstName(updatedContactEntity.getFirstName());
+                    if (updatedContactEntity.getLastName() != null)
+                        storedCarrierEntity.setLastName(updatedContactEntity.getLastName());
+                    if (updatedContactEntity.getEmail() != null)
+                        storedCarrierEntity.setEmail(updatedContactEntity.getEmail());
+                    if (updatedContactEntity.getPhone() != null)
+                        storedCarrierEntity.setPhone(updatedContactEntity.getPhone());
+                    if (updatedContactEntity.getDateOfBirth() != null)
+                        storedCarrierEntity.setDateOfBirth(updatedContactEntity.getDateOfBirth());
+                    if (updatedContactEntity.getOccupation() != null)
+                        storedCarrierEntity.setOccupation(updatedContactEntity.getOccupation());
+                    if (updatedContactEntity.getImportant() != null)
+                        storedCarrierEntity.setImportant(updatedContactEntity.getImportant());
+                    return contactRepository.save(storedCarrierEntity);
+                }).orElseGet(
+                () -> {
+                    return contactRepository.save(updatedContactEntity);
+                }));
+    }
 }
