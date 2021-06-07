@@ -68,4 +68,8 @@ public class ContactService {
                     return contactRepository.save(updatedContactEntity);
                 }));
     }
+
+    public void delete(Long id) {
+        contactRepository.deleteById(id);
+    }
 }
