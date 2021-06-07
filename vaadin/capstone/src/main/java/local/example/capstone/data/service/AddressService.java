@@ -68,4 +68,8 @@ public class AddressService {
     public void delete(Long id) {
         addressRepository.deleteById(id);
     }
+
+    public void delete(AddressEntity addressEntity) {
+        addressRepository.deleteById(addressEntity.getId());
+    }
 }
