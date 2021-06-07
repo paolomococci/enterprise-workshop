@@ -19,6 +19,7 @@
 package local.example.capstone.data.repository;
 
 import local.example.capstone.data.entity.ContactEntity;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
