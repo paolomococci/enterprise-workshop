@@ -33,4 +33,8 @@ public class AddressService {
     public List<AddressEntity> readAll() {
         return (List<AddressEntity>) addressRepository.findAll();
     }
+
+    public void create(AddressEntity addressEntity) {
+        addressRepository.save(addressEntity);
+    }
 }
