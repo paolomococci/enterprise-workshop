@@ -29,4 +29,8 @@ public class AddressService {
 
     @Autowired
     AddressRepository addressRepository;
+
+    public List<AddressEntity> readAll() {
+        return (List<AddressEntity>) addressRepository.findAll();
+    }
 }
