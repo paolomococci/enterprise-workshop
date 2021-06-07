@@ -72,4 +72,8 @@ public class ContactService {
     public void delete(Long id) {
         contactRepository.deleteById(id);
     }
+
+    public void delete(ContactEntity contactEntity) {
+        contactRepository.deleteById(contactEntity.getId());
+    }
 }
