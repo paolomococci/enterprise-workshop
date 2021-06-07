@@ -35,4 +35,8 @@ public class ContactService {
     public List<ContactEntity> readAll() {
         return (List<ContactEntity>) contactRepository.findAll();
     }
+
+    public void create(ContactEntity contactEntity) {
+        contactRepository.save(contactEntity);
+    }
 }
