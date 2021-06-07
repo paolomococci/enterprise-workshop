@@ -18,14 +18,21 @@
 
 package local.example.capstone.data.service;
 
+import local.example.capstone.data.entity.ContactEntity;
 import local.example.capstone.data.repository.ContactRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ContactService {
 
     @Autowired
     ContactRepository contactRepository;
+
+    public List<ContactEntity> readAll() {
+        return (List<ContactEntity>) contactRepository.findAll();
+    }
 }
