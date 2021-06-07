@@ -18,12 +18,12 @@
 
 package local.example.capstone.data.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 import local.example.capstone.data.AbstractEntity;
 
 import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Data
 @Entity
