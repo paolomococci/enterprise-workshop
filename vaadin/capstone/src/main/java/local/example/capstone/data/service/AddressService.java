@@ -24,6 +24,9 @@ import local.example.capstone.data.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class AddressService {
 
@@ -36,5 +39,9 @@ public class AddressService {
 
     public void create(AddressEntity addressEntity) {
         addressRepository.save(addressEntity);
+    }
+
+    public Optional<AddressEntity> read(Long id) {
+        return addressRepository.findById(id);
     }
 }
