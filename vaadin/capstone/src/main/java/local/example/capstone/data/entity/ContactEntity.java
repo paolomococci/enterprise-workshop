@@ -34,11 +34,11 @@ import java.time.LocalDate;
 public class ContactEntity
         extends AbstractEmployee {
 
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phone;
+    private String name;
+    private String surname;
     private LocalDate dateOfBirth;
-    private String occupation;
-    private Boolean important;
+    private String phoneMobileNumber;
+    private String contributoryIdentifier;
+    private String email;
+    private String profession;
 }
