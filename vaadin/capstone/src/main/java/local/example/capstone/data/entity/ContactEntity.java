@@ -25,7 +25,6 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.time.LocalDate;
 
 @Data
 @Entity
@@ -34,9 +33,6 @@ import java.time.LocalDate;
 public class ContactEntity
         extends AbstractEmployee {
 
-    private String name;
-    private String surname;
-    private LocalDate dateOfBirth;
     private String phoneMobileNumber;
     private String contributoryIdentifier;
     private String email;
