@@ -20,7 +20,12 @@ export class ContactFormView extends LitElement {
         <vaadin-text-field label="last name" id="lastName"></vaadin-text-field>
         <vaadin-date-picker id="birthday" label="birthday"></vaadin-date-picker>
         <vaadin-custom-field id="phoneMobileNumber" label="phone mobile number">
-        <div>todo</div>
+          <vaadin-horizontal-layout theme="spacing">
+            <vaadin-combo-box></vaadin-combo-box>
+            <vaadin-text-field></vaadin-text-field>
+          </vaadin-horizontal-layout>
+        <vaadin-email-field id="email" label="email"></vaadin-email-field>
+        <vaadin-text-field id="profession" label="profession"></vaadin-text-field>
       </vaadin-form-layout>
       <vaadin-horizontal-layout
         style="margin-top: var(--lumo-space-m); margin-bottom: var(--lumo-space-l);"
