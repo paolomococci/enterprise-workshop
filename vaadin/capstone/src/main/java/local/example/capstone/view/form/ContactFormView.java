@@ -63,6 +63,9 @@ public class ContactFormView
     @Id("profession")
     private TextField profession;
 
+    @Id("role")
+    private TextField role;
+
     @Id("save")
     private Button save;
     @Id("cancel")
