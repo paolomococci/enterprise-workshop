@@ -6,5 +6,6 @@ CREATE TABLE capstone_db.addresses (
   `postal_code` varchar(255) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL,
   `street` varchar(255) DEFAULT NULL,
+  `created` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
