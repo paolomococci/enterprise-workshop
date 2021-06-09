@@ -21,6 +21,7 @@ package local.example.capstone.data.entity;
 import local.example.capstone.data.AbstractEntity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -28,6 +29,7 @@ import javax.persistence.Table;
 @Data
 @Entity
 @Table(name = "addresses")
+@EqualsAndHashCode(callSuper=false)
 public class AddressEntity
         extends AbstractEntity {
 
