@@ -43,6 +43,7 @@ public class ComponentFormView
 
     @Id("componentCode")
     private TextField code;
+    
     @Id("amount")
     private IntegerField amount;
 
@@ -56,8 +57,8 @@ public class ComponentFormView
     public ComponentFormView(ComponentService componentService) {
         this.componentEntityBinder.bindInstanceFields(this);
         this.clearForm();
-        this.cancel.addClickListener(event -> this.clearForm());
-        this.save.addClickListener(event -> {
+        this.cancel.addClickListener(buttonClickEvent -> this.clearForm());
+        this.save.addClickListener(buttonClickEvent -> {
             componentService.create(this.componentEntityBinder.getBean());
             Notification.show("added an item " + this.componentEntityBinder.getBean().getClass().getSimpleName());
             this.clearForm();
