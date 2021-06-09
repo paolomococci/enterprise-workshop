@@ -42,12 +42,16 @@ public class AddressFormView
 
     @Id("streetAddress")
     private TextField street;
+
     @Id("postalCode")
     private TextField postalCode;
+
     @Id("city")
     private TextField city;
+
     @Id("state")
     private TextField state;
+
     @Id("country")
     private TextField country;
 
@@ -61,8 +65,8 @@ public class AddressFormView
     public AddressFormView(AddressService addressService) {
         this.addressEntityBinder.bindInstanceFields(this);
         this.clearForm();
-        this.cancel.addClickListener(event -> this.clearForm());
-        this.save.addClickListener(event -> {
+        this.cancel.addClickListener(buttonClickEvent -> this.clearForm());
+        this.save.addClickListener(buttonClickEvent -> {
             addressService.create(this.addressEntityBinder.getBean());
             Notification.show("added an item " + this.addressEntityBinder.getBean().getClass().getSimpleName());
             this.clearForm();
