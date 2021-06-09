@@ -14,6 +14,15 @@ export class ContactFormView extends LitElement {
     return this;
   }
   render() {
-    return html`<div>todo</div>`;
+    return html`<h3>contact</h3>
+      <vaadin-form-layout style="width: 100%;">
+      <div>todo</div>
+      </vaadin-form-layout>
+      <vaadin-horizontal-layout
+        style="margin-top: var(--lumo-space-m); margin-bottom: var(--lumo-space-l);"
+        theme="spacing">
+        <vaadin-button theme="primary" id="save">save</vaadin-button>
+        <vaadin-button id="cancel">cancel</vaadin-button>
+      </vaadin-horizontal-layout>`;
   }
 }
