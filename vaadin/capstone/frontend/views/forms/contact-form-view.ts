@@ -16,7 +16,11 @@ export class ContactFormView extends LitElement {
   render() {
     return html`<h3>contact</h3>
       <vaadin-form-layout style="width: 100%;">
-      <div>todo</div>
+        <vaadin-text-field label="first name" id="firstName"></vaadin-text-field>
+        <vaadin-text-field label="last name" id="lastName"></vaadin-text-field>
+        <vaadin-date-picker id="birthday" label="birthday"></vaadin-date-picker>
+        <vaadin-custom-field id="phoneMobileNumber" label="phone mobile number">
+        <div>todo</div>
       </vaadin-form-layout>
       <vaadin-horizontal-layout
         style="margin-top: var(--lumo-space-m); margin-bottom: var(--lumo-space-l);"
