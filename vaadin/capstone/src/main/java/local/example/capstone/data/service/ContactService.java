@@ -60,6 +60,8 @@ public class ContactService {
                         storedContactEntity.setDateOfBirth(updatedContactEntity.getDateOfBirth());
                     if (updatedContactEntity.getProfession() != null)
                         storedContactEntity.setProfession(updatedContactEntity.getProfession());
+                    if (updatedContactEntity.getRole() != null)
+                        storedContactEntity.setRole(updatedContactEntity.getRole());
                     return contactRepository.save(storedContactEntity);
                 }).orElseGet(
                 () -> {
