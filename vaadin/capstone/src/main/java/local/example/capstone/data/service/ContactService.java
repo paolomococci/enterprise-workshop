@@ -48,20 +48,18 @@ public class ContactService {
     public void update(ContactEntity updatedContactEntity, Long id) {
         Optional.of(contactRepository.findById(id).map(
                 storedContactEntity -> {
-                    if (updatedContactEntity.getFirstName() != null)
-                        storedContactEntity.setFirstName(updatedContactEntity.getFirstName());
-                    if (updatedContactEntity.getLastName() != null)
-                        storedContactEntity.setLastName(updatedContactEntity.getLastName());
+                    if (updatedContactEntity.getName() != null)
+                        storedContactEntity.setName(updatedContactEntity.getName());
+                    if (updatedContactEntity.getSurname() != null)
+                        storedContactEntity.setSurname(updatedContactEntity.getSurname());
                     if (updatedContactEntity.getEmail() != null)
                         storedContactEntity.setEmail(updatedContactEntity.getEmail());
-                    if (updatedContactEntity.getPhone() != null)
-                        storedContactEntity.setPhone(updatedContactEntity.getPhone());
+                    if (updatedContactEntity.getPhoneMobileNumber() != null)
+                        storedContactEntity.setPhoneMobileNumber(updatedContactEntity.getPhoneMobileNumber());
                     if (updatedContactEntity.getDateOfBirth() != null)
                         storedContactEntity.setDateOfBirth(updatedContactEntity.getDateOfBirth());
-                    if (updatedContactEntity.getOccupation() != null)
-                        storedContactEntity.setOccupation(updatedContactEntity.getOccupation());
-                    if (updatedContactEntity.getImportant() != null)
-                        storedContactEntity.setImportant(updatedContactEntity.getImportant());
+                    if (updatedContactEntity.getProfession() != null)
+                        storedContactEntity.setProfession(updatedContactEntity.getProfession());
                     return contactRepository.save(storedContactEntity);
                 }).orElseGet(
                 () -> {
