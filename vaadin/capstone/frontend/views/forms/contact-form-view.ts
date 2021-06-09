@@ -25,6 +25,7 @@ export class ContactFormView extends LitElement {
         </vaadin-custom-field>
         <vaadin-email-field id="email" label="email"></vaadin-email-field>
         <vaadin-text-field id="profession" label="profession"></vaadin-text-field>
+        <vaadin-text-field id="role" label="role"></vaadin-text-field>
       </vaadin-form-layout>
       <vaadin-horizontal-layout
         style="margin-top: var(--lumo-space-m); margin-bottom: var(--lumo-space-l);"
