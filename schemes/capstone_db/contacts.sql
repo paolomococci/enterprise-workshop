@@ -8,5 +8,12 @@ CREATE TABLE capstone_db.contacts (
   `last_name` varchar(255) DEFAULT NULL,
   `occupation` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
+  `created` datetime(6) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  `surname` varchar(255) DEFAULT NULL,
+  `contributory_identifier` varchar(255) DEFAULT NULL,
+  `phone_mobile_number` varchar(255) DEFAULT NULL,
+  `profession` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
