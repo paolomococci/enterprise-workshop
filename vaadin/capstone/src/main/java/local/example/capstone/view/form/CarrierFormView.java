@@ -42,6 +42,7 @@ public class CarrierFormView
 
     @Id("carrierName")
     private TextField name;
+
     @Id("sticker")
     private TextField sticker;
 
@@ -55,8 +56,8 @@ public class CarrierFormView
     public CarrierFormView(CarrierService carrierService) {
         this.carrierEntityBinder.bindInstanceFields(this);
         this.clearForm();
-        this.cancel.addClickListener(event -> this.clearForm());
-        this.save.addClickListener(event -> {
+        this.cancel.addClickListener(buttonClickEvent -> this.clearForm());
+        this.save.addClickListener(buttonClickEvent -> {
             carrierService.create(this.carrierEntityBinder.getBean());
             Notification.show("added an item " + this.carrierEntityBinder.getBean().getClass().getSimpleName());
             this.clearForm();
