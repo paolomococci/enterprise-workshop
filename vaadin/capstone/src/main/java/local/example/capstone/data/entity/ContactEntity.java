@@ -19,7 +19,9 @@
 package local.example.capstone.data.entity;
 
 import local.example.capstone.data.AbstractEmployee;
+
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -28,6 +30,7 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "contacts")
+@EqualsAndHashCode(callSuper=false)
 public class ContactEntity
         extends AbstractEmployee {
 
