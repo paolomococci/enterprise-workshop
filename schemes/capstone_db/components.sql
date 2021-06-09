@@ -3,5 +3,6 @@ CREATE TABLE capstone_db.components (
   `amount` int(11) DEFAULT NULL,
   `code` varchar(255) DEFAULT NULL,
   `updated` datetime(6) DEFAULT NULL,
+  `created` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
