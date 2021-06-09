@@ -4,5 +4,6 @@ CREATE TABLE capstone_db.operators (
   `role` varchar(255) DEFAULT NULL,
   `surname` varchar(255) DEFAULT NULL,
   `updated` datetime(6) DEFAULT NULL,
+  `created` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
