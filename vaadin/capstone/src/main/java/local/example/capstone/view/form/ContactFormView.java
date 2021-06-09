@@ -23,6 +23,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -72,9 +73,11 @@ public class ContactFormView
     public ContactFormView(ContactService contactService) {
         this.contactEntityBinder.bindInstanceFields(this);
         this.clearForm();
-        this.cancel.addClickListener(e -> clearForm());
-        this.save.addClickListener(e -> {
-            // TODO
+        this.cancel.addClickListener(buttonClickEvent -> this.clearForm());
+        this.save.addClickListener(buttonClickEvent -> {
+            contactService.create(this.contactEntityBinder.getBean());
+            Notification.show("added an item " + this.contactEntityBinder.getBean().getClass().getSimpleName());
+            this.clearForm();
         });
     }
 
