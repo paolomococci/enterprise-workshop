@@ -18,5 +18,18 @@
 
 package local.example.capstone.view.form;
 
-public class CrewFormView {
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+
+import local.example.capstone.view.MainView;
+
+@Route(value = "crew-form", layout = MainView.class)
+@PageTitle("Crew Form")
+@Tag("crew-form-view")
+@JsModule("./views/forms/crew-form-view.ts")
+public class CrewFormView
+        extends LitTemplate {
 }
