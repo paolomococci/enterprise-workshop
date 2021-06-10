@@ -20,11 +20,19 @@ package local.example.capstone.data.entity;
 
 import local.example.capstone.data.AbstractEntity;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+@Data
 @Entity
 @Table(name = "crews")
+@EqualsAndHashCode(callSuper=false)
 public class CrewEntity
         extends AbstractEntity {
+
+    private String code;
+    private String name;
 }
