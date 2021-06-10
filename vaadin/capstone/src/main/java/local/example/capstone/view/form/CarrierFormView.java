@@ -25,6 +25,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -51,7 +52,7 @@ public class CarrierFormView
     @Id("cancel")
     private Button cancel;
 
-    private Binder<CarrierEntity> carrierEntityBinder = new Binder<>(CarrierEntity.class);
+    private Binder<CarrierEntity> carrierEntityBinder = new BeanValidationBinder<>(CarrierEntity.class);
 
     public CarrierFormView(CarrierService carrierService) {
         this.carrierEntityBinder.bindInstanceFields(this);
