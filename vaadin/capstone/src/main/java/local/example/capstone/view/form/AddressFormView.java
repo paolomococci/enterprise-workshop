@@ -25,6 +25,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -60,7 +61,7 @@ public class AddressFormView
     @Id("cancel")
     private Button cancel;
 
-    private Binder<AddressEntity> addressEntityBinder = new Binder<>(AddressEntity.class);
+    private Binder<AddressEntity> addressEntityBinder = new BeanValidationBinder<>(AddressEntity.class);
 
     public AddressFormView(AddressService addressService) {
         this.addressEntityBinder.bindInstanceFields(this);
