@@ -1,5 +1,4 @@
 import '@vaadin/vaadin-button';
-import '@vaadin/vaadin-custom-field';
 import '@vaadin/vaadin-date-picker';
 import '@vaadin/vaadin-form-layout';
 import '@vaadin/vaadin-ordered-layout/vaadin-horizontal-layout';
@@ -18,11 +17,8 @@ export class ContactFormView extends LitElement {
         <vaadin-text-field label="name" id="name"></vaadin-text-field>
         <vaadin-text-field label="surname" id="surname"></vaadin-text-field>
         <vaadin-date-picker label="birthday" id="dateOfBirth"></vaadin-date-picker>
-        <vaadin-custom-field id="phoneMobileNumber" label="phone mobile number">
-          <vaadin-horizontal-layout theme="spacing">
-            <vaadin-text-field label="contributory identifier" id="contributoryIdentifier"></vaadin-text-field>
-          </vaadin-horizontal-layout>
-        </vaadin-custom-field>
+        <vaadin-text-field id="phoneMobileNumber" label="phone mobile number"></vaadin-text-field>
+        <vaadin-text-field label="contributory identifier" id="contributoryIdentifier"></vaadin-text-field>
         <vaadin-email-field id="email" label="email"></vaadin-email-field>
         <vaadin-text-field id="profession" label="profession"></vaadin-text-field>
         <vaadin-text-field id="role" label="role"></vaadin-text-field>
