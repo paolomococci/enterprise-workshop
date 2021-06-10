@@ -26,6 +26,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -43,7 +44,7 @@ public class ComponentFormView
 
     @Id("componentCode")
     private TextField code;
-    
+
     @Id("amount")
     private IntegerField amount;
 
@@ -52,7 +53,7 @@ public class ComponentFormView
     @Id("cancel")
     private Button cancel;
 
-    private Binder<ComponentEntity> componentEntityBinder = new Binder<>(ComponentEntity.class);
+    private Binder<ComponentEntity> componentEntityBinder = new BeanValidationBinder<>(ComponentEntity.class);
 
     public ComponentFormView(ComponentService componentService) {
         this.componentEntityBinder.bindInstanceFields(this);
