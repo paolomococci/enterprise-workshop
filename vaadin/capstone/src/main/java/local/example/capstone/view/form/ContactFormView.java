@@ -52,7 +52,7 @@ public class ContactFormView
     private DatePicker dateOfBirth;
 
     @Id("phoneMobileNumber")
-    private String phoneMobileNumber;
+    private TextField phoneMobileNumber;
 
     @Id("contributoryIdentifier")
     private TextField contributoryIdentifier;
