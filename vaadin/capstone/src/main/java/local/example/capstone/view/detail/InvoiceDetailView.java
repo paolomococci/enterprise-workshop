@@ -18,5 +18,10 @@
 
 package local.example.capstone.view.detail;
 
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.router.PageTitle;
+
+@PageTitle("Invoice Detail")
+@Tag("invoice-detail-view")
 public class InvoiceDetailView {
 }
