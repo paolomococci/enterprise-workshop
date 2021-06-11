@@ -5,7 +5,7 @@
   "description": "example of vue.js web application",
   "author": "Paolo Mococci",
   "license": "Apache-2.0",
-  "homepage": "",
+  "homepage": "https://github.com/paolomococci/enterprise-workshop/tree/main/vue/capstone",
   "keywords": [
     "crud",
     "restful",
