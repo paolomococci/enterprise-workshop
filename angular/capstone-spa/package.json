@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "example of single page web application",
   "license": "Apache-2.0",
+  "homepage": "",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
