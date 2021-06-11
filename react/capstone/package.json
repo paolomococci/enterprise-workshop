@@ -5,7 +5,7 @@
   "description": "example of react web application",
   "author": "Paolo Mococci",
   "license": "Apache-2.0",
-  "homepage": "",
+  "homepage": "https://github.com/paolomococci/enterprise-workshop/tree/main/react/capstone",
   "keywords": [
     "crud",
     "restful",
