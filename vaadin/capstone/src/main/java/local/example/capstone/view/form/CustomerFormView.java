@@ -20,6 +20,7 @@ package local.example.capstone.view.form;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import local.example.capstone.view.MainView;
@@ -28,5 +29,6 @@ import local.example.capstone.view.MainView;
 @PageTitle("Customer Form")
 @Tag("customer-form-view")
 @JsModule("./views/forms/customer-form-view.ts")
-public class CustomerFormView {
+public class CustomerFormView
+        extends LitTemplate {
 }
