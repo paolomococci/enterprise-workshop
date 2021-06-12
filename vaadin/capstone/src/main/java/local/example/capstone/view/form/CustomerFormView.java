@@ -18,5 +18,15 @@
 
 package local.example.capstone.view.form;
 
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+import local.example.capstone.view.MainView;
+
+@Route(value = "customer-form", layout = MainView.class)
+@PageTitle("Customer Form")
+@Tag("customer-form-view")
+@JsModule("./views/forms/customer-form-view.ts")
 public class CustomerFormView {
 }
