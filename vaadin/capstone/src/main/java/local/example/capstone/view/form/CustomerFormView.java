@@ -29,6 +29,7 @@ import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+
 import local.example.capstone.data.entity.CustomerEntity;
 import local.example.capstone.data.service.CustomerService;
 import local.example.capstone.view.MainView;
