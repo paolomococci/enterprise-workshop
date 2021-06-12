@@ -22,10 +22,15 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import local.example.capstone.data.entity.CustomerEntity;
+import local.example.capstone.data.service.CustomerService;
 import local.example.capstone.view.MainView;
 
 @Route(value = "customer-form", layout = MainView.class)
@@ -45,4 +50,21 @@ public class CustomerFormView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    private Binder<CustomerEntity> customerEntityBinder = new BeanValidationBinder<>(CustomerEntity.class);
+
+    public CustomerFormView(CustomerService customerService) {
+        this.customerEntityBinder.bindInstanceFields(this);
+        this.clearForm();
+        this.cancel.addClickListener(buttonClickEvent -> this.clearForm());
+        this.save.addClickListener(buttonClickEvent -> {
+            customerService.create(this.customerEntityBinder.getBean());
+            Notification.show("added an item " + this.customerEntityBinder.getBean().getClass().getSimpleName());
+            this.clearForm();
+        });
+    }
+
+    private void clearForm() {
+        this.customerEntityBinder.setBean(new CustomerEntity());
+    }
 }
