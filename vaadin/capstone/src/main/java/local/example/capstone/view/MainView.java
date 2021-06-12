@@ -101,6 +101,7 @@ public class MainView
                 createTab("Contact Form", ContactFormView.class),
                 createTab("Crew Form", CrewFormView.class),
                 createTab("Customer Form", CustomerFormView.class),
+                createTab("Invoice Form", InvoiceFormView.class),
                 createTab("Help", HelpView.class),
                 createTab("About", AboutView.class)/*,
                 createTab("Card List", CardListView.class),
