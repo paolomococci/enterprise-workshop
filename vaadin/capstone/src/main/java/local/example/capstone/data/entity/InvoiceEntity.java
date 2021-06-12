@@ -20,11 +20,19 @@ package local.example.capstone.data.entity;
 
 import local.example.capstone.data.AbstractEntity;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+@Data
 @Entity
 @Table(name = "invoices")
+@EqualsAndHashCode(callSuper=false)
 public class InvoiceEntity
         extends AbstractEntity {
+
+    private String code;
+    private Double total;
 }
