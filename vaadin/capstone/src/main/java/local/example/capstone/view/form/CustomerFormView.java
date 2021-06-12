@@ -35,7 +35,7 @@ import local.example.capstone.view.MainView;
 public class CustomerFormView
         extends LitTemplate {
 
-    @Id("carrierName")
+    @Id("customerName")
     private TextField name;
 
     @Id("sticker")
