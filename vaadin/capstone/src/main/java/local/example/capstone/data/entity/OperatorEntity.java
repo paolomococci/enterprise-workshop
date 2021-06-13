@@ -20,11 +20,20 @@ package local.example.capstone.data.entity;
 
 import local.example.capstone.data.AbstractEmployee;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+@Data
 @Entity
 @Table(name = "operators")
-public class OperatorEntity 
+@EqualsAndHashCode(callSuper=false)
+public class OperatorEntity
         extends AbstractEmployee {
+
+    private String phoneNumber;
+    private String contributoryIdentifier;
+    private String email;
 }
