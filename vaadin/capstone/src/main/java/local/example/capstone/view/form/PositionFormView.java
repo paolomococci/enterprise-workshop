@@ -59,6 +59,6 @@ public class PositionFormView
     }
 
     private void clearForm() {
-
+        this.positionEntityBinder.setBean(new PositionEntity());
     }
 }
