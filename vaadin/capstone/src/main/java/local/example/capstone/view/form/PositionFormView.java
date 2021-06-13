@@ -25,6 +25,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -51,10 +52,10 @@ public class PositionFormView
     @Id("cancel")
     private Button cancel;
 
-    private Binder<PositionEntity> positionEntityBinder;
+    private Binder<PositionEntity> positionEntityBinder = new BeanValidationBinder<>(PositionEntity.class);
 
     public PositionFormView(PositionService positionService) {
-
+        this.positionEntityBinder.bindInstanceFields(this);
     }
 
     private void clearForm() {
