@@ -22,6 +22,7 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -56,6 +57,13 @@ public class PositionFormView
 
     public PositionFormView(PositionService positionService) {
         this.positionEntityBinder.bindInstanceFields(this);
+        this.clearForm();
+        this.cancel.addClickListener(buttonClickEvent -> this.clearForm());
+        this.save.addClickListener(buttonClickEvent -> {
+            positionService.create(this.positionEntityBinder.getBean());
+            Notification.show("added an item " + this.positionEntityBinder.getBean().getClass().getSimpleName());
+            this.clearForm();
+        });
     }
 
     private void clearForm() {
