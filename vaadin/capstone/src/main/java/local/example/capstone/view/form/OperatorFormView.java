@@ -23,11 +23,17 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+
+import local.example.capstone.data.entity.OperatorEntity;
+import local.example.capstone.data.service.OperatorService;
 import local.example.capstone.view.MainView;
 
 @Route(value = "operator-form", layout = MainView.class)
@@ -62,4 +68,21 @@ public class OperatorFormView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    private Binder<OperatorEntity> operatorEntityBinder = new BeanValidationBinder<>(OperatorEntity.class);
+
+    public OperatorFormView(OperatorService operatorService) {
+        this.operatorEntityBinder.bindInstanceFields(this);
+        this.clearForm();
+        this.cancel.addClickListener(buttonClickEvent -> this.clearForm());
+        this.save.addClickListener(buttonClickEvent -> {
+            operatorService.create(this.operatorEntityBinder.getBean());
+            Notification.show("added an item " + this.operatorEntityBinder.getBean().getClass().getSimpleName());
+            this.clearForm();
+        });
+    }
+
+    private void clearForm() {
+        operatorEntityBinder.setBean(new OperatorEntity());
+    }
 }
