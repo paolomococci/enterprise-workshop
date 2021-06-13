@@ -12,6 +12,21 @@ export class OperatorFormView extends LitElement {
     return this;
   }
   render() {
-    return html`<div>todo</div>`;
+    return html`<h3>operator</h3>
+      <vaadin-form-layout style="width: 100%;">
+        <vaadin-text-field label="name" id="name"></vaadin-text-field>
+        <vaadin-text-field label="surname" id="surname"></vaadin-text-field>
+        <vaadin-date-picker label="birthday" id="dateOfBirth"></vaadin-date-picker>
+        <vaadin-text-field id="phoneNumber" label="phone number"></vaadin-text-field>
+        <vaadin-text-field label="contributory identifier" id="contributoryIdentifier"></vaadin-text-field>
+        <vaadin-email-field id="email" label="email"></vaadin-email-field>
+        <vaadin-text-field id="role" label="role"></vaadin-text-field>
+      </vaadin-form-layout>
+      <vaadin-horizontal-layout
+        style="margin-top: var(--lumo-space-m); margin-bottom: var(--lumo-space-l);"
+        theme="spacing">
+        <vaadin-button theme="primary" id="save">save</vaadin-button>
+        <vaadin-button id="cancel">cancel</vaadin-button>
+      </vaadin-horizontal-layout>`;
   }
 }
