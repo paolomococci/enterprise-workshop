@@ -106,6 +106,7 @@ public class MainView
                 createTab("Operator Form", OperatorFormView.class),
                 createTab("Position Form", PositionFormView.class),
                 createTab("Product Form", ProductFormView.class),
+                createTab("Supplier Form", SupplierFormView.class),
                 createTab("Help", HelpView.class),
                 createTab("About", AboutView.class)/*,
                 createTab("Card List", CardListView.class),
