@@ -5,6 +5,11 @@
   "author": "Paolo Mococci",
   "license": "Apache-2.0",
   "homepage": "https://github.com/paolomococci/enterprise-workshop/tree/main/angular/capstone-spa",
+  "keywords": [
+    "frontend",
+    "crud",
+    "restful"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
