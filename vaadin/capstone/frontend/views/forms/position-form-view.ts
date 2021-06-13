@@ -18,6 +18,7 @@ export class PositionFormView extends LitElement {
           id="positionLabel"
           pattern="[0-9]{0,12}" prevent-invalid-input
           helper-text="it accepts only twelve digits from zero to nine">
+          <iron-icon slot="prefix" icon="vaadin:records"></iron-icon>
         </vaadin-text-field></br>
         <vaadin-integer-field
           label="capacity"
