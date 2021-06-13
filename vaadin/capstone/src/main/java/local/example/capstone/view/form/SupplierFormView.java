@@ -19,8 +19,11 @@
 package local.example.capstone.view.form;
 
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
@@ -32,4 +35,15 @@ import local.example.capstone.view.MainView;
 @JsModule("./views/forms/supplier-form-view.ts")
 public class SupplierFormView
         extends LitTemplate {
+
+    @Id("supplierName")
+    private TextField name;
+
+    @Id("sticker")
+    private TextField sticker;
+
+    @Id("save")
+    private Button save;
+    @Id("cancel")
+    private Button cancel;
 }
