@@ -1,11 +1,11 @@
 {
   "name": "capstone",
-  "version": "0.0.1",
+  "version": "0.0.1-SNAPSHOT",
   "private": true,
   "description": "example of Vaadin web application",
   "author": "Paolo Mococci",
   "license": "Apache-2.0",
-  "homepage": "",
+  "homepage": "https://github.com/paolomococci/enterprise-workshop/tree/main/vaadin/capstone",
   "keywords": [
     "crud",
     "frontend"
