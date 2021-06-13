@@ -28,5 +28,6 @@ import local.example.capstone.view.MainView;
 @PageTitle("Operator Form")
 @Tag("operator-form-view")
 @JsModule("./views/forms/operator-form-view.ts")
-public class OperatorFormView {
+public class OperatorFormView
+        extends LitTemplate {
 }
