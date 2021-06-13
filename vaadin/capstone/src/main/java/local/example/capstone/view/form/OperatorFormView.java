@@ -18,5 +18,15 @@
 
 package local.example.capstone.view.form;
 
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+import local.example.capstone.view.MainView;
+
+@Route(value = "operator-form", layout = MainView.class)
+@PageTitle("Operator Form")
+@Tag("operator-form-view")
+@JsModule("./views/forms/operator-form-view.ts")
 public class OperatorFormView {
 }
