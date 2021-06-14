@@ -24,6 +24,7 @@ export class SearchView extends LitElement {
         style="margin-top: var(--lumo-space-m); margin-bottom: var(--lumo-space-l);"
         theme="spacing">
         <vaadin-button theme="primary" id="quest">quest</vaadin-button>
+        <vaadin-button id="cancel">cancel</vaadin-button>
       </vaadin-horizontal-layout>`;
   }
 }
