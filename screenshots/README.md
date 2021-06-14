@@ -6,7 +6,6 @@
 * e_community_admin_add_user.png
 * screenshot_e-tryst_guest.png
 * screenshot_said_main_view.png
-* screenshot_capstone_hello.png
 * screenshot_capstone_address_form.png
 * screenshot_capstone_carrier_form.png
 * screenshot_capstone_component.png
