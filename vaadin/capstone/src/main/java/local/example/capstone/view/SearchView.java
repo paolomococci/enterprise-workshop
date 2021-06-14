@@ -22,6 +22,7 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
@@ -43,6 +44,8 @@ public class SearchView
     private Button quest;
 
     public SearchView() {
-        
+        this.quest.addClickListener(buttonClickEvent -> {
+            Notification.show("text to search for: " + this.text.getValue());
+        });
     }
 }
