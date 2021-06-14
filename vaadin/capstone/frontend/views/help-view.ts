@@ -1,7 +1,7 @@
 import { customElement, html, LitElement } from 'lit-element';
 
 @customElement('help-view')
-export class AboutView extends LitElement {
+export class HelpView extends LitElement {
   createRenderRoot() {
     return this;
   }
