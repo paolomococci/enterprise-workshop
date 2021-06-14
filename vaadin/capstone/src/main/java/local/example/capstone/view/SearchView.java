@@ -44,8 +44,13 @@ public class SearchView
     private Button quest;
 
     public SearchView() {
+        this.clearForm();
         this.quest.addClickListener(buttonClickEvent -> {
             Notification.show("text to search for: " + this.text.getValue());
         });
+    }
+
+    private void clearForm() {
+        this.text.clear();
     }
 }
