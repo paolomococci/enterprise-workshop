@@ -41,4 +41,8 @@ public class SearchView
 
     @Id("quest")
     private Button quest;
+
+    public SearchView() {
+        
+    }
 }
