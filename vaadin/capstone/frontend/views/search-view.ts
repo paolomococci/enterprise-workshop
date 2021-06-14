@@ -14,6 +14,7 @@ export class SearchView extends LitElement {
       <vaadin-form-layout style="width: 100%;">
         <vaadin-text-field
           label="text to search for"
+          helper-text="maximum twenty characters are allowed"
           id="textToSearchFor"
           colspan="3"
           pattern="[a-zA-Z0-9]{0,20}"
