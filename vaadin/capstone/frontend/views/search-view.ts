@@ -13,8 +13,8 @@ export class SearchView extends LitElement {
     return html`<h3>search</h3>
       <vaadin-form-layout style="width: 100%;">
         <vaadin-text-field
-          label="search"
-          id="search"
+          label="text to search for"
+          id="textToSearchFor"
           colspan="3"
           pattern="[a-zA-Z0-9]{0,20}"
           prevent-invalid-input>
@@ -23,7 +23,7 @@ export class SearchView extends LitElement {
       <vaadin-horizontal-layout
         style="margin-top: var(--lumo-space-m); margin-bottom: var(--lumo-space-l);"
         theme="spacing">
-        <vaadin-button theme="primary" id="search">search</vaadin-button>
+        <vaadin-button theme="primary" id="quest">quest</vaadin-button>
       </vaadin-horizontal-layout>`;
   }
 }
