@@ -52,5 +52,6 @@ public class SearchView
 
     private void clearForm() {
         this.text.clear();
+        this.text.setPlaceholder("you can only type letters and numbers");
     }
 }
