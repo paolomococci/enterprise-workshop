@@ -94,7 +94,7 @@ public class MainView
 
     private Component[] createMenuItems() {
         return new Tab[] {
-                createTab("Hello", HelloView.class),
+                createTab("Search", SearchView.class),
                 createTab("Address Form", AddressFormView.class),
                 createTab("Carrier Form", CarrierFormView.class),
                 createTab("Component Form", ComponentFormView.class),
