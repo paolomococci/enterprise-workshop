@@ -42,9 +42,12 @@ public class SearchView
 
     @Id("quest")
     private Button quest;
+    @Id("cancel")
+    private Button cancel;
 
     public SearchView() {
         this.clearForm();
+        this.cancel.addClickListener(buttonClickEvent -> this.clearForm());
         this.quest.addClickListener(buttonClickEvent -> {
             Notification.show("text to search for: " + this.text.getValue());
         });
