@@ -18,6 +18,7 @@ export class SearchView extends LitElement {
           colspan="3"
           pattern="[a-zA-Z0-9]{0,20}"
           prevent-invalid-input>
+          <iron-icon slot="prefix" icon="vaadin:search"></iron-icon>
         </vaadin-text-field>
       </vaadin-form-layout>
       <vaadin-horizontal-layout
