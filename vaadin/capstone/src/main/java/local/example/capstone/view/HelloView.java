@@ -18,19 +18,17 @@
 
 package local.example.capstone.view;
 
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.RouteAlias;
-import com.vaadin.flow.component.Tag;
-import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.router.Route;
 
 @Route(value = "hello", layout = MainView.class)
-@RouteAlias(value = "", layout = MainView.class)
 @PageTitle("Hello")
 @Tag("hello-view")
 @JsModule("./views/hello-view.ts")
