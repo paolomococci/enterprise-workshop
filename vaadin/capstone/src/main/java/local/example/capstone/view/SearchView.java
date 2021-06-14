@@ -18,5 +18,16 @@
 
 package local.example.capstone.view;
 
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteAlias;
+
+@Route(value = "search", layout = MainView.class)
+@RouteAlias(value = "", layout = MainView.class)
+@PageTitle("Search")
+@Tag("search-view")
+@JsModule("./views/search-view.ts")
 public class SearchView {
 }
