@@ -50,6 +50,7 @@ public class SearchView
         this.cancel.addClickListener(buttonClickEvent -> this.clearForm());
         this.quest.addClickListener(buttonClickEvent -> {
             Notification.show("text to search for: " + this.text.getValue());
+            // TODO
         });
     }
 
