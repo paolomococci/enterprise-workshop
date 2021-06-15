@@ -19,8 +19,10 @@
 package local.example.capstone.view.detail;
 
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.router.PageTitle;
 
 @PageTitle("Address Detail")
@@ -28,4 +30,9 @@ import com.vaadin.flow.router.PageTitle;
 @JsModule("./views/details/address-detail-view.ts")
 public class AddressDetailView
         extends LitTemplate {
+
+    @Id("save")
+    private Button save;
+    @Id("cancel")
+    private Button cancel;
 }
