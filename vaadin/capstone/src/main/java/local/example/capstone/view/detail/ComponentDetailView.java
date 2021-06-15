@@ -19,9 +19,11 @@
 package local.example.capstone.view.detail;
 
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.router.PageTitle;
 
 @PageTitle("Component Detail")
 @Tag("component-detail-view")
+@JsModule("./views/details/component-detail-view.ts")
 public class ComponentDetailView {
 }
