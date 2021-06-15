@@ -20,10 +20,12 @@ package local.example.capstone.view.detail;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.router.PageTitle;
 
 @PageTitle("Machine Detail")
 @Tag("machine-detail-view")
 @JsModule("./views/details/machine-detail-view.ts")
-public class MachineDetailView {
+public class MachineDetailView
+        extends LitTemplate {
 }
