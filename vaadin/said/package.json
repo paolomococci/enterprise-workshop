@@ -1,6 +1,14 @@
 {
   "name": "said",
+  "private": true,
+  "version": "0.0.1-SNAPSHOT",
   "license": "Apache-2.0",
+  "author": "Paolo Mococci",
+  "homepage": "https://github.com/paolomococci/enterprise-workshop/tree/main/vaadin/said",
+  "keywords": [
+    "crud",
+    "frontend"
+  ],
   "vaadin": {
     "dependencies": {
       "lit-element": "2.5.1",
