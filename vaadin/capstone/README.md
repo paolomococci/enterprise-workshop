@@ -14,6 +14,3 @@
 
 * contact form view:
 ![capstone contact form view](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_capstone_contact_form.png)
-
-* about view:
-![capstone about view](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_capstone_about.png)
