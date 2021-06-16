@@ -9,8 +9,5 @@
 * carrier form view:
 ![capstone carrier form view](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_capstone_carrier_form.png)
 
-* component form view:
-![capstone component form view](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_capstone_component.png)
-
 * contact form view:
 ![capstone contact form view](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_capstone_contact_form.png)
