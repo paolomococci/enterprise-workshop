@@ -12,3 +12,4 @@
 * screenshot_capstone_contact_form.png
 * screenshot_capstone_about.png
 * screenshot_android_capstone.png
+* screenshot_capstone_main_view.png
