@@ -21,15 +21,20 @@ package local.example.capstone.view.detail;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.router.PageTitle;
+import local.example.capstone.data.entity.SupplierEntity;
 
 @PageTitle("Supplier Detail")
 @Tag("supplier-detail-view")
 @JsModule("./views/details/supplier-detail-view.ts")
 public class SupplierDetailView
         extends LitTemplate {
+
+    @Id("grid")
+    private Grid<SupplierEntity> supplierEntityGrid;
 
     @Id("save")
     private Button save;
