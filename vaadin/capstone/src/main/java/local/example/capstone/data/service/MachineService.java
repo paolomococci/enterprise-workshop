@@ -41,8 +41,8 @@ public class MachineService {
         machineRepository.save(machineEntity);
     }
 
-    public Optional<MachineEntity> read(Long id) {
-        return machineRepository.findById(id);
+    public Optional<MachineEntity> read(String id) {
+        return machineRepository.findById(Long.valueOf(id));
     }
 
     public void update(MachineEntity updatedMachineEntity, Long id) {
