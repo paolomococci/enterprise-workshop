@@ -20,7 +20,6 @@ package local.example.capstone.data.service;
 
 import local.example.capstone.data.entity.CustomerEntity;
 import local.example.capstone.data.repository.CustomerRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,8 +40,8 @@ public class CustomerService {
         customerRepository.save(customerEntity);
     }
 
-    public Optional<CustomerEntity> read(Long id) {
-        return customerRepository.findById(id);
+    public Optional<CustomerEntity> read(String id) {
+        return customerRepository.findById(Long.valueOf(id));
     }
 
     public void update(CustomerEntity updatedCustomerEntity, Long id) {
@@ -56,6 +55,10 @@ public class CustomerService {
                 () -> {
                     return customerRepository.save(updatedCustomerEntity);
                 }));
+    }
+
+    public void delete(Long id) {
+        customerRepository.deleteById(id);
     }
 
     public void delete(CustomerEntity customerEntity) {
