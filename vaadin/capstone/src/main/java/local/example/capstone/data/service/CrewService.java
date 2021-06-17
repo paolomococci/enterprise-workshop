@@ -41,8 +41,8 @@ public class CrewService {
         crewRepository.save(crewEntity);
     }
 
-    public Optional<CrewEntity> read(Long id) {
-        return crewRepository.findById(id);
+    public Optional<CrewEntity> read(String id) {
+        return crewRepository.findById(Long.valueOf(id));
     }
 
     public void update(CrewEntity updatedCrewEntity, Long id) {
