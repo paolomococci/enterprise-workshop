@@ -58,16 +58,7 @@ public class ComponentService {
     }
 
     public void update(ComponentEntity updatedComponentEntity) {
-        Optional.of(componentRepository.findById(updatedComponentEntity.getId()).map(
-                storedComponentEntity -> {
-                    if (updatedComponentEntity.getCode() != null)
-                        storedComponentEntity.setCode(updatedComponentEntity.getCode());
-                    // TODO
-                    return componentRepository.save(storedComponentEntity);
-                }).orElseGet(
-                () -> {
-                    return componentRepository.save(updatedComponentEntity);
-                }));
+        this.update(updatedComponentEntity, updatedComponentEntity.getId());
     }
 
     public void delete(Long id) {
