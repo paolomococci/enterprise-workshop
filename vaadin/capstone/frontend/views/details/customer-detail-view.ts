@@ -19,6 +19,8 @@ export class CustomerDetailView extends LitElement {
       <div class="flex flex-col" style="width: 400px;">
         <div class="p-l flex-grow">
           <vaadin-form-layout>
+            <vaadin-text-field label="customer name" id="customerName"></vaadin-text-field></br>
+            <vaadin-text-field label="sticker" id="sticker" pattern="[a-z]{0,12}" prevent-invalid-input></vaadin-text-field>
           </vaadin-form-layout>
         </div>
         <vaadin-horizontal-layout class="w-full flex-wrap bg-contrast-5 py-s px-l" theme="spacing">
