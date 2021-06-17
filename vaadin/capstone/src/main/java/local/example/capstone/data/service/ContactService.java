@@ -69,6 +69,30 @@ public class ContactService {
                 }));
     }
 
+    public void update(ContactEntity updatedContactEntity) {
+        Optional.of(contactRepository.findById(updatedContactEntity.getId()).map(
+                storedContactEntity -> {
+                    if (updatedContactEntity.getName() != null)
+                        storedContactEntity.setName(updatedContactEntity.getName());
+                    if (updatedContactEntity.getSurname() != null)
+                        storedContactEntity.setSurname(updatedContactEntity.getSurname());
+                    if (updatedContactEntity.getEmail() != null)
+                        storedContactEntity.setEmail(updatedContactEntity.getEmail());
+                    if (updatedContactEntity.getPhoneMobileNumber() != null)
+                        storedContactEntity.setPhoneMobileNumber(updatedContactEntity.getPhoneMobileNumber());
+                    if (updatedContactEntity.getDateOfBirth() != null)
+                        storedContactEntity.setDateOfBirth(updatedContactEntity.getDateOfBirth());
+                    if (updatedContactEntity.getProfession() != null)
+                        storedContactEntity.setProfession(updatedContactEntity.getProfession());
+                    if (updatedContactEntity.getRole() != null)
+                        storedContactEntity.setRole(updatedContactEntity.getRole());
+                    return contactRepository.save(storedContactEntity);
+                }).orElseGet(
+                () -> {
+                    return contactRepository.save(updatedContactEntity);
+                }));
+    }
+
     public void delete(Long id) {
         contactRepository.deleteById(id);
     }
