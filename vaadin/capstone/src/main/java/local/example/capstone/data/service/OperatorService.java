@@ -41,8 +41,8 @@ public class OperatorService {
         operatorRepository.save(operatorEntity);
     }
 
-    public Optional<OperatorEntity> read(Long id) {
-        return operatorRepository.findById(id);
+    public Optional<OperatorEntity> read(String id) {
+        return operatorRepository.findById(Long.valueOf(id));
     }
 
     public void update(OperatorEntity updatedOperatorEntity, Long id) {
