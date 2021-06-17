@@ -57,14 +57,7 @@ public class InvoiceService {
     }
 
     public void update(InvoiceEntity updatedInvoiceEntity) {
-        Optional.of(invoiceRepository.findById(updatedInvoiceEntity.getId()).map(
-                storedInvoiceEntity -> {
-                    // TODO
-                    return invoiceRepository.save(storedInvoiceEntity);
-                }).orElseGet(
-                () -> {
-                    return invoiceRepository.save(updatedInvoiceEntity);
-                }));
+        this.update(updatedInvoiceEntity, updatedInvoiceEntity.getId());
     }
 
     public void delete(Long id) {
