@@ -58,6 +58,19 @@ public class ProductService {
                 }));
     }
 
+    public void update(ProductEntity updatedProductEntity) {
+        Optional.of(productRepository.findById(updatedProductEntity.getId()).map(
+                storedProductEntity -> {
+                    if (updatedProductEntity.getCode() != null)
+                        storedProductEntity.setCode(updatedProductEntity.getCode());
+                    // TODO
+                    return productRepository.save(storedProductEntity);
+                }).orElseGet(
+                () -> {
+                    return productRepository.save(updatedProductEntity);
+                }));
+    }
+
     public void delete(Long id) {
         productRepository.deleteById(id);
     }
