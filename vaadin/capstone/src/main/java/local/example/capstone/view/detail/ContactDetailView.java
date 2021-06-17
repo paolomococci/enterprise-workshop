@@ -20,10 +20,13 @@ package local.example.capstone.view.detail;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.textfield.EmailField;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import local.example.capstone.data.entity.ContactEntity;
 
@@ -35,6 +38,30 @@ public class ContactDetailView
 
     @Id("grid")
     private Grid<ContactEntity> contactEntityGrid;
+
+    @Id("name")
+    private TextField name;
+
+    @Id("surname")
+    private TextField surname;
+
+    @Id("dateOfBirth")
+    private DatePicker dateOfBirth;
+
+    @Id("phoneMobileNumber")
+    private TextField phoneMobileNumber;
+
+    @Id("contributoryIdentifier")
+    private TextField contributoryIdentifier;
+
+    @Id("email")
+    private EmailField email;
+
+    @Id("profession")
+    private TextField profession;
+
+    @Id("role")
+    private TextField role;
 
     @Id("save")
     private Button save;
