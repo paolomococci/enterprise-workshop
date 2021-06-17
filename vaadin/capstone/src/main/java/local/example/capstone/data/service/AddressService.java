@@ -41,8 +41,8 @@ public class AddressService {
         addressRepository.save(addressEntity);
     }
 
-    public Optional<AddressEntity> read(Long id) {
-        return addressRepository.findById(id);
+    public Optional<AddressEntity> read(String id) {
+        return addressRepository.findById(Long.valueOf(id));
     }
 
     public void update(AddressEntity updatedAddressEntity, Long id) {
