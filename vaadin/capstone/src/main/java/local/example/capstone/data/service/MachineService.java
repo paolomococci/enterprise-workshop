@@ -58,6 +58,19 @@ public class MachineService {
                 }));
     }
 
+    public void update(MachineEntity updatedMachineEntity) {
+        Optional.of(machineRepository.findById(updatedMachineEntity.getId()).map(
+                storedMachineEntity -> {
+                    if (updatedMachineEntity.getLabel() != null)
+                        storedMachineEntity.setLabel(updatedMachineEntity.getLabel());
+                    // TODO
+                    return machineRepository.save(storedMachineEntity);
+                }).orElseGet(
+                () -> {
+                    return machineRepository.save(updatedMachineEntity);
+                }));
+    }
+
     public void delete(Long id) {
         machineRepository.deleteById(id);
     }
