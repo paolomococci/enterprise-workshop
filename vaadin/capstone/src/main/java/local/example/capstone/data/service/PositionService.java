@@ -58,6 +58,19 @@ public class PositionService {
                 }));
     }
 
+    public void update(PositionEntity updatedPositionEntity) {
+        Optional.of(positionRepository.findById(updatedPositionEntity.getId()).map(
+                storedPositionEntity -> {
+                    if (updatedPositionEntity.getLabel() != null)
+                        storedPositionEntity.setLabel(updatedPositionEntity.getLabel());
+                    // TODO
+                    return positionRepository.save(storedPositionEntity);
+                }).orElseGet(
+                () -> {
+                    return positionRepository.save(updatedPositionEntity);
+                }));
+    }
+
     public void delete(Long id) {
         positionRepository.deleteById(id);
     }
