@@ -28,13 +28,20 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
-import local.example.capstone.data.entity.ContactEntity;
+import com.vaadin.flow.router.Route;
 
+import local.example.capstone.data.entity.ContactEntity;
+import local.example.capstone.view.MainView;
+
+@Route(value = "contact-detail/:contactID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Contact Detail")
 @Tag("contact-detail-view")
 @JsModule("./views/details/contact-detail-view.ts")
 public class ContactDetailView
         extends LitTemplate {
+
+    private final String CONTACT_ID = "contactID";
+    private final String CONTACT_EDIT_ROUTE_TEMPLATE = "contact-detail/%d/edit";
 
     @Id("grid")
     private Grid<ContactEntity> contactEntityGrid;
