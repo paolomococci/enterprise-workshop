@@ -65,6 +65,26 @@ public class AddressService {
                 }));
     }
 
+    public void update(AddressEntity updatedAddressEntity) {
+        Optional.of(addressRepository.findById(updatedAddressEntity.getId()).map(
+                storedAddressEntity -> {
+                    if (updatedAddressEntity.getStreet() != null)
+                        storedAddressEntity.setStreet(updatedAddressEntity.getStreet());
+                    if (updatedAddressEntity.getPostalCode() != null)
+                        storedAddressEntity.setPostalCode(updatedAddressEntity.getPostalCode());
+                    if (updatedAddressEntity.getCity() != null)
+                        storedAddressEntity.setCity(updatedAddressEntity.getCity());
+                    if (updatedAddressEntity.getState() != null)
+                        storedAddressEntity.setState(updatedAddressEntity.getState());
+                    if (updatedAddressEntity.getCountry() != null)
+                        storedAddressEntity.setCountry(updatedAddressEntity.getCountry());
+                    return addressRepository.save(storedAddressEntity);
+                }).orElseGet(
+                () -> {
+                    return addressRepository.save(updatedAddressEntity);
+                }));
+    }
+
     public void delete(Long id) {
         addressRepository.deleteById(id);
     }
