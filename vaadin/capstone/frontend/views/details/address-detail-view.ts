@@ -19,6 +19,11 @@ export class AddressDetailView extends LitElement {
       <div class="flex flex-col" style="width: 400px;">
         <div class="p-l flex-grow">
           <vaadin-form-layout>
+            <vaadin-text-field label="street address" id="streetAddress" colspan="2"></vaadin-text-field>
+            <vaadin-text-field label="postal code" id="postalCode" pattern="[0-9]{0,6}" prevent-invalid-input></vaadin-text-field>
+            <vaadin-text-field label="city" id="city"></vaadin-text-field>
+            <vaadin-text-field label="state" id="state"></vaadin-text-field>
+            <vaadin-text-field label="country" id="country"></vaadin-text-field>
           </vaadin-form-layout>
         </div>
         <vaadin-horizontal-layout class="w-full flex-wrap bg-contrast-5 py-s px-l" theme="spacing">
