@@ -20,6 +20,17 @@ export class InvoiceDetailView extends LitElement {
       <div class="flex flex-col" style="width: 400px;">
         <div class="p-l flex-grow">
           <vaadin-form-layout>
+            <vaadin-text-field
+              label="invoice code"
+              id="invoiceCode"
+              pattern="[0-9]{0,12}" prevent-invalid-input
+              helper-text="it accepts only twelve digits from zero to nine">
+            </vaadin-text-field></br>
+            <vaadin-number-field
+              label="total"
+              id="total"
+              value="0.0">
+            </vaadin-number-field>
           </vaadin-form-layout>
         </div>
         <vaadin-horizontal-layout class="w-full flex-wrap bg-contrast-5 py-s px-l" theme="spacing">
