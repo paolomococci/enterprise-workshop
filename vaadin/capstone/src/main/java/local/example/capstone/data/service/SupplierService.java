@@ -59,16 +59,7 @@ public class SupplierService {
     }
 
     public void update(SupplierEntity updatedSupplierEntity) {
-        Optional.of(supplierRepository.findById(updatedSupplierEntity.getId()).map(
-                storedSupplierEntity -> {
-                    if (updatedSupplierEntity.getName() != null)
-                        storedSupplierEntity.setName(updatedSupplierEntity.getName());
-                    // TODO
-                    return supplierRepository.save(storedSupplierEntity);
-                }).orElseGet(
-                () -> {
-                    return supplierRepository.save(updatedSupplierEntity);
-                }));
+        this.update(updatedSupplierEntity, updatedSupplierEntity.getId());
     }
 
     public void delete(Long id) {
