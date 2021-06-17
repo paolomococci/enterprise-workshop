@@ -20,6 +20,23 @@ export class PositionDetailView extends LitElement {
       <div class="flex flex-col" style="width: 400px;">
         <div class="p-l flex-grow">
           <vaadin-form-layout>
+            <vaadin-text-field
+              label="position label"
+              id="positionLabel"
+              pattern="[0-9]{0,12}" prevent-invalid-input
+              helper-text="it accepts only twelve digits from zero to nine">
+              <iron-icon slot="prefix" icon="vaadin:records"></iron-icon>
+            </vaadin-text-field></br>
+            <vaadin-integer-field
+              label="capacity"
+              id="capacity"
+              helper-text="max 99"
+              value="0"
+              min="0"
+              max="99"
+              has-controls>
+              <div slot="suffix">capacity</div>
+            </vaadin-integer-field>
           </vaadin-form-layout>
         </div>
         <vaadin-horizontal-layout class="w-full flex-wrap bg-contrast-5 py-s px-l" theme="spacing">
