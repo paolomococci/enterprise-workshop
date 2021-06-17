@@ -58,6 +58,19 @@ public class CustomerService {
                 }));
     }
 
+    public void update(CustomerEntity updatedCustomerEntity) {
+        Optional.of(customerRepository.findById(updatedCustomerEntity.getId()).map(
+                storedCustomerEntity -> {
+                    if (updatedCustomerEntity.getName() != null)
+                        storedCustomerEntity.setName(updatedCustomerEntity.getName());
+                    // TODO
+                    return customerRepository.save(storedCustomerEntity);
+                }).orElseGet(
+                () -> {
+                    return customerRepository.save(updatedCustomerEntity);
+                }));
+    }
+
     public void delete(Long id) {
         customerRepository.deleteById(id);
     }
