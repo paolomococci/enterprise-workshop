@@ -2,6 +2,9 @@ import '@vaadin/vaadin-split-layout';
 import '@vaadin/vaadin-grid';
 import '@vaadin/vaadin-form-layout';
 import '@vaadin/vaadin-ordered-layout/vaadin-horizontal-layout';
+import '@vaadin/vaadin-text-field';
+import '@vaadin/vaadin-date-picker';
+import '@vaadin/vaadin-text-field/vaadin-email-field';
 import '@vaadin/vaadin-button';
 import { customElement, html, LitElement } from 'lit-element';
 
