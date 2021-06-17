@@ -61,18 +61,7 @@ public class CarrierService {
     }
 
     public void update(CarrierEntity updatedCarrierEntity) {
-        Optional.of(carrierRepository.findById(updatedCarrierEntity.getId()).map(
-                storedCarrierEntity -> {
-                    if (updatedCarrierEntity.getName() != null)
-                        storedCarrierEntity.setName(updatedCarrierEntity.getName());
-                    if (updatedCarrierEntity.getSticker() != null)
-                        storedCarrierEntity.setSticker(updatedCarrierEntity.getSticker());
-                    // TODO
-                    return carrierRepository.save(storedCarrierEntity);
-                }).orElseGet(
-                () -> {
-                    return carrierRepository.save(updatedCarrierEntity);
-                }));
+        this.update(updatedCarrierEntity, updatedCarrierEntity.getId());
     }
 
     public void delete(Long id) {
