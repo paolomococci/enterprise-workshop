@@ -18,6 +18,7 @@
 
 package local.example.capstone.view.detail;
 
+import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
@@ -27,6 +28,8 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.BeforeEnterEvent;
+import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
@@ -38,7 +41,8 @@ import local.example.capstone.view.MainView;
 @Tag("contact-detail-view")
 @JsModule("./views/details/contact-detail-view.ts")
 public class ContactDetailView
-        extends LitTemplate {
+        extends LitTemplate
+        implements HasStyle, BeforeEnterObserver {
 
     private final String CONTACT_ID = "contactID";
     private final String CONTACT_EDIT_ROUTE_TEMPLATE = "contact-detail/%d/edit";
@@ -74,4 +78,9 @@ public class ContactDetailView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent event) {
+        // TODO
+    }
 }
