@@ -67,6 +67,10 @@ public class MachineService {
     }
 
     public void delete(MachineEntity machineEntity) {
-        machineRepository.deleteById(machineEntity.getId());
+        try {
+            this.delete(machineEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
