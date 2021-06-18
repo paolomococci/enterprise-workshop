@@ -67,6 +67,10 @@ public class CustomerService {
     }
 
     public void delete(CustomerEntity customerEntity) {
-        customerRepository.deleteById(customerEntity.getId());
+        try {
+            this.delete(customerEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
