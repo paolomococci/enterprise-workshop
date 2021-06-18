@@ -67,6 +67,10 @@ public class OperatorService {
     }
 
     public void delete(OperatorEntity operatorEntity) {
-        operatorRepository.deleteById(operatorEntity.getId());
+        try {
+            this.delete(operatorEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
