@@ -67,4 +67,13 @@ public class SampleResource {
                 .status(Response.Status.NOT_IMPLEMENTED)
                 .build();
     }
+
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response delete() {
+        // TODO
+        return Response
+                .status(Response.Status.NOT_IMPLEMENTED)
+                .build();
+    }
 }
