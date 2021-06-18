@@ -66,6 +66,10 @@ public class ComponentService {
     }
 
     public void delete(ComponentEntity componentEntity) {
-        componentRepository.deleteById(componentEntity.getId());
+        try {
+            this.delete(componentEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
