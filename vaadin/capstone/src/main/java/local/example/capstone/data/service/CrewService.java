@@ -65,6 +65,10 @@ public class CrewService {
     }
 
     public void delete(CrewEntity crewEntity) {
-        crewRepository.deleteById(crewEntity.getId());
+        try {
+            this.delete(crewEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
