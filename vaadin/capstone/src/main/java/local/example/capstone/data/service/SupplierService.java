@@ -67,6 +67,10 @@ public class SupplierService {
     }
 
     public void delete(SupplierEntity supplierEntity) {
-        supplierRepository.deleteById(supplierEntity.getId());
+        try {
+            this.delete(supplierEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
