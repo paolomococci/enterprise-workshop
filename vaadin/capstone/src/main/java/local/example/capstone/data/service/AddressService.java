@@ -74,6 +74,10 @@ public class AddressService {
     }
 
     public void delete(AddressEntity addressEntity) {
-        addressRepository.deleteById(addressEntity.getId());
+        try {
+            this.delete(addressEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
