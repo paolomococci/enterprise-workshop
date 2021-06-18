@@ -78,6 +78,10 @@ public class ContactService {
     }
 
     public void delete(ContactEntity contactEntity) {
-        contactRepository.deleteById(contactEntity.getId());
+        try {
+            this.delete(contactEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
