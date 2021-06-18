@@ -20,13 +20,11 @@ package local.example.resource;
 
 import local.example.model.Sample;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path(value = "/samples")
 public class SampleResource {
@@ -49,6 +47,15 @@ public class SampleResource {
         return Response
                 .status(Response.Status.CREATED)
                 .entity(sample)
+                .build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response read(Long id) {
+        // TODO
+        return Response
+                .status(Response.Status.NOT_IMPLEMENTED)
                 .build();
     }
 }
