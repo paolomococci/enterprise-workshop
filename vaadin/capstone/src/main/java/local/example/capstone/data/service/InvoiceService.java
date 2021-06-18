@@ -65,6 +65,10 @@ public class InvoiceService {
     }
 
     public void delete(InvoiceEntity invoiceEntity) {
-        invoiceRepository.deleteById(invoiceEntity.getId());
+        try {
+            this.delete(invoiceEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
