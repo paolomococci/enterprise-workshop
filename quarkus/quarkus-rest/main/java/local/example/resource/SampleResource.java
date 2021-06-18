@@ -52,7 +52,16 @@ public class SampleResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response read(Long id) {
+    public Response read() {
+        // TODO
+        return Response
+                .status(Response.Status.NOT_IMPLEMENTED)
+                .build();
+    }
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response update() {
         // TODO
         return Response
                 .status(Response.Status.NOT_IMPLEMENTED)
