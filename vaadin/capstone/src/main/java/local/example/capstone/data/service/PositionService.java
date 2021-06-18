@@ -67,6 +67,10 @@ public class PositionService {
     }
 
     public void delete(PositionEntity positionEntity) {
-        positionRepository.deleteById(positionEntity.getId());
+        try {
+            this.delete(positionEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
