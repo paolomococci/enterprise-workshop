@@ -67,6 +67,10 @@ public class ProductService {
     }
 
     public void delete(ProductEntity productEntity) {
-        productRepository.deleteById(productEntity.getId());
+        try {
+            this.delete(productEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
