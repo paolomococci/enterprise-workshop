@@ -69,6 +69,10 @@ public class CarrierService {
     }
 
     public void delete(CarrierEntity carrierEntity) {
-        carrierRepository.deleteById(carrierEntity.getId());
+        try {
+            this.delete(carrierEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
