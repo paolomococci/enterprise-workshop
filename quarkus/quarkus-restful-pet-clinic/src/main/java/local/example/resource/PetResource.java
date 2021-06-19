@@ -18,5 +18,13 @@
 
 package local.example.resource;
 
-public interface PetResource {
+import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
+import local.example.model.Pet;
+import local.example.repository.PetRepository;
+
+import javax.ws.rs.Path;
+
+@Path(value = "/pets")
+public interface PetResource
+        extends PanacheRepositoryResource<PetRepository, Pet, Long> {
 }
