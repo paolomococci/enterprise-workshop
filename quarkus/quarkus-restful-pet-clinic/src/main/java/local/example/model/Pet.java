@@ -18,5 +18,13 @@
 
 package local.example.model;
 
-public class Pet {
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Pet
+        extends PanacheEntity {
+
+    public String name;
 }
