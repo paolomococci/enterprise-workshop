@@ -18,5 +18,9 @@
 
 package local.example.repository;
 
-public interface VetRepository {
+import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
+import local.example.model.Vet;
+
+public interface VetRepository
+        extends PanacheRepositoryBase<Vet, Long> {
 }
