@@ -18,5 +18,13 @@
 
 package local.example.resource;
 
-public interface OwnerResource {
+import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
+import local.example.model.Owner;
+import local.example.repository.OwnerRepository;
+
+import javax.ws.rs.Path;
+
+@Path(value = "/owners")
+public interface OwnerResource
+        extends PanacheRepositoryResource<OwnerRepository, Owner, Long> {
 }
