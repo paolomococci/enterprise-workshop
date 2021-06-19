@@ -18,5 +18,9 @@
 
 package local.example.repository;
 
-public interface OwnerRepository {
+import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
+import local.example.model.Owner;
+
+public interface OwnerRepository
+        extends PanacheRepositoryBase<Owner, Long> {
 }
