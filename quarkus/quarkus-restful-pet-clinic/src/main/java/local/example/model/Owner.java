@@ -21,8 +21,10 @@ package local.example.model;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "owners")
 public class Owner
         extends PanacheEntity {
 
