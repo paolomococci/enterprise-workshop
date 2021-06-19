@@ -21,5 +21,6 @@ package local.example;
 import io.quarkus.test.junit.NativeImageTest;
 
 @NativeImageTest
-public class NativeGreetingResourceIT extends GreetingResourceTest {
+public class NativeGreetingResourceIT 
+        extends GreetingResourceTest {
 }
