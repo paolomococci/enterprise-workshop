@@ -19,9 +19,11 @@
 package local.example.resource;
 
 import io.quarkus.hibernate.orm.rest.data.panache.PanacheEntityResource;
+import io.quarkus.rest.data.panache.ResourceProperties;
 
 import local.example.model.Vet;
 
+@ResourceProperties(hal = true)
 public interface VetResource
         extends PanacheEntityResource<Vet, Long> {
 }
