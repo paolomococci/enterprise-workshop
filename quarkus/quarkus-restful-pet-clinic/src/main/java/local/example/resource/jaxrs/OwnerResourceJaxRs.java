@@ -45,6 +45,14 @@ public class OwnerResourceJaxRs {
                 .build();
     }
 
+    @POST
+    @Transactional
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response create(Owner owner) {
+        return null;
+    }
+
     @GET
     @Path(value = "/rest-owner/owners/{id}")
     @Produces(MediaType.APPLICATION_JSON)
