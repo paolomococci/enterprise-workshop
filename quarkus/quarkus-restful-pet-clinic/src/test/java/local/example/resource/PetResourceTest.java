@@ -34,4 +34,13 @@ public class PetResourceTest {
                 .then()
                 .statusCode(200);
     }
+
+    @Test
+    public void testOwnerResourceWithNullIdentifierEndpoint() {
+        given()
+                .when()
+                .get("/rest-pet/pets/200")
+                .then()
+                .statusCode(404);
+    }
 }
