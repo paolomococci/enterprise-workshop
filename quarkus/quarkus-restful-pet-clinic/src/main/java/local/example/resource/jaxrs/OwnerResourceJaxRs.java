@@ -18,6 +18,8 @@
 
 package local.example.resource.jaxrs;
 
+import io.quarkus.panache.common.Page;
+
 import local.example.model.Owner;
 import local.example.resource.OwnerResource;
 
@@ -28,6 +30,7 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path(value = "/rest-owner")
 public class OwnerResourceJaxRs {
