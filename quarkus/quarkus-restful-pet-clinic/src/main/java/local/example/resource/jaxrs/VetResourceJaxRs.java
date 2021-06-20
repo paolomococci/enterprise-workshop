@@ -20,6 +20,7 @@ package local.example.resource.jaxrs;
 
 import local.example.model.Vet;
 import local.example.resource.VetResource;
+
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.inject.Inject;
