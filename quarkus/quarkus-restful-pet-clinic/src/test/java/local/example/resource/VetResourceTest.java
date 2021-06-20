@@ -34,4 +34,13 @@ public class VetResourceTest {
                 .then()
                 .statusCode(200);
     }
+
+    @Test
+    public void testOwnerResourceWithNullIdentifierEndpoint() {
+        given()
+                .when()
+                .get("/rest-vet/vets/300")
+                .then()
+                .statusCode(404);
+    }
 }
