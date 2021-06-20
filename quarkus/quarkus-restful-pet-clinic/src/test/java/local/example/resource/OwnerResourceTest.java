@@ -36,6 +36,16 @@ public class OwnerResourceTest {
     }
 
     @Test
+    public void testCreateOwnerResourceEndpoint() {
+        given().contentType("application/json")
+                .body("{\"name\":\"John\"}")
+                .when()
+                .post("/rest-owner")
+                .then()
+                .statusCode(201);
+    }
+
+    @Test
     public void testReadOwnerResourceWithNullIdentifierEndpoint() {
         given()
                 .when()
