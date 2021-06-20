@@ -18,5 +18,12 @@
 
 package local.example.resource.jaxrs;
 
+import local.example.resource.OwnerResource;
+
+import javax.inject.Inject;
+
 public class OwnerResourceJaxRs {
+
+    @Inject
+    OwnerResource ownerResource;
 }
