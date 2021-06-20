@@ -77,8 +77,23 @@ public class OwnerResourceJaxRs {
     @Path(value = "{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response update(@PathParam("id") String id, Owner owner) {
-        return null;
+    public Response update(@PathParam("id") String id, Owner ownerToUpdate) {
+        try {
+            if (ownerResource.get(Long.valueOf(id)) == null) {
+                Owner owner = ownerResource.add(ownerToUpdate);
+                return Response
+                        .status(Response.Status.CREATED)
+                        .entity(owner).build();
+            } else {
+                Owner owner = ownerResource.update(Long.valueOf(id), ownerToUpdate);
+                return Response
+                        .status(Response.Status.RESET_CONTENT)
+                        .entity(owner).build();
+            }
+        } catch (Exception exception) {
+            exception.getMessage();
+            return null;
+        }
     }
 
     @DELETE
