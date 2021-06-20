@@ -62,4 +62,13 @@ public class PetResourceJaxRs {
                 ? Response.status(Response.Status.OK).entity(pet).build()
                 : Response.status(Response.Status.NOT_FOUND).build();
     }
+
+    @PUT
+    @Transactional
+    @Path(value = "{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response update(@PathParam("id") String id, Pet pet) {
+        return null;
+    }
 }
