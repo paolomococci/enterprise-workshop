@@ -19,7 +19,19 @@
 package local.example.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.Test;
+
+import static io.restassured.RestAssured.given;
 
 @QuarkusTest
 public class PetResourceTest {
+
+    @Test
+    public void testOwnerResourceEndpoint() {
+        given()
+                .when()
+                .get("/pets")
+                .then()
+                .statusCode(200);
+    }
 }
