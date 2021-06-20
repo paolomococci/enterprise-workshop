@@ -77,8 +77,23 @@ public class VetResourceJaxRs {
     @Path(value = "{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response update(@PathParam("id") String id, Vet vet) {
-        return null;
+    public Response update(@PathParam("id") String id, Vet vetToUpdate) {
+        try {
+            if (vetResource.get(Long.valueOf(id)) == null) {
+                Vet vet = vetResource.add(vetToUpdate);
+                return Response
+                        .status(Response.Status.CREATED)
+                        .entity(vet).build();
+            } else {
+                Vet vet = vetResource.update(Long.valueOf(id), vetToUpdate);
+                return Response
+                        .status(Response.Status.RESET_CONTENT)
+                        .entity(vet).build();
+            }
+        } catch (Exception exception) {
+            exception.getMessage();
+            return null;
+        }
     }
 
     @DELETE
