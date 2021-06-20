@@ -62,4 +62,13 @@ public class OwnerResourceJaxRs {
                 ? Response.status(Response.Status.OK).entity(owner).build()
                 : Response.status(Response.Status.NOT_FOUND).build();
     }
+
+    @PUT
+    @Transactional
+    @Path(value = "{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response update(@PathParam("id") String id, Owner owner) {
+        return null;
+    }
 }
