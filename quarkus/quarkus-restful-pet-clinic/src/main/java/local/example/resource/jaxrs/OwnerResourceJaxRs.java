@@ -21,7 +21,9 @@ package local.example.resource.jaxrs;
 import local.example.resource.OwnerResource;
 
 import javax.inject.Inject;
+import javax.ws.rs.Path;
 
+@Path(value = "/owners")
 public class OwnerResourceJaxRs {
 
     @Inject
