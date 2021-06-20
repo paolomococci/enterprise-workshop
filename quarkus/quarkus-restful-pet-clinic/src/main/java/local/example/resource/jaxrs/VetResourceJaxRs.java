@@ -62,4 +62,13 @@ public class VetResourceJaxRs {
                 ? Response.status(Response.Status.OK).entity(vet).build()
                 : Response.status(Response.Status.NOT_FOUND).build();
     }
+
+    @PUT
+    @Transactional
+    @Path(value = "{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response update(@PathParam("id") String id, Vet vet) {
+        return null;
+    }
 }
