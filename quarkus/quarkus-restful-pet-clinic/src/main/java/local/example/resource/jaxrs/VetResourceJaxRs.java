@@ -18,7 +18,10 @@
 
 package local.example.resource.jaxrs;
 
+import local.example.model.Vet;
 import local.example.resource.VetResource;
+
+import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -41,5 +44,15 @@ public class VetResourceJaxRs {
         return Response
                 .status(Response.Status.OK)
                 .build();
+    }
+
+    @GET
+    @Path(value = "/rest-vet/vets/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response read(@PathParam("id") String id) {
+        Vet vet = vetResource.get(Long.valueOf(id));
+        return vet != null
+                ? Response.status(Response.Status.OK).entity(vet).build()
+                : Response.status(Response.Status.NOT_FOUND).build();
     }
 }
