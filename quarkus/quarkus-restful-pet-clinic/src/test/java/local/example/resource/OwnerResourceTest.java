@@ -34,4 +34,13 @@ public class OwnerResourceTest {
                 .then()
                 .statusCode(200);
     }
+
+    @Test
+    public void testOwnerResourceWithNullIdentifierEndpoint() {
+        given()
+                .when()
+                .get("/rest-owner/owners/100")
+                .then()
+                .statusCode(404);
+    }
 }
