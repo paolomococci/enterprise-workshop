@@ -21,7 +21,9 @@ package local.example.resource.jaxrs;
 import local.example.resource.PetResource;
 
 import javax.inject.Inject;
+import javax.ws.rs.Path;
 
+@Path(value = "/pets")
 public class PetResourceJaxRs {
 
     @Inject
