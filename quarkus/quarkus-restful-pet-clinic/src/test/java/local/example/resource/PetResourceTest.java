@@ -36,7 +36,7 @@ public class PetResourceTest {
     }
 
     @Test
-    public void testOwnerResourceWithNullIdentifierEndpoint() {
+    public void testReadPetResourceWithNullIdentifierEndpoint() {
         given()
                 .when()
                 .get("/rest-pet/pets/200")
