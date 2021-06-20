@@ -18,7 +18,10 @@
 
 package local.example.resource.jaxrs;
 
+import local.example.model.Owner;
 import local.example.resource.OwnerResource;
+
+import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -41,5 +44,15 @@ public class OwnerResourceJaxRs {
         return Response
                 .status(Response.Status.OK)
                 .build();
+    }
+
+    @GET
+    @Path(value = "/rest-owner/owners/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response read(@PathParam("id") String id) {
+        Owner owner = ownerResource.get(Long.valueOf(id));
+        return owner != null
+                ? Response.status(Response.Status.OK).entity(owner).build()
+                : Response.status(Response.Status.NOT_FOUND).build();
     }
 }
