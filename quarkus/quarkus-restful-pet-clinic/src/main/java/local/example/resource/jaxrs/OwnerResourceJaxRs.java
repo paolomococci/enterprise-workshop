@@ -27,13 +27,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path(value = "/owners")
+@Path(value = "/rest-owner")
 public class OwnerResourceJaxRs {
 
     @Inject
     OwnerResource ownerResource;
 
     @GET
+    @Path(value = "/owners")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readAll() {
         // TODO
