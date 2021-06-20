@@ -49,8 +49,16 @@ public class VetResourceJaxRs {
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(Vet vet) {
-        return null;
+    public Response create(Vet vetToCreate) {
+        try {
+            Vet vet = vetResource.add(vetToCreate);
+            return Response
+                    .status(Response.Status.CREATED)
+                    .entity(vet).build();
+        } catch (Exception exception) {
+            exception.getMessage();
+            return null;
+        }
     }
 
     @GET
