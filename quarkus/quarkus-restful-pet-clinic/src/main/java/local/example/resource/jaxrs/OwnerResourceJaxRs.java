@@ -49,8 +49,16 @@ public class OwnerResourceJaxRs {
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(Owner owner) {
-        return null;
+    public Response create(Owner ownerToCreate) {
+        try {
+            Owner owner = ownerResource.add(ownerToCreate);
+            return Response
+                    .status(Response.Status.CREATED)
+                    .entity(owner).build();
+        } catch (Exception exception) {
+            exception.getMessage();
+            return null;
+        }
     }
 
     @GET
