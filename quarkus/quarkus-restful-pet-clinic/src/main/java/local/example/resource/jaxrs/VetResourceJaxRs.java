@@ -20,7 +20,6 @@ package local.example.resource.jaxrs;
 
 import local.example.model.Vet;
 import local.example.resource.VetResource;
-
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.inject.Inject;
@@ -43,6 +42,14 @@ public class VetResourceJaxRs {
         return Response
                 .status(Response.Status.OK)
                 .build();
+    }
+
+    @POST
+    @Transactional
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response create(Vet vet) {
+        return null;
     }
 
     @GET
