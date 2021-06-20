@@ -36,7 +36,7 @@ public class VetResourceTest {
     }
 
     @Test
-    public void testOwnerResourceWithNullIdentifierEndpoint() {
+    public void testReadVetResourceWithNullIdentifierEndpoint() {
         given()
                 .when()
                 .get("/rest-vet/vets/300")
