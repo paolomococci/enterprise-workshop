@@ -19,12 +19,10 @@
 package local.example.resource;
 
 import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
+
 import local.example.model.Vet;
 import local.example.repository.VetRepository;
 
-import javax.ws.rs.Path;
-
-@Path(value = "/vets")
 public interface VetResource
         extends PanacheRepositoryResource<VetRepository, Vet, Long> {
 }
