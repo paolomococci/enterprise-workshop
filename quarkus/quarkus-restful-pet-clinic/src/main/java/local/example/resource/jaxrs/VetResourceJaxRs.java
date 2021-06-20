@@ -71,4 +71,11 @@ public class VetResourceJaxRs {
     public Response update(@PathParam("id") String id, Vet vet) {
         return null;
     }
+
+    @DELETE
+    @Transactional
+    @Path(value = "{id}")
+    public Response delete(@PathParam("id") String id) {
+        return null;
+    }
 }
