@@ -77,8 +77,23 @@ public class PetResourceJaxRs {
     @Path(value = "{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response update(@PathParam("id") String id, Pet pet) {
-        return null;
+    public Response update(@PathParam("id") String id, Pet petToUpdate) {
+        try {
+            if (petResource.get(Long.valueOf(id)) == null) {
+                Pet pet = petResource.add(petToUpdate);
+                return Response
+                        .status(Response.Status.CREATED)
+                        .entity(pet).build();
+            } else {
+                Pet pet = petResource.update(Long.valueOf(id), petToUpdate);
+                return Response
+                        .status(Response.Status.RESET_CONTENT)
+                        .entity(pet).build();
+            }
+        } catch (Exception exception) {
+            exception.getMessage();
+            return null;
+        }
     }
 
     @DELETE
