@@ -18,11 +18,10 @@
 
 package local.example.resource;
 
-import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
+import io.quarkus.hibernate.orm.rest.data.panache.PanacheEntityResource;
 
 import local.example.model.Vet;
-import local.example.repository.VetRepository;
 
 public interface VetResource
-        extends PanacheRepositoryResource<VetRepository, Vet, Long> {
+        extends PanacheEntityResource<Vet, Long> {
 }
