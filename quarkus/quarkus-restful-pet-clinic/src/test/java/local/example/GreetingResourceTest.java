@@ -21,6 +21,8 @@ package local.example;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.UUID;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -30,18 +32,32 @@ public class GreetingResourceTest {
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/resteasy")
+          .when()
+          .get("/resteasy")
           .then()
-             .statusCode(200)
-             .body(is("Hello from quarkus-restful-pet-clinic application"));
+          .statusCode(200)
+          .body(is("Hello from quarkus-restful-pet-clinic application"));
     }
 
     @Test
     public void testGreetingEndpoint() {
         given()
-                .when().get("/greeting/test")
-                .then()
-                .statusCode(200)
-                .body(is("Hello test!"));
+           .when()
+           .get("/greeting/test")
+           .then()
+           .statusCode(200)
+           .body(is("Hello test!"));
+    }
+
+    @Test
+    public void testGreetingParameterizedEndpoint() {
+        String arg = UUID.randomUUID().toString();
+        given()
+            .pathParam("arg", arg)
+            .when()
+            .get("/greeting/{arg}")
+            .then()
+            .statusCode(200)
+            .body(is("Hello " + arg + "!"));
     }
 }
