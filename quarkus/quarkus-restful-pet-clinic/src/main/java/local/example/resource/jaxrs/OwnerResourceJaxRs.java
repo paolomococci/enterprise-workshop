@@ -39,10 +39,8 @@ public class OwnerResourceJaxRs {
     @Path(value = "/owners")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readAll() {
-        // TODO
-        return Response
-                .status(Response.Status.OK)
-                .build();
+        List<Owner> owners = ownerResource.list(Page.of(0, 20), null);
+        return Response.ok(owners).build();
     }
 
     @POST
