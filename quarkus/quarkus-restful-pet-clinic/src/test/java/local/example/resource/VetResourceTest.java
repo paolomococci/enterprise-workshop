@@ -36,6 +36,17 @@ public class VetResourceTest {
     }
 
     @Test
+    public void testCreatePetResourceEndpoint() {
+        given()
+                .contentType("application/json")
+                .body("{\"name\":\"Jean\"}")
+                .when()
+                .post("/rest-owner")
+                .then()
+                .statusCode(201);
+    }
+
+    @Test
     public void testReadVetResourceWithNullIdentifierEndpoint() {
         given()
                 .when()
