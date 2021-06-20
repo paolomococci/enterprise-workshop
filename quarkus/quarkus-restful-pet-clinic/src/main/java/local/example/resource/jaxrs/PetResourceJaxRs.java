@@ -45,6 +45,14 @@ public class PetResourceJaxRs {
                 .build();
     }
 
+    @POST
+    @Transactional
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response create(Pet pet) {
+        return null;
+    }
+
     @GET
     @Path(value = "/rest-pet/pets/{id}")
     @Produces(MediaType.APPLICATION_JSON)
