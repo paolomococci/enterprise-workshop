@@ -19,11 +19,22 @@
 package local.example.resource;
 
 import io.quarkus.hibernate.orm.rest.data.panache.PanacheEntityResource;
+import io.quarkus.panache.common.Page;
+import io.quarkus.panache.common.Sort;
+import io.quarkus.rest.data.panache.MethodProperties;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
 import local.example.model.Owner;
 
+import java.util.List;
+
 @ResourceProperties(hal = true)
 public interface OwnerResource
         extends PanacheEntityResource<Owner, Long> {
+
+    @MethodProperties(path = "all")
+    List<Owner> list(Page page, Sort sort);
+
+    @MethodProperties(exposed = false)
+    boolean delete(Long id);
 }
