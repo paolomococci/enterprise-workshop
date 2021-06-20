@@ -18,5 +18,12 @@
 
 package local.example.resource.jaxrs;
 
+import local.example.resource.PetResource;
+
+import javax.inject.Inject;
+
 public class PetResourceJaxRs {
+
+    @Inject
+    PetResource petResource;
 }
