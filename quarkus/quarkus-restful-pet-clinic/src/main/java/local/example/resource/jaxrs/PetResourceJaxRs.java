@@ -27,13 +27,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path(value = "/pets")
+@Path(value = "/rest-pet")
 public class PetResourceJaxRs {
 
     @Inject
     PetResource petResource;
 
     @GET
+    @Path(value = "/pets")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readAll() {
         // TODO
