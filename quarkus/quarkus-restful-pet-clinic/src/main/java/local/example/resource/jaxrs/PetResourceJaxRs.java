@@ -18,6 +18,8 @@
 
 package local.example.resource.jaxrs;
 
+import io.quarkus.panache.common.Page;
+
 import local.example.model.Pet;
 import local.example.resource.PetResource;
 
@@ -28,6 +30,7 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path(value = "/rest-pet")
 public class PetResourceJaxRs {
@@ -39,10 +42,8 @@ public class PetResourceJaxRs {
     @Path(value = "/pets")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readAll() {
-        // TODO
-        return Response
-                .status(Response.Status.OK)
-                .build();
+        List<Pet> pets = petResource.list(Page.of(0, 20), null);
+        return Response.ok(pets).build();
     }
 
     @POST
