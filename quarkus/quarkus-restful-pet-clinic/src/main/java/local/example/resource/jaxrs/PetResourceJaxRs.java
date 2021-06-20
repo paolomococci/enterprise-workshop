@@ -49,8 +49,16 @@ public class PetResourceJaxRs {
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(Pet pet) {
-        return null;
+    public Response create(Pet petToCreate) {
+        try {
+            Pet pet = petResource.add(petToCreate);
+            return Response
+                    .status(Response.Status.CREATED)
+                    .entity(pet).build();
+        } catch (Exception exception) {
+            exception.getMessage();
+            return null;
+        }
     }
 
     @GET
