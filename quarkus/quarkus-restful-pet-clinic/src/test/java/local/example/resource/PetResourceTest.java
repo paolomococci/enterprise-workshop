@@ -36,6 +36,17 @@ public class PetResourceTest {
     }
 
     @Test
+    public void testCreatePetResourceEndpoint() {
+        given()
+                .contentType("application/json")
+                .body("{\"name\":\"lucky\"}")
+                .when()
+                .post("/rest-owner")
+                .then()
+                .statusCode(201);
+    }
+
+    @Test
     public void testReadPetResourceWithNullIdentifierEndpoint() {
         given()
                 .when()
