@@ -36,7 +36,7 @@ public class OwnerResourceTest {
     }
 
     @Test
-    public void testOwnerResourceWithNullIdentifierEndpoint() {
+    public void testReadOwnerResourceWithNullIdentifierEndpoint() {
         given()
                 .when()
                 .get("/rest-owner/owners/100")
