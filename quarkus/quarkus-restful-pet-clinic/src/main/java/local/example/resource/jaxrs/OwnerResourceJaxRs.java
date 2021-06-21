@@ -75,7 +75,7 @@ public class OwnerResourceJaxRs {
 
     @PUT
     @Transactional
-    @Path(value = "/{id}")
+    @Path(value = "{id}")
     public Response update(@PathParam("id") String id, Owner ownerToUpdate) {
         try {
             if (ownerResource.get(Long.valueOf(id)) == null) {
