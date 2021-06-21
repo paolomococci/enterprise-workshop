@@ -65,7 +65,7 @@ public class VetResourceJaxRs {
     }
 
     @GET
-    @Path(value = "/{id}")
+    @Path(value = "{id}")
     public Response read(@PathParam("id") String id) {
         Vet vet = vetResource.get(Long.valueOf(id));
         return vet != null
