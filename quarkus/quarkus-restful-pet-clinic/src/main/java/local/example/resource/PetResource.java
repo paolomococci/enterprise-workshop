@@ -34,7 +34,4 @@ public interface PetResource
 
     @MethodProperties(path = "all")
     List<Pet> list(Page page, Sort sort);
-
-    @MethodProperties(exposed = false)
-    boolean delete(Long id);
 }
