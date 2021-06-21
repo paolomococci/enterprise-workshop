@@ -42,8 +42,11 @@ public class VetResourceJaxRs {
 
     @GET
     @Path(value = "/vets")
-    public Response readAll() {
-        List<Vet> vets = vetResource.list(Page.of(0, 20), null);
+    public Response readAll(
+            @QueryParam("page") @DefaultValue("0") int page,
+            @QueryParam("size") @DefaultValue("50") int size
+    ) {
+        List<Vet> vets = vetResource.list(Page.of(page, size), null);
         return Response.ok(vets).build();
     }
 
