@@ -33,6 +33,8 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path(value = "/rest-pet")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class PetResourceJaxRs {
 
     @Inject
@@ -40,7 +42,6 @@ public class PetResourceJaxRs {
 
     @GET
     @Path(value = "/pets")
-    @Produces(MediaType.APPLICATION_JSON)
     public Response readAll() {
         List<Pet> pets = petResource.list(Page.of(0, 20), null);
         return Response.ok(pets).build();
@@ -48,8 +49,6 @@ public class PetResourceJaxRs {
 
     @POST
     @Transactional
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Response create(Pet petToCreate) {
         try {
             Pet pet = petResource.add(petToCreate);
@@ -63,8 +62,7 @@ public class PetResourceJaxRs {
     }
 
     @GET
-    @Path(value = "/rest-pet/pets/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Path(value = "/{id}")
     public Response read(@PathParam("id") String id) {
         Pet pet = petResource.get(Long.valueOf(id));
         return pet != null
@@ -74,9 +72,7 @@ public class PetResourceJaxRs {
 
     @PUT
     @Transactional
-    @Path(value = "{id}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Path(value = "/{id}")
     public Response update(@PathParam("id") String id, Pet petToUpdate) {
         try {
             if (petResource.get(Long.valueOf(id)) == null) {
@@ -98,7 +94,7 @@ public class PetResourceJaxRs {
 
     @DELETE
     @Transactional
-    @Path(value = "{id}")
+    @Path(value = "/{id}")
     public Response delete(@PathParam("id") String id) {
         if (!petResource.delete(Long.valueOf(id))) {
             return Response.status(Response.Status.NO_CONTENT).build();
