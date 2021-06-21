@@ -65,7 +65,7 @@ public class PetResourceJaxRs {
     }
 
     @GET
-    @Path(value = "/{id}")
+    @Path(value = "{id}")
     public Response read(@PathParam("id") String id) {
         Pet pet = petResource.get(Long.valueOf(id));
         return pet != null
