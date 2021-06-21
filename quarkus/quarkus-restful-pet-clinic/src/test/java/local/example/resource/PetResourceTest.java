@@ -30,9 +30,9 @@ public class PetResourceTest {
     public void testOwnerResourceEndpoint() {
         given()
                 .when()
-                .get("/rest-pet/pets")
+                .get("/pets")
                 .then()
-                .statusCode(200);
+                .statusCode(404);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class PetResourceTest {
     public void testReadPetResourceWithNullIdentifierEndpoint() {
         given()
                 .when()
-                .get("/rest-pet/pets/200")
+                .get("/rest-pet/200")
                 .then()
                 .statusCode(404);
     }
