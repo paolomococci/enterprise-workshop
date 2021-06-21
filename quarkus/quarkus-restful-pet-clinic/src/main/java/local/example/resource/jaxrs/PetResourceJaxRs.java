@@ -97,7 +97,7 @@ public class PetResourceJaxRs {
 
     @DELETE
     @Transactional
-    @Path(value = "/{id}")
+    @Path(value = "{id}")
     public Response delete(@PathParam("id") String id) {
         if (!petResource.delete(Long.valueOf(id))) {
             return Response.status(Response.Status.NO_CONTENT).build();
