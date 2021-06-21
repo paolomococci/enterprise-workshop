@@ -33,6 +33,8 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path(value = "/rest-owner")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class OwnerResourceJaxRs {
 
     @Inject
@@ -40,7 +42,6 @@ public class OwnerResourceJaxRs {
 
     @GET
     @Path(value = "/owners")
-    @Produces(MediaType.APPLICATION_JSON)
     public Response readAll() {
         List<Owner> owners = ownerResource.list(Page.of(0, 20), null);
         return Response.ok(owners).build();
@@ -48,8 +49,6 @@ public class OwnerResourceJaxRs {
 
     @POST
     @Transactional
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Response create(Owner ownerToCreate) {
         try {
             Owner owner = ownerResource.add(ownerToCreate);
@@ -63,8 +62,7 @@ public class OwnerResourceJaxRs {
     }
 
     @GET
-    @Path(value = "/rest-owner/owners/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Path(value = "/{id}")
     public Response read(@PathParam("id") String id) {
         Owner owner = ownerResource.get(Long.valueOf(id));
         return owner != null
@@ -74,9 +72,7 @@ public class OwnerResourceJaxRs {
 
     @PUT
     @Transactional
-    @Path(value = "{id}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Path(value = "/{id}")
     public Response update(@PathParam("id") String id, Owner ownerToUpdate) {
         try {
             if (ownerResource.get(Long.valueOf(id)) == null) {
@@ -98,7 +94,7 @@ public class OwnerResourceJaxRs {
 
     @DELETE
     @Transactional
-    @Path(value = "{id}")
+    @Path(value = "/{id}")
     public Response delete(@PathParam("id") String id) {
         if (!ownerResource.delete(Long.valueOf(id))) {
             return Response.status(Response.Status.NO_CONTENT).build();
