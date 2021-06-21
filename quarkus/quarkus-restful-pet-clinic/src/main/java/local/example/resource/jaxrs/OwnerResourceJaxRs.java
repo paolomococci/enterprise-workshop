@@ -42,8 +42,11 @@ public class OwnerResourceJaxRs {
 
     @GET
     @Path(value = "/owners")
-    public Response readAll() {
-        List<Owner> owners = ownerResource.list(Page.of(0, 20), null);
+    public Response readAll(
+            @QueryParam("page") @DefaultValue("0") int page,
+            @QueryParam("size") @DefaultValue("50") int size
+    ) {
+        List<Owner> owners = ownerResource.list(Page.of(page, size), null);
         return Response.ok(owners).build();
     }
 
@@ -94,7 +97,7 @@ public class OwnerResourceJaxRs {
 
     @DELETE
     @Transactional
-    @Path(value = "/{id}")
+    @Path(value = "{id}")
     public Response delete(@PathParam("id") String id) {
         if (!ownerResource.delete(Long.valueOf(id))) {
             return Response.status(Response.Status.NO_CONTENT).build();
