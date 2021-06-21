@@ -30,9 +30,9 @@ public class OwnerResourceTest {
     public void testOwnerResourceEndpoint() {
         given()
                 .when()
-                .get("/rest-owner/owners")
+                .get("/owners")
                 .then()
-                .statusCode(200);
+                .statusCode(404);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class OwnerResourceTest {
     public void testReadOwnerResourceWithNullIdentifierEndpoint() {
         given()
                 .when()
-                .get("/rest-owner/owners/100")
+                .get("/rest-owner/100")
                 .then()
                 .statusCode(404);
     }
