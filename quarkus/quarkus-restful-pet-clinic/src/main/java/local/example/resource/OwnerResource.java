@@ -34,7 +34,4 @@ public interface OwnerResource
 
     @MethodProperties(path = "all")
     List<Owner> list(Page page, Sort sort);
-
-    @MethodProperties(exposed = false)
-    boolean delete(Long id);
 }
