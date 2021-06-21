@@ -42,8 +42,11 @@ public class PetResourceJaxRs {
 
     @GET
     @Path(value = "/pets")
-    public Response readAll() {
-        List<Pet> pets = petResource.list(Page.of(0, 20), null);
+    public Response readAll(
+            @QueryParam("page") @DefaultValue("0") int page,
+            @QueryParam("size") @DefaultValue("50") int size
+    ) {
+        List<Pet> pets = petResource.list(Page.of(page, size), null);
         return Response.ok(pets).build();
     }
 
