@@ -28,13 +28,12 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path(value = "/rest-pet")
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
+@Consumes("application/json")
+@Produces("application/hal+json")
 public class PetResourceJaxRs {
 
     @Inject
@@ -65,7 +64,7 @@ public class PetResourceJaxRs {
     }
 
     @GET
-    @Path(value = "{id}")
+    @Path(value = "/{id}")
     public Response read(@PathParam("id") String id) {
         Pet pet = petResource.get(Long.valueOf(id));
         return pet != null
@@ -75,7 +74,7 @@ public class PetResourceJaxRs {
 
     @PUT
     @Transactional
-    @Path(value = "/{id}")
+    @Path(value = "{id}")
     public Response update(@PathParam("id") String id, Pet petToUpdate) {
         try {
             if (petResource.get(Long.valueOf(id)) == null) {
