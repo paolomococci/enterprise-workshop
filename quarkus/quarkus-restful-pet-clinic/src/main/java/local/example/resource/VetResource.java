@@ -34,7 +34,4 @@ public interface VetResource
 
     @MethodProperties(path = "all")
     List<Vet> list(Page page, Sort sort);
-
-    @MethodProperties(exposed = false)
-    boolean delete(Long id);
 }
