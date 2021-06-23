@@ -18,5 +18,21 @@
 
 package local.example.resource;
 
-public interface BookResource {
+import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
+import io.quarkus.panache.common.Page;
+import io.quarkus.panache.common.Sort;
+import io.quarkus.rest.data.panache.MethodProperties;
+import io.quarkus.rest.data.panache.ResourceProperties;
+
+import local.example.model.Book;
+import local.example.repository.BookRepository;
+
+import java.util.List;
+
+@ResourceProperties(hal = true)
+public interface BookResource
+        extends PanacheRepositoryResource<BookRepository, Book, Long> {
+
+    @MethodProperties(path = "all")
+    List<Book> list(Page page, Sort sort);
 }
