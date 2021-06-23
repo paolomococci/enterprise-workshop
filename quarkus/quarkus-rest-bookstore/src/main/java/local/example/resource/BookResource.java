@@ -19,13 +19,13 @@
 package local.example.resource;
 
 import javax.transaction.Transactional;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path(value = "/books")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class BookResource {
 
     @GET
@@ -41,6 +41,7 @@ public class BookResource {
 
     @DELETE
     @Transactional
+    @Path(value = "/{id}")
     public Response delete() {
         return Response.status(Response.Status.NOT_IMPLEMENTED).build();
     }
