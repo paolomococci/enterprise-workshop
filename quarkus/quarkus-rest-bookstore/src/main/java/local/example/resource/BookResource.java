@@ -18,6 +18,7 @@
 
 package local.example.resource;
 
+import javax.transaction.Transactional;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -33,11 +34,13 @@ public class BookResource {
     }
 
     @POST
+    @Transactional
     public Response create() {
         return Response.status(Response.Status.NOT_IMPLEMENTED).build();
     }
 
     @DELETE
+    @Transactional
     public Response delete() {
         return Response.status(Response.Status.NOT_IMPLEMENTED).build();
     }
