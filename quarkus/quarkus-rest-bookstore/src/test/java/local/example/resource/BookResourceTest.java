@@ -56,7 +56,13 @@ public class BookResourceTest {
 
     @Test
     @Order(value = 3)
-    public void testDeleteAllEndpoint() {
+    public void testReadEndpoint() {
+        // TODO
+    }
 
+    @Test
+    @Order(value = 4)
+    public void testDeleteAllEndpoint() {
+        // TODO
     }
 }
