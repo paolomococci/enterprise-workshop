@@ -16,7 +16,7 @@
  *
  */
 
-package local.example.resource;
+package local.example.controller;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.MethodOrderer;
@@ -30,7 +30,7 @@ import static io.restassured.RestAssured.given;
 
 @QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class BookResourceTest {
+public class BookControllerTest {
 
     @Test
     @Order(value = 1)
