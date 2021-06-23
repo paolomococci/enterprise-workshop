@@ -36,6 +36,7 @@ public class BookController {
     }
 
     @GET
+    @Path(value = "/{id}")
     public Response read() {
         return Response
                 .status(Response.Status.NOT_IMPLEMENTED)
