@@ -24,6 +24,8 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import static io.restassured.RestAssured.given;
+
 @QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BookResourceTest {
@@ -31,7 +33,11 @@ public class BookResourceTest {
     @Test
     @Order(value = 1)
     public void testReadAllEndpoint() {
-
+        given()
+                .when()
+                .get("/books")
+                .then()
+                .statusCode(200);
     }
 
     @Test
