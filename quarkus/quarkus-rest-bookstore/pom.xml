@@ -64,22 +64,6 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
-    <!-- web -->
-    <dependency>
-        <groupId>org.webjars.npm</groupId>
-        <artifactId>wingcss</artifactId>
-        <version>1.0.0-beta</version>
-    </dependency>
-    <dependency>
-        <groupId>org.webjars.bower</groupId>
-        <artifactId>angularjs</artifactId>
-        <version>1.7.5</version>
-    </dependency>
-    <!--dependency>
-        <groupId>org.webjars</groupId>
-        <artifactId>bootstrap</artifactId>
-        <version>5.0.1</version>
-    </dependency-->
   </dependencies>
   <build>
     <plugins>
