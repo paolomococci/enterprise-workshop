@@ -16,7 +16,7 @@
  *
  */
 
-package local.example.resource;
+package local.example.controller;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -26,7 +26,7 @@ import javax.ws.rs.core.Response;
 @Path(value = "/books")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class BookResource {
+public class BookController {
 
     @GET
     public Response readAll() {
