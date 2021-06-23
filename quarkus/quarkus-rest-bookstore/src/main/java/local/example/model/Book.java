@@ -18,5 +18,18 @@
 
 package local.example.model;
 
-public class Book {
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "books")
+public class Book
+        extends PanacheEntity {
+
+    public String code;
+    public String title;
+    public String author;
+    public String description;
 }
