@@ -20,16 +20,24 @@ package local.example.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "books")
 public class Book
         extends PanacheEntity {
 
+    @Column(unique = true)
     public String code;
+    
+    @Column(unique = true)
     public String title;
+    
+    @NotNull
     public String author;
+    
     public String description;
 }
