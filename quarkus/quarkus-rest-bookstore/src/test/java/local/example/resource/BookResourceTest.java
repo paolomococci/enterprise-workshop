@@ -24,6 +24,8 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import javax.ws.rs.core.MediaType;
+
 import static io.restassured.RestAssured.given;
 
 @QuarkusTest
@@ -43,7 +45,13 @@ public class BookResourceTest {
     @Test
     @Order(value = 2)
     public void testCreateEndpoint() {
-
+        given()
+                .body("{\"code\": \"32000004\", \"title\": \"some title\", \"author\":\"John Doe\", \"description\":\"some description\"}")
+                .header("Content-Type", MediaType.APPLICATION_JSON)
+                .when()
+                .post("/books")
+                .then()
+                .statusCode(201);
     }
 
     @Test
