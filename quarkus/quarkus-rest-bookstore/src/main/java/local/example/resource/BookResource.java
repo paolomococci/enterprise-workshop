@@ -18,5 +18,8 @@
 
 package local.example.resource;
 
+import javax.ws.rs.Path;
+
+@Path(value = "/books")
 public class BookResource {
 }
