@@ -19,13 +19,30 @@
 package local.example.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 @QuarkusTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BookResourceTest {
 
     @Test
-    public void test() {
+    @Order(value = 1)
+    public void testReadAllEndpoint() {
+
+    }
+
+    @Test
+    @Order(value = 2)
+    public void testCreateEndpoint() {
+
+    }
+
+    @Test
+    @Order(value = 3)
+    public void testDeleteAllEndpoint() {
 
     }
 }
