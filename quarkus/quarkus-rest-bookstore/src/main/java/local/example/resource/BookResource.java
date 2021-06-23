@@ -30,19 +30,32 @@ public class BookResource {
 
     @GET
     public Response readAll() {
-        return Response.status(Response.Status.NOT_IMPLEMENTED).build();
+        return Response
+                .status(Response.Status.NOT_IMPLEMENTED)
+                .build();
+    }
+
+    @GET
+    public Response read() {
+        return Response
+                .status(Response.Status.NOT_IMPLEMENTED)
+                .build();
     }
 
     @POST
     @Transactional
     public Response create() {
-        return Response.status(Response.Status.NOT_IMPLEMENTED).build();
+        return Response
+                .status(Response.Status.NOT_IMPLEMENTED)
+                .build();
     }
 
     @DELETE
     @Transactional
     @Path(value = "/{id}")
     public Response delete() {
-        return Response.status(Response.Status.NOT_IMPLEMENTED).build();
+        return Response
+                .status(Response.Status.NOT_IMPLEMENTED)
+                .build();
     }
 }
