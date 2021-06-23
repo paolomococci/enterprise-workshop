@@ -18,5 +18,13 @@
 
 package local.example.repository;
 
-public class BookRepository {
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+
+import local.example.model.Book;
+
+import javax.enterprise.context.ApplicationScoped;
+
+@ApplicationScoped
+public class BookRepository
+        implements PanacheRepository<Book> {
 }
