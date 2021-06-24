@@ -45,7 +45,7 @@ public class BookController {
     ) {
         List<Book> books = bookResource.list(Page.of(page, size), null);
         return Response
-                .status(Response.Status.NOT_IMPLEMENTED)
+                .ok(books)
                 .build();
     }
 
