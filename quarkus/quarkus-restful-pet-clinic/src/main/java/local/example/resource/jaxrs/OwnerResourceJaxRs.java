@@ -23,8 +23,6 @@ import io.quarkus.panache.common.Page;
 import local.example.model.Owner;
 import local.example.resource.OwnerResource;
 
-import org.jboss.resteasy.annotations.jaxrs.PathParam;
-
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
