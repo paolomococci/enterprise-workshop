@@ -57,7 +57,11 @@ public class BookControllerTest {
     @Test
     @Order(value = 3)
     public void testReadEndpoint() {
-        // TODO
+        given()
+                .when()
+                .get("/books/1")
+                .then()
+                .statusCode(404);
     }
 
     @Test
