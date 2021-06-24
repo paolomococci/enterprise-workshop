@@ -18,18 +18,32 @@
 
 package local.example.controller;
 
+import io.quarkus.panache.common.Page;
+
+import local.example.model.Book;
+import local.example.resource.BookResource;
+
+import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path(value = "/books")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class BookController {
 
+    @Inject
+    BookResource bookResource;
+
     @GET
-    public Response readAll() {
+    public Response readAll(
+            @QueryParam("page") @DefaultValue("0") int page,
+            @QueryParam("size") @DefaultValue("50") int size
+    ) {
+        List<Book> books = bookResource.list(Page.of(page, size), null);
         return Response
                 .status(Response.Status.NOT_IMPLEMENTED)
                 .build();
