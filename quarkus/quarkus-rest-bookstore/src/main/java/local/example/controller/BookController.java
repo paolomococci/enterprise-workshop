@@ -75,9 +75,9 @@ public class BookController {
     @DELETE
     @Transactional
     @Path(value = "/{id}")
-    public Response delete() {
-        return Response
-                .status(Response.Status.NOT_IMPLEMENTED)
-                .build();
+    public Response delete(@PathParam("id") String id) {
+        return !bookResource.delete(Long.valueOf(id)) 
+                ? Response.status(Response.Status.NO_CONTENT).build() 
+                : Response.status(Response.Status.NOT_FOUND).build();
     }
 }
