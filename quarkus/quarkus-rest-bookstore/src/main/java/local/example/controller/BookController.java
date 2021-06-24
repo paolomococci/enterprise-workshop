@@ -51,10 +51,11 @@ public class BookController {
 
     @GET
     @Path(value = "/{id}")
-    public Response read() {
-        return Response
-                .status(Response.Status.NOT_IMPLEMENTED)
-                .build();
+    public Response read(@PathParam("id") String id) {
+        Book book = bookResource.get(Long.valueOf(id));
+        return book != null
+                ? Response.status(Response.Status.OK).entity(book).build()
+                : Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @POST
