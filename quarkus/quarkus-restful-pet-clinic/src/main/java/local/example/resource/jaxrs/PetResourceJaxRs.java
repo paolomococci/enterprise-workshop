@@ -23,8 +23,6 @@ import io.quarkus.panache.common.Page;
 import local.example.model.Pet;
 import local.example.resource.PetResource;
 
-import org.jboss.resteasy.annotations.jaxrs.PathParam;
-
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
