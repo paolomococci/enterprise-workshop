@@ -98,9 +98,8 @@ public class PetResourceJaxRs {
     @Transactional
     @Path(value = "{id}")
     public Response delete(@PathParam("id") String id) {
-        if (!petResource.delete(Long.valueOf(id))) {
-            return Response.status(Response.Status.NO_CONTENT).build();
-        }
-        return Response.status(Response.Status.NOT_FOUND).build();
+        return !petResource.delete(Long.valueOf(id))
+                ? Response.status(Response.Status.NO_CONTENT).build()
+                : Response.status(Response.Status.NOT_FOUND).build();
     }
 }
