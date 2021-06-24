@@ -60,10 +60,16 @@ public class BookController {
 
     @POST
     @Transactional
-    public Response create() {
-        return Response
-                .status(Response.Status.NOT_IMPLEMENTED)
-                .build();
+    public Response create(Book bookToCreate) {
+        try {
+            Book book = bookResource.add(bookToCreate);
+            return Response
+                    .status(Response.Status.CREATED)
+                    .entity(book).build();
+        } catch (Exception exception) {
+            exception.getMessage();
+            return null;
+        }
     }
 
     @DELETE
