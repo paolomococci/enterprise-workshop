@@ -98,9 +98,8 @@ public class OwnerResourceJaxRs {
     @Transactional
     @Path(value = "{id}")
     public Response delete(@PathParam("id") String id) {
-        if (!ownerResource.delete(Long.valueOf(id))) {
-            return Response.status(Response.Status.NO_CONTENT).build();
-        }
-        return Response.status(Response.Status.NOT_FOUND).build();
+        return !ownerResource.delete(Long.valueOf(id))
+                ? Response.status(Response.Status.NO_CONTENT).build()
+                : Response.status(Response.Status.NOT_FOUND).build();
     }
 }
