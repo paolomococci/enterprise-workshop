@@ -56,11 +56,22 @@ public class VetResourceTest {
 
     @Test
     @Order(value = 3)
-    public void testReadVetResourceEndpointWithNullIdentifier() {
+    public void testReadVetResourceEndpointWithNonExistentIdentifier() {
         given()
                 .when()
-                .get("/rest-vet/1")
+                .get("/rest-vet/100")
                 .then()
                 .statusCode(404);
+    }
+
+    @Test
+    @Order(value = 4)
+    public void testReadVetResourceEndpoint() {
+        given()
+                .when()
+                .get("/rest-vet/vets")
+                .then()
+                .statusCode(200)
+                .body("$.size()", is(1));
     }
 }
