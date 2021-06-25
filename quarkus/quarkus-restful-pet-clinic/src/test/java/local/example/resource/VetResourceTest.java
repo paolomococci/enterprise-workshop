@@ -80,4 +80,23 @@ public class VetResourceTest {
         System.out.println(response.jsonPath().getString("id[0]"));
         System.out.println("--- response ---");
     }
+
+    @Test
+    @Order(value = 5)
+    public void testReadVetResourceEndpointFromIdentifier() {
+        String id;
+        Response response;
+        response = given()
+                .when()
+                .get("/rest-vet/vets")
+                .then()
+                .statusCode(200)
+                .extract().response();
+        id = response.jsonPath().getString("id[0]");
+        given()
+                .when()
+                .get("/rest-vet/"+id)
+                .then()
+                .statusCode(200);
+    }
 }
