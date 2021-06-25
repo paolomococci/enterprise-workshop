@@ -1,24 +1,132 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Book REST service</title>
-    <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <meta charset="utf-8"/>
+  <title>Book REST service</title>
+  <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     
-    <script type="text/javascript">
-      var app = angular.module("BookManagement", []);
+  <script type="text/javascript">
+    var app = angular.module("BookManagement", []);
+    
+    app.controller("BookManagementController", function ($scope, $http) {
 
-      app.controller("BookManagementController", function ($scope, $http) {
-        /* todo */
-      });
-    </script>
+      $scope.books = [];
+
+      $scope.form = {
+        code: "",
+        title: "",
+        author: "",
+        description: ""
+      };
+
+      /* load books data from server */
+      _refreshPageData();
+
+      /* HTTP POST method for add a book */
+      $scope.add = function () {
+        var data = {
+          "code": $scope.form.code,
+          "title": $scope.form.title,
+          "author": $scope.form.author,
+          "description": $scope.form.description
+        };
+
+        $http({
+          method: "POST",
+          url: '/books',
+          data: angular.toJson(data),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then(_success, _error);
+      };
+
+      /* HTTP GET method for get all books collection */
+      function _refreshPageData() {
+        $http({
+          method: 'GET',
+          url: '/books'
+        }).then(function successCallback(response) {
+          $scope.books = response.data;
+        }, function errorCallback(response) {
+          console.log(response.statusText);
+        });
+      }
+
+      function _success(response) {
+        _refreshPageData();
+        _clearForm();
+      }
+
+      function _error(response) {
+        alert(response.data.message || response.statusText);
+      }
+
+      /* clear data form */
+      function _clearForm() {
+        $scope.form.code = "";
+        $scope.form.title = "";
+        $scope.form.author = "";
+        $scope.form.description = "";
+      }
+    });
+  </script>
 </head>
 <body
     ng-app="BookManagement"
     ng-controller="BookManagementController">
-  <div class="container">
-    
+<div class="container">
+  <h1>REST service - Book</h1>
+
+  <div class="cards">
+    <div class="card">
+      <h5 class="card-header">ADD A BOOK TO THE LIST BELOW</h5>
+      <div class="card-body">
+        <form ng-submit="add()">
+          <div class="row">
+            <div class="field-text"><input type="text" placeholder="code" ng-model="form.code" size="40"/></div>
+          </div>
+          <div class="row">
+            <div class="field-text"><input type="text" placeholder="title" ng-model="form.title" size="40"/></div>
+          </div>
+          <div class="row">
+            <div class="field-text"><input type="text" placeholder="author" ng-model="form.author" size="40"/></div>
+          </div>
+          <div class="row">
+            <div class="field-text"><input type="text" placeholder="description" ng-model="form.description" size="40"/></div>
+          </div>
+          <input type="submit" value="ADD"/>
+        </form>
+      </div>
+      <div class="card-footer center text-center">
+        <h5></h5>
+      </div>
+    </div>
   </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-header">book list</h3>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-4">CODE</div>
+          <div class="col-6">TITLE</div>
+          <div class="col-6">AUTHOR</div>
+          <div class="col-8">DESCRIPTION</div>
+        </div>
+        <div class="row" ng-repeat="book in books">
+          <div class="col-4">{{ book.code }}</div>
+          <div class="col-6">{{ book.title }}</div>
+          <div class="col-6">{{ book.author }}</div>
+          <div class="col-8">{{ book.description }}</div>
+        </div>
+      </div>
+      <div class="card-footer center text-center">
+        <h5></h5>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
