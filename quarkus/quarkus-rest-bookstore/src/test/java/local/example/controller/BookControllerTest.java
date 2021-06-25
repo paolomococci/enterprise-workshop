@@ -73,4 +73,14 @@ public class BookControllerTest {
                 .then()
                 .statusCode(204);
     }
+
+    @Test
+    @Order(value = 5)
+    public void testReadEndpointAfterDeleting() {
+        given()
+                .when()
+                .get("/books/1")
+                .then()
+                .statusCode(404);
+    }
 }
