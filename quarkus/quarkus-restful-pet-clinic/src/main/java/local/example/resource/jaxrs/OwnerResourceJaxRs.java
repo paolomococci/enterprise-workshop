@@ -23,6 +23,8 @@ import io.quarkus.panache.common.Page;
 import local.example.model.Owner;
 import local.example.resource.OwnerResource;
 
+//import org.jboss.resteasy.annotations.jaxrs.PathParam;
+
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -72,7 +74,7 @@ public class OwnerResourceJaxRs {
 
     @PUT
     @Transactional
-    @Path(value = "{id}")
+    @Path(value = "/{id}")
     public Response update(@PathParam("id") String id, Owner ownerToUpdate) {
         try {
             if (ownerResource.get(Long.valueOf(id)) == null) {
@@ -94,7 +96,7 @@ public class OwnerResourceJaxRs {
 
     @DELETE
     @Transactional
-    @Path(value = "{id}")
+    @Path(value = "/{id}")
     public Response delete(@PathParam("id") String id) {
         return !ownerResource.delete(Long.valueOf(id))
                 ? Response.status(Response.Status.NOT_FOUND).build()
