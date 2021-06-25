@@ -56,11 +56,22 @@ public class OwnerResourceTest {
 
     @Test
     @Order(value = 3)
-    public void testReadOwnerResourceEndpointWithNullIdentifier() {
+    public void testReadOwnerResourceEndpointWithNonExistentIdentifier() {
         given()
                 .when()
-                .get("/rest-owner/1")
+                .get("/rest-owner/100")
                 .then()
                 .statusCode(404);
+    }
+
+    @Test
+    @Order(value = 4)
+    public void testReadOwnerResourceEndpoint() {
+        given()
+                .when()
+                .get("/rest-owner/owners")
+                .then()
+                .statusCode(200)
+                .body("$.size()", is(1));
     }
 }
