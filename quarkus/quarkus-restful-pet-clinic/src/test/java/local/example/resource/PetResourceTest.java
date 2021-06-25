@@ -56,11 +56,22 @@ public class PetResourceTest {
 
     @Test
     @Order(value = 3)
-    public void testReadPetResourceEndpointWithNullIdentifier() {
+    public void testReadPetResourceEndpointWithNonExistentIdentifier() {
         given()
                 .when()
-                .get("/rest-pet/1")
+                .get("/rest-pet/100")
                 .then()
                 .statusCode(404);
+    }
+
+    @Test
+    @Order(value = 4)
+    public void testReadPetResourceEndpoint() {
+        given()
+                .when()
+                .get("/rest-pet/pets")
+                .then()
+                .statusCode(200)
+                .body("$.size()", is(1));
     }
 }
