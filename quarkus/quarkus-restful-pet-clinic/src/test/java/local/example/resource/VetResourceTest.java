@@ -49,7 +49,7 @@ public class VetResourceTest {
                 .contentType("application/json")
                 .body("{\"name\":\"Jean\"}")
                 .when()
-                .post("/rest-owner")
+                .post("/rest-vet")
                 .then()
                 .statusCode(201);
     }
