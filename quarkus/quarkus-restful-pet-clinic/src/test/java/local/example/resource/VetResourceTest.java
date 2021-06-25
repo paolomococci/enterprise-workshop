@@ -99,4 +99,19 @@ public class VetResourceTest {
                 .then()
                 .statusCode(200);
     }
+
+    @Test
+    @Order(value = 6)
+    public void testUpdateVetResourceEndpoint() {
+        String id;
+        Response response;
+        response = given()
+                .when()
+                .get("/rest-vet/vets")
+                .then()
+                .statusCode(200)
+                .extract().response();
+        id = response.jsonPath().getString("id[0]");
+        // TODO
+    }
 }
