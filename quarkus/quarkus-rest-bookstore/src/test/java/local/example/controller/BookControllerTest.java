@@ -61,7 +61,7 @@ public class BookControllerTest {
                 .when()
                 .get("/books/1")
                 .then()
-                .statusCode(404);
+                .statusCode(200);
     }
 
     @Test
