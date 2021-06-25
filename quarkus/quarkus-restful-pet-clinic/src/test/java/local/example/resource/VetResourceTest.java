@@ -30,9 +30,9 @@ public class VetResourceTest {
     public void testOwnerResourceEndpoint() {
         given()
                 .when()
-                .get("/vets")
+                .get("/rest-vet/vets")
                 .then()
-                .statusCode(404);
+                .statusCode(200);
     }
 
     @Test
