@@ -23,6 +23,8 @@ import io.quarkus.panache.common.Page;
 import local.example.model.Vet;
 import local.example.resource.VetResource;
 
+//import org.jboss.resteasy.annotations.jaxrs.PathParam;
+
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -72,7 +74,7 @@ public class VetResourceJaxRs {
 
     @PUT
     @Transactional
-    @Path(value = "{id}")
+    @Path(value = "/{id}")
     public Response update(@PathParam("id") String id, Vet vetToUpdate) {
         try {
             if (vetResource.get(Long.valueOf(id)) == null) {
@@ -94,7 +96,7 @@ public class VetResourceJaxRs {
 
     @DELETE
     @Transactional
-    @Path(value = "{id}")
+    @Path(value = "/{id}")
     public Response delete(@PathParam("id") String id) {
         return !vetResource.delete(Long.valueOf(id))
                 ? Response.status(Response.Status.NOT_FOUND).build()
