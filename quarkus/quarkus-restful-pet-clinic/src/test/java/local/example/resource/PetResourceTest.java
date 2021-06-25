@@ -80,4 +80,23 @@ public class PetResourceTest {
         System.out.println(response.jsonPath().getString("id[0]"));
         System.out.println("--- response ---");
     }
+
+    @Test
+    @Order(value = 5)
+    public void testReadPetResourceEndpointFromIdentifier() {
+        String id;
+        Response response;
+        response = given()
+                .when()
+                .get("/rest-pet/pets")
+                .then()
+                .statusCode(200)
+                .extract().response();
+        id = response.jsonPath().getString("id[0]");
+        given()
+                .when()
+                .get("/rest-pet/"+id)
+                .then()
+                .statusCode(200);
+    }
 }
