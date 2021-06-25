@@ -30,9 +30,9 @@ public class PetResourceTest {
     public void testOwnerResourceEndpoint() {
         given()
                 .when()
-                .get("/pets")
+                .get("/rest-pet/pets")
                 .then()
-                .statusCode(404);
+                .statusCode(200);
     }
 
     @Test
