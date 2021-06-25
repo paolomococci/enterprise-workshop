@@ -80,4 +80,19 @@ public class OwnerResourceTest {
         System.out.println(response.jsonPath().getString("id[0]"));
         System.out.println("--- response ---");
     }
+
+    @Test
+    @Order(value = 6)
+    public void testUpdateOwnerResourceEndpoint() {
+        String id;
+        Response response;
+        response = given()
+                .when()
+                .get("/rest-owner/owners")
+                .then()
+                .statusCode(200)
+                .extract().response();
+        id = response.jsonPath().getString("id[0]");
+        // TODO
+    }
 }
