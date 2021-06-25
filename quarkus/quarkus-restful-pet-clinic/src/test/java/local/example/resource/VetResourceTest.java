@@ -33,7 +33,7 @@ public class VetResourceTest {
 
     @Test
     @Order(value = 1)
-    public void testOwnerResourceEndpoint() {
+    public void testVetResourceEndpoint() {
         given()
                 .when()
                 .get("/rest-vet/vets")
@@ -44,7 +44,7 @@ public class VetResourceTest {
 
     @Test
     @Order(value = 2)
-    public void testCreatePetResourceEndpoint() {
+    public void testCreateVetResourceEndpoint() {
         given()
                 .contentType("application/json")
                 .body("{\"name\":\"Jean\"}")
