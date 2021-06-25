@@ -67,6 +67,10 @@ public class BookControllerTest {
     @Test
     @Order(value = 4)
     public void testDeleteAllEndpoint() {
-        // TODO
+        given()
+                .when()
+                .delete("/books/1")
+                .then()
+                .statusCode(204);
     }
 }
