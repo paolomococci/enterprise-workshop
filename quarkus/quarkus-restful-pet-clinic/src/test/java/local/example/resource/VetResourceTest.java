@@ -19,23 +19,31 @@
 package local.example.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.is;
 
 @QuarkusTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class VetResourceTest {
 
     @Test
+    @Order(value = 1)
     public void testOwnerResourceEndpoint() {
         given()
                 .when()
                 .get("/rest-vet/vets")
                 .then()
-                .statusCode(200);
+                .statusCode(200)
+                .body(is("[]"));
     }
 
     @Test
+    @Order(value = 2)
     public void testCreatePetResourceEndpoint() {
         given()
                 .contentType("application/json")
@@ -47,10 +55,11 @@ public class VetResourceTest {
     }
 
     @Test
-    public void testReadVetResourceWithNullIdentifierEndpoint() {
+    @Order(value = 3)
+    public void testReadVetResourceEndpointWithNullIdentifier() {
         given()
                 .when()
-                .get("/rest-vet/300")
+                .get("/rest-vet/1")
                 .then()
                 .statusCode(404);
     }
