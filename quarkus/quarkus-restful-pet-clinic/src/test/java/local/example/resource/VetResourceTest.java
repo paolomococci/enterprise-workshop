@@ -24,6 +24,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
@@ -67,11 +68,16 @@ public class VetResourceTest {
     @Test
     @Order(value = 4)
     public void testReadVetResourceEndpoint() {
-        given()
+        Response response;
+        response = given()
                 .when()
                 .get("/rest-vet/vets")
                 .then()
                 .statusCode(200)
-                .body("$.size()", is(1));
+                .extract().response();
+        System.out.println("--- response ---");
+        System.out.println(response.body().prettyPrint());
+        System.out.println(response.jsonPath().getString("id[0]"));
+        System.out.println("--- response ---");
     }
 }
