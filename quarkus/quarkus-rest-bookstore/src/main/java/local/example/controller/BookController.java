@@ -77,7 +77,7 @@ public class BookController {
     @Path(value = "/{id}")
     public Response delete(@PathParam("id") String id) {
         return !bookResource.delete(Long.valueOf(id))
-                ? Response.status(Response.Status.NO_CONTENT).build()
-                : Response.status(Response.Status.NOT_FOUND).build();
+                ? Response.status(Response.Status.NOT_FOUND).build()
+                : Response.status(Response.Status.NO_CONTENT).build();
     }
 }
