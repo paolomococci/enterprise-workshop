@@ -33,7 +33,7 @@ public class PetResourceTest {
 
     @Test
     @Order(value = 1)
-    public void testOwnerResourceEndpoint() {
+    public void testPetResourceEndpoint() {
         given()
                 .when()
                 .get("/rest-pet/pets")
