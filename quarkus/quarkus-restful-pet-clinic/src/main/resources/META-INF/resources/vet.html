@@ -7,9 +7,102 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 
   <script type="text/javascript">
+    var app = angular.module("VetManagement", []);
+
+    app.controller("VetManagementController", function ($scope, $http) {
+
+      $scope.vets = [];
+
+      $scope.form = {
+        name: ""
+      };
+
+      /* load vets data from server */
+      _refreshPageData();
+
+      /* HTTP POST method for add a vet */
+      $scope.add = function () {
+        var data = {
+          "name": $scope.form.name
+        };
+
+        $http({
+          method: "POST",
+          url: '/rest-vet',
+          data: angular.toJson(data),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then(_success, _error);
+      };
+
+      /* HTTP GET method for get all vets collection */
+      function _refreshPageData() {
+        $http({
+          method: 'GET',
+          url: '/rest-vet/vets'
+        }).then(function successCallback(response) {
+          $scope.vets = response.data;
+        }, function errorCallback(response) {
+          console.log(response.statusText);
+        });
+      }
+
+      function _success(response) {
+        _refreshPageData();
+        _clearForm();
+      }
+
+      function _error(response) {
+        alert(response.data.message || response.statusText);
+      }
+
+      /* clear data form */
+      function _clearForm() {
+        $scope.form.name = "";
+      }
+    });
   </script>
 </head>
-<body>
+<body
+        ng-app="VetManagement"
+        ng-controller="VetManagementController">
+<div class="container">
+  <h1>REST service - VET</h1>
 
+  <div class="cards">
+    <div class="card">
+      <h5 class="card-header">ADD A VET TO THE LIST BELOW</h5>
+      <div class="card-body">
+        <form ng-submit="add()">
+          <div class="row">
+            <div class="field-text"><input type="text" placeholder="name" ng-model="form.name" size="40"/></div>
+          </div>
+          <input class="outline" type="submit" value="ADD"/>
+        </form>
+      </div>
+      <div class="card-footer center text-center">
+        <h5></h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-header">vet list</h3>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-4">NAME</div>
+        </div>
+        <div class="row" ng-repeat="vet in vets">
+          <div class="col-4">{{ vet.name }}</div>
+        </div>
+      </div>
+      <div class="card-footer center text-center">
+        <h5></h5>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
