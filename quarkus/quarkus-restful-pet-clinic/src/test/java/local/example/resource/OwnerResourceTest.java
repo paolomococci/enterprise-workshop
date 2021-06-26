@@ -113,10 +113,11 @@ public class OwnerResourceTest {
                 .extract().response();
         id = response.jsonPath().getString("id[0]");
         given()
+                .contentType("application/json")
+                .body("{\"name\":\"James\"}")
                 .when()
-                .get("/rest-owner/"+id)
+                .put("/rest-owner/"+id)
                 .then()
-                .statusCode(200);
-        // TODO
+                .statusCode(205);
     }
 }
