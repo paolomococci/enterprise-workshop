@@ -114,7 +114,7 @@ public class OwnerResourceTest {
         id = response.jsonPath().getString("id[0]");
         given()
                 .when()
-                .get("/rest-vet/"+id)
+                .get("/rest-owner/"+id)
                 .then()
                 .statusCode(200);
         // TODO
