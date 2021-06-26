@@ -113,10 +113,12 @@ public class VetResourceTest {
                 .extract().response();
         id = response.jsonPath().getString("id[0]");
         given()
+                .contentType("application/json")
+                .body("{\"name\":\"Chloe\"}")
                 .when()
-                .get("/rest-vet/"+id)
+                .put("/rest-vet/"+id)
                 .then()
-                .statusCode(200);
+                .statusCode(205);
         // TODO
     }
 }
