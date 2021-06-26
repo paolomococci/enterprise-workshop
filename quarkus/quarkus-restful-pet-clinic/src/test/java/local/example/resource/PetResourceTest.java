@@ -114,7 +114,7 @@ public class PetResourceTest {
         id = response.jsonPath().getString("id[0]");
         given()
                 .when()
-                .get("/rest-vet/"+id)
+                .get("/rest-pet/"+id)
                 .then()
                 .statusCode(200);
         // TODO
