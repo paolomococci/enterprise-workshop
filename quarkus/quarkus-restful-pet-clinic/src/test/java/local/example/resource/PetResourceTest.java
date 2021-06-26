@@ -120,4 +120,23 @@ public class PetResourceTest {
                 .then()
                 .statusCode(205);
     }
+
+    @Test
+    @Order(value = 7)
+    public void testDeletePetResourceEndpoint() {
+        String id;
+        Response response;
+        response = given()
+                .when()
+                .get("/rest-pet/pets")
+                .then()
+                .statusCode(200)
+                .extract().response();
+        id = response.jsonPath().getString("id[0]");
+        given()
+                .when()
+                .delete("/rest-pet/"+id)
+                .then()
+                .statusCode(204);
+    }
 }
