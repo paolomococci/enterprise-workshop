@@ -82,6 +82,25 @@ public class OwnerResourceTest {
     }
 
     @Test
+    @Order(value = 5)
+    public void testReadOwnerResourceEndpointFromIdentifier() {
+        String id;
+        Response response;
+        response = given()
+                .when()
+                .get("/rest-owner/owners")
+                .then()
+                .statusCode(200)
+                .extract().response();
+        id = response.jsonPath().getString("id[0]");
+        given()
+                .when()
+                .get("/rest-owner/"+id)
+                .then()
+                .statusCode(200);
+    }
+
+    @Test
     @Order(value = 6)
     public void testUpdateOwnerResourceEndpoint() {
         String id;
@@ -93,6 +112,11 @@ public class OwnerResourceTest {
                 .statusCode(200)
                 .extract().response();
         id = response.jsonPath().getString("id[0]");
+        given()
+                .when()
+                .get("/rest-vet/"+id)
+                .then()
+                .statusCode(200);
         // TODO
     }
 }
