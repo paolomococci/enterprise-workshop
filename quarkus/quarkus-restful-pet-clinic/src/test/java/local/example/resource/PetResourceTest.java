@@ -113,10 +113,12 @@ public class PetResourceTest {
                 .extract().response();
         id = response.jsonPath().getString("id[0]");
         given()
+                .contentType("application/json")
+                .body("{\"name\":\"leo\"}")
                 .when()
-                .get("/rest-pet/"+id)
+                .put("/rest-pet/"+id)
                 .then()
-                .statusCode(200);
+                .statusCode(205);
         // TODO
     }
 }
