@@ -112,6 +112,11 @@ public class VetResourceTest {
                 .statusCode(200)
                 .extract().response();
         id = response.jsonPath().getString("id[0]");
+        given()
+                .when()
+                .get("/rest-vet/"+id)
+                .then()
+                .statusCode(200);
         // TODO
     }
 }
