@@ -119,6 +119,24 @@ public class VetResourceTest {
                 .put("/rest-vet/"+id)
                 .then()
                 .statusCode(205);
-        // TODO
+    }
+
+    @Test
+    @Order(value = 7)
+    public void testDeleteVetResourceEndpoint() {
+        String id;
+        Response response;
+        response = given()
+                .when()
+                .get("/rest-vet/vets")
+                .then()
+                .statusCode(200)
+                .extract().response();
+        id = response.jsonPath().getString("id[0]");
+        given()
+                .when()
+                .delete("/rest-vet/"+id)
+                .then()
+                .statusCode(204);
     }
 }
