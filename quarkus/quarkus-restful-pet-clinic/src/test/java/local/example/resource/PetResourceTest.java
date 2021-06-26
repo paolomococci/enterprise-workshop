@@ -119,6 +119,5 @@ public class PetResourceTest {
                 .put("/rest-pet/"+id)
                 .then()
                 .statusCode(205);
-        // TODO
     }
 }
