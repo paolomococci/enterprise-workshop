@@ -12,7 +12,7 @@
       font-size:0.4em
     }
   </style>
-    <script type="text/javascript">
+  <script type="text/javascript">
   var app = angular.module("PetManagement", []);
 
   app.controller("PetManagementController", function ($scope, $http) {
@@ -99,52 +99,52 @@
         ng-app="PetManagement"
         ng-controller="PetManagementController">
 <div class="container">
-    <h1>access to REST service - PET</h1>
+  <h1>access to REST service - PET</h1>
 
-    <div class="cards">
-        <div class="card">
-            <h5 class="card-header">SAVE THE PETS DATA IN THE FOLLOWING LIST</h5>
-            <div class="card-body">
-                <form ng-submit="update()">
-                    <div class="row">
-                        <div class="field-text"><input type="text" placeholder="name" ng-model="form.name" size="40"/></div>
-                    </div>
-                    <input class="outline" type="submit" value="SAVE"/>
-                </form>
+  <div class="cards">
+    <div class="card">
+      <h5 class="card-header">SAVE THE PETS DATA IN THE FOLLOWING LIST</h5>
+        <div class="card-body">
+          <form ng-submit="update()">
+            <div class="row">
+              <div class="field-text"><input type="text" placeholder="name" ng-model="form.name" size="40"/></div>
             </div>
-            <div class="card-footer center text-center">
-                <h5></h5>
-            </div>
+            <input class="outline" type="submit" value="SAVE"/>
+          </form>
+        </div>
+        <div class="card-footer center text-center">
+          <h5></h5>
         </div>
     </div>
+  </div>
 
-    <div class="cards">
-        <div class="card">
-            <h3 class="card-header">pet list</h3>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-2">ID</div>
-                    <div class="col-4">NAME</div>
-                    <div class="col-8">ACTIONS</div>
-                </div>
-                <div class="row" ng-repeat="pet in pets">
-                    <div class="col-2">{{ pet.id }}</div>
-                    <div class="col-4">{{ pet.name }}</div>
-                    <div class="col-8">
-                        <input ng-click="populate(pet)" class="outline action-button" type="submit" value="EDIT"/>
-                        <input ng-click="delete(pet)" class="outline action-button" type="submit" value="DELETE"/>
-                    </div>
-                </div>
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-header">pet list</h3>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-2">ID</div>
+            <div class="col-4">NAME</div>
+            <div class="col-8">ACTIONS</div>
+          </div>
+          <div class="row" ng-repeat="pet in pets">
+            <div class="col-2">{{ pet.id }}</div>
+            <div class="col-4">{{ pet.name }}</div>
+            <div class="col-8">
+              <input ng-click="populate(pet)" class="outline action-button" type="submit" value="EDIT"/>
+              <input ng-click="delete(pet)" class="outline action-button" type="submit" value="DELETE"/>
             </div>
-            <div class="card-footer center text-center">
-                <!--h6>other entities</h6>
-                  <ul>
-                      <li><em><a href="owner.html" class="path-link" target="_blank">owner</a></em></li>
-                      <li><em><a href="vet.html" class="path-link" target="_blank">vet</a></em></li>
-                  </ul-->
-            </div>
+          </div>
+        </div>
+        <div class="card-footer center text-center">
+          <!--h6>other entities</h6>
+          <ul>
+            <li><em><a href="owner.html" class="path-link" target="_blank">owner</a></em></li>
+            <li><em><a href="vet.html" class="path-link" target="_blank">vet</a></em></li>
+          </ul-->
         </div>
     </div>
+  </div>
 </div>
 </body>
 </html>
