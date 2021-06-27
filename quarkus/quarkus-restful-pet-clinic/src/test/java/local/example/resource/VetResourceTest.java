@@ -26,6 +26,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 
 @QuarkusTest
@@ -97,7 +98,8 @@ public class VetResourceTest {
                 .when()
                 .get("/rest-vet/"+id)
                 .then()
-                .statusCode(200);
+                .statusCode(200)
+                .body("name", containsString("Jean"));
     }
 
     @Test
