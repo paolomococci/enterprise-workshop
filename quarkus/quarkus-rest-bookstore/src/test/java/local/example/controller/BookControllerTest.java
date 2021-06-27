@@ -27,6 +27,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 import javax.ws.rs.core.MediaType;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.is;
 
 @QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -39,7 +40,8 @@ public class BookControllerTest {
                 .when()
                 .get("/books")
                 .then()
-                .statusCode(200);
+                .statusCode(200)
+                .body(is("[]"));
     }
 
     @Test
