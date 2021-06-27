@@ -125,6 +125,26 @@ public class PetResourceTest {
 
     @Test
     @Order(value = 7)
+    public void testReadPetResourceEndpointFromIdentifierAfterUpdated() {
+        String id;
+        Response response;
+        response = given()
+                .when()
+                .get("/rest-pet/pets")
+                .then()
+                .statusCode(200)
+                .extract().response();
+        id = response.jsonPath().getString("id[0]");
+        given()
+                .when()
+                .get("/rest-pet/"+id)
+                .then()
+                .statusCode(200)
+                .body("name", containsString("leo"));
+    }
+
+    @Test
+    @Order(value = 8)
     public void testDeletePetResourceEndpoint() {
         String id;
         Response response;
