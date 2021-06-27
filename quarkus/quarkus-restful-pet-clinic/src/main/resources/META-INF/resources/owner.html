@@ -1,108 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Owner REST service</title>
-    <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <meta charset="UTF-8"/>
+  <title>Owner REST service</title>
+  <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    .action-button {
+      height:0.3em;
+      width:0.3em;
+      font-size:0.4em
+    }
+  </style>
+  <script type="text/javascript">
+  var app = angular.module("OwnerManagement", []);
 
-    <script type="text/javascript">
-    var app = angular.module("OwnerManagement", []);
+  app.controller("OwnerManagementController", function ($scope, $http) {
 
-    app.controller("OwnerManagementController", function ($scope, $http) {
+    $scope.owners = [];
 
-      $scope.owners = [];
+    $scope.form = {
+      id: -1,
+      name: ""
+    };
 
-      $scope.form = {
-        name: ""
+    /* load owners data from server */
+    _refreshPageData();
+
+    /* HTTP POST/PUT methods for create/update owner entities */
+    $scope.update = function () {
+      var method = "";
+      var url = "";
+      var data = {};
+
+      if ($scope.form.id == -1) {
+        method = "POST";
+        url = '/rest-owner';
+        data.name = $scope.form.name;
+      } else {
+        method = "PUT";
+        url = '/rest-owner/' + $scope.form.id;
+        data.name = $scope.form.name;
+      }
+
+      /* populate form with owner data */
+      $scope.populate = function (owner) {
+        $scope.form.id = owner.id;
+        $scope.form.name = owner.name;
+      }
+
+      $http({
+        method: method,
+        url: url,
+        data: angular.toJson(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(_success, _error);
       };
 
-      /* load owners data from server */
+    /* HTTP DELETE method for deleting an owner from the list */
+    $scope.delete = function (owner) {
+      $http({
+        method: 'DELETE',
+        url: '/rest-owner/' + owner.id
+      }).then(_success, _error);
+    };
+
+    /* HTTP GET method for get all owners collection */
+    function _refreshPageData() {
+      $http({
+        method: 'GET',
+        url: '/rest-owner/owners'
+      }).then(function successCallback(response) {
+        $scope.owners = response.data;
+      }, function errorCallback(response) {
+        console.log(response.statusText);
+      });
+    }
+
+    function _success(response) {
       _refreshPageData();
+      _clearForm();
+    }
 
-      /* HTTP POST method for add a owner */
-      $scope.add = function () {
-        var data = {
-          "name": $scope.form.name
-        };
+    function _error(response) {
+      alert(response.data.message || response.statusText);
+    }
 
-        $http({
-          method: "POST",
-          url: '/rest-owner',
-          data: angular.toJson(data),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }).then(_success, _error);
-      };
-
-      /* HTTP GET method for get all owners collection */
-      function _refreshPageData() {
-        $http({
-          method: 'GET',
-          url: '/rest-owner/owners'
-        }).then(function successCallback(response) {
-          $scope.owners = response.data;
-        }, function errorCallback(response) {
-          console.log(response.statusText);
-        });
-      }
-
-      function _success(response) {
-        _refreshPageData();
-        _clearForm();
-      }
-
-      function _error(response) {
-        alert(response.data.message || response.statusText);
-      }
-
-      /* clear data form */
-      function _clearForm() {
-        $scope.form.name = "";
-      }
-    });
+    /* clear data form */
+    function _clearForm() {
+      $scope.form.name = "";
+    }
+  });
   </script>
 </head>
 <body
-        ng-app="OwnerManagement"
-        ng-controller="OwnerManagementController">
+      ng-app="OwnerManagement"
+      ng-controller="OwnerManagementController">
 <div class="container">
-    <h1>REST service - OWNER</h1>
+  <h1>access to REST service - OWNER</h1>
 
-    <div class="cards">
-        <div class="card">
-            <h5 class="card-header">ADD A OWNER TO THE LIST BELOW</h5>
-            <div class="card-body">
-                <form ng-submit="add()">
-                    <div class="row">
-                        <div class="field-text"><input type="text" placeholder="name" ng-model="form.name" size="40"/></div>
-                    </div>
-                    <input class="outline" type="submit" value="ADD"/>
-                </form>
-            </div>
-            <div class="card-footer center text-center">
-                <h5></h5>
-            </div>
-        </div>
-    </div>
-
-    <div class="cards">
+  <div class="cards">
       <div class="card">
-          <h3 class="card-header">owner list</h3>
-          <div class="card-body">
+        <h5 class="card-header">SAVE THE OWNERS DATA IN THE FOLLOWING LIST</h5>
+        <div class="card-body">
+          <form ng-submit="update()">
               <div class="row">
-                  <div class="col-4">NAME</div>
+                <div class="field-text"><input type="text" placeholder="name" ng-model="form.name" size="40"/></div>
               </div>
-              <div class="row" ng-repeat="owner in owners">
-                  <div class="col-4">{{ owner.name }}</div>
-              </div>
-          </div>
-          <div class="card-footer center text-center">
-            <h5></h5>
-          </div>
+              <input class="outline" type="submit" value="SAVE"/>
+          </form>
+        </div>
+        <div class="card-footer center text-center">
+          <h5></h5>
+        </div>
       </div>
-    </div>
+  </div>
+
+  <div class="cards">
+      <div class="card">
+        <h3 class="card-header">owner list</h3>
+        <div class="card-body">
+          <div class="row">
+              <div class="col-2">ID</div>
+              <div class="col-4">NAME</div>
+              <div class="col-8">ACTIONS</div>
+          </div>
+          <div class="row" ng-repeat="owner in owners">
+              <div class="col-2">{{ owner.id }}</div>
+              <div class="col-4">{{ owner.name }}</div>
+              <div class="col-8">
+                <input ng-click="populate(owner)" class="outline action-button" type="submit" value="EDIT"/>
+                <input ng-click="delete(owner)" class="outline action-button" type="submit" value="DELETE"/>
+              </div>
+          </div>
+        </div>
+        <div class="card-footer center text-center">
+          <!--h6>other entities</h6>
+            <ul>
+                <li><em><a href="pet.html" class="path-link" target="_blank">pet</a></em></li>
+                <li><em><a href="vet.html" class="path-link" target="_blank">vet</a></em></li>
+            </ul-->
+        </div>
+      </div>
+  </div>
 </div>
 </body>
 </html>
