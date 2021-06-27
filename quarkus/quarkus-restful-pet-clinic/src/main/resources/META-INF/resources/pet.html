@@ -5,80 +5,111 @@
     <title>Pet REST service</title>
     <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-
+    <style>
+    .action-button {
+      height:0.3em;
+      width:0.3em;
+      font-size:0.4em
+    }
+  </style>
     <script type="text/javascript">
-    var app = angular.module("PetManagement", []);
+  var app = angular.module("PetManagement", []);
 
-    app.controller("PetManagementController", function ($scope, $http) {
+  app.controller("PetManagementController", function ($scope, $http) {
 
-      $scope.pets = [];
+    $scope.pets = [];
 
-      $scope.form = {
-        name: ""
+    $scope.form = {
+      id: -1,
+      name: ""
+    };
+
+    /* load pets data from server */
+    _refreshPageData();
+
+    /* HTTP POST/PUT methods for create/update pet entities */
+    $scope.update = function () {
+      var method = "";
+      var url = "";
+      var data = {};
+
+      if ($scope.form.id == -1) {
+        method = "POST";
+        url = '/rest-pet';
+        data.name = $scope.form.name;
+      } else {
+        method = "PUT";
+        url = '/rest-pet/' + $scope.form.id;
+        data.name = $scope.form.name;
+      }
+
+      /* populate form with pet data */
+      $scope.populate = function (pet) {
+        $scope.form.id = pet.id;
+        $scope.form.name = pet.name;
+      }
+
+      $http({
+        method: method,
+        url: url,
+        data: angular.toJson(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(_success, _error);
       };
 
-      /* load pets data from server */
+    /* HTTP DELETE method for deleting an pet from the list */
+    $scope.delete = function (pet) {
+      $http({
+        method: 'DELETE',
+        url: '/rest-pet/' + pet.id
+      }).then(_success, _error);
+    };
+
+    /* HTTP GET method for get all pets collection */
+    function _refreshPageData() {
+      $http({
+        method: 'GET',
+        url: '/rest-pet/pets'
+      }).then(function successCallback(response) {
+        $scope.pets = response.data;
+      }, function errorCallback(response) {
+        console.log(response.statusText);
+      });
+    }
+
+    function _success(response) {
       _refreshPageData();
+      _clearForm();
+    }
 
-      /* HTTP POST method for add a pet */
-      $scope.add = function () {
-        var data = {
-          "name": $scope.form.name
-        };
+    function _error(response) {
+      alert(response.data.message || response.statusText);
+    }
 
-        $http({
-          method: "POST",
-          url: '/rest-pet',
-          data: angular.toJson(data),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }).then(_success, _error);
-      };
-
-      /* HTTP GET method for get all pets collection */
-      function _refreshPageData() {
-        $http({
-          method: 'GET',
-          url: '/rest-pet/pets'
-        }).then(function successCallback(response) {
-          $scope.pets = response.data;
-        }, function errorCallback(response) {
-          console.log(response.statusText);
-        });
-      }
-
-      function _success(response) {
-        _refreshPageData();
-        _clearForm();
-      }
-
-      function _error(response) {
-        alert(response.data.message || response.statusText);
-      }
-
-      /* clear data form */
-      function _clearForm() {
-        $scope.form.name = "";
-      }
-    });
+    /* clear data form */
+    function _clearForm() {
+      $scope.form.name = "";
+    }
+  });
   </script>
 </head>
 <body
         ng-app="PetManagement"
         ng-controller="PetManagementController">
 <div class="container">
-    <h1>REST service - PET</h1>
+    <h1>access to REST service - PET</h1>
 
     <div class="cards">
         <div class="card">
-            <h5 class="card-header">ADD A PET TO THE LIST BELOW</h5>
+            <h5 class="card-header">SAVE THE PETS DATA IN THE FOLLOWING LIST</h5>
             <div class="card-body">
-                <form ng-submit="add()">
+                <form ng-submit="update()">
                     <div class="row">
                         <div class="field-text"><input type="text" placeholder="name" ng-model="form.name" size="40"/></div>
                     </div>
-                    <input class="outline" type="submit" value="ADD"/>
+                    <input class="outline" type="submit" value="SAVE"/>
                 </form>
             </div>
             <div class="card-footer center text-center">
@@ -92,14 +123,25 @@
             <h3 class="card-header">pet list</h3>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-2">ID</div>
                     <div class="col-4">NAME</div>
+                    <div class="col-8">ACTIONS</div>
                 </div>
                 <div class="row" ng-repeat="pet in pets">
+                    <div class="col-2">{{ pet.id }}</div>
                     <div class="col-4">{{ pet.name }}</div>
+                    <div class="col-8">
+                        <input ng-click="populate(pet)" class="outline action-button" type="submit" value="EDIT"/>
+                        <input ng-click="delete(pet)" class="outline action-button" type="submit" value="DELETE"/>
+                    </div>
                 </div>
             </div>
             <div class="card-footer center text-center">
-                <h5></h5>
+                <!--h6>other entities</h6>
+                  <ul>
+                      <li><em><a href="owner.html" class="path-link" target="_blank">owner</a></em></li>
+                      <li><em><a href="vet.html" class="path-link" target="_blank">vet</a></em></li>
+                  </ul-->
             </div>
         </div>
     </div>
