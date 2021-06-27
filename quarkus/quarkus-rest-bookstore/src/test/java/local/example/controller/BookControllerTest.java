@@ -90,21 +90,20 @@ public class BookControllerTest {
 
     @Test
     @Order(value = 5)
-    public void testDeleteAllEndpoint() {
+    public void testDeleteEndpoint() {
+        String id;
+        Response response;
+        response = given()
+                .when()
+                .get("/books")
+                .then()
+                .statusCode(200)
+                .extract().response();
+        id = response.jsonPath().getString("id[0]");
         given()
                 .when()
-                .delete("/books/1")
+                .delete("/books/"+id)
                 .then()
                 .statusCode(204);
-    }
-
-    @Test
-    @Order(value = 6)
-    public void testReadEndpointAfterDeleting() {
-        given()
-                .when()
-                .get("/books/1")
-                .then()
-                .statusCode(404);
     }
 }
