@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Pet REST service</title>
-    <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <style>
+  <meta charset="UTF-8"/>
+  <title>Pet REST service</title>
+  <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
     .action-button {
       height:0.3em;
       width:0.3em;
@@ -43,12 +43,6 @@
         data.name = $scope.form.name;
       }
 
-      /* populate form with pet data */
-      $scope.populate = function (pet) {
-        $scope.form.id = pet.id;
-        $scope.form.name = pet.name;
-      }
-
       $http({
         method: method,
         url: url,
@@ -57,7 +51,7 @@
           'Content-Type': 'application/json'
         }
       }).then(_success, _error);
-      };
+    };
 
     /* HTTP DELETE method for deleting an pet from the list */
     $scope.delete = function (pet) {
@@ -86,6 +80,12 @@
 
     function _error(response) {
       alert(response.data.message || response.statusText);
+    }
+
+    /* populate form with pet data */
+    $scope.populate = function (pet) {
+      $scope.form.id = pet.id;
+      $scope.form.name = pet.name;
     }
 
     /* clear data form */
