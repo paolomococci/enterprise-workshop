@@ -1,77 +1,16 @@
 <!doctype html>
 <html>
 <head>
+
   <meta charset="utf-8"/>
   <title>Book REST service</title>
+
   <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
+  <link rel="stylesheet" href="index.css"/>
+
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    
-  <script type="text/javascript">
-    var app = angular.module("BookManagement", []);
-    
-    app.controller("BookManagementController", function ($scope, $http) {
+  <script src="index.js"></script>
 
-      $scope.books = [];
-
-      $scope.form = {
-        code: "",
-        title: "",
-        author: "",
-        description: ""
-      };
-
-      /* load books data from server */
-      _refreshPageData();
-
-      /* HTTP POST method for add a book */
-      $scope.add = function () {
-        var data = {
-          "code": $scope.form.code,
-          "title": $scope.form.title,
-          "author": $scope.form.author,
-          "description": $scope.form.description
-        };
-
-        $http({
-          method: "POST",
-          url: '/books',
-          data: angular.toJson(data),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }).then(_success, _error);
-      };
-
-      /* HTTP GET method for get all books collection */
-      function _refreshPageData() {
-        $http({
-          method: 'GET',
-          url: '/books'
-        }).then(function successCallback(response) {
-          $scope.books = response.data;
-        }, function errorCallback(response) {
-          console.log(response.statusText);
-        });
-      }
-
-      function _success(response) {
-        _refreshPageData();
-        _clearForm();
-      }
-
-      function _error(response) {
-        alert(response.data.message || response.statusText);
-      }
-
-      /* clear data form */
-      function _clearForm() {
-        $scope.form.code = "";
-        $scope.form.title = "";
-        $scope.form.author = "";
-        $scope.form.description = "";
-      }
-    });
-  </script>
 </head>
 <body
     ng-app="BookManagement"
@@ -81,9 +20,9 @@
 
   <div class="cards">
     <div class="card">
-      <h5 class="card-header">ADD A BOOK TO THE LIST BELOW</h5>
+      <h5 class="card-header">SAVE THE BOOKS DATA IN THE FOLLOWING LIST</h5>
       <div class="card-body">
-        <form ng-submit="add()">
+        <form ng-submit="save()">
           <div class="row">
             <div class="field-text"><input type="text" placeholder="code" ng-model="form.code" size="40"/></div>
           </div>
@@ -96,7 +35,8 @@
           <div class="row">
             <div class="field-text"><input type="text" placeholder="description" ng-model="form.description" size="40"/></div>
           </div>
-          <input class="outline" type="submit" value="ADD"/>
+          <input class="outline" type="submit" value="SAVE"/>
+          <button class="outline" type="reset">CANCEL</button>
         </form>
       </div>
       <div class="card-footer center text-center">
@@ -114,12 +54,17 @@
           <div class="col-6">TITLE</div>
           <div class="col-6">AUTHOR</div>
           <div class="col-8">DESCRIPTION</div>
+          <div class="col-12">ACTIONS</div>
         </div>
         <div class="row" ng-repeat="book in books">
           <div class="col-4">{{ book.code }}</div>
           <div class="col-6">{{ book.title }}</div>
           <div class="col-6">{{ book.author }}</div>
           <div class="col-8">{{ book.description }}</div>
+          <div class="col-12">
+            <button ng-click="populate(book)" class="outline action-button">EDIT</button>
+            <button ng-click="delete(book)" class="outline action-button">DELETE</button>
+          </div>
         </div>
       </div>
       <div class="card-footer center text-center">
