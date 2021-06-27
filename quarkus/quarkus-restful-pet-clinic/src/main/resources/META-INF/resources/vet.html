@@ -5,80 +5,111 @@
   <title>Vet REST service</title>
   <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-
+  <style>
+    .action-button {
+      height:0.3em;
+      width:0.3em;
+      font-size:0.4em
+    }
+  </style>
   <script type="text/javascript">
-    var app = angular.module("VetManagement", []);
+  var app = angular.module("VetManagement", []);
 
-    app.controller("VetManagementController", function ($scope, $http) {
+  app.controller("VetManagementController", function ($scope, $http) {
 
-      $scope.vets = [];
+    $scope.vets = [];
 
-      $scope.form = {
-        name: ""
+    $scope.form = {
+      id: -1,
+      name: ""
+    };
+
+    /* load vets data from server */
+    _refreshPageData();
+
+    /* HTTP POST/PUT methods for create/update vet entities */
+    $scope.update = function () {
+      var method = "";
+      var url = "";
+      var data = {};
+
+      if ($scope.form.id == -1) {
+        method = "POST";
+        url = '/rest-vet';
+        data.name = $scope.form.name;
+      } else {
+        method = "PUT";
+        url = '/rest-vet/' + $scope.form.id;
+        data.name = $scope.form.name;
+      }
+
+      /* populate form with vet data */
+      $scope.populate = function (vet) {
+        $scope.form.id = vet.id;
+        $scope.form.name = vet.name;
+      }
+
+      $http({
+        method: method,
+        url: url,
+        data: angular.toJson(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(_success, _error);
       };
 
-      /* load vets data from server */
+    /* HTTP DELETE method for deleting an vet from the list */
+    $scope.delete = function (vet) {
+      $http({
+        method: 'DELETE',
+        url: '/rest-vet/' + vet.id
+      }).then(_success, _error);
+    };
+
+    /* HTTP GET method for get all vets collection */
+    function _refreshPageData() {
+      $http({
+        method: 'GET',
+        url: '/rest-vet/vets'
+      }).then(function successCallback(response) {
+        $scope.vets = response.data;
+      }, function errorCallback(response) {
+        console.log(response.statusText);
+      });
+    }
+
+    function _success(response) {
       _refreshPageData();
+      _clearForm();
+    }
 
-      /* HTTP POST method for add a vet */
-      $scope.add = function () {
-        var data = {
-          "name": $scope.form.name
-        };
+    function _error(response) {
+      alert(response.data.message || response.statusText);
+    }
 
-        $http({
-          method: "POST",
-          url: '/rest-vet',
-          data: angular.toJson(data),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }).then(_success, _error);
-      };
-
-      /* HTTP GET method for get all vets collection */
-      function _refreshPageData() {
-        $http({
-          method: 'GET',
-          url: '/rest-vet/vets'
-        }).then(function successCallback(response) {
-          $scope.vets = response.data;
-        }, function errorCallback(response) {
-          console.log(response.statusText);
-        });
-      }
-
-      function _success(response) {
-        _refreshPageData();
-        _clearForm();
-      }
-
-      function _error(response) {
-        alert(response.data.message || response.statusText);
-      }
-
-      /* clear data form */
-      function _clearForm() {
-        $scope.form.name = "";
-      }
-    });
+    /* clear data form */
+    function _clearForm() {
+      $scope.form.name = "";
+    }
+  });
   </script>
 </head>
 <body
         ng-app="VetManagement"
         ng-controller="VetManagementController">
 <div class="container">
-  <h1>REST service - VET</h1>
+  <h1>access to REST service - VET</h1>
 
   <div class="cards">
     <div class="card">
-      <h5 class="card-header">ADD A VET TO THE LIST BELOW</h5>
+      <h5 class="card-header">SAVE THE VETS DATA IN THE FOLLOWING LIST</h5>
       <div class="card-body">
-        <form ng-submit="add()">
+        <form ng-submit="update()">
           <div class="row">
             <div class="field-text"><input type="text" placeholder="name" ng-model="form.name" size="40"/></div>
           </div>
-          <input class="outline" type="submit" value="ADD"/>
+          <input class="outline" type="submit" value="SAVE"/>
         </form>
       </div>
       <div class="card-footer center text-center">
@@ -92,14 +123,25 @@
       <h3 class="card-header">vet list</h3>
       <div class="card-body">
         <div class="row">
+          <div class="col-2">ID</div>
           <div class="col-4">NAME</div>
+          <div class="col-8">ACTIONS</div>
         </div>
         <div class="row" ng-repeat="vet in vets">
+          <div class="col-2">{{ vet.id }}</div>
           <div class="col-4">{{ vet.name }}</div>
+          <div class="col-8">
+            <input ng-click="populate(vet)" class="outline action-button" type="submit" value="EDIT"/>
+            <input ng-click="delete(vet)" class="outline action-button" type="submit" value="DELETE"/>
+          </div>
         </div>
       </div>
       <div class="card-footer center text-center">
-        <h5></h5>
+        <!--h6>other entities</h6>
+          <ul>
+              <li><em><a href="owner.html" class="path-link" target="_blank">owner</a></em></li>
+              <li><em><a href="pet.html" class="path-link" target="_blank">pet</a></em></li>
+          </ul-->
       </div>
     </div>
   </div>
