@@ -49,6 +49,20 @@ public class BookController {
                 .build();
     }
 
+    @POST
+    @Transactional
+    public Response create(Book bookToCreate) {
+        try {
+            Book book = bookResource.add(bookToCreate);
+            return Response
+                    .status(Response.Status.CREATED)
+                    .entity(book).build();
+        } catch (Exception exception) {
+            exception.getMessage();
+            return null;
+        }
+    }
+
     @GET
     @Path(value = "/{id}")
     public Response read(@PathParam("id") String id) {
@@ -58,14 +72,22 @@ public class BookController {
                 : Response.status(Response.Status.NOT_FOUND).build();
     }
 
-    @POST
+    @PUT
     @Transactional
-    public Response create(Book bookToCreate) {
+    @Path(value = "/{id}")
+    public Response update(@PathParam("id") String id, Book bookToUpdate) {
         try {
-            Book book = bookResource.add(bookToCreate);
-            return Response
-                    .status(Response.Status.CREATED)
-                    .entity(book).build();
+            if (bookResource.get(Long.valueOf(id)) == null) {
+                Book book = bookResource.add(bookToUpdate);
+                return Response
+                        .status(Response.Status.CREATED)
+                        .entity(book).build();
+            } else {
+                Book book = bookResource.update(Long.valueOf(id), bookToUpdate);
+                return Response
+                        .status(Response.Status.RESET_CONTENT)
+                        .entity(book).build();
+            }
         } catch (Exception exception) {
             exception.getMessage();
             return null;
