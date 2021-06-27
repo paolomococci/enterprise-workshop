@@ -58,6 +58,16 @@ public class BookControllerTest {
 
     @Test
     @Order(value = 3)
+    public void testReadBookResourceEndpointWithNonExistentIdentifier() {
+        given()
+                .when()
+                .get("/books/100")
+                .then()
+                .statusCode(404);
+    }
+
+    @Test
+    @Order(value = 4)
     public void testReadEndpoint() {
         given()
                 .when()
@@ -67,7 +77,7 @@ public class BookControllerTest {
     }
 
     @Test
-    @Order(value = 4)
+    @Order(value = 5)
     public void testDeleteAllEndpoint() {
         given()
                 .when()
@@ -77,7 +87,7 @@ public class BookControllerTest {
     }
 
     @Test
-    @Order(value = 5)
+    @Order(value = 6)
     public void testReadEndpointAfterDeleting() {
         given()
                 .when()
