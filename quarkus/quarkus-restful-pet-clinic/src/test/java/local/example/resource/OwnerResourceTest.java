@@ -124,6 +124,26 @@ public class OwnerResourceTest {
 
     @Test
     @Order(value = 7)
+    public void testReadOwnerResourceEndpointFromIdentifierAfterUpdated() {
+        String id;
+        Response response;
+        response = given()
+                .when()
+                .get("/rest-owner/owners")
+                .then()
+                .statusCode(200)
+                .extract().response();
+        id = response.jsonPath().getString("id[0]");
+        given()
+                .when()
+                .get("/rest-owner/"+id)
+                .then()
+                .statusCode(200)
+                .body("name", containsString("James"));
+    }
+
+    @Test
+    @Order(value = 8)
     public void testDeleteOwnerResourceEndpoint() {
         String id;
         Response response;
