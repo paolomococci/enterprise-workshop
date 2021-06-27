@@ -26,7 +26,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 @QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -97,7 +97,8 @@ public class OwnerResourceTest {
                 .when()
                 .get("/rest-owner/"+id)
                 .then()
-                .statusCode(200);
+                .statusCode(200)
+                .body("name", containsString("John"));
     }
 
     @Test
@@ -119,5 +120,24 @@ public class OwnerResourceTest {
                 .put("/rest-owner/"+id)
                 .then()
                 .statusCode(205);
+    }
+
+    @Test
+    @Order(value = 7)
+    public void testDeleteOwnerResourceEndpoint() {
+        String id;
+        Response response;
+        response = given()
+                .when()
+                .get("/rest-owner/owners")
+                .then()
+                .statusCode(200)
+                .extract().response();
+        id = response.jsonPath().getString("id[0]");
+        given()
+                .when()
+                .delete("/rest-owner/"+id)
+                .then()
+                .statusCode(204);
     }
 }
