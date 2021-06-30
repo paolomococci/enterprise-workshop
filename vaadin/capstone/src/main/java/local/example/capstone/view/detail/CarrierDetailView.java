@@ -43,4 +43,33 @@ public class CarrierDetailView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    public CarrierDetailView(@Autowired CarrierService carrierService) {
+
+        this.cancel.addClickListener(e -> {
+            // TODO
+        });
+
+        this.save.addClickListener(e -> {
+            // TODO
+        });
+    }
+
+    private void refreshGrid() {
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private void populateForm(CarrierEntity carrierEntity) {
+        // TODO
+
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        // TODO
+    }
 }
