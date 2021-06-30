@@ -43,4 +43,33 @@ public class InvoiceDetailView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    public InvoiceDetailView(@Autowired InvoiceService invoiceService) {
+
+        this.cancel.addClickListener(e -> {
+            // TODO
+        });
+
+        this.save.addClickListener(e -> {
+            // TODO
+        });
+    }
+
+    private void refreshGrid() {
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private void populateForm(InvoiceEntity invoiceEntity) {
+        // TODO
+
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        // TODO
+    }
 }
