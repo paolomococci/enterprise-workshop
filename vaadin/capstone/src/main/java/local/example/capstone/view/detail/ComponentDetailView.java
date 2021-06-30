@@ -31,7 +31,8 @@ import local.example.capstone.data.entity.ComponentEntity;
 @Tag("component-detail-view")
 @JsModule("./views/details/component-detail-view.ts")
 public class ComponentDetailView
-        extends LitTemplate {
+        extends LitTemplate
+        implements HasStyle, BeforeEnterObserver {
 
     @Id("grid")
     private Grid<ComponentEntity> componentEntityGrid;
