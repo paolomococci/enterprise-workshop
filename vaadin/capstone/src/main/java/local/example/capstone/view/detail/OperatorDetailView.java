@@ -31,7 +31,8 @@ import local.example.capstone.data.entity.OperatorEntity;
 @Tag("operator-detail-view")
 @JsModule("./views/details/operator-detail-view.ts")
 public class OperatorDetailView
-        extends LitTemplate {
+        extends LitTemplate
+        implements HasStyle, BeforeEnterObserver {
 
     @Id("grid")
     private Grid<OperatorEntity> operatorEntityGrid;
