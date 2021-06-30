@@ -43,4 +43,33 @@ public class ComponentDetailView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    public ComponentDetailView(@Autowired ComponentService componentService) {
+
+        this.cancel.addClickListener(e -> {
+            // TODO
+        });
+
+        this.save.addClickListener(e -> {
+            // TODO
+        });
+    }
+
+    private void refreshGrid() {
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private void populateForm(ComponentEntity componentEntity) {
+        // TODO
+
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        // TODO
+    }
 }
