@@ -31,7 +31,8 @@ import local.example.capstone.data.entity.ProductEntity;
 @Tag("product-detail-view")
 @JsModule("./views/details/product-detail-view.ts")
 public class ProductDetailView
-        extends LitTemplate {
+        extends LitTemplate
+        implements HasStyle, BeforeEnterObserver {
 
     @Id("grid")
     private Grid<ProductEntity> productEntityGrid;
