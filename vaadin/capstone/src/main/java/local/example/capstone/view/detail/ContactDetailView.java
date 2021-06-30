@@ -20,21 +20,31 @@ package local.example.capstone.view.detail;
 
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import local.example.capstone.data.entity.ContactEntity;
+import local.example.capstone.data.service.ContactService;
 import local.example.capstone.view.MainView;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @Route(value = "contact-detail/:contactID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Contact Detail")
@@ -44,8 +54,14 @@ public class ContactDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
-    private final String CONTACT_ID = "contactID";
     private final String CONTACT_EDIT_ROUTE_TEMPLATE = "contact-detail/%d/edit";
+
+    @Autowired
+    ContactEntity contactEntity;
+
+    private final ContactService contactService;
+
+    private final BeanValidationBinder<ContactEntity> contactEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<ContactEntity> contactEntityGrid;
@@ -80,31 +96,101 @@ public class ContactDetailView
     private Button cancel;
 
     public ContactDetailView(@Autowired ContactService contactService) {
+        this.addClassNames("contact-detail-view", "flex", "flex-col", "h-full");
+
+        this.contactService = contactService;
+
+        this.contactEntityGrid.addColumn(ContactEntity::getName).setHeader("Name").setAutoWidth(true);
+        this.contactEntityGrid.addColumn(ContactEntity::getSurname).setHeader("Surname").setAutoWidth(true);
+        this.contactEntityGrid.addColumn(ContactEntity::getDateOfBirth).setHeader("Birthday").setAutoWidth(true);
+        this.contactEntityGrid.addColumn(ContactEntity::getPhoneMobileNumber).setHeader("Phone").setAutoWidth(true);
+        this.contactEntityGrid.addColumn(ContactEntity::getContributoryIdentifier).setHeader("Contributory Identifier").setAutoWidth(true);
+        this.contactEntityGrid.addColumn(ContactEntity::getEmail).setHeader("Email").setAutoWidth(true);
+        this.contactEntityGrid.addColumn(ContactEntity::getProfession).setHeader("Profession").setAutoWidth(true);
+        this.contactEntityGrid.addColumn(ContactEntity::getRole).setHeader("Role").setAutoWidth(true);
+
+        this.contactEntityGrid.setItems(contactService.readAll());
+
+        this.contactEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.contactEntityGrid.setHeightFull();
+
+        this.contactEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            if (valueChangeEvent.getValue() != null) {
+                UI.getCurrent().navigate(String.format(
+                        CONTACT_EDIT_ROUTE_TEMPLATE,
+                        valueChangeEvent.getValue().getId()
+                ));
+            } else {
+                this.clearForm();
+                UI.getCurrent().navigate(ContactDetailView.class);
+            }
+        });
+
+        this.contactEntityBeanValidationBinder = new BeanValidationBinder<>(ContactEntity.class);
+        this.contactEntityBeanValidationBinder.bindInstanceFields(this);
 
         this.cancel.addClickListener(e -> {
-            // TODO
+            this.clearForm();
+            this.refreshGrid();
         });
 
         this.save.addClickListener(e -> {
-            // TODO
+            try {
+                if (this.contactEntity == null) {
+                    this.contactEntity = new ContactEntity();
+                }
+                this.contactEntityBeanValidationBinder.writeBean(this.contactEntity);
+                this.contactService.update(this.contactEntity);
+                this.clearForm();
+                this.refreshGrid();
+                Notification.show(
+                        "contact details stored",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                UI.getCurrent().navigate(ContactDetailView.class);
+            } catch (ValidationException validationException) {
+                Notification.show(
+                        "an exception happened while trying to store the contact details",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+            }
         });
     }
 
     private void refreshGrid() {
-        // TODO
+        this.contactEntityGrid.select(null);
+        this.contactEntityGrid.getLazyDataView().refreshAll();
     }
 
     private void clearForm() {
-        // TODO
+        populateForm(null);
     }
 
     private void populateForm(ContactEntity contactEntity) {
-        // TODO
+        this.contactEntity = contactEntity;
+        this.contactEntityBeanValidationBinder.readBean(this.contactEntity);
 
     }
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String CONTACT_ID = "contactID";
+        Optional<Long> contactID = beforeEnterEvent.getRouteParameters().getLong(CONTACT_ID);
+        if (contactID.isPresent()) {
+            Optional<ContactEntity> optionalContactEntity = contactService.read(CONTACT_ID);
+            if (optionalContactEntity.isPresent()) {
+                this.populateForm(optionalContactEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested contact was not found, ID = %d", contactID.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(ContactDetailView.class);
+            }
+        }
     }
 }
