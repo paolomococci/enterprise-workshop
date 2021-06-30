@@ -31,7 +31,8 @@ import local.example.capstone.data.entity.PositionEntity;
 @Tag("position-detail-view")
 @JsModule("./views/details/position-detail-view.ts")
 public class PositionDetailView
-        extends LitTemplate {
+        extends LitTemplate
+        implements HasStyle, BeforeEnterObserver {
 
     @Id("grid")
     private Grid<PositionEntity> positionEntityGrid;
