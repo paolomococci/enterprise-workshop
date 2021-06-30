@@ -43,4 +43,33 @@ public class OperatorDetailView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    public OperatorDetailView(@Autowired OperatorService operatorService) {
+
+        this.cancel.addClickListener(e -> {
+            // TODO
+        });
+
+        this.save.addClickListener(e -> {
+            // TODO
+        });
+    }
+
+    private void refreshGrid() {
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private void populateForm(OperatorEntity operatorEntity) {
+        // TODO
+
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        // TODO
+    }
 }
