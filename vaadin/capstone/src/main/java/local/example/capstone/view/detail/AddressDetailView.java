@@ -32,7 +32,8 @@ import local.example.capstone.data.entity.AddressEntity;
 @Tag("address-detail-view")
 @JsModule("./views/details/address-detail-view.ts")
 public class AddressDetailView
-        extends LitTemplate {
+        extends LitTemplate
+        implements HasStyle, BeforeEnterObserver {
 
     @Id("grid")
     private Grid<AddressEntity> addressEntityGrid;
@@ -41,4 +42,33 @@ public class AddressDetailView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    public AddressDetailView(@Autowired AddressService addressService) {
+
+        this.cancel.addClickListener(e -> {
+            // TODO
+        });
+
+        this.save.addClickListener(e -> {
+            // TODO
+        });
+    }
+
+    private void refreshGrid() {
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private void populateForm(AddressEntity addressEntity) {
+        // TODO
+
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        // TODO
+    }
 }
