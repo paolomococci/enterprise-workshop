@@ -31,7 +31,8 @@ import local.example.capstone.data.entity.InvoiceEntity;
 @Tag("invoice-detail-view")
 @JsModule("./views/details/invoice-detail-view.ts")
 public class InvoiceDetailView
-        extends LitTemplate {
+        extends LitTemplate
+        implements HasStyle, BeforeEnterObserver {
 
     @Id("grid")
     private Grid<InvoiceEntity> invoiceEntityGrid;
