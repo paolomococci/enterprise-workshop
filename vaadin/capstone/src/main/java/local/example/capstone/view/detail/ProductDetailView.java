@@ -43,4 +43,33 @@ public class ProductDetailView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    public ProductDetailView(@Autowired ProductService productService) {
+
+        this.cancel.addClickListener(e -> {
+            // TODO
+        });
+
+        this.save.addClickListener(e -> {
+            // TODO
+        });
+    }
+
+    private void refreshGrid() {
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private void populateForm(ProductEntity productEntity) {
+        // TODO
+
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        // TODO
+    }
 }
