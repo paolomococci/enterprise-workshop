@@ -79,8 +79,32 @@ public class ContactDetailView
     @Id("cancel")
     private Button cancel;
 
+    public ContactDetailView(@Autowired ContactService contactService) {
+
+        this.cancel.addClickListener(e -> {
+            // TODO
+        });
+
+        this.save.addClickListener(e -> {
+            // TODO
+        });
+    }
+
+    private void refreshGrid() {
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private void populateForm(ContactEntity contactEntity) {
+        // TODO
+
+    }
+
     @Override
-    public void beforeEnter(BeforeEnterEvent event) {
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         // TODO
     }
 }
