@@ -31,7 +31,8 @@ import local.example.capstone.data.entity.MachineEntity;
 @Tag("machine-detail-view")
 @JsModule("./views/details/machine-detail-view.ts")
 public class MachineDetailView
-        extends LitTemplate {
+        extends LitTemplate
+        implements HasStyle, BeforeEnterObserver {
 
     @Id("grid")
     private Grid<MachineEntity> machineEntityGrid;
