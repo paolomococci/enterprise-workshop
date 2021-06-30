@@ -31,7 +31,8 @@ import local.example.capstone.data.entity.CarrierEntity;
 @Tag("carrier-detail-view")
 @JsModule("./views/details/carrier-detail-view.ts")
 public class CarrierDetailView
-        extends LitTemplate {
+        extends LitTemplate
+        implements HasStyle, BeforeEnterObserver {
 
     @Id("grid")
     private Grid<CarrierEntity> carrierEntityGrid;
