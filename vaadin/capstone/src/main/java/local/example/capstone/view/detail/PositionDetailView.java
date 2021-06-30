@@ -43,4 +43,33 @@ public class PositionDetailView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    public PositionDetailView(@Autowired PositionService positionService) {
+
+        this.cancel.addClickListener(e -> {
+            // TODO
+        });
+
+        this.save.addClickListener(e -> {
+            // TODO
+        });
+    }
+
+    private void refreshGrid() {
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private void populateForm(PositionEntity positionEntity) {
+        // TODO
+
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        // TODO
+    }
 }
