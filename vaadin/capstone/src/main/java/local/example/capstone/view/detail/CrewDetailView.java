@@ -31,7 +31,8 @@ import local.example.capstone.data.entity.CrewEntity;
 @Tag("crew-detail-view")
 @JsModule("./views/details/crew-detail-view.ts")
 public class CrewDetailView
-        extends LitTemplate {
+        extends LitTemplate
+        implements HasStyle, BeforeEnterObserver {
 
     @Id("grid")
     private Grid<CrewEntity> crewEntityGrid;
