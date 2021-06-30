@@ -43,4 +43,33 @@ public class CustomerDetailView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    public CustomerDetailView(@Autowired CustomerService customerService) {
+
+        this.cancel.addClickListener(e -> {
+            // TODO
+        });
+
+        this.save.addClickListener(e -> {
+            // TODO
+        });
+    }
+
+    private void refreshGrid() {
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private void populateForm(CustomerEntity customerEntity) {
+        // TODO
+
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        // TODO
+    }
 }
