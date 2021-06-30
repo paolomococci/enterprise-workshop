@@ -43,4 +43,33 @@ public class SupplierDetailView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    public SupplierDetailView(@Autowired SupplierService supplierService) {
+
+        this.cancel.addClickListener(e -> {
+            // TODO
+        });
+
+        this.save.addClickListener(e -> {
+            // TODO
+        });
+    }
+
+    private void refreshGrid() {
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private void populateForm(SupplierEntity supplierEntity) {
+        // TODO
+
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        // TODO
+    }
 }
