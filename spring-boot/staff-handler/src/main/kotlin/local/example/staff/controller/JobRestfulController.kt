@@ -41,4 +41,10 @@ class JobRestfulController(
     internal fun create(@RequestBody job: JobEntity): ResponseEntity<EntityModel<JobEntity>> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
+
+    @GetMapping("/{id}")
+    @Throws(URISyntaxException::class)
+    internal fun read(@PathVariable id: Long?): EntityModel<JobEntity> {
+        return EntityModel.of(JobEntity())
+    }
 }
