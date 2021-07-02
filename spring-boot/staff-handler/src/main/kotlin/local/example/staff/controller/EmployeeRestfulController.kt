@@ -59,4 +59,10 @@ class EmployeeRestfulController(
     internal fun searchBySurname(@PathVariable surname: String?): CollectionModel<EntityModel<EmployeeEntity>> {
         return CollectionModel.empty()
     }
+
+    @GetMapping
+    @Throws(URISyntaxException::class)
+    internal fun readAll(): CollectionModel<EntityModel<EmployeeEntity>> {
+        return CollectionModel.empty()
+    }
 }
