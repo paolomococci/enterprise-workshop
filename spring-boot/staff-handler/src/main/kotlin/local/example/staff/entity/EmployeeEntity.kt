@@ -18,5 +18,10 @@
 
 package local.example.staff.entity
 
+import javax.persistence.Entity
+import javax.persistence.Table
+
+@Entity
+@Table(name = "employees")
 class EmployeeEntity {
 }
