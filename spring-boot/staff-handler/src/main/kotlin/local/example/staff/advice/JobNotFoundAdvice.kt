@@ -18,5 +18,8 @@
 
 package local.example.staff.advice
 
+import org.springframework.web.bind.annotation.ControllerAdvice
+
+@ControllerAdvice
 class JobNotFoundAdvice {
 }
