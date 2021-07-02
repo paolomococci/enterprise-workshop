@@ -18,8 +18,10 @@
 
 package local.example.staff.repository
 
+import local.example.staff.entity.JobEntity
+import org.springframework.data.repository.CrudRepository
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
 
 @RepositoryRestResource
-interface JobRepository {
+interface JobRepository : CrudRepository<JobEntity, Long> {
 }
