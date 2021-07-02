@@ -18,10 +18,16 @@
 
 package local.example.staff.controller
 
+import local.example.staff.assembler.JobRepresentationModelAssembler
+import local.example.staff.repository.JobRepository
+
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/jobs")
-class JobRestfulController {
+class JobRestfulController(
+    private val jobRepository: JobRepository,
+    private val jobRepresentationModelAssembler: JobRepresentationModelAssembler
+) {
 }
