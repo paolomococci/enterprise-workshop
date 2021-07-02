@@ -77,4 +77,10 @@ class TaskRestfulController(
     internal fun partialUpdate(@RequestBody update: TaskEntity, @PathVariable id: Long?): ResponseEntity<*> {
         return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED)
     }
+
+    @DeleteMapping("/{id}")
+    @Throws(URISyntaxException::class)
+    internal fun delete(@PathVariable id: Long?): ResponseEntity<*> {
+        return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED)
+    }
 }
