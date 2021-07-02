@@ -67,7 +67,11 @@ class TaskRestfulController(
     @GetMapping("/name/{name}")
     @Throws(URISyntaxException::class)
     internal fun searchByName(@PathVariable name: String?): CollectionModel<EntityModel<TaskEntity>> {
-        return CollectionModel.empty()
+        val tasks = taskRepository.findByName(name!!)
+            .asSequence()
+            .map(taskRepresentationModelAssembler::toModel).toList()
+        return CollectionModel.of(tasks,
+            linkTo(methodOn(TaskRestfulController::class.java).searchByName(name)).withSelfRel())
     }
 
     @GetMapping
