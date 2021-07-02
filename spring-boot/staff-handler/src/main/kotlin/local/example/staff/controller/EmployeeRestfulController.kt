@@ -25,9 +25,12 @@ import local.example.staff.repository.EmployeeRepository
 
 import org.springframework.hateoas.CollectionModel
 import org.springframework.hateoas.EntityModel
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.net.URI
 import java.net.URISyntaxException
 
 @RestController
@@ -55,7 +58,11 @@ class EmployeeRestfulController(
     @GetMapping("/name/{name}")
     @Throws(URISyntaxException::class)
     internal fun searchByName(@PathVariable name: String?): CollectionModel<EntityModel<EmployeeEntity>> {
-        return CollectionModel.empty()
+        val employee = employeeRepository.findByName(name!!)
+            .asSequence()
+            .map(employeeRepresentationModelAssembler::toModel).toList()
+        return CollectionModel.of(employee,
+            linkTo(methodOn(EmployeeRestfulController::class.java).searchByName(name)).withSelfRel())
     }
 
     @GetMapping("/surname/{surname}")
