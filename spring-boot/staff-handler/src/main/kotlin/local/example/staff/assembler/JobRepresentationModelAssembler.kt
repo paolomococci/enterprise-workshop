@@ -18,7 +18,7 @@
 
 package local.example.staff.assembler
 
-import local.example.staff.controller.TaskRestfulController
+import local.example.staff.controller.JobRestfulController
 import local.example.staff.entity.JobEntity
 
 import org.springframework.hateoas.EntityModel
@@ -33,8 +33,8 @@ class JobRepresentationModelAssembler :
 
     override fun toModel(jobEntity: JobEntity): EntityModel<JobEntity> {
         return EntityModel.of(jobEntity,
-            linkTo(methodOn(TaskRestfulController::class.java).read(jobEntity.id)).withSelfRel(),
-            linkTo(methodOn(TaskRestfulController::class.java).readAll()).withRel("tasks")
+            linkTo(methodOn(JobRestfulController::class.java).read(jobEntity.id)).withSelfRel(),
+            linkTo(methodOn(JobRestfulController::class.java).readAll()).withRel("jobs")
         )
     }
 }
