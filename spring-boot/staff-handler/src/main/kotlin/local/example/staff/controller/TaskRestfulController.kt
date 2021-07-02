@@ -39,7 +39,8 @@ class TaskRestfulController(
     @PostMapping
     @Throws(URISyntaxException::class)
     internal fun create(@RequestBody task: TaskEntity): ResponseEntity<EntityModel<TaskEntity>> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+        val taskRepresentationModel = taskRepresentationModelAssembler.toModel(taskRepository.save(task))
+        return ResponseEntity.created(URI(taskRepresentationModel.links.toString())).body(taskRepresentationModel)
     }
 
     @GetMapping("/{id}")
