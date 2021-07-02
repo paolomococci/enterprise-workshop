@@ -78,7 +78,11 @@ class JobRestfulController(
     @GetMapping
     @Throws(URISyntaxException::class)
     internal fun readAll(): CollectionModel<EntityModel<JobEntity>> {
-        return CollectionModel.empty()
+        val jobs = jobRepository.findAll()
+            .asSequence()
+            .map(jobRepresentationModelAssembler::toModel).toList()
+        return CollectionModel.of(jobs,
+            linkTo(methodOn(JobRestfulController::class.java).readAll()).withSelfRel())
     }
 
     @PutMapping("/{id}")
