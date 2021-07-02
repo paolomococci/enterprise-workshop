@@ -35,4 +35,10 @@ class JobRestfulController(
     private val jobRepository: JobRepository,
     private val jobRepresentationModelAssembler: JobRepresentationModelAssembler
 ) {
+
+    @PostMapping
+    @Throws(URISyntaxException::class)
+    internal fun create(@RequestBody job: JobEntity): ResponseEntity<EntityModel<JobEntity>> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
 }
