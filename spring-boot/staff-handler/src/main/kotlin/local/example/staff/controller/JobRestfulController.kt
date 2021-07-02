@@ -21,8 +21,12 @@ package local.example.staff.controller
 import local.example.staff.assembler.JobRepresentationModelAssembler
 import local.example.staff.repository.JobRepository
 
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.hateoas.CollectionModel
+import org.springframework.hateoas.EntityModel
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
+import java.net.URISyntaxException
 
 @RestController
 @RequestMapping("/api/jobs")
