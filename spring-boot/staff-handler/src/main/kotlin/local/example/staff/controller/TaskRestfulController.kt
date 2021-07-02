@@ -41,4 +41,10 @@ class TaskRestfulController(
     internal fun create(@RequestBody task: TaskEntity): ResponseEntity<EntityModel<TaskEntity>> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
+
+    @GetMapping("/{id}")
+    @Throws(URISyntaxException::class)
+    internal fun read(@PathVariable id: Long?): EntityModel<TaskEntity> {
+        return EntityModel.of(TaskEntity())
+    }
 }
