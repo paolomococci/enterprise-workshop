@@ -59,4 +59,10 @@ class JobRestfulController(
     internal fun searchByName(@PathVariable name: String?): CollectionModel<EntityModel<JobEntity>> {
         return CollectionModel.empty()
     }
+
+    @GetMapping
+    @Throws(URISyntaxException::class)
+    internal fun readAll(): CollectionModel<EntityModel<JobEntity>> {
+        return CollectionModel.empty()
+    }
 }
