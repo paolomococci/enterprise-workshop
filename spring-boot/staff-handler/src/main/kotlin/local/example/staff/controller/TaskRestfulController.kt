@@ -53,4 +53,10 @@ class TaskRestfulController(
     internal fun searchByCode(@PathVariable code: String?): CollectionModel<EntityModel<TaskEntity>> {
         return CollectionModel.empty()
     }
+
+    @GetMapping("/name/{name}")
+    @Throws(URISyntaxException::class)
+    internal fun searchByName(@PathVariable name: String?): CollectionModel<EntityModel<TaskEntity>> {
+        return CollectionModel.empty()
+    }
 }
