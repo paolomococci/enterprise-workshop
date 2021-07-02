@@ -18,8 +18,23 @@
 
 package local.example.staff.assembler
 
+import local.example.staff.controller.TaskRestfulController
+import local.example.staff.entity.TaskEntity
+
+import org.springframework.hateoas.EntityModel
+import org.springframework.hateoas.server.RepresentationModelAssembler
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn
 import org.springframework.stereotype.Component
 
 @Component
-class TaskRepresentationModelAssembler {
+class TaskRepresentationModelAssembler :
+    RepresentationModelAssembler<TaskEntity, EntityModel<TaskEntity>> {
+
+    override fun toModel(taskEntity: TaskEntity): EntityModel<TaskEntity> {
+        return EntityModel.of(taskEntity,
+            linkTo(methodOn(TaskRestfulController::class.java).read(taskEntity.id)).withSelfRel(),
+            linkTo(methodOn(TaskRestfulController::class.java).readAll()).withRel("tasks")
+        )
+    }
 }
