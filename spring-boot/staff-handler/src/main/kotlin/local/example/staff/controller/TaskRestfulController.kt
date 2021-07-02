@@ -57,7 +57,11 @@ class TaskRestfulController(
     @GetMapping("/code/{code}")
     @Throws(URISyntaxException::class)
     internal fun searchByCode(@PathVariable code: String?): CollectionModel<EntityModel<TaskEntity>> {
-        return CollectionModel.empty()
+        val tasks = taskRepository.findByCode(code!!)
+            .asSequence()
+            .map(taskRepresentationModelAssembler::toModel).toList()
+        return CollectionModel.of(tasks,
+            linkTo(methodOn(TaskRestfulController::class.java).searchByCode(code)).withSelfRel())
     }
 
     @GetMapping("/name/{name}")
