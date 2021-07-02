@@ -35,4 +35,10 @@ class TaskRestfulController(
     private val taskRepository: TaskRepository,
     private val taskRepresentationModelAssembler: TaskRepresentationModelAssembler
 ) {
+
+    @PostMapping
+    @Throws(URISyntaxException::class)
+    internal fun create(@RequestBody task: TaskEntity): ResponseEntity<EntityModel<TaskEntity>> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
 }
