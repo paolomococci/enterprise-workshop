@@ -20,6 +20,7 @@ package local.example.staff.controller
 
 import local.example.staff.assembler.TaskRepresentationModelAssembler
 import local.example.staff.entity.TaskEntity
+import local.example.staff.exception.TaskNotFoundException
 import local.example.staff.repository.TaskRepository
 
 import org.springframework.hateoas.CollectionModel
@@ -46,7 +47,9 @@ class TaskRestfulController(
     @GetMapping("/{id}")
     @Throws(URISyntaxException::class)
     internal fun read(@PathVariable id: Long?): EntityModel<TaskEntity> {
-        return EntityModel.of(TaskEntity())
+        val task = taskRepository.findById(id!!)
+            .orElseThrow { TaskNotFoundException(id) }
+        return taskRepresentationModelAssembler.toModel(task)
     }
 
     @GetMapping("/code/{code}")
