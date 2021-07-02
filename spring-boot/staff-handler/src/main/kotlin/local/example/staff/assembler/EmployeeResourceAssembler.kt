@@ -18,5 +18,8 @@
 
 package local.example.staff.assembler
 
+import org.springframework.stereotype.Component
+
+@Component
 class EmployeeResourceAssembler {
 }
