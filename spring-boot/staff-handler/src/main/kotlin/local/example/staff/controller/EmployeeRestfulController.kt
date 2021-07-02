@@ -19,6 +19,7 @@
 package local.example.staff.controller
 
 import local.example.staff.assembler.EmployeeRepresentationModelAssembler
+import local.example.staff.entity.EmployeeEntity
 import local.example.staff.repository.EmployeeRepository
 
 import org.springframework.hateoas.CollectionModel
