@@ -68,7 +68,11 @@ class JobRestfulController(
     @GetMapping("/name/{name}")
     @Throws(URISyntaxException::class)
     internal fun searchByName(@PathVariable name: String?): CollectionModel<EntityModel<JobEntity>> {
-        return CollectionModel.empty()
+        val jobs = jobRepository.findByName(name!!)
+            .asSequence()
+            .map(jobRepresentationModelAssembler::toModel).toList()
+        return CollectionModel.of(jobs,
+            linkTo(methodOn(JobRestfulController::class.java).searchByName(name)).withSelfRel())
     }
 
     @GetMapping
