@@ -39,7 +39,8 @@ class EmployeeRestfulController(
     @PostMapping
     @Throws(URISyntaxException::class)
     internal fun create(@RequestBody employee: EmployeeEntity): ResponseEntity<EntityModel<EmployeeEntity>> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+        val employeeRepresentationModel = employeeRepresentationModelAssembler.toModel(employeeRepository.save(employee))
+        return ResponseEntity.created(URI(employeeRepresentationModel.links.toString())).body(employeeRepresentationModel)
     }
 
     @GetMapping("/{id}")
