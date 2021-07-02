@@ -65,4 +65,10 @@ class TaskRestfulController(
     internal fun readAll(): CollectionModel<EntityModel<TaskEntity>> {
         return CollectionModel.empty()
     }
+
+    @PutMapping("/{id}")
+    @Throws(URISyntaxException::class)
+    internal fun update(@RequestBody update: TaskEntity, @PathVariable id: Long?): ResponseEntity<*> {
+        return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED)
+    }
 }
