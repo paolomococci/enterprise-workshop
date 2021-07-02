@@ -18,5 +18,4 @@
 
 package local.example.staff.exception
 
-class TaskNotFoundException {
-}
+class TaskNotFoundException(id: Long?) : RuntimeException("could not find task id: $id")
