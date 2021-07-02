@@ -77,7 +77,11 @@ class TaskRestfulController(
     @GetMapping
     @Throws(URISyntaxException::class)
     internal fun readAll(): CollectionModel<EntityModel<TaskEntity>> {
-        return CollectionModel.empty()
+        val tasks = taskRepository.findAll()
+            .asSequence()
+            .map(taskRepresentationModelAssembler::toModel).toList()
+        return CollectionModel.of(tasks,
+            linkTo(methodOn(TaskRestfulController::class.java).readAll()).withSelfRel())
     }
 
     @PutMapping("/{id}")
