@@ -39,7 +39,8 @@ class JobRestfulController(
     @PostMapping
     @Throws(URISyntaxException::class)
     internal fun create(@RequestBody job: JobEntity): ResponseEntity<EntityModel<JobEntity>> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+        val jobRepresentationModel = jobRepresentationModelAssembler.toModel(jobRepository.save(job))
+        return ResponseEntity.created(URI(jobRepresentationModel.links.toString())).body(jobRepresentationModel)
     }
 
     @GetMapping("/{id}")
