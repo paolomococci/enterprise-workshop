@@ -20,8 +20,12 @@ package local.example.staff.repository
 
 import local.example.staff.entity.JobEntity
 import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.query.Param
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
 
 @RepositoryRestResource
 interface JobRepository : CrudRepository<JobEntity, Long> {
+
+    fun findByCode(@Param("code") code: String): List<JobEntity>
+    fun findByName(@Param("name") name: String): List<JobEntity>
 }
