@@ -53,4 +53,10 @@ class JobRestfulController(
     internal fun searchByCode(@PathVariable code: String?): CollectionModel<EntityModel<JobEntity>> {
         return CollectionModel.empty()
     }
+
+    @GetMapping("/name/{name}")
+    @Throws(URISyntaxException::class)
+    internal fun searchByName(@PathVariable name: String?): CollectionModel<EntityModel<JobEntity>> {
+        return CollectionModel.empty()
+    }
 }
