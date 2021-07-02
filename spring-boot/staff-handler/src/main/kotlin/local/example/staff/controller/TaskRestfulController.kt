@@ -59,4 +59,10 @@ class TaskRestfulController(
     internal fun searchByName(@PathVariable name: String?): CollectionModel<EntityModel<TaskEntity>> {
         return CollectionModel.empty()
     }
+
+    @GetMapping
+    @Throws(URISyntaxException::class)
+    internal fun readAll(): CollectionModel<EntityModel<TaskEntity>> {
+        return CollectionModel.empty()
+    }
 }
