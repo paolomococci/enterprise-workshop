@@ -25,9 +25,12 @@ import local.example.staff.repository.JobRepository
 
 import org.springframework.hateoas.CollectionModel
 import org.springframework.hateoas.EntityModel
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.net.URI
 import java.net.URISyntaxException
 
 @RestController
@@ -55,7 +58,11 @@ class JobRestfulController(
     @GetMapping("/code/{code}")
     @Throws(URISyntaxException::class)
     internal fun searchByCode(@PathVariable code: String?): CollectionModel<EntityModel<JobEntity>> {
-        return CollectionModel.empty()
+        val jobs = jobRepository.findByCode(code!!)
+            .asSequence()
+            .map(jobRepresentationModelAssembler::toModel).toList()
+        return CollectionModel.of(jobs,
+            linkTo(methodOn(JobRestfulController::class.java).searchByCode(code)).withSelfRel())
     }
 
     @GetMapping("/name/{name}")
