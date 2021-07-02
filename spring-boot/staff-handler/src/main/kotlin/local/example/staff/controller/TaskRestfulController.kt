@@ -47,4 +47,10 @@ class TaskRestfulController(
     internal fun read(@PathVariable id: Long?): EntityModel<TaskEntity> {
         return EntityModel.of(TaskEntity())
     }
+
+    @GetMapping("/code/{code}")
+    @Throws(URISyntaxException::class)
+    internal fun searchByCode(@PathVariable code: String?): CollectionModel<EntityModel<TaskEntity>> {
+        return CollectionModel.empty()
+    }
 }
