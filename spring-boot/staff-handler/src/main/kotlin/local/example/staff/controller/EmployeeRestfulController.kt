@@ -20,6 +20,7 @@ package local.example.staff.controller
 
 import local.example.staff.assembler.EmployeeRepresentationModelAssembler
 import local.example.staff.entity.EmployeeEntity
+import local.example.staff.exception.EmployeeNotFoundException
 import local.example.staff.repository.EmployeeRepository
 
 import org.springframework.hateoas.CollectionModel
@@ -46,7 +47,9 @@ class EmployeeRestfulController(
     @GetMapping("/{id}")
     @Throws(URISyntaxException::class)
     internal fun read(@PathVariable id: Long?): EntityModel<EmployeeEntity> {
-        return EntityModel.of(EmployeeEntity())
+        val employee = employeeRepository.findById(id!!)
+            .orElseThrow { EmployeeNotFoundException(id) }
+        return employeeRepresentationModelAssembler.toModel(employee)
     }
 
     @GetMapping("/name/{name}")
