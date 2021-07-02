@@ -18,10 +18,16 @@
 
 package local.example.staff.controller
 
+import local.example.staff.assembler.TaskRepresentationModelAssembler
+import local.example.staff.repository.TaskRepository
+
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/tasks")
-class TaskRestfulController {
+class TaskRestfulController(
+    private val taskRepository: TaskRepository,
+    private val taskRepresentationModelAssembler: TaskRepresentationModelAssembler
+) {
 }
