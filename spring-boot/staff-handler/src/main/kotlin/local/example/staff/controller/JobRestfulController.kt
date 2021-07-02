@@ -20,6 +20,7 @@ package local.example.staff.controller
 
 import local.example.staff.assembler.JobRepresentationModelAssembler
 import local.example.staff.entity.JobEntity
+import local.example.staff.exception.JobNotFoundException
 import local.example.staff.repository.JobRepository
 
 import org.springframework.hateoas.CollectionModel
@@ -46,7 +47,9 @@ class JobRestfulController(
     @GetMapping("/{id}")
     @Throws(URISyntaxException::class)
     internal fun read(@PathVariable id: Long?): EntityModel<JobEntity> {
-        return EntityModel.of(JobEntity())
+        val job = jobRepository.findById(id!!)
+            .orElseThrow { JobNotFoundException(id) }
+        return jobRepresentationModelAssembler.toModel(job)
     }
 
     @GetMapping("/code/{code}")
