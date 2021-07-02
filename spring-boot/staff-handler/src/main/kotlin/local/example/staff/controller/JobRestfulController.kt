@@ -77,4 +77,10 @@ class JobRestfulController(
     internal fun partialUpdate(@RequestBody update: JobEntity, @PathVariable id: Long?): ResponseEntity<*> {
         return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED)
     }
+
+    @DeleteMapping("/{id}")
+    @Throws(URISyntaxException::class)
+    internal fun delete(@PathVariable id: Long?): ResponseEntity<*> {
+        return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED)
+    }
 }
