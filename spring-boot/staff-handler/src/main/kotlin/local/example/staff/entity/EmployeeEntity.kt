@@ -19,9 +19,18 @@
 package local.example.staff.entity
 
 import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
 import javax.persistence.Table
 
 @Entity
 @Table(name = "employees")
 class EmployeeEntity {
+
+    @Id
+    @GeneratedValue
+    val id: Long? = null
+
+    var name: String? = null
+    var surname: String? = null
 }
