@@ -65,4 +65,10 @@ class JobRestfulController(
     internal fun readAll(): CollectionModel<EntityModel<JobEntity>> {
         return CollectionModel.empty()
     }
+
+    @PutMapping("/{id}")
+    @Throws(URISyntaxException::class)
+    internal fun update(@RequestBody update: JobEntity, @PathVariable id: Long?): ResponseEntity<*> {
+        return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED)
+    }
 }
