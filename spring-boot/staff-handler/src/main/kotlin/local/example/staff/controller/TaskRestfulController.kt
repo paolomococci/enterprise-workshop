@@ -71,4 +71,10 @@ class TaskRestfulController(
     internal fun update(@RequestBody update: TaskEntity, @PathVariable id: Long?): ResponseEntity<*> {
         return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED)
     }
+
+    @PatchMapping("/{id}")
+    @Throws(URISyntaxException::class)
+    internal fun partialUpdate(@RequestBody update: TaskEntity, @PathVariable id: Long?): ResponseEntity<*> {
+        return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED)
+    }
 }
