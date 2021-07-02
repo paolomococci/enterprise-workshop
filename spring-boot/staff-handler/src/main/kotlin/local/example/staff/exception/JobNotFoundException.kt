@@ -18,5 +18,4 @@
 
 package local.example.staff.exception
 
-class JobNotFoundException {
-}
+class JobNotFoundException(id: Long?) : RuntimeException("could not find job id: $id")
