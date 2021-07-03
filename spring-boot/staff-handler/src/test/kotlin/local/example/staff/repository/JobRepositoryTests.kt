@@ -49,6 +49,6 @@ class JobRepositoryTests {
         mockMvc!!.perform(get("/"))
             .andDo(print())
             .andExpect(status().isOk)
-            .andExpect(jsonPath("$._jobs.persons").exists())
+            .andExpect(jsonPath("$._links.jobs").exists())
     }
 }
