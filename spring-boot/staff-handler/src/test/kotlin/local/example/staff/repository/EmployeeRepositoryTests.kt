@@ -144,4 +144,15 @@ class EmployeeRepositoryTests {
             .andExpect(status().isOk)
             .andExpect(jsonPath("$._embedded.employees[0].surname").value("Doe"))
     }
+
+    @Test
+    @Order(9)
+    @Throws(Exception::class)
+    fun `find by surname test`() {
+        mockMvc!!.perform(post("/employees").content(employee))
+            .andExpect(status().isCreated)
+        mockMvc.perform(get("/employees/search/findBySurname?surname={surname}", "Doe"))
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$._embedded.employees[0].name").value("John"))
+    }
 }
