@@ -70,7 +70,7 @@ class EmployeeRestfulController(
     @GetMapping("/surname/{surname}")
     @Throws(URISyntaxException::class)
     internal fun searchBySurname(@PathVariable surname: String?): CollectionModel<EntityModel<EmployeeEntity>> {
-        val employee = employeeRepository.findByName(surname!!)
+        val employee = employeeRepository.findBySurname(surname!!)
             .asSequence()
             .map(employeeRepresentationModelAssembler::toModel).toList()
         return CollectionModel.of(employee,
