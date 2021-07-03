@@ -106,7 +106,19 @@ class JobRestfulController(
     @PatchMapping("/{id}")
     @Throws(URISyntaxException::class)
     internal fun partialUpdate(@RequestBody update: JobEntity, @PathVariable id: Long?): ResponseEntity<*> {
-        return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED)
+        val updated = jobRepository.findById(id!!)
+            .map { temp ->
+                if (!update.code.isNullOrBlank()) temp.code = update.code
+                if (!update.name.isNullOrBlank()) temp.name = update.name
+                jobRepository.save(temp)
+            }
+            .orElseGet {
+                jobRepository.save(update)
+            }
+        val jobRepresentationModel = jobRepresentationModelAssembler.toModel(updated)
+        return ResponseEntity
+            .created(URI(jobRepresentationModel.links.toString()))
+            .body(jobRepresentationModel)
     }
 
     @DeleteMapping("/{id}")
