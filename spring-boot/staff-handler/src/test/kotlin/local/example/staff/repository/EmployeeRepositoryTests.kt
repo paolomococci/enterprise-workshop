@@ -64,4 +64,18 @@ class EmployeeRepositoryTests {
                 "Location", Matchers.containsString("employees/"
             )))
     }
+
+    @Test
+    @Order(3)
+    @Throws(Exception::class)
+    fun `read test`() {
+        val mvcResult = mockMvc!!.perform(post("/employees").content(employee))
+            .andExpect(status().isCreated)
+            .andReturn()
+        val result = mvcResult.response.getHeader("Location")
+        mockMvc.perform(get(result!!))
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$.name").value("John"))
+            .andExpect(jsonPath("$.surname").value("Doe"))
+    }
 }
