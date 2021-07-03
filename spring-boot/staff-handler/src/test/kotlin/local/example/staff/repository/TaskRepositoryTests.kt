@@ -40,7 +40,7 @@ class TaskRepositoryTests {
     private val mockMvc: MockMvc? = null
 
     @Autowired
-    private val jobRepository: JobRepository? = null
+    private val taskRepository: TaskRepository? = null
 
     private val task: String = "{\"code\":\"0011001250\",\"name\":\"task0011001250\"}"
 
@@ -122,5 +122,17 @@ class TaskRepositoryTests {
         val result = mvcResult.response.getHeader("Location")
         mockMvc.perform(delete(result!!)).andExpect(status().isNoContent)
         mockMvc.perform(get(result)).andExpect(status().isNotFound)
+    }
+
+    @Test
+    @Order(7)
+    @Throws(Exception::class)
+    fun `find by path id test`() {
+        mockMvc!!.perform(post("/tasks").content(task))
+            .andExpect(status().isCreated)
+        val id = taskRepository!!.findByName("task0011001250")[0].id
+        mockMvc.perform(get("/tasks/{id}", id))
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$.code").value("0011001250"))
     }
 }
