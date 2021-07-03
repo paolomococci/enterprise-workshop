@@ -65,4 +65,18 @@ class JobRepositoryTests {
                 )
             ))
     }
+
+    @Test
+    @Order(3)
+    @Throws(Exception::class)
+    fun `read test`() {
+        val mvcResult = mockMvc!!.perform(post("/jobs").content(job))
+            .andExpect(status().isCreated)
+            .andReturn()
+        val result = mvcResult.response.getHeader("Location")
+        mockMvc.perform(get(result!!))
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$.code").value("0031001250"))
+            .andExpect(jsonPath("$.name").value("job0031001250"))
+    }
 }
