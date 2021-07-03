@@ -23,7 +23,7 @@ import org.springframework.data.repository.CrudRepository
 import org.springframework.data.repository.query.Param
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
 
-@RepositoryRestResource
+@RepositoryRestResource(path = "tasks")
 interface TaskRepository : CrudRepository<TaskEntity, Long> {
 
     fun findByCode(@Param("code") code: String): List<TaskEntity>
