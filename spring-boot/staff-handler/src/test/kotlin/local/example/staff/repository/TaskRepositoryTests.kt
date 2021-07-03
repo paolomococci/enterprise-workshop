@@ -135,4 +135,15 @@ class TaskRepositoryTests {
             .andExpect(status().isOk)
             .andExpect(jsonPath("$.code").value("0011001250"))
     }
+
+    @Test
+    @Order(8)
+    @Throws(Exception::class)
+    fun `find by name test`() {
+        mockMvc!!.perform(post("/tasks").content(task))
+            .andExpect(status().isCreated)
+        mockMvc.perform(get("/tasks/search/findByName?name={name}", "task0011001250"))
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$._embedded.tasks[0].code").value("0011001250"))
+    }
 }
