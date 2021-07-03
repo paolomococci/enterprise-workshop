@@ -47,7 +47,7 @@ class EmployeeRepositoryTests {
     @Test
     @Order(1)
     @Throws(Exception::class)
-    fun `verify existence`() {
+    fun `existence test`() {
         mockMvc!!.perform(get("/"))
             .andDo(print())
             .andExpect(status().isOk)
