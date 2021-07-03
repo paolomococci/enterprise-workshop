@@ -106,7 +106,19 @@ class EmployeeRestfulController(
     @PatchMapping("/{id}")
     @Throws(URISyntaxException::class)
     internal fun partialUpdate(@RequestBody update: EmployeeEntity, @PathVariable id: Long?): ResponseEntity<*> {
-        return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED)
+        val updated = employeeRepository.findById(id!!)
+            .map { temp ->
+                if (!update.name.isNullOrBlank()) temp.name = update.name
+                if (!update.surname.isNullOrBlank()) temp.surname = update.surname
+                employeeRepository.save(temp)
+            }
+            .orElseGet {
+                employeeRepository.save(update)
+            }
+        val employeeRepresentationModel = employeeRepresentationModelAssembler.toModel(updated)
+        return ResponseEntity
+            .created(URI(employeeRepresentationModel.links.toString()))
+            .body(employeeRepresentationModel)
     }
 
     @DeleteMapping("/{id}")
