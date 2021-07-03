@@ -18,13 +18,24 @@
 
 package local.example.staff.controller
 
+import local.example.staff.repository.TaskRepository
 import org.junit.jupiter.api.Test
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.web.servlet.MockMvc
 
 @SpringBootTest
 @AutoConfigureMockMvc
 class TaskRestfulControllerTests {
+
+    @Autowired
+    private val mockMvc: MockMvc? = null
+
+    @Autowired
+    private val taskRepository: TaskRepository? = null
+
+    private val task: String = "{\"code\":\"0011001250\",\"name\":\"task0011001250\"}"
 
     @Test
     fun voidTest() {
