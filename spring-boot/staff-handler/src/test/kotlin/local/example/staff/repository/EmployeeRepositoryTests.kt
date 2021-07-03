@@ -18,6 +18,7 @@
 
 package local.example.staff.repository
 
+import org.hamcrest.Matchers
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
@@ -45,10 +46,22 @@ class EmployeeRepositoryTests {
 
     @Test
     @Order(1)
+    @Throws(Exception::class)
     fun `verify existence`() {
         mockMvc!!.perform(get("/"))
             .andDo(print())
             .andExpect(status().isOk)
             .andExpect(jsonPath("$._links.employees").exists())
+    }
+
+    @Test
+    @Order(2)
+    @Throws(Exception::class)
+    fun `create test`() {
+        mockMvc!!.perform(post("/employees").content(employee))
+            .andExpect(status().isCreated)
+            .andExpect(header().string(
+                "Location", Matchers.containsString("employees/"
+            )))
     }
 }
