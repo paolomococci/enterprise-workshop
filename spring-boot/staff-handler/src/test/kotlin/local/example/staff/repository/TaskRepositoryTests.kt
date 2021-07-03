@@ -80,4 +80,20 @@ class TaskRepositoryTests {
             .andExpect(jsonPath("$.code").value("0011001250"))
             .andExpect(jsonPath("$.name").value("task0011001250"))
     }
+
+    @Test
+    @Order(4)
+    @Throws(Exception::class)
+    fun `update test`() {
+        val mvcResult = mockMvc!!.perform(post("/tasks").content(task))
+            .andExpect(status().isCreated)
+            .andReturn()
+        val result = mvcResult.response.getHeader("Location")
+        mockMvc.perform(put(result!!).content("{\"code\":\"0011001251\",\"name\":\"task0011001251\"}"))
+            .andExpect(status().isNoContent)
+        mockMvc.perform(get(result))
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$.code").value("0011001251"))
+            .andExpect(jsonPath("$.name").value("task0011001251"))
+    }
 }
