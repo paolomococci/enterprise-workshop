@@ -124,6 +124,7 @@ class JobRestfulController(
     @DeleteMapping("/{id}")
     @Throws(URISyntaxException::class)
     internal fun delete(@PathVariable id: Long?): ResponseEntity<*> {
-        return ResponseEntity.ok(HttpStatus.NOT_IMPLEMENTED)
+        if (id != null) jobRepository.deleteById(id)
+        return ResponseEntity.noContent().build<Any>()
     }
 }
