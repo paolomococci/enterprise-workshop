@@ -18,10 +18,8 @@
 
 package local.example.staff.entity
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.Table
+import com.fasterxml.jackson.annotation.JsonIgnore
+import javax.persistence.*
 
 @Entity
 @Table(name = "employees")
@@ -33,4 +31,9 @@ class EmployeeEntity {
 
     var name: String? = null
     var surname: String? = null
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "task_id")
+    lateinit var task: TaskEntity
 }
