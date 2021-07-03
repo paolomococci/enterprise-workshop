@@ -18,16 +18,37 @@
 
 package local.example.staff.repository
 
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation
+import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestMethodOrder
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.junit4.SpringRunner
+import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@TestMethodOrder(OrderAnnotation::class)
 class JobRepositoryTests {
 
+    @Autowired
+    private val mockMvc: MockMvc? = null
+
+    @Autowired
+    private val jobRepository: JobRepository? = null
+
+    private val job: String = "{\"code\":\"0031001250\",\"name\":\"job0031001250\"}"
+
     @Test
-    fun voidTest() {
+    @Order(1)
+    fun `verify existence`() {
+        mockMvc!!.perform(get("/"))
+            .andDo(print())
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$._jobs.persons").exists())
     }
 }
