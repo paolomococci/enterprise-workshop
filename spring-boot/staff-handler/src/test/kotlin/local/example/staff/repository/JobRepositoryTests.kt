@@ -46,7 +46,7 @@ class JobRepositoryTests {
 
     @Test
     @Order(1)
-    fun `verify existence`() {
+    fun `existence test`() {
         mockMvc!!.perform(get("/"))
             .andDo(print())
             .andExpect(status().isOk)
