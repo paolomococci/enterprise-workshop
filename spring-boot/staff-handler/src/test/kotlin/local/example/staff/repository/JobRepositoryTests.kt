@@ -138,6 +138,17 @@ class JobRepositoryTests {
     @Test
     @Order(8)
     @Throws(Exception::class)
+    fun `find by surname test`() {
+        mockMvc!!.perform(post("/jobs").content(job))
+            .andExpect(status().isCreated)
+        mockMvc.perform(get("/jobs/search/findByCode?code={code}", "0031001250"))
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$._embedded.jobs[0].name").value("job0031001250"))
+    }
+
+    @Test
+    @Order(9)
+    @Throws(Exception::class)
     fun `find by name test`() {
         mockMvc!!.perform(post("/jobs").content(job))
             .andExpect(status().isCreated)
