@@ -78,4 +78,20 @@ class EmployeeRepositoryTests {
             .andExpect(jsonPath("$.name").value("John"))
             .andExpect(jsonPath("$.surname").value("Doe"))
     }
+
+    @Test
+    @Order(4)
+    @Throws(Exception::class)
+    fun `update test`() {
+        val mvcResult = mockMvc!!.perform(post("/employees").content(employee))
+            .andExpect(status().isCreated)
+            .andReturn()
+        val result = mvcResult.response.getHeader("Location")
+        mockMvc.perform(put(result!!).content("{\"name\":\"Peter\",\"surname\":\"Smith\"}"))
+            .andExpect(status().isNoContent)
+        mockMvc.perform(get(result))
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$.name").value("Peter"))
+            .andExpect(jsonPath("$.surname").value("Smith"))
+    }
 }
