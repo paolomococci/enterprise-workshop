@@ -95,4 +95,19 @@ class JobRepositoryTests {
             .andExpect(jsonPath("$.code").value("0031001251"))
             .andExpect(jsonPath("$.name").value("job0031001251"))
     }
+
+    @Test
+    @Order(5)
+    @Throws(Exception::class)
+    fun `partial update test`() {
+        val mvcResult = mockMvc!!.perform(post("/jobs").content(job))
+            .andExpect(status().isCreated)
+            .andReturn()
+        val result = mvcResult.response.getHeader("Location")
+        mockMvc.perform(patch(result!!).content("{\"name\":\"job0031001251\"}"))
+            .andExpect(status().isNoContent)
+        mockMvc.perform(get(result))
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$.name").value("job0031001251"))
+    }
 }
