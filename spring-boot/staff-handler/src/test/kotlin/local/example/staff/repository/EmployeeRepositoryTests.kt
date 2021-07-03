@@ -121,4 +121,16 @@ class EmployeeRepositoryTests {
         mockMvc.perform(delete(result!!)).andExpect(status().isNoContent)
         mockMvc.perform(get(result)).andExpect(status().isNotFound)
     }
+
+    @Test
+    @Order(7)
+    @Throws(Exception::class)
+    fun `find by path id test`() {
+        mockMvc!!.perform(post("/employees").content(employee))
+            .andExpect(status().isCreated)
+        val id = employeeRepository!!.findByName("John")[0].id
+        mockMvc.perform(get("/employees/{id}", id))
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$.surname").value("Doe"))
+    }
 }
