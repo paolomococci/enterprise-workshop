@@ -109,4 +109,16 @@ class EmployeeRepositoryTests {
             .andExpect(status().isOk)
             .andExpect(jsonPath("$.name").value("James"))
     }
+
+    @Test
+    @Order(6)
+    @Throws(Exception::class)
+    fun `delete test`() {
+        val mvcResult = mockMvc!!.perform(post("/employees").content(employee))
+            .andExpect(status().isCreated)
+            .andReturn()
+        val result = mvcResult.response.getHeader("Location")
+        mockMvc.perform(delete(result!!)).andExpect(status().isNoContent)
+        mockMvc.perform(get(result)).andExpect(status().isNotFound)
+    }
 }
