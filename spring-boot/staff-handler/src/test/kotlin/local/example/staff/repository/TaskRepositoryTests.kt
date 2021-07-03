@@ -111,4 +111,16 @@ class TaskRepositoryTests {
             .andExpect(status().isOk)
             .andExpect(jsonPath("$.name").value("task0011001251"))
     }
+
+    @Test
+    @Order(6)
+    @Throws(Exception::class)
+    fun `delete test`() {
+        val mvcResult = mockMvc!!.perform(post("/tasks").content(task))
+            .andExpect(status().isCreated)
+            .andReturn()
+        val result = mvcResult.response.getHeader("Location")
+        mockMvc.perform(delete(result!!)).andExpect(status().isNoContent)
+        mockMvc.perform(get(result)).andExpect(status().isNotFound)
+    }
 }
