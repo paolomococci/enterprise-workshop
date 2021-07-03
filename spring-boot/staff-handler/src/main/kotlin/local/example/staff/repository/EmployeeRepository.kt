@@ -23,7 +23,7 @@ import org.springframework.data.repository.CrudRepository
 import org.springframework.data.repository.query.Param
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
 
-@RepositoryRestResource(path = "employees")
+@RepositoryRestResource(path = "employees", collectionResourceRel = "employees")
 interface EmployeeRepository : CrudRepository<EmployeeEntity, Long> {
 
     fun findByName(@Param("name") name: String): List<EmployeeEntity>
