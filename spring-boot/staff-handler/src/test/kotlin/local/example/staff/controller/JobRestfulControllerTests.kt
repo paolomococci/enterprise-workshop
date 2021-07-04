@@ -103,7 +103,7 @@ class JobRestfulControllerTests {
     @Test
     @Order(8)
     @Throws(Exception::class)
-    fun `find by surname test`() {
+    fun `find by code test`() {
         // TODO
     }
 
