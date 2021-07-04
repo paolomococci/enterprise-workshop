@@ -18,8 +18,6 @@
 
 package local.example.staff.controller
 
-import local.example.staff.repository.JobRepository
-import org.hamcrest.Matchers
 import org.junit.jupiter.api.MethodOrderer
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
@@ -28,9 +26,9 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -40,21 +38,18 @@ class JobRestfulControllerTests {
     @Autowired
     private val mockMvc: MockMvc? = null
 
-    @Autowired
-    private val jobRepository: JobRepository? = null
-
     private val job: String = "{\"code\":\"0031001250\",\"name\":\"job0031001250\"}"
 
     @Test
     @Order(1)
     @Throws(Exception::class)
     fun `existence test`() {
-        mockMvc!!.perform(MockMvcRequestBuilders.get("/api/jobs"))
-            .andDo(MockMvcResultHandlers.print())
-            .andExpect(MockMvcResultMatchers.status().isOk)
-            .andExpect(MockMvcResultMatchers.jsonPath("$._links.self.href")
+        mockMvc!!.perform(get("/api/jobs"))
+            .andDo(print())
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$._links.self.href")
                 .exists())
-            .andExpect(MockMvcResultMatchers.jsonPath("$._links.self.href")
+            .andExpect(jsonPath("$._links.self.href")
                 .value("http://localhost/api/jobs"))
     }
 
@@ -62,7 +57,8 @@ class JobRestfulControllerTests {
     @Order(2)
     @Throws(Exception::class)
     fun `create test`() {
-        // TODO
+        mockMvc!!.perform(post("/api/jobs").content(job))
+            .andExpect(status().isCreated)
     }
 
     @Test
@@ -103,7 +99,7 @@ class JobRestfulControllerTests {
     @Test
     @Order(8)
     @Throws(Exception::class)
-    fun `find by code test`() {
+    fun `find by surname test`() {
         // TODO
     }
 
