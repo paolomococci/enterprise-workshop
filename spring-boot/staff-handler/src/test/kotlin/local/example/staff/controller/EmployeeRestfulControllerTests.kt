@@ -27,6 +27,9 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -44,6 +47,13 @@ class EmployeeRestfulControllerTests {
     @Test
     @Order(1)
     @Throws(Exception::class)
-    fun `void test`() {
+    fun `existence test`() {
+        mockMvc!!.perform(get("/api/employees"))
+            .andDo(print())
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$._links.self.href")
+                .exists())
+            .andExpect(jsonPath("$._links.self.href")
+                .value("http://localhost/api/employees"))
     }
 }
