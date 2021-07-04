@@ -27,6 +27,9 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -44,6 +47,15 @@ class TaskRestfulControllerTests {
     @Test
     @Order(1)
     @Throws(Exception::class)
-    fun `void test`() {
+    fun `existence test`() {
+        mockMvc!!.perform(MockMvcRequestBuilders.get("/api/tasks"))
+            .andDo(MockMvcResultHandlers.print())
+            .andExpect(MockMvcResultMatchers.status().isOk)
+            .andExpect(
+                MockMvcResultMatchers.jsonPath("$._links.self.href")
+                .exists())
+            .andExpect(
+                MockMvcResultMatchers.jsonPath("$._links.self.href")
+                .value("http://localhost/api/tasks"))
     }
 }
