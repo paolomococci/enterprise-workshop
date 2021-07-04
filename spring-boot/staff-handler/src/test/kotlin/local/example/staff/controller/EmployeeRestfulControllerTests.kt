@@ -19,6 +19,7 @@
 package local.example.staff.controller
 
 import local.example.staff.repository.EmployeeRepository
+import org.hamcrest.Matchers
 import org.junit.jupiter.api.MethodOrderer
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
@@ -55,5 +56,66 @@ class EmployeeRestfulControllerTests {
                 .exists())
             .andExpect(jsonPath("$._links.self.href")
                 .value("http://localhost/api/employees"))
+    }
+
+    @Test
+    @Order(2)
+    @Throws(Exception::class)
+    fun `create test`() {
+        mockMvc!!.perform(post("/api/employees").content(employee))
+            .andExpect(status().isCreated)
+            .andExpect(header().string(
+                "Location",
+                Matchers.containsString("employees/")
+            ))
+    }
+
+    @Test
+    @Order(3)
+    @Throws(Exception::class)
+    fun `read test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(4)
+    @Throws(Exception::class)
+    fun `update test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(5)
+    @Throws(Exception::class)
+    fun `partial update test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(6)
+    @Throws(Exception::class)
+    fun `delete test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(7)
+    @Throws(Exception::class)
+    fun `find by path id test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(8)
+    @Throws(Exception::class)
+    fun `find by name test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(9)
+    @Throws(Exception::class)
+    fun `find by surname test`() {
+        // TODO
     }
 }
