@@ -116,7 +116,7 @@ Date: Sun, 04 Jul 2021 03:01:14 GMT
 {"_links":{"self":{"href":"http://127.0.0.1:9090/api/jobs"}}}
 ```
 
-## I create a new item in the employee table
+## I added a new item in the employee table, and I expect to find it
 ```
 $ curl -v -i http://127.0.0.1:9090/api/employees
 *   Trying 127.0.0.1...
