@@ -58,4 +58,60 @@ class TaskRestfulControllerTests {
                 MockMvcResultMatchers.jsonPath("$._links.self.href")
                 .value("http://localhost/api/tasks"))
     }
+
+    @Test
+    @Order(2)
+    @Throws(Exception::class)
+    fun `create test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(3)
+    @Throws(Exception::class)
+    fun `read test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(4)
+    @Throws(Exception::class)
+    fun `update test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(5)
+    @Throws(Exception::class)
+    fun `partial update test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(6)
+    @Throws(Exception::class)
+    fun `delete test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(7)
+    @Throws(Exception::class)
+    fun `find by path id test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(8)
+    @Throws(Exception::class)
+    fun `find by code test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(9)
+    @Throws(Exception::class)
+    fun `find by name test`() {
+        // TODO
+    }
 }
