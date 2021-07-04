@@ -110,8 +110,20 @@ class TaskRestfulController(
     @PatchMapping("/{id}")
     @Throws(URISyntaxException::class)
     internal fun partialUpdate(@RequestBody update: TaskEntity, @PathVariable id: Long?): ResponseEntity<*> {
-        
-        // TODO
+        val updated = taskRepository.findById(id!!)
+            .map { temp ->
+                if (!update.code.isNullOrBlank()) temp.code = update.code
+                if (!update.name.isNullOrBlank()) temp.name = update.name
+                taskRepository.save(temp)
+            }
+            .orElseGet {
+                taskRepository.save(update)
+            }
+        val taskRepresentationModel = taskRepresentationModelAssembler.toModel(updated)
+        return ResponseEntity<EntityModel<TaskEntity>>(
+            taskRepresentationModel,
+            HttpStatus.OK
+        )
     }
 
     @DeleteMapping("/{id}")
