@@ -115,3 +115,28 @@ Date: Sun, 04 Jul 2021 03:01:14 GMT
 * Connection #0 to host 127.0.0.1 left intact
 {"_links":{"self":{"href":"http://127.0.0.1:9090/api/jobs"}}}
 ```
+
+## I create a new item in the employee table
+```
+$ curl -v -i http://127.0.0.1:9090/api/employees
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 9090 (#0)
+> GET /api/employees HTTP/1.1
+> Host: 127.0.0.1:9090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 
+HTTP/1.1 200 
+< Content-Type: application/hal+json
+Content-Type: application/hal+json
+< Transfer-Encoding: chunked
+Transfer-Encoding: chunked
+< Date: Sun, 04 Jul 2021 13:51:11 GMT
+Date: Sun, 04 Jul 2021 13:51:11 GMT
+
+< 
+* Connection #0 to host 127.0.0.1 left intact
+{"_embedded":{"employees":[{"id":1,"name":"Paul","surname":"Bender","_links":{"self":{"href":"http://127.0.0.1:9090/api/employees/1"},"employees":{"href":"http://127.0.0.1:9090/api/employees"}}}]},"_links":{"self":{"href":"http://127.0.0.1:9090/api/employees"}}}
+```
