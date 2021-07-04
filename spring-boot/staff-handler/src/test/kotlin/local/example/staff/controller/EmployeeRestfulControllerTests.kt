@@ -18,8 +18,6 @@
 
 package local.example.staff.controller
 
-import local.example.staff.repository.EmployeeRepository
-import org.hamcrest.Matchers
 import org.junit.jupiter.api.MethodOrderer
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
@@ -39,9 +37,6 @@ class EmployeeRestfulControllerTests {
 
     @Autowired
     private val mockMvc: MockMvc? = null
-
-    @Autowired
-    private val employeeRepository: EmployeeRepository? = null
 
     private val employee: String = "{\"name\":\"John\",\"surname\":\"Doe\"}"
 
@@ -64,10 +59,6 @@ class EmployeeRestfulControllerTests {
     fun `create test`() {
         mockMvc!!.perform(post("/api/employees").content(employee))
             .andExpect(status().isCreated)
-            .andExpect(header().string(
-                "Location",
-                Matchers.containsString("employees/")
-            ))
     }
 
     @Test
