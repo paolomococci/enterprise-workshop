@@ -18,7 +18,6 @@
 
 package local.example.staff.controller
 
-import local.example.staff.repository.TaskRepository
 import org.junit.jupiter.api.MethodOrderer
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
@@ -27,9 +26,9 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -39,23 +38,20 @@ class TaskRestfulControllerTests {
     @Autowired
     private val mockMvc: MockMvc? = null
 
-    @Autowired
-    private val taskRepository: TaskRepository? = null
-
     private val task: String = "{\"code\":\"0011001250\",\"name\":\"task0011001250\"}"
 
     @Test
     @Order(1)
     @Throws(Exception::class)
     fun `existence test`() {
-        mockMvc!!.perform(MockMvcRequestBuilders.get("/api/tasks"))
-            .andDo(MockMvcResultHandlers.print())
-            .andExpect(MockMvcResultMatchers.status().isOk)
+        mockMvc!!.perform(get("/api/tasks"))
+            .andDo(print())
+            .andExpect(status().isOk)
             .andExpect(
-                MockMvcResultMatchers.jsonPath("$._links.self.href")
+                jsonPath("$._links.self.href")
                 .exists())
             .andExpect(
-                MockMvcResultMatchers.jsonPath("$._links.self.href")
+                jsonPath("$._links.self.href")
                 .value("http://localhost/api/tasks"))
     }
 
@@ -63,7 +59,8 @@ class TaskRestfulControllerTests {
     @Order(2)
     @Throws(Exception::class)
     fun `create test`() {
-        // TODO
+        mockMvc!!.perform(post("/api/tasks").content(task))
+            .andExpect(status().isCreated)
     }
 
     @Test
