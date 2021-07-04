@@ -23,15 +23,13 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "employees")
-class EmployeeEntity {
-
+data class EmployeeEntity(
     @Id
     @GeneratedValue
-    val id: Long? = null
-
-    var name: String? = null
+    val id: Long? = null,
+    var name: String? = null,
     var surname: String? = null
-
+) {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "task_id")
