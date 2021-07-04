@@ -23,15 +23,13 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "jobs")
-class JobEntity {
-
+data class JobEntity(
     @Id
     @GeneratedValue
-    val id: Long? = null
-
-    var code: String? = null
+    val id: Long? = null,
+    var code: String? = null,
     var name: String? = null
-
+) {
     @JsonIgnore
     @OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
     lateinit var tasks: List<TaskEntity>
