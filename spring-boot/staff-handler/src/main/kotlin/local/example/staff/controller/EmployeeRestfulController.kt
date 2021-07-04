@@ -22,14 +22,13 @@ import local.example.staff.assembler.EmployeeRepresentationModelAssembler
 import local.example.staff.entity.EmployeeEntity
 import local.example.staff.exception.EmployeeNotFoundException
 import local.example.staff.repository.EmployeeRepository
-
 import org.springframework.hateoas.CollectionModel
 import org.springframework.hateoas.EntityModel
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import java.net.URI
 import java.net.URISyntaxException
 
 @RestController
@@ -44,9 +43,10 @@ class EmployeeRestfulController(
     internal fun create(@RequestBody employee: EmployeeEntity): ResponseEntity<EntityModel<EmployeeEntity>> {
         val employeeRepresentationModel = employeeRepresentationModelAssembler
             .toModel(employeeRepository.save(employee))
-        return ResponseEntity
-            .created(URI(employeeRepresentationModel.links.toString()))
-            .body(employeeRepresentationModel)
+        return ResponseEntity<EntityModel<EmployeeEntity>>(
+            employeeRepresentationModel,
+            HttpStatus.CREATED
+        )
     }
 
     @GetMapping("/{id}")
@@ -90,37 +90,14 @@ class EmployeeRestfulController(
     @PutMapping("/{id}")
     @Throws(URISyntaxException::class)
     internal fun update(@RequestBody update: EmployeeEntity, @PathVariable id: Long?): ResponseEntity<*> {
-        val updated = employeeRepository.findById(id!!)
-            .map { temp ->
-                temp.name = update.name
-                temp.surname = update.surname
-                employeeRepository.save(temp)
-            }
-            .orElseGet {
-                employeeRepository.save(update)
-            }
-        val employeeRepresentationModel = employeeRepresentationModelAssembler.toModel(updated)
-        return ResponseEntity
-            .created(URI(employeeRepresentationModel.links.toString()))
-            .body(employeeRepresentationModel)
+        // TODO
     }
 
     @PatchMapping("/{id}")
     @Throws(URISyntaxException::class)
     internal fun partialUpdate(@RequestBody update: EmployeeEntity, @PathVariable id: Long?): ResponseEntity<*> {
-        val updated = employeeRepository.findById(id!!)
-            .map { temp ->
-                if (!update.name.isNullOrBlank()) temp.name = update.name
-                if (!update.surname.isNullOrBlank()) temp.surname = update.surname
-                employeeRepository.save(temp)
-            }
-            .orElseGet {
-                employeeRepository.save(update)
-            }
-        val employeeRepresentationModel = employeeRepresentationModelAssembler.toModel(updated)
-        return ResponseEntity
-            .created(URI(employeeRepresentationModel.links.toString()))
-            .body(employeeRepresentationModel)
+        
+        // TODO
     }
 
     @DeleteMapping("/{id}")
