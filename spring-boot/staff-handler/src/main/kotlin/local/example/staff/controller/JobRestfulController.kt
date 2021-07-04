@@ -91,8 +91,20 @@ class JobRestfulController(
     @PutMapping("/{id}")
     @Throws(URISyntaxException::class)
     internal fun update(@RequestBody update: JobEntity, @PathVariable id: Long?): ResponseEntity<*> {
-        
-        // TODO
+        val updated = jobRepository.findById(id!!)
+            .map { temp ->
+                temp.code = update.code
+                temp.name = update.name
+                jobRepository.save(temp)
+            }
+            .orElseGet {
+                jobRepository.save(update)
+            }
+        val jobRepresentationModel = jobRepresentationModelAssembler.toModel(updated)
+        return ResponseEntity<EntityModel<JobEntity>>(
+            jobRepresentationModel,
+            HttpStatus.OK
+        )
     }
 
     @PatchMapping("/{id}")
