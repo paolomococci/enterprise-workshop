@@ -64,47 +64,55 @@ class EmployeeRestfulControllerTests {
     @Test
     @Order(3)
     @Throws(Exception::class)
-    fun `read test`() {
-        // TODO
+    fun `read all test`() {
+        mockMvc!!.perform(get("/api/employees"))
+            .andExpect(status().isOk)
     }
 
     @Test
     @Order(4)
     @Throws(Exception::class)
-    fun `update test`() {
+    fun `read test`() {
         // TODO
     }
 
     @Test
     @Order(5)
     @Throws(Exception::class)
-    fun `partial update test`() {
+    fun `update test`() {
         // TODO
     }
 
     @Test
     @Order(6)
     @Throws(Exception::class)
-    fun `delete test`() {
+    fun `partial update test`() {
         // TODO
     }
 
     @Test
     @Order(7)
     @Throws(Exception::class)
-    fun `find by path id test`() {
+    fun `delete test`() {
         // TODO
     }
 
     @Test
     @Order(8)
     @Throws(Exception::class)
-    fun `find by name test`() {
+    fun `find by path id test`() {
         // TODO
     }
 
     @Test
     @Order(9)
+    @Throws(Exception::class)
+    fun `find by name test`() {
+        // TODO
+    }
+
+    @Test
+    @Order(10)
     @Throws(Exception::class)
     fun `find by surname test`() {
         // TODO
