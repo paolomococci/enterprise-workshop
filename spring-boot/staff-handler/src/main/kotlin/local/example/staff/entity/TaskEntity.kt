@@ -18,7 +18,6 @@
 
 package local.example.staff.entity
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.*
 
 @Entity
@@ -30,11 +29,9 @@ data class TaskEntity(
     var code: String? = null,
     var name: String? = null
 ) {
-    @JsonIgnore
     @OneToMany(mappedBy = "task", fetch = FetchType.LAZY)
     lateinit var employees: List<EmployeeEntity>
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "job_id")
     lateinit var job: JobEntity
