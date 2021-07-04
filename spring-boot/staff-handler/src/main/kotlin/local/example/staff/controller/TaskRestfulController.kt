@@ -29,7 +29,6 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import java.net.URI
 import java.net.URISyntaxException
 
 @RestController
@@ -42,11 +41,8 @@ class TaskRestfulController(
     @PostMapping
     @Throws(URISyntaxException::class)
     internal fun create(@RequestBody task: TaskEntity): ResponseEntity<EntityModel<TaskEntity>> {
-        val taskRepresentationModel = taskRepresentationModelAssembler
-            .toModel(taskRepository.save(task))
-        return ResponseEntity
-            .created(URI(taskRepresentationModel.links.toString()))
-            .body(taskRepresentationModel)
+        
+        // TODO
     }
 
     @GetMapping("/{id}")
@@ -90,37 +86,15 @@ class TaskRestfulController(
     @PutMapping("/{id}")
     @Throws(URISyntaxException::class)
     internal fun update(@RequestBody update: TaskEntity, @PathVariable id: Long?): ResponseEntity<*> {
-        val updated = taskRepository.findById(id!!)
-            .map { temp ->
-                temp.code = update.code
-                temp.name = update.name
-                taskRepository.save(temp)
-            }
-            .orElseGet {
-                taskRepository.save(update)
-            }
-        val representationModel = taskRepresentationModelAssembler.toModel(updated)
-        return ResponseEntity
-            .created(URI(representationModel.links.toString()))
-            .body(representationModel)
+        
+        // TODO
     }
 
     @PatchMapping("/{id}")
     @Throws(URISyntaxException::class)
     internal fun partialUpdate(@RequestBody update: TaskEntity, @PathVariable id: Long?): ResponseEntity<*> {
-        val updated = taskRepository.findById(id!!)
-            .map { temp ->
-                if (!update.code.isNullOrBlank()) temp.code = update.code
-                if (!update.name.isNullOrBlank()) temp.name = update.name
-                taskRepository.save(temp)
-            }
-            .orElseGet {
-                taskRepository.save(update)
-            }
-        val representationModel = taskRepresentationModelAssembler.toModel(updated)
-        return ResponseEntity
-            .created(URI(representationModel.links.toString()))
-            .body(representationModel)
+        
+        // TODO
     }
 
     @DeleteMapping("/{id}")
