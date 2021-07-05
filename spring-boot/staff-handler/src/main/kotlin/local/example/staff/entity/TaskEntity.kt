@@ -38,7 +38,7 @@ data class TaskEntity(
     @OneToMany(mappedBy = "task", fetch = FetchType.LAZY)
     lateinit var employees: List<EmployeeEntity>
 
-    @ManyToOne
-    @JoinColumn(name = "job_id")
+    @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @JoinColumn(name = "JOB_ID")
     lateinit var job: JobEntity
 }
