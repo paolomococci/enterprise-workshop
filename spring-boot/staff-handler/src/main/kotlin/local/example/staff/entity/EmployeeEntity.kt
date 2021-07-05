@@ -27,9 +27,9 @@ data class EmployeeEntity(
     @GeneratedValue
     @Column(name = "ID")
     val id: Long? = null,
-    @Column(name = "NAME")
+    @Column(name = "NAME", columnDefinition = "VARCHAR(50)")
     var name: String? = null,
-    @Column(name = "SURNAME")
+    @Column(name = "SURNAME", columnDefinition = "VARCHAR(50)")
     var surname: String? = null
 ) {
     @ManyToOne
