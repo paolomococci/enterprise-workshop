@@ -19,8 +19,10 @@
 package local.example.staff.controller
 
 import local.example.staff.assembler.TaskRepresentationModelAssembler
+import local.example.staff.entity.JobEntity
 import local.example.staff.entity.TaskEntity
 import local.example.staff.exception.TaskNotFoundException
+import local.example.staff.repository.JobRepository
 import local.example.staff.repository.TaskRepository
 
 import org.springframework.hateoas.CollectionModel
@@ -30,11 +32,13 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+
 import java.net.URISyntaxException
 
 @RestController
 @RequestMapping("/api/tasks")
 class TaskRestfulController(
+    private val jobRepository: JobRepository,
     private val taskRepository: TaskRepository,
     private val taskRepresentationModelAssembler: TaskRepresentationModelAssembler
 ) {
@@ -135,7 +139,7 @@ class TaskRestfulController(
 
     @PatchMapping("/assign/{id}")
     @Throws(URISyntaxException::class)
-    internal fun assignToJob(): ResponseEntity<*> {
+    internal fun assignToJob(@RequestBody job: JobEntity, @PathVariable id: Long?): ResponseEntity<*> {
         // TODO
         return ResponseEntity.noContent().build<Any>()
     }
