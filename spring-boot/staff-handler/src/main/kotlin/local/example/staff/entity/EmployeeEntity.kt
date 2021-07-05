@@ -19,6 +19,7 @@
 package local.example.staff.entity
 
 import javax.persistence.*
+import javax.validation.constraints.Size
 
 @Entity
 @Table(name = "EMPLOYEES")
@@ -27,8 +28,10 @@ data class EmployeeEntity(
     @GeneratedValue
     @Column(name = "ID")
     val id: Long? = null,
+    @Size(min = 3, max = 49)
     @Column(name = "NAME", columnDefinition = "VARCHAR(50)")
     var name: String? = null,
+    @Size(min = 3, max = 49)
     @Column(name = "SURNAME", columnDefinition = "VARCHAR(50)")
     var surname: String? = null
 ) {
