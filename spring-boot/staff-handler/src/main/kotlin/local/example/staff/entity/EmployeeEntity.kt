@@ -21,14 +21,18 @@ package local.example.staff.entity
 import javax.persistence.*
 
 @Entity
-@Table(name = "employees")
+@Table(name = "EMPLOYEES")
 data class EmployeeEntity(
     @Id
     @GeneratedValue
+    @Column(name = "ID")
     val id: Long? = null,
+    @Column(name = "NAME")
     var name: String? = null,
+    @Column(name = "SURNAME")
     var surname: String? = null
 ) {
+    @Column(name = "TASK")
     @ManyToOne
     @JoinColumn(name = "task_id")
     lateinit var task: TaskEntity
