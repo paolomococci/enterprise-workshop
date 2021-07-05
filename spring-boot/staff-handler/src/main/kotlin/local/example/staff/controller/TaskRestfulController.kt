@@ -140,7 +140,16 @@ class TaskRestfulController(
     @PatchMapping("/assign/{id}")
     @Throws(URISyntaxException::class)
     internal fun assignToJob(@RequestBody job: JobEntity, @PathVariable id: Long?): ResponseEntity<*> {
-        // TODO
+        try {
+            val jobSought: List<JobEntity> = jobRepository.findByCode(job.code)
+            if (jobSought[0].id != null && id != null) {
+                taskRepository.assignToJob(jobSought[0].id!!, id)
+            } else {
+                return ResponseEntity.notFound().build<Any>()
+            }
+        } catch (exception: Exception) {
+            exception.message
+        }
         return ResponseEntity.noContent().build<Any>()
     }
 
