@@ -19,6 +19,7 @@
 package local.example.staff.entity
 
 import javax.persistence.*
+import javax.validation.constraints.Size
 
 @Entity
 @Table(name = "JOBS", uniqueConstraints = [UniqueConstraint(columnNames = ["CODE","NAME"])])
@@ -27,9 +28,11 @@ data class JobEntity(
     @GeneratedValue
     @Column(name = "ID")
     val id: Long? = null,
-    @Column(name = "CODE", nullable = false, columnDefinition = "VARCHAR(100)")
+    @Size(min = 8, max = 124)
+    @Column(name = "CODE", nullable = false, columnDefinition = "VARCHAR(128)")
     var code: String,
-    @Column(name = "NAME", nullable = false, columnDefinition = "VARCHAR(100)")
+    @Size(min = 11, max = 127)
+    @Column(name = "NAME", nullable = false, columnDefinition = "VARCHAR(128)")
     var name: String
 ) {
     @OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
