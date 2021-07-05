@@ -32,7 +32,6 @@ data class EmployeeEntity(
     @Column(name = "SURNAME")
     var surname: String? = null
 ) {
-    @Column(name = "TASK")
     @ManyToOne
     @JoinColumn(name = "task_id")
     lateinit var task: TaskEntity
