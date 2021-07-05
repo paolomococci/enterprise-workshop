@@ -21,7 +21,7 @@ package local.example.staff.entity
 import javax.persistence.*
 
 @Entity
-@Table(name = "TASKS", uniqueConstraints = [UniqueConstraint(columnNames = ["CODE"])])
+@Table(name = "TASKS", uniqueConstraints = [UniqueConstraint(columnNames = ["CODE","NAME"])])
 data class TaskEntity(
     @Id
     @GeneratedValue
