@@ -139,4 +139,11 @@ class TaskRestfulController(
         // TODO
         return ResponseEntity.noContent().build<Any>()
     }
+
+    @PatchMapping("/melt/{id}")
+    @Throws(URISyntaxException::class)
+    internal fun meltAssignmentToJob(): ResponseEntity<*> {
+        // TODO
+        return ResponseEntity.noContent().build<Any>()
+    }
 }
