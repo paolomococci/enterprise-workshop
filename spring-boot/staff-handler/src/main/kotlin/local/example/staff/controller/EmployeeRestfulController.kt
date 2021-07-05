@@ -131,4 +131,11 @@ class EmployeeRestfulController(
         if (id != null) employeeRepository.deleteById(id)
         return ResponseEntity.noContent().build<Any>()
     }
+
+    @PatchMapping("/assign/{id}")
+    @Throws(URISyntaxException::class)
+    internal fun assignToTask(): ResponseEntity<*> {
+        // TODO
+        return ResponseEntity.noContent().build<Any>()
+    }
 }
