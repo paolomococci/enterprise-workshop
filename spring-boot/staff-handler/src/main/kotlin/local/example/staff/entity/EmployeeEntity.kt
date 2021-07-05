@@ -35,7 +35,7 @@ data class EmployeeEntity(
     @Column(name = "SURNAME", columnDefinition = "VARCHAR(50)")
     var surname: String? = null
 ) {
-    @ManyToOne
-    @JoinColumn(name = "task_id")
+    @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @JoinColumn(name = "TASK_ID")
     lateinit var task: TaskEntity
 }
