@@ -27,9 +27,9 @@ data class JobEntity(
     @GeneratedValue
     @Column(name = "ID")
     val id: Long? = null,
-    @Column(name = "CODE", nullable = false)
+    @Column(name = "CODE", nullable = false, columnDefinition = "VARCHAR(100)")
     var code: String,
-    @Column(name = "NAME", nullable = false)
+    @Column(name = "NAME", nullable = false, columnDefinition = "VARCHAR(100)")
     var name: String
 ) {
     @OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
