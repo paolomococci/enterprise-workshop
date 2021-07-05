@@ -20,8 +20,11 @@ package local.example.staff.controller
 
 import local.example.staff.assembler.EmployeeRepresentationModelAssembler
 import local.example.staff.entity.EmployeeEntity
+import local.example.staff.entity.TaskEntity
 import local.example.staff.exception.EmployeeNotFoundException
 import local.example.staff.repository.EmployeeRepository
+import local.example.staff.repository.TaskRepository
+
 import org.springframework.hateoas.CollectionModel
 import org.springframework.hateoas.EntityModel
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo
@@ -29,12 +32,15 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+
 import java.net.URISyntaxException
+
 
 @RestController
 @RequestMapping("/api/employees")
 class EmployeeRestfulController(
     private val employeeRepository: EmployeeRepository,
+    private val taskRepository: TaskRepository,
     private val employeeRepresentationModelAssembler: EmployeeRepresentationModelAssembler
 ) {
 
@@ -134,7 +140,7 @@ class EmployeeRestfulController(
 
     @PatchMapping("/assign/{id}")
     @Throws(URISyntaxException::class)
-    internal fun assignToTask(): ResponseEntity<*> {
+    internal fun assignToTask(@RequestBody task: TaskEntity, @PathVariable id: Long?): ResponseEntity<*> {
         // TODO
         return ResponseEntity.noContent().build<Any>()
     }
