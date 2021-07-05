@@ -154,6 +154,13 @@ class EmployeeRestfulController(
         return ResponseEntity.noContent().build<Any>()
     }
 
+    @PatchMapping("/assign/using-uri/{id}")
+    @Throws(URISyntaxException::class)
+    internal fun assignToTaskUsingUri(@RequestBody taskUriString: String, @PathVariable id: Long?): ResponseEntity<*> {
+        // TODO
+        return ResponseEntity.noContent().build<Any>()
+    }
+
     @PatchMapping("/melt/{id}")
     @Throws(URISyntaxException::class)
     internal fun meltAssignmentToTask(@PathVariable id: Long?): ResponseEntity<*> {
