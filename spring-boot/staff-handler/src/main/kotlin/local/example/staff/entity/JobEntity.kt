@@ -21,14 +21,18 @@ package local.example.staff.entity
 import javax.persistence.*
 
 @Entity
-@Table(name = "jobs")
+@Table(name = "JOBS", uniqueConstraints = [UniqueConstraint(columnNames = ["CODE"])])
 data class JobEntity(
     @Id
     @GeneratedValue
+    @Column(name = "ID")
     val id: Long? = null,
+    @Column(name = "CODE")
     var code: String? = null,
+    @Column(name = "NAME")
     var name: String? = null
 ) {
+    @Column(name = "TASKS")
     @OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
     lateinit var tasks: List<TaskEntity>
 }
