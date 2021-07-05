@@ -18,5 +18,16 @@
 
 package local.example.staff.validator
 
-class AlphaNumericValidator {
+import local.example.staff.validator.constraint.AlphaNumericConstraint
+import javax.validation.ConstraintValidator
+import javax.validation.ConstraintValidatorContext
+
+class AlphaNumericValidator : ConstraintValidator<AlphaNumericConstraint?, String?> {
+
+    override fun isValid(value: String?, constraintValidatorContext: ConstraintValidatorContext): Boolean {
+        if (value == null) {
+            return true
+        }
+        return value.matches(Regex("[a-zA-Z0-9]+"))
+    }
 }
