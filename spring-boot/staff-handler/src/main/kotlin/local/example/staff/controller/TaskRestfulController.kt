@@ -132,4 +132,11 @@ class TaskRestfulController(
         if (id != null) taskRepository.deleteById(id)
         return ResponseEntity.noContent().build<Any>()
     }
+
+    @PatchMapping("/assign/{id}")
+    @Throws(URISyntaxException::class)
+    internal fun assignToJob(): ResponseEntity<*> {
+        // TODO
+        return ResponseEntity.noContent().build<Any>()
+    }
 }
