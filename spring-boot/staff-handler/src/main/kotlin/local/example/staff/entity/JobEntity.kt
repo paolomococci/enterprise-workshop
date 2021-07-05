@@ -21,7 +21,7 @@ package local.example.staff.entity
 import javax.persistence.*
 
 @Entity
-@Table(name = "JOBS", uniqueConstraints = [UniqueConstraint(columnNames = ["CODE","NAME"])])
+@Table(name = "JOBS")
 data class JobEntity(
     @Id
     @GeneratedValue
@@ -32,7 +32,6 @@ data class JobEntity(
     @Column(name = "NAME")
     var name: String? = null
 ) {
-    @Column(name = "TASKS")
     @OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
     lateinit var tasks: List<TaskEntity>
 }
