@@ -18,5 +18,20 @@
 
 package local.example.family.entity
 
-class SonEntity {
+import local.example.family.fineness.Level
+import java.time.LocalDate
+import javax.persistence.Entity
+import javax.persistence.Table
+
+@Entity(name = "son")
+@Table(name = "son")
+data class SonEntity(
+    override var id: Long,
+    override var code: String,
+    override var name: String,
+    override var level: Level,
+    override var birthday: LocalDate
+) : AbstractCatEntity(
+    id, code, name, level, birthday
+) {
 }
