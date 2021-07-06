@@ -18,5 +18,22 @@
 
 package local.example.family.entity
 
-class ExposureEntity {
+import com.fasterxml.jackson.annotation.JsonFormat
+import java.time.LocalDate
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
+import javax.persistence.Table
+
+@Entity(name = "exposure")
+@Table(name = "exposure")
+data class ExposureEntity(
+    @Id
+    @GeneratedValue
+    open val id: Long,
+    open val code: String,
+    open val title: String,
+    @JsonFormat(pattern = "YYYY-MM-dd")
+    open val occurrence: LocalDate
+) {
 }
