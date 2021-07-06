@@ -20,13 +20,10 @@ package local.example.family.entity
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import java.time.LocalDate
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
-@Entity(name = "exposure")
-@Table(name = "exposure")
+@Entity(name = "exposures")
+@Table(name = "exposures")
 data class ExposureEntity(
     @Id
     @GeneratedValue
@@ -36,4 +33,6 @@ data class ExposureEntity(
     @JsonFormat(pattern = "YYYY-MM-dd")
     open val occurrence: LocalDate
 ) {
+    @ManyToMany(mappedBy = "exposures")
+    lateinit var breeders: List<BreederEntity>
 }
