@@ -18,5 +18,10 @@
 
 package local.example.family.repository
 
-interface SonRestRepository {
-}
+import local.example.family.entity.SonEntity
+
+import org.springframework.data.repository.CrudRepository
+import org.springframework.data.rest.core.annotation.RepositoryRestResource
+
+@RepositoryRestResource(path = "sons", collectionResourceRel = "sons")
+interface SonRestRepository : CrudRepository<SonEntity, Long>
