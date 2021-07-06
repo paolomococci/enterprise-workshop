@@ -18,20 +18,34 @@
 
 package local.example.family.entity
 
-import local.example.family.fineness.Level
-import java.time.LocalDate
-import javax.persistence.Entity
-import javax.persistence.Table
+import com.fasterxml.jackson.annotation.JsonBackReference
+import com.fasterxml.jackson.annotation.JsonFormat
 
-@Entity(name = "son")
-@Table(name = "son")
+import local.example.family.fineness.Level
+
+import java.time.LocalDate
+import javax.persistence.*
+
+@Entity(name = "sons")
+@Table(name = "sons")
 data class SonEntity(
-    override var id: Long,
-    override var code: String,
-    override var name: String,
-    override var level: Level,
-    override var birthday: LocalDate
-) : AbstractCatEntity(
-    id, code, name, level, birthday
+    @Id
+    @GeneratedValue
+    val id: Long,
+    val code: String,
+    val name: String,
+    @Enumerated(EnumType.STRING)
+    val level: Level,
+    @JsonFormat(pattern = "YYYY-MM-dd")
+    val birthday: LocalDate
 ) {
+    @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @JoinColumn(name = "mother_fk")
+    @JsonBackReference
+    lateinit var mother: MotherEntity
+
+    @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @JoinColumn(name = "breeder_fk")
+    @JsonBackReference
+    lateinit var breederCat: BreederEntity
 }
