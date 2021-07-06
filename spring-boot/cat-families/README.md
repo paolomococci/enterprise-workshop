@@ -250,4 +250,100 @@ Date: Tue, 06 Jul 2021 18:53:05 GMT
   }
 * Connection #0 to host 127.0.0.1 left intact
 }
+$ curl -v -i http://127.0.0.1:9090/profile/sons
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 9090 (#0)
+> GET /profile/sons HTTP/1.1
+> Host: 127.0.0.1:9090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 
+HTTP/1.1 200 
+< Vary: Origin
+Vary: Origin
+< Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+Vary: Access-Control-Request-Headers
+< Content-Type: application/alps+json
+Content-Type: application/alps+json
+< Transfer-Encoding: chunked
+Transfer-Encoding: chunked
+< Date: Tue, 06 Jul 2021 18:55:08 GMT
+Date: Tue, 06 Jul 2021 18:55:08 GMT
+
+< 
+{
+  "alps" : {
+    "version" : "1.0",
+    "descriptor" : [ {
+      "id" : "sonEntity-representation",
+      "href" : "http://127.0.0.1:9090/profile/sons",
+      "descriptor" : [ {
+        "name" : "code",
+        "type" : "SEMANTIC"
+      }, {
+        "name" : "name",
+        "type" : "SEMANTIC"
+      }, {
+        "name" : "level",
+        "type" : "SEMANTIC",
+        "doc" : {
+          "format" : "TEXT",
+          "value" : "NICE, GOOD, AWESOME, GODLIKE"
+        }
+      }, {
+        "name" : "birthday",
+        "type" : "SEMANTIC"
+      }, {
+        "name" : "mother",
+        "type" : "SAFE",
+        "rt" : "http://127.0.0.1:9090/profile/mothers#motherEntity-representation"
+      }, {
+        "name" : "breederCat",
+        "type" : "SAFE",
+        "rt" : "http://127.0.0.1:9090/profile/breeders#breederEntity-representation"
+      } ]
+    }, {
+      "id" : "get-sons",
+      "name" : "sons",
+      "type" : "SAFE",
+      "descriptor" : [ ],
+      "rt" : "#sonEntity-representation"
+    }, {
+      "id" : "create-sons",
+      "name" : "sons",
+      "type" : "UNSAFE",
+      "descriptor" : [ ],
+      "rt" : "#sonEntity-representation"
+    }, {
+      "id" : "get-sonEntity",
+      "name" : "sonEntity",
+      "type" : "SAFE",
+      "descriptor" : [ ],
+      "rt" : "#sonEntity-representation"
+    }, {
+      "id" : "delete-sonEntity",
+      "name" : "sonEntity",
+      "type" : "IDEMPOTENT",
+      "descriptor" : [ ],
+      "rt" : "#sonEntity-representation"
+    }, {
+      "id" : "patch-sonEntity",
+      "name" : "sonEntity",
+      "type" : "UNSAFE",
+      "descriptor" : [ ],
+      "rt" : "#sonEntity-representation"
+    }, {
+      "id" : "update-sonEntity",
+      "name" : "sonEntity",
+      "type" : "IDEMPOTENT",
+      "descriptor" : [ ],
+      "rt" : "#sonEntity-representation"
+    } ]
+  }
+* Connection #0 to host 127.0.0.1 left intact
+}
 ```
