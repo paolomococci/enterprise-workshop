@@ -19,4 +19,5 @@
 package local.example.family.fineness
 
 enum class Level {
+    NICE, GOOD, AWESOME, GODLIKE
 }
