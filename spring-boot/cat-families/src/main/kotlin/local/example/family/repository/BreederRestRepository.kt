@@ -18,5 +18,10 @@
 
 package local.example.family.repository
 
-interface BreederRestRepository {
-}
+import local.example.family.entity.BreederEntity
+
+import org.springframework.data.repository.CrudRepository
+import org.springframework.data.rest.core.annotation.RepositoryRestResource
+
+@RepositoryRestResource(path = "breeders", collectionResourceRel = "breeders")
+interface BreederRestRepository : CrudRepository<BreederEntity, Long>
