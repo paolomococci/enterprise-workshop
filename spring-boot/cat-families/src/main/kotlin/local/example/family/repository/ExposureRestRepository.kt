@@ -18,5 +18,10 @@
 
 package local.example.family.repository
 
-interface ExposureRestRepository {
-}
+import local.example.family.entity.ExposureEntity
+
+import org.springframework.data.repository.CrudRepository
+import org.springframework.data.rest.core.annotation.RepositoryRestResource
+
+@RepositoryRestResource(path = "exposures", collectionResourceRel = "exposures")
+interface ExposureRestRepository : CrudRepository<ExposureEntity, Long>
