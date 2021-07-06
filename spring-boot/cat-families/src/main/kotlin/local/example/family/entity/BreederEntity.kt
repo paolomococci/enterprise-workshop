@@ -18,5 +18,22 @@
 
 package local.example.family.entity
 
-class BreederEntity {
+import com.fasterxml.jackson.annotation.JsonFormat
+import java.time.LocalDate
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
+import javax.persistence.Table
+
+@Entity(name = "breeder")
+@Table(name = "breeder")
+data class BreederEntity(
+    @Id
+    @GeneratedValue
+    open val id: Long,
+    open val code: String,
+    open val name: String,
+    @JsonFormat(pattern = "YYYY-MM-dd")
+    open val birthday: LocalDate
+) {
 }
