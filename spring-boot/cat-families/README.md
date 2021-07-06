@@ -88,4 +88,43 @@ Date: Tue, 06 Jul 2021 18:47:19 GMT
   }
 * Connection #0 to host 127.0.0.1 left intact
 }
+$ curl -v -i http://127.0.0.1:9090/breeders
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 9090 (#0)
+> GET /breeders HTTP/1.1
+> Host: 127.0.0.1:9090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 
+HTTP/1.1 200 
+< Vary: Origin
+Vary: Origin
+< Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+Vary: Access-Control-Request-Headers
+< Content-Type: application/hal+json
+Content-Type: application/hal+json
+< Transfer-Encoding: chunked
+Transfer-Encoding: chunked
+< Date: Tue, 06 Jul 2021 18:48:36 GMT
+Date: Tue, 06 Jul 2021 18:48:36 GMT
+
+< 
+{
+  "_embedded" : {
+    "breeders" : [ ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://127.0.0.1:9090/breeders"
+    },
+    "profile" : {
+      "href" : "http://127.0.0.1:9090/profile/breeders"
+    }
+  }
+* Connection #0 to host 127.0.0.1 left intact
+}
 ```
