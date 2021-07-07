@@ -242,3 +242,75 @@ Date: Wed, 07 Jul 2021 14:01:24 GMT
 * Connection #0 to host 127.0.0.1 left intact
 }
 ```
+
+### finally, to remove a relationship
+```
+$ curl -i -X DELETE http://127.0.0.1:9090/sons/3/mother
+HTTP/1.1 204 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Date: Wed, 07 Jul 2021 14:33:56 GMT
+$ curl -v -i -X GET http://127.0.0.1:9090/mothers/2/sons
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 9090 (#0)
+> GET /mothers/2/sons HTTP/1.1
+> Host: 127.0.0.1:9090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 
+HTTP/1.1 200 
+< Vary: Origin
+Vary: Origin
+< Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+Vary: Access-Control-Request-Headers
+< Content-Type: application/hal+json
+Content-Type: application/hal+json
+< Transfer-Encoding: chunked
+Transfer-Encoding: chunked
+< Date: Wed, 07 Jul 2021 14:34:30 GMT
+Date: Wed, 07 Jul 2021 14:34:30 GMT
+
+< 
+{
+  "_embedded" : {
+    "sons" : [ ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://127.0.0.1:9090/mothers/2/sons"
+    }
+  }
+* Connection #0 to host 127.0.0.1 left intact
+}
+$ curl -v -i -X GET http://127.0.0.1:9090/sons/3/mother
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 9090 (#0)
+> GET /sons/3/mother HTTP/1.1
+> Host: 127.0.0.1:9090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 404 
+HTTP/1.1 404 
+< Vary: Origin
+Vary: Origin
+< Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+Vary: Access-Control-Request-Headers
+< Content-Length: 0
+Content-Length: 0
+< Date: Wed, 07 Jul 2021 14:35:08 GMT
+Date: Wed, 07 Jul 2021 14:35:08 GMT
+
+< 
+* Connection #0 to host 127.0.0.1 left intact
+```
