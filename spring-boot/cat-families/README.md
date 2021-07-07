@@ -437,7 +437,7 @@ Date: Wed, 07 Jul 2021 14:50:42 GMT
 }
 ```
 
-### now, to remove the relationship it will be necessary to indicate at the end of the URI the identifier of the related entity
+### now, to remove the relationship it will be necessary to indicate at the end of the URI the identifier of the related entity that you want to elide
 ```
 $ curl -i -X DELETE http://127.0.0.1:9090/breeders/1/exposures/4
 HTTP/1.1 204 
