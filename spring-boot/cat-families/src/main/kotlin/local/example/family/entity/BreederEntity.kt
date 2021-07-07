@@ -19,7 +19,7 @@
 package local.example.family.entity
 
 import com.fasterxml.jackson.annotation.JsonFormat
-import java.time.LocalDate
+import java.sql.Date
 import javax.persistence.*
 
 @Entity(name = "breeders")
@@ -31,7 +31,7 @@ data class BreederEntity(
     open val code: String,
     open val name: String,
     @JsonFormat(pattern = "YYYY-MM-dd")
-    open val birthday: LocalDate
+    open val birthday: Date
 ) {
     @OneToMany(mappedBy = "breederCat", fetch = FetchType.LAZY)
     lateinit var cats: List<SonEntity>
