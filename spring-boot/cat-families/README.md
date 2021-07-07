@@ -436,3 +436,50 @@ Date: Wed, 07 Jul 2021 14:50:42 GMT
 * Connection #0 to host 127.0.0.1 left intact
 }
 ```
+
+### now, to remove the relationship it will be necessary to indicate at the end of the URI the identifier of the related entity
+```
+$ curl -i -X DELETE http://127.0.0.1:9090/breeders/1/exposures/4
+HTTP/1.1 204 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Date: Wed, 07 Jul 2021 14:55:03 GMT
+$ curl -v -i -X GET http://127.0.0.1:9090/breeders/1/exposures
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 9090 (#0)
+> GET /breeders/1/exposures HTTP/1.1
+> Host: 127.0.0.1:9090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 
+HTTP/1.1 200 
+< Vary: Origin
+Vary: Origin
+< Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+Vary: Access-Control-Request-Headers
+< Content-Type: application/hal+json
+Content-Type: application/hal+json
+< Transfer-Encoding: chunked
+Transfer-Encoding: chunked
+< Date: Wed, 07 Jul 2021 14:56:10 GMT
+Date: Wed, 07 Jul 2021 14:56:10 GMT
+
+< 
+{
+  "_embedded" : {
+    "exposures" : [ ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://127.0.0.1:9090/breeders/1/exposures"
+    }
+  }
+* Connection #0 to host 127.0.0.1 left intact
+}
+```
