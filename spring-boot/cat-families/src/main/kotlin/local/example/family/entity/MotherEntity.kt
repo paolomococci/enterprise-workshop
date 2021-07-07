@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonFormat
 
 import local.example.family.fineness.Level
 
-import java.time.LocalDate
+import java.sql.Date
 import javax.persistence.*
 
 @Entity(name = "mothers")
@@ -36,7 +36,7 @@ data class MotherEntity(
     @Enumerated(EnumType.STRING)
     val level: Level,
     @JsonFormat(pattern = "YYYY-MM-dd")
-    val birthday: LocalDate
+    val birthday: Date
 ) {
     @OneToMany(mappedBy = "mother", fetch = FetchType.LAZY)
     lateinit var sons: List<SonEntity>
