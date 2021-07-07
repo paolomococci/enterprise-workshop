@@ -314,3 +314,125 @@ Date: Wed, 07 Jul 2021 14:35:08 GMT
 < 
 * Connection #0 to host 127.0.0.1 left intact
 ```
+
+## relate entities of type ManyToMany
+
+### having available the two entities breeder and exposure, previously registered in the system
+```
+$ curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://127.0.0.1:9090/exposures/4" http://127.0.0.1:9090/breeders/1/exposures
+HTTP/1.1 204 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Date: Wed, 07 Jul 2021 14:44:51 GMT
+$ curl -v -i -X GET http://127.0.0.1:9090/breeders/1/exposures
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 9090 (#0)
+> GET /breeders/1/exposures HTTP/1.1
+> Host: 127.0.0.1:9090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 
+HTTP/1.1 200 
+< Vary: Origin
+Vary: Origin
+< Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+Vary: Access-Control-Request-Headers
+< Content-Type: application/hal+json
+Content-Type: application/hal+json
+< Transfer-Encoding: chunked
+Transfer-Encoding: chunked
+< Date: Wed, 07 Jul 2021 14:46:48 GMT
+Date: Wed, 07 Jul 2021 14:46:48 GMT
+
+< 
+{
+  "_embedded" : {
+    "exposures" : [ {
+      "code" : "1188553377",
+      "title" : "cats on the beach",
+      "occurrence" : "2021-08-12",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:9090/exposures/4"
+        },
+        "exposureEntity" : {
+          "href" : "http://127.0.0.1:9090/exposures/4"
+        },
+        "breeders" : {
+          "href" : "http://127.0.0.1:9090/exposures/4/breeders"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://127.0.0.1:9090/breeders/1/exposures"
+    }
+  }
+* Connection #0 to host 127.0.0.1 left intact
+}
+$ curl -v -i -X GET http://127.0.0.1:9090/exposures/4/breeders
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 9090 (#0)
+> GET /exposures/4/breeders HTTP/1.1
+> Host: 127.0.0.1:9090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 
+HTTP/1.1 200 
+< Vary: Origin
+Vary: Origin
+< Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+Vary: Access-Control-Request-Headers
+< Content-Type: application/hal+json
+Content-Type: application/hal+json
+< Transfer-Encoding: chunked
+Transfer-Encoding: chunked
+< Date: Wed, 07 Jul 2021 14:50:42 GMT
+Date: Wed, 07 Jul 2021 14:50:42 GMT
+
+< 
+{
+  "_embedded" : {
+    "breeders" : [ {
+      "code" : "0011223344",
+      "name" : "John Doe",
+      "birthday" : "1999-03-02",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:9090/breeders/1"
+        },
+        "breederEntity" : {
+          "href" : "http://127.0.0.1:9090/breeders/1"
+        },
+        "exposures" : {
+          "href" : "http://127.0.0.1:9090/breeders/1/exposures"
+        },
+        "motherCats" : {
+          "href" : "http://127.0.0.1:9090/breeders/1/motherCats"
+        },
+        "cats" : {
+          "href" : "http://127.0.0.1:9090/breeders/1/cats"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://127.0.0.1:9090/exposures/4/breeders"
+    }
+  }
+* Connection #0 to host 127.0.0.1 left intact
+}
+```
