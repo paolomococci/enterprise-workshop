@@ -108,3 +108,137 @@ Date: Wed, 07 Jul 2021 13:23:25 GMT
 * Connection #0 to host 127.0.0.1 left intact
 }
 ```
+
+### to establish a relationship the OneToMany URI must be sent to the related ManyToOne sub-URI, taking care to use "Content-Type:text/uri-list"
+```
+$ curl -v -i -X PUT -H "Content-Type:text/uri-list" -d "http://127.0.0.1:9090/mothers/2" http://127.0.0.1:9090/sons/3/mother
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 9090 (#0)
+> PUT /sons/3/mother HTTP/1.1
+> Host: 127.0.0.1:9090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> Content-Type:text/uri-list
+> Content-Length: 31
+> 
+* upload completely sent off: 31 out of 31 bytes
+< HTTP/1.1 204 
+HTTP/1.1 204 
+< Vary: Origin
+Vary: Origin
+< Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+Vary: Access-Control-Request-Headers
+< Date: Wed, 07 Jul 2021 13:56:43 GMT
+Date: Wed, 07 Jul 2021 13:56:43 GMT
+
+< 
+* Connection #0 to host 127.0.0.1 left intact
+$ curl -v -i -X GET http://127.0.0.1:9090/mothers/2/sons
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 9090 (#0)
+> GET /mothers/2/sons HTTP/1.1
+> Host: 127.0.0.1:9090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 
+HTTP/1.1 200 
+< Vary: Origin
+Vary: Origin
+< Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+Vary: Access-Control-Request-Headers
+< Content-Type: application/hal+json
+Content-Type: application/hal+json
+< Transfer-Encoding: chunked
+Transfer-Encoding: chunked
+< Date: Wed, 07 Jul 2021 13:59:15 GMT
+Date: Wed, 07 Jul 2021 13:59:15 GMT
+
+< 
+{
+  "_embedded" : {
+    "sons" : [ {
+      "code" : "0099887744",
+      "name" : "Babycat",
+      "level" : "GOOD",
+      "birthday" : "2020-06-07",
+      "_links" : {
+        "self" : {
+          "href" : "http://127.0.0.1:9090/sons/3"
+        },
+        "sonEntity" : {
+          "href" : "http://127.0.0.1:9090/sons/3"
+        },
+        "mother" : {
+          "href" : "http://127.0.0.1:9090/sons/3/mother"
+        },
+        "breederCat" : {
+          "href" : "http://127.0.0.1:9090/sons/3/breederCat"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://127.0.0.1:9090/mothers/2/sons"
+    }
+  }
+* Connection #0 to host 127.0.0.1 left intact
+}
+$ curl -v -i -X GET http://127.0.0.1:9090/sons/3/mother
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 9090 (#0)
+> GET /sons/3/mother HTTP/1.1
+> Host: 127.0.0.1:9090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 
+HTTP/1.1 200 
+< Vary: Origin
+Vary: Origin
+< Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+Vary: Access-Control-Request-Headers
+< Content-Location: http://127.0.0.1:9090/mothers/2
+Content-Location: http://127.0.0.1:9090/mothers/2
+< Content-Type: application/hal+json
+Content-Type: application/hal+json
+< Transfer-Encoding: chunked
+Transfer-Encoding: chunked
+< Date: Wed, 07 Jul 2021 14:01:24 GMT
+Date: Wed, 07 Jul 2021 14:01:24 GMT
+
+< 
+{
+  "code" : "0044556677",
+  "name" : "Mommycat",
+  "level" : "AWESOME",
+  "birthday" : "2018-04-18",
+  "_links" : {
+    "self" : {
+      "href" : "http://127.0.0.1:9090/mothers/2"
+    },
+    "motherEntity" : {
+      "href" : "http://127.0.0.1:9090/mothers/2"
+    },
+    "sons" : {
+      "href" : "http://127.0.0.1:9090/mothers/2/sons"
+    },
+    "breederMotherCat" : {
+      "href" : "http://127.0.0.1:9090/mothers/2/breederMotherCat"
+    }
+  }
+* Connection #0 to host 127.0.0.1 left intact
+}
+```
