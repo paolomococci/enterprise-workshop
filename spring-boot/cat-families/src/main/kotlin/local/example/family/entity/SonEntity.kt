@@ -18,7 +18,6 @@
 
 package local.example.family.entity
 
-import com.fasterxml.jackson.annotation.JsonBackReference
 import com.fasterxml.jackson.annotation.JsonFormat
 
 import local.example.family.fineness.Level
@@ -41,11 +40,9 @@ data class SonEntity(
 ) {
     @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     @JoinColumn(name = "mother_fk")
-    @JsonBackReference
     lateinit var mother: MotherEntity
 
     @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     @JoinColumn(name = "breeder_fk")
-    @JsonBackReference
     lateinit var breederCat: BreederEntity
 }
