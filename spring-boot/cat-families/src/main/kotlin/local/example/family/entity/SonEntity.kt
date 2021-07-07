@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonFormat
 
 import local.example.family.fineness.Level
 
-import java.time.LocalDate
+import java.sql.Date
 import javax.persistence.*
 
 @Entity(name = "sons")
@@ -36,7 +36,7 @@ data class SonEntity(
     @Enumerated(EnumType.STRING)
     val level: Level,
     @JsonFormat(pattern = "YYYY-MM-dd")
-    val birthday: LocalDate
+    val birthday: Date
 ) {
     @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     @JoinColumn(name = "mother_fk")
