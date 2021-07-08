@@ -35,7 +35,7 @@ data class SonEntity(
     var name: String,
     @Enumerated(EnumType.STRING)
     var level: Level,
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-YYYY")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-YYYY", timezone = "UTC")
     val birthday: Date
 ) {
     @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
