@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -46,6 +47,13 @@ public class InvoiceDetailView
 
     private final String INVOICE_EDIT_ROUTE_TEMPLATE = "invoice-detail/%d/edit";
 
+    @Autowired
+    InvoiceEntity invoiceEntity;
+
+    private final InvoiceService invoiceService;
+
+    private final BeanValidationBinder<InvoiceEntity> invoiceEntityBeanValidationBinder;
+
     @Id("grid")
     private Grid<InvoiceEntity> invoiceEntityGrid;
 
@@ -55,6 +63,10 @@ public class InvoiceDetailView
     private Button cancel;
 
     public InvoiceDetailView(@Autowired InvoiceService invoiceService) {
+
+        this.invoiceService = invoiceService;
+
+        this.invoiceEntityBeanValidationBinder = new BeanValidationBinder<>(InvoiceEntity.class);
 
         this.cancel.addClickListener(e -> {
             // TODO
