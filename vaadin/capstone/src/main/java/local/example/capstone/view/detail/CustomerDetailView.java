@@ -44,6 +44,8 @@ public class CustomerDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String CUSTOMER_EDIT_ROUTE_TEMPLATE = "customer-detail/%d/edit";
+
     @Id("grid")
     private Grid<CustomerEntity> customerEntityGrid;
 
