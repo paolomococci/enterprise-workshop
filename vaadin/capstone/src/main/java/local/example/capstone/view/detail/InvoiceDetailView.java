@@ -44,6 +44,8 @@ public class InvoiceDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String INVOICE_EDIT_ROUTE_TEMPLATE = "invoice-detail/%d/edit";
+
     @Id("grid")
     private Grid<InvoiceEntity> invoiceEntityGrid;
 
