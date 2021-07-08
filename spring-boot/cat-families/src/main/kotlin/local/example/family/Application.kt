@@ -20,9 +20,17 @@ package local.example.family
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import java.util.*
+import javax.annotation.PostConstruct
 
 @SpringBootApplication
-class Application
+class Application {
+
+	@PostConstruct
+	fun started() {
+		TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
+	}
+}
 
 fun main(args: Array<String>) {
 
