@@ -30,7 +30,7 @@ data class BreederEntity(
     var id: Long,
     var code: String,
     var name: String,
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-YYYY")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-YYYY", timezone = "UTC")
     val birthday: Date
 ) {
     @OneToMany(mappedBy = "breederCat", fetch = FetchType.LAZY)
