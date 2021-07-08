@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -46,6 +47,13 @@ public class CrewDetailView
 
     private final String CREW_EDIT_ROUTE_TEMPLATE = "crew-detail/%d/edit";
 
+    @Autowired
+    CrewEntity crewEntity;
+
+    private final CrewService crewService;
+
+    private final BeanValidationBinder<CrewEntity> crewEntityBeanValidationBinder;
+
     @Id("grid")
     private Grid<CrewEntity> crewEntityGrid;
 
@@ -55,6 +63,10 @@ public class CrewDetailView
     private Button cancel;
 
     public CrewDetailView(@Autowired CrewService crewService) {
+
+        this.crewService = crewService;
+
+        this.crewEntityBeanValidationBinder = new BeanValidationBinder<>(CrewEntity.class);
 
         this.cancel.addClickListener(e -> {
             // TODO
