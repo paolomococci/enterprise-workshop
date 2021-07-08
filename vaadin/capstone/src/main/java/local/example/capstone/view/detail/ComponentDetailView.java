@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -46,6 +47,13 @@ public class ComponentDetailView
 
     private final String COMPONENT_EDIT_ROUTE_TEMPLATE = "component-detail/%d/edit";
 
+    @Autowired
+    ComponentEntity componentEntity;
+
+    private final ComponentService componentService;
+
+    private final BeanValidationBinder<ComponentEntity> componentEntityBeanValidationBinder;
+
     @Id("grid")
     private Grid<ComponentEntity> componentEntityGrid;
 
@@ -55,6 +63,10 @@ public class ComponentDetailView
     private Button cancel;
 
     public ComponentDetailView(@Autowired ComponentService componentService) {
+
+        this.componentService = componentService;
+
+        componentEntityBeanValidationBinder = new BeanValidationBinder<>(ComponentEntity.class);
 
         this.cancel.addClickListener(e -> {
             // TODO
