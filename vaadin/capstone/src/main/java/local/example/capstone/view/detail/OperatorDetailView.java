@@ -44,6 +44,8 @@ public class OperatorDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String OPERATOR_EDIT_ROUTE_TEMPLATE = "operator-detail/%d/edit";
+
     @Id("grid")
     private Grid<OperatorEntity> operatorEntityGrid;
 
