@@ -35,7 +35,7 @@ data class MotherEntity(
     var name: String,
     @Enumerated(EnumType.STRING)
     var level: Level,
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-YYYY")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-YYYY", timezone = "UTC")
     val birthday: Date
 ) {
     @OneToMany(mappedBy = "mother", fetch = FetchType.LAZY)
