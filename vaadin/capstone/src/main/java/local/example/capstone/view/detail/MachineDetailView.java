@@ -44,6 +44,8 @@ public class MachineDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String MACHINE_EDIT_ROUTE_TEMPLATE = "machine-detail/%d/edit";
+
     @Id("grid")
     private Grid<MachineEntity> machineEntityGrid;
 
