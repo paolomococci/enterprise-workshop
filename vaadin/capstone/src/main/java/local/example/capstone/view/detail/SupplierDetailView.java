@@ -44,6 +44,8 @@ public class SupplierDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String SUPPLIER_EDIT_ROUTE_TEMPLATE = "supplier-detail/%d/edit";
+
     @Id("grid")
     private Grid<SupplierEntity> supplierEntityGrid;
 
