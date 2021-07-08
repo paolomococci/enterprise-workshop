@@ -44,6 +44,8 @@ public class ProductDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String PRODUCT_EDIT_ROUTE_TEMPLATE = "product-detail/%d/edit";
+
     @Id("grid")
     private Grid<ProductEntity> productEntityGrid;
 
