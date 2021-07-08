@@ -30,7 +30,7 @@ data class ExposureEntity(
     var id: Long,
     var code: String,
     var title: String,
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-YYYY")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-YYYY", timezone = "UTC")
     val occurrence: Date
 ) {
     @ManyToMany(mappedBy = "exposures")
