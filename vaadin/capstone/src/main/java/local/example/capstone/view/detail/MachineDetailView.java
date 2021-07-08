@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -46,6 +47,13 @@ public class MachineDetailView
 
     private final String MACHINE_EDIT_ROUTE_TEMPLATE = "machine-detail/%d/edit";
 
+    @Autowired
+    MachineEntity machineEntity;
+
+    private final MachineService machineService;
+
+    private final BeanValidationBinder<MachineEntity> machineEntityBeanValidationBinder;
+
     @Id("grid")
     private Grid<MachineEntity> machineEntityGrid;
 
@@ -55,6 +63,10 @@ public class MachineDetailView
     private Button cancel;
 
     public MachineDetailView(@Autowired MachineService machineService) {
+
+        this.machineService = machineService;
+
+        this.machineEntityBeanValidationBinder = new BeanValidationBinder<>(MachineEntity.class);
 
         this.cancel.addClickListener(e -> {
             // TODO
