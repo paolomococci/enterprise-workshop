@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -46,6 +47,13 @@ public class OperatorDetailView
 
     private final String OPERATOR_EDIT_ROUTE_TEMPLATE = "operator-detail/%d/edit";
 
+    @Autowired
+    OperatorEntity operatorEntity;
+
+    private final OperatorService operatorService;
+
+    private final BeanValidationBinder<OperatorEntity> operatorEntityBeanValidationBinder;
+
     @Id("grid")
     private Grid<OperatorEntity> operatorEntityGrid;
 
@@ -55,6 +63,10 @@ public class OperatorDetailView
     private Button cancel;
 
     public OperatorDetailView(@Autowired OperatorService operatorService) {
+
+        this.operatorService = operatorService;
+
+        this.operatorEntityBeanValidationBinder = new BeanValidationBinder<>(OperatorEntity.class);
 
         this.cancel.addClickListener(e -> {
             // TODO
