@@ -27,11 +27,11 @@ import javax.persistence.*
 data class ExposureEntity(
     @Id
     @GeneratedValue
-    open val id: Long,
-    open val code: String,
-    open val title: String,
-    @JsonFormat(pattern = "YYYY-MM-dd")
-    open val occurrence: Date
+    var id: Long,
+    var code: String,
+    var title: String,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-YYYY")
+    val occurrence: Date
 ) {
     @ManyToMany(mappedBy = "exposures")
     lateinit var breeders: List<BreederEntity>
