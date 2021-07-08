@@ -28,12 +28,15 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
 
 import local.example.capstone.data.entity.MachineEntity;
 import local.example.capstone.data.service.MachineService;
+import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+@Route(value = "machine-detail/:contactID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Machine Detail")
 @Tag("machine-detail-view")
 @JsModule("./views/details/machine-detail-view.ts")
