@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -46,6 +47,13 @@ public class AddressDetailView
 
     private final String ADDRESS_EDIT_ROUTE_TEMPLATE = "address-detail/%d/edit";
 
+    @Autowired
+    AddressEntity addressEntity;
+
+    private final AddressService addressService;
+
+    private final BeanValidationBinder<AddressEntity> addressEntityBeanValidationBinder;
+
     @Id("grid")
     private Grid<AddressEntity> addressEntityGrid;
 
@@ -55,6 +63,11 @@ public class AddressDetailView
     private Button cancel;
 
     public AddressDetailView(@Autowired AddressService addressService) {
+
+        this.addressService = addressService;
+
+        addressEntityBeanValidationBinder = new BeanValidationBinder<>(AddressEntity.class);
+
 
         this.cancel.addClickListener(e -> {
             // TODO
