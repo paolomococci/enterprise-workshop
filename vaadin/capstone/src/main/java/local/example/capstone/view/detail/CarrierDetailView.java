@@ -44,6 +44,8 @@ public class CarrierDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String CARRIER_EDIT_ROUTE_TEMPLATE = "carrier-detail/%d/edit";
+
     @Id("grid")
     private Grid<CarrierEntity> carrierEntityGrid;
 
