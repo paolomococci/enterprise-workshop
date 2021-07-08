@@ -44,6 +44,8 @@ public class PositionDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String POSITION_EDIT_ROUTE_TEMPLATE = "position-detail/%d/edit";
+
     @Id("grid")
     private Grid<PositionEntity> positionEntityGrid;
 
