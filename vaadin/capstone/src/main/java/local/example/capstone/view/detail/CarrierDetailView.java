@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -46,6 +47,13 @@ public class CarrierDetailView
 
     private final String CARRIER_EDIT_ROUTE_TEMPLATE = "carrier-detail/%d/edit";
 
+    @Autowired
+    CarrierEntity carrierEntity;
+
+    private final CarrierService carrierService;
+
+    private final BeanValidationBinder<CarrierEntity> carrierEntityBeanValidationBinder;
+
     @Id("grid")
     private Grid<CarrierEntity> carrierEntityGrid;
 
@@ -55,6 +63,10 @@ public class CarrierDetailView
     private Button cancel;
 
     public CarrierDetailView(@Autowired CarrierService carrierService) {
+
+        this.carrierService = carrierService;
+
+        carrierEntityBeanValidationBinder = new BeanValidationBinder<>(CarrierEntity.class);
 
         this.cancel.addClickListener(e -> {
             // TODO
