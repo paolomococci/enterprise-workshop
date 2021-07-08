@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -45,6 +46,13 @@ public class SupplierDetailView
         implements HasStyle, BeforeEnterObserver {
 
     private final String SUPPLIER_EDIT_ROUTE_TEMPLATE = "supplier-detail/%d/edit";
+    
+    @Autowired
+    SupplierEntity supplierEntity;
+    
+    private final SupplierService supplierService;
+
+    private final BeanValidationBinder<SupplierEntity> supplierEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<SupplierEntity> supplierEntityGrid;
@@ -55,6 +63,10 @@ public class SupplierDetailView
     private Button cancel;
 
     public SupplierDetailView(@Autowired SupplierService supplierService) {
+        
+        this.supplierService = supplierService;
+        
+        this.supplierEntityBeanValidationBinder = new BeanValidationBinder<>(SupplierEntity.class);
 
         this.cancel.addClickListener(e -> {
             // TODO
