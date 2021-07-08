@@ -30,12 +30,12 @@ import javax.persistence.*
 data class SonEntity(
     @Id
     @GeneratedValue
-    val id: Long,
-    val code: String,
-    val name: String,
+    var id: Long,
+    var code: String,
+    var name: String,
     @Enumerated(EnumType.STRING)
-    val level: Level,
-    @JsonFormat(pattern = "YYYY-MM-dd")
+    var level: Level,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-YYYY")
     val birthday: Date
 ) {
     @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
