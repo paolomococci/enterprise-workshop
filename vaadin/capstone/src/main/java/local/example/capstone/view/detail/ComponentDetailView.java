@@ -44,6 +44,8 @@ public class ComponentDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String COMPONENT_EDIT_ROUTE_TEMPLATE = "component-detail/%d/edit";
+
     @Id("grid")
     private Grid<ComponentEntity> componentEntityGrid;
 
