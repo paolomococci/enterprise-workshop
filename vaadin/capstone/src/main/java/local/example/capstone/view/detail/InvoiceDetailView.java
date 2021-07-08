@@ -18,17 +18,25 @@
 
 package local.example.capstone.view.detail;
 
+import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.HasStyle;
-import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.router.BeforeEnterEvent;
+import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
-import local.example.capstone.data.entity.InvoiceEntity;
+import com.vaadin.flow.router.Route;
 
+import local.example.capstone.data.entity.InvoiceEntity;
+import local.example.capstone.data.service.InvoiceService;
+import local.example.capstone.view.MainView;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+@Route(value = "invoice-detail/:contactID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Invoice Detail")
 @Tag("invoice-detail-view")
 @JsModule("./views/details/invoice-detail-view.ts")
