@@ -27,11 +27,11 @@ import javax.persistence.*
 data class BreederEntity(
     @Id
     @GeneratedValue
-    open val id: Long,
-    open val code: String,
-    open val name: String,
-    @JsonFormat(pattern = "YYYY-MM-dd")
-    open val birthday: Date
+    var id: Long,
+    var code: String,
+    var name: String,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-YYYY")
+    val birthday: Date
 ) {
     @OneToMany(mappedBy = "breederCat", fetch = FetchType.LAZY)
     lateinit var cats: List<SonEntity>
