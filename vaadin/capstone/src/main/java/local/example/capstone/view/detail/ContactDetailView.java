@@ -129,12 +129,12 @@ public class ContactDetailView
         this.contactEntityBeanValidationBinder = new BeanValidationBinder<>(ContactEntity.class);
         this.contactEntityBeanValidationBinder.bindInstanceFields(this);
 
-        this.cancel.addClickListener(e -> {
+        this.cancel.addClickListener(cancelButtonClickEvent -> {
             this.clearForm();
             this.refreshGrid();
         });
 
-        this.save.addClickListener(e -> {
+        this.save.addClickListener(saveButtonClickEvent -> {
             try {
                 if (this.contactEntity == null) {
                     this.contactEntity = new ContactEntity();
