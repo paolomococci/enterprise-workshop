@@ -44,6 +44,8 @@ public class AddressDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String ADDRESS_EDIT_ROUTE_TEMPLATE = "address-detail/%d/edit";
+
     @Id("grid")
     private Grid<AddressEntity> addressEntityGrid;
 
