@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -46,6 +47,13 @@ public class PositionDetailView
 
     private final String POSITION_EDIT_ROUTE_TEMPLATE = "position-detail/%d/edit";
 
+    @Autowired
+    PositionEntity positionEntity;
+
+    private final PositionService positionService;
+
+    private final BeanValidationBinder<PositionEntity> positionEntityBeanValidationBinder;
+
     @Id("grid")
     private Grid<PositionEntity> positionEntityGrid;
 
@@ -55,6 +63,10 @@ public class PositionDetailView
     private Button cancel;
 
     public PositionDetailView(@Autowired PositionService positionService) {
+
+        this.positionService = positionService;
+
+        this.positionEntityBeanValidationBinder = new BeanValidationBinder<>(PositionEntity.class);
 
         this.cancel.addClickListener(e -> {
             // TODO
