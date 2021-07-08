@@ -44,6 +44,8 @@ public class CrewDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String CREW_EDIT_ROUTE_TEMPLATE = "crew-detail/%d/edit";
+
     @Id("grid")
     private Grid<CrewEntity> crewEntityGrid;
 
