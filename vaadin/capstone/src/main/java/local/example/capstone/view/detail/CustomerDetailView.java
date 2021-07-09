@@ -74,6 +74,9 @@ public class CustomerDetailView
 
         this.customerService = customerService;
 
+        this.customerEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.customerEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+
         this.customerEntityBeanValidationBinder = new BeanValidationBinder<>(CustomerEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
