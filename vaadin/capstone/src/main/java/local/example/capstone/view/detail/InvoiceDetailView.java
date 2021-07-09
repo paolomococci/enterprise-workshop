@@ -71,6 +71,7 @@ public class InvoiceDetailView
     private Button cancel;
 
     public InvoiceDetailView(@Autowired InvoiceService invoiceService) {
+        this.addClassNames("invoice-detail-view", "flex", "flex-col", "h-full");
 
         this.invoiceService = invoiceService;
 
