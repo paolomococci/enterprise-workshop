@@ -74,7 +74,10 @@ public class CarrierDetailView
 
         this.carrierService = carrierService;
 
-        carrierEntityBeanValidationBinder = new BeanValidationBinder<>(CarrierEntity.class);
+        this.carrierEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.carrierEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+
+        this.carrierEntityBeanValidationBinder = new BeanValidationBinder<>(CarrierEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
