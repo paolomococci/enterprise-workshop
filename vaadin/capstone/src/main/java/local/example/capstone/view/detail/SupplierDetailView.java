@@ -74,6 +74,9 @@ public class SupplierDetailView
 
         this.supplierService = supplierService;
 
+        this.supplierEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.supplierEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+
         this.supplierEntityBeanValidationBinder = new BeanValidationBinder<>(SupplierEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
