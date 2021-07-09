@@ -87,6 +87,7 @@ public class OperatorDetailView
     private Button cancel;
 
     public OperatorDetailView(@Autowired OperatorService operatorService) {
+        this.addClassNames("operator-detail-view", "flex", "flex-col", "h-full");
 
         this.operatorService = operatorService;
 
