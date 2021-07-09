@@ -87,6 +87,7 @@ public class CustomerDetailView
         });
 
         this.customerEntityBeanValidationBinder = new BeanValidationBinder<>(CustomerEntity.class);
+        this.customerEntityBeanValidationBinder.bindInstanceFields(this);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
