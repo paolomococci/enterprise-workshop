@@ -78,6 +78,15 @@ public class ComponentDetailView
         this.componentEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
         this.componentEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
 
+        this.componentEntityGrid.setItems(this.componentService.readAll());
+
+        this.componentEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.componentEntityGrid.setHeightFull();
+
+        this.componentEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            // TODO
+        });
+
         this.componentEntityBeanValidationBinder = new BeanValidationBinder<>(ComponentEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
