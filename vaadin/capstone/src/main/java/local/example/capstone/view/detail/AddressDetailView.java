@@ -83,7 +83,13 @@ public class AddressDetailView
 
         this.addressService = addressService;
 
-        addressEntityBeanValidationBinder = new BeanValidationBinder<>(AddressEntity.class);
+        this.addressEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.addressEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.addressEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.addressEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.addressEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+
+        this.addressEntityBeanValidationBinder = new BeanValidationBinder<>(AddressEntity.class);
 
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
