@@ -71,6 +71,7 @@ public class ProductDetailView
     private Button cancel;
 
     public ProductDetailView(@Autowired ProductService productService) {
+        this.addClassNames("product-detail-view", "flex", "flex-col", "h-full");
 
         this.productService = productService;
 
