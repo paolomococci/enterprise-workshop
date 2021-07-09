@@ -87,6 +87,7 @@ public class CarrierDetailView
         });
 
         this.carrierEntityBeanValidationBinder = new BeanValidationBinder<>(CarrierEntity.class);
+        this.carrierEntityBeanValidationBinder.bindInstanceFields(this);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
