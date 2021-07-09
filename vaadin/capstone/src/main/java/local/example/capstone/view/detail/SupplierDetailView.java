@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
@@ -56,6 +57,12 @@ public class SupplierDetailView
 
     @Id("grid")
     private Grid<SupplierEntity> supplierEntityGrid;
+
+    @Id("supplierName")
+    private TextField name;
+
+    @Id("sticker")
+    private TextField sticker;
 
     @Id("save")
     private Button save;
