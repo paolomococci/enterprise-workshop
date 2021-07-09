@@ -77,6 +77,15 @@ public class CustomerDetailView
         this.customerEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
         this.customerEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
 
+        this.customerEntityGrid.setItems(this.customerService.readAll());
+
+        this.customerEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.customerEntityGrid.setHeightFull();
+
+        this.customerEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            // TODO
+        });
+
         this.customerEntityBeanValidationBinder = new BeanValidationBinder<>(CustomerEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
