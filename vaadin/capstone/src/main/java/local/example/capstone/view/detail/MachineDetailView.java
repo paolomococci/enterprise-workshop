@@ -88,6 +88,7 @@ public class MachineDetailView
         });
 
         this.machineEntityBeanValidationBinder = new BeanValidationBinder<>(MachineEntity.class);
+        this.machineEntityBeanValidationBinder.bindInstanceFields(this);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
