@@ -99,6 +99,15 @@ public class OperatorDetailView
         this.operatorEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
         this.operatorEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
 
+        this.operatorEntityGrid.setItems(this.operatorService.readAll());
+
+        this.operatorEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.operatorEntityGrid.setHeightFull();
+
+        this.operatorEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            // TODO
+        });
+
         this.operatorEntityBeanValidationBinder = new BeanValidationBinder<>(OperatorEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
