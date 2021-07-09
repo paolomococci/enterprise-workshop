@@ -77,6 +77,15 @@ public class CrewDetailView
         this.crewEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
         this.crewEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
 
+        this.crewEntityGrid.setItems(this.crewService.readAll());
+
+        this.crewEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.crewEntityGrid.setHeightFull();
+
+        this.crewEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            // TODO
+        });
+
         this.crewEntityBeanValidationBinder = new BeanValidationBinder<>(CrewEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
