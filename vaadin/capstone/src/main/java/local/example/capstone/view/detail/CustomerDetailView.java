@@ -70,6 +70,7 @@ public class CustomerDetailView
     private Button cancel;
 
     public CustomerDetailView(@Autowired CustomerService customerService) {
+        this.addClassNames("customer-detail-view", "flex", "flex-col", "h-full");
 
         this.customerService = customerService;
 
