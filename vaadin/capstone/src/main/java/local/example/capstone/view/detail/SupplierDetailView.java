@@ -70,6 +70,7 @@ public class SupplierDetailView
     private Button cancel;
 
     public SupplierDetailView(@Autowired SupplierService supplierService) {
+        this.addClassNames("supplier-detail-view", "flex", "flex-col", "h-full");
 
         this.supplierService = supplierService;
 
