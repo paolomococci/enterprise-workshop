@@ -78,6 +78,15 @@ public class PositionDetailView
         this.positionEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
         this.positionEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
 
+        this.positionEntityGrid.setItems(this.positionService.readAll());
+
+        this.positionEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.positionEntityGrid.setHeightFull();
+
+        this.positionEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            // TODO
+        });
+
         this.positionEntityBeanValidationBinder = new BeanValidationBinder<>(PositionEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
