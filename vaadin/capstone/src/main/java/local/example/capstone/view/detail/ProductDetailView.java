@@ -88,6 +88,7 @@ public class ProductDetailView
         });
 
         this.productEntityBeanValidationBinder = new BeanValidationBinder<>(ProductEntity.class);
+        this.productEntityBeanValidationBinder.bindInstanceFields(this);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
