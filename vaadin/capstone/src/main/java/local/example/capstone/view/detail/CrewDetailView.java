@@ -87,6 +87,7 @@ public class CrewDetailView
         });
 
         this.crewEntityBeanValidationBinder = new BeanValidationBinder<>(CrewEntity.class);
+        this.crewEntityBeanValidationBinder.bindInstanceFields(this);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
