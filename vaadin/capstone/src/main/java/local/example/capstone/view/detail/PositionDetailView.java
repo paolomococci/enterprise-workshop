@@ -71,6 +71,7 @@ public class PositionDetailView
     private Button cancel;
 
     public PositionDetailView(@Autowired PositionService positionService) {
+        this.addClassNames("position-detail-view", "flex", "flex-col", "h-full");
 
         this.positionService = positionService;
 
