@@ -91,6 +91,14 @@ public class OperatorDetailView
 
         this.operatorService = operatorService;
 
+        this.operatorEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.operatorEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.operatorEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.operatorEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.operatorEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.operatorEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.operatorEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+
         this.operatorEntityBeanValidationBinder = new BeanValidationBinder<>(OperatorEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
