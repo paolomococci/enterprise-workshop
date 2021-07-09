@@ -75,6 +75,9 @@ public class MachineDetailView
 
         this.machineService = machineService;
 
+        this.machineEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.machineEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+
         this.machineEntityBeanValidationBinder = new BeanValidationBinder<>(MachineEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
