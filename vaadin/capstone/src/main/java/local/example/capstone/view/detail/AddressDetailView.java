@@ -69,11 +69,11 @@ public class AddressDetailView
         addressEntityBeanValidationBinder = new BeanValidationBinder<>(AddressEntity.class);
 
 
-        this.cancel.addClickListener(e -> {
+        this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
         });
 
-        this.save.addClickListener(e -> {
+        this.save.addClickListener(saveButtonClickEvent -> {
             // TODO
         });
     }
