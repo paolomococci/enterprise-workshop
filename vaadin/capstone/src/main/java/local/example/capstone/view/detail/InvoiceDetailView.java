@@ -88,6 +88,7 @@ public class InvoiceDetailView
         });
 
         this.invoiceEntityBeanValidationBinder = new BeanValidationBinder<>(InvoiceEntity.class);
+        this.invoiceEntityBeanValidationBinder.bindInstanceFields(this);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
