@@ -77,6 +77,15 @@ public class SupplierDetailView
         this.supplierEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
         this.supplierEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
 
+        this.supplierEntityGrid.setItems(this.supplierService.readAll());
+
+        this.supplierEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.supplierEntityGrid.setHeightFull();
+
+        this.supplierEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            // TODO
+        });
+
         this.supplierEntityBeanValidationBinder = new BeanValidationBinder<>(SupplierEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
