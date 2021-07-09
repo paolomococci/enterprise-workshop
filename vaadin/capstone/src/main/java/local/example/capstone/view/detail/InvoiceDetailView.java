@@ -78,6 +78,15 @@ public class InvoiceDetailView
         this.invoiceEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
         this.invoiceEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
 
+        this.invoiceEntityGrid.setItems(this.invoiceService.readAll());
+
+        this.invoiceEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.invoiceEntityGrid.setHeightFull();
+
+        this.invoiceEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            // TODO
+        });
+
         this.invoiceEntityBeanValidationBinder = new BeanValidationBinder<>(InvoiceEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
