@@ -75,7 +75,10 @@ public class ComponentDetailView
 
         this.componentService = componentService;
 
-        componentEntityBeanValidationBinder = new BeanValidationBinder<>(ComponentEntity.class);
+        this.componentEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.componentEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+
+        this.componentEntityBeanValidationBinder = new BeanValidationBinder<>(ComponentEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
