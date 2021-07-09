@@ -78,6 +78,15 @@ public class ProductDetailView
         this.productEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
         this.productEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
 
+        this.productEntityGrid.setItems(this.productService.readAll());
+
+        this.productEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.productEntityGrid.setHeightFull();
+
+        this.productEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            // TODO
+        });
+
         this.productEntityBeanValidationBinder = new BeanValidationBinder<>(ProductEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
