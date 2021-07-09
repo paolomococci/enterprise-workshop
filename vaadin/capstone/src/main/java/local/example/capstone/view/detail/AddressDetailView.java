@@ -79,6 +79,7 @@ public class AddressDetailView
     private Button cancel;
 
     public AddressDetailView(@Autowired AddressService addressService) {
+        this.addClassNames("address-detail-view", "flex", "flex-col", "h-full");
 
         this.addressService = addressService;
 
