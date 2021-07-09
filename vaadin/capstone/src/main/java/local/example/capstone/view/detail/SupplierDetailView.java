@@ -46,10 +46,10 @@ public class SupplierDetailView
         implements HasStyle, BeforeEnterObserver {
 
     private final String SUPPLIER_EDIT_ROUTE_TEMPLATE = "supplier-detail/%d/edit";
-    
+
     @Autowired
     SupplierEntity supplierEntity;
-    
+
     private final SupplierService supplierService;
 
     private final BeanValidationBinder<SupplierEntity> supplierEntityBeanValidationBinder;
@@ -63,16 +63,16 @@ public class SupplierDetailView
     private Button cancel;
 
     public SupplierDetailView(@Autowired SupplierService supplierService) {
-        
+
         this.supplierService = supplierService;
-        
+
         this.supplierEntityBeanValidationBinder = new BeanValidationBinder<>(SupplierEntity.class);
 
-        this.cancel.addClickListener(e -> {
+        this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
         });
 
-        this.save.addClickListener(e -> {
+        this.save.addClickListener(saveButtonClickEvent -> {
             // TODO
         });
     }
