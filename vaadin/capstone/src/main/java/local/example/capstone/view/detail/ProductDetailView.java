@@ -75,6 +75,9 @@ public class ProductDetailView
 
         this.productService = productService;
 
+        this.productEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.productEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+
         this.productEntityBeanValidationBinder = new BeanValidationBinder<>(ProductEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
