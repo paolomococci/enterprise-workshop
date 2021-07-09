@@ -109,7 +109,7 @@ public class ContactDetailView
         this.contactEntityGrid.addColumn(ContactEntity::getProfession).setHeader("Profession").setAutoWidth(true);
         this.contactEntityGrid.addColumn(ContactEntity::getRole).setHeader("Role").setAutoWidth(true);
 
-        this.contactEntityGrid.setItems(contactService.readAll());
+        this.contactEntityGrid.setItems(this.contactService.readAll());
 
         this.contactEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.contactEntityGrid.setHeightFull();
