@@ -75,6 +75,9 @@ public class InvoiceDetailView
 
         this.invoiceService = invoiceService;
 
+        this.invoiceEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.invoiceEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+
         this.invoiceEntityBeanValidationBinder = new BeanValidationBinder<>(InvoiceEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
