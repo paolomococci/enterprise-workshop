@@ -71,6 +71,7 @@ public class ComponentDetailView
     private Button cancel;
 
     public ComponentDetailView(@Autowired ComponentService componentService) {
+        this.addClassNames("component-detail-view", "flex", "flex-col", "h-full");
 
         this.componentService = componentService;
 
