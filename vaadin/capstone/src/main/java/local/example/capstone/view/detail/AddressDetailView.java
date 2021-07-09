@@ -99,6 +99,7 @@ public class AddressDetailView
         });
 
         this.addressEntityBeanValidationBinder = new BeanValidationBinder<>(AddressEntity.class);
+        this.addressEntityBeanValidationBinder.bindInstanceFields(this);
 
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
