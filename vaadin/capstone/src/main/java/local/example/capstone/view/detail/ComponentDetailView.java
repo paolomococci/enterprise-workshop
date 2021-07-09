@@ -25,6 +25,8 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.textfield.IntegerField;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
@@ -56,6 +58,12 @@ public class ComponentDetailView
 
     @Id("grid")
     private Grid<ComponentEntity> componentEntityGrid;
+
+    @Id("componentCode")
+    private TextField code;
+
+    @Id("amount")
+    private IntegerField amount;
 
     @Id("save")
     private Button save;
