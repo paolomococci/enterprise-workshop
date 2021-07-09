@@ -77,6 +77,15 @@ public class CarrierDetailView
         this.carrierEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
         this.carrierEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
 
+        this.carrierEntityGrid.setItems(this.carrierService.readAll());
+
+        this.carrierEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.carrierEntityGrid.setHeightFull();
+
+        this.carrierEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            // TODO
+        });
+
         this.carrierEntityBeanValidationBinder = new BeanValidationBinder<>(CarrierEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
