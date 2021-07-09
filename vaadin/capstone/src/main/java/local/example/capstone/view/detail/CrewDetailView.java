@@ -70,6 +70,7 @@ public class CrewDetailView
     private Button cancel;
 
     public CrewDetailView(@Autowired CrewService crewService) {
+        this.addClassNames("crew-detail-view", "flex", "flex-col", "h-full");
 
         this.crewService = crewService;
 
