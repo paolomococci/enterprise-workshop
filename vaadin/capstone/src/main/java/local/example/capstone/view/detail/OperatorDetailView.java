@@ -109,6 +109,7 @@ public class OperatorDetailView
         });
 
         this.operatorEntityBeanValidationBinder = new BeanValidationBinder<>(OperatorEntity.class);
+        this.operatorEntityBeanValidationBinder.bindInstanceFields(this);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
