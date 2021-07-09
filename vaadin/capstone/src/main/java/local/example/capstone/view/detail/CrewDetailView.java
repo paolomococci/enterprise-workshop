@@ -68,11 +68,11 @@ public class CrewDetailView
 
         this.crewEntityBeanValidationBinder = new BeanValidationBinder<>(CrewEntity.class);
 
-        this.cancel.addClickListener(e -> {
+        this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
         });
 
-        this.save.addClickListener(e -> {
+        this.save.addClickListener(saveButtonClickEvent -> {
             // TODO
         });
     }
