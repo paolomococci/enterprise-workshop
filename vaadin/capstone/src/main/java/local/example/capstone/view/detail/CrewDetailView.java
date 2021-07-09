@@ -74,6 +74,9 @@ public class CrewDetailView
 
         this.crewService = crewService;
 
+        this.crewEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.crewEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+
         this.crewEntityBeanValidationBinder = new BeanValidationBinder<>(CrewEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
