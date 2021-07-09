@@ -75,6 +75,9 @@ public class PositionDetailView
 
         this.positionService = positionService;
 
+        this.positionEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.positionEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+
         this.positionEntityBeanValidationBinder = new BeanValidationBinder<>(PositionEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
