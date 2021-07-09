@@ -78,6 +78,15 @@ public class MachineDetailView
         this.machineEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
         this.machineEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
 
+        this.machineEntityGrid.setItems(this.machineService.readAll());
+
+        this.machineEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.machineEntityGrid.setHeightFull();
+
+        this.machineEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            // TODO
+        });
+
         this.machineEntityBeanValidationBinder = new BeanValidationBinder<>(MachineEntity.class);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
