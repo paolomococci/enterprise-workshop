@@ -68,11 +68,11 @@ public class OperatorDetailView
 
         this.operatorEntityBeanValidationBinder = new BeanValidationBinder<>(OperatorEntity.class);
 
-        this.cancel.addClickListener(e -> {
+        this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
         });
 
-        this.save.addClickListener(e -> {
+        this.save.addClickListener(saveButtonClickEvent -> {
             // TODO
         });
     }
