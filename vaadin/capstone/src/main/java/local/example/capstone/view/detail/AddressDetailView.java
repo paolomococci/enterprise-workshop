@@ -89,6 +89,15 @@ public class AddressDetailView
         this.addressEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
         this.addressEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
 
+        this.addressEntityGrid.setItems(this.addressService.readAll());
+
+        this.addressEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.addressEntityGrid.setHeightFull();
+
+        this.addressEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            // TODO
+        });
+
         this.addressEntityBeanValidationBinder = new BeanValidationBinder<>(AddressEntity.class);
 
 
