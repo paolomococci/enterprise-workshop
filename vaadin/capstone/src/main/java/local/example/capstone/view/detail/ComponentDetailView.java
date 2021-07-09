@@ -88,6 +88,7 @@ public class ComponentDetailView
         });
 
         this.componentEntityBeanValidationBinder = new BeanValidationBinder<>(ComponentEntity.class);
+        this.componentEntityBeanValidationBinder.bindInstanceFields(this);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
             // TODO
