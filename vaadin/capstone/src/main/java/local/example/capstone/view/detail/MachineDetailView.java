@@ -71,6 +71,7 @@ public class MachineDetailView
     private Button cancel;
 
     public MachineDetailView(@Autowired MachineService machineService) {
+        this.addClassNames("machine-detail-view", "flex", "flex-col", "h-full");
 
         this.machineService = machineService;
 
