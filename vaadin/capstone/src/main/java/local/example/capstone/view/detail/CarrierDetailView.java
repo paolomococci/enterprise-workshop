@@ -70,6 +70,7 @@ public class CarrierDetailView
     private Button cancel;
 
     public CarrierDetailView(@Autowired CarrierService carrierService) {
+        this.addClassNames("carrier-detail-view", "flex", "flex-col", "h-full");
 
         this.carrierService = carrierService;
 
