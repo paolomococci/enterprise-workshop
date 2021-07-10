@@ -26,6 +26,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -40,6 +41,8 @@ import local.example.capstone.data.service.OperatorService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @Route(value = "operator-detail/:operatorID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Operator Detail")
@@ -137,6 +140,21 @@ public class OperatorDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String OPERATOR_ID = "operatorID";
+        Optional<Long> operatorID = beforeEnterEvent.getRouteParameters().getLong(OPERATOR_ID);
+        if (operatorID.isPresent()) {
+            Optional<OperatorEntity> optionalOperatorEntity = operatorService.read(OPERATOR_ID);
+            if (optionalOperatorEntity.isPresent()) {
+                this.populateForm(optionalOperatorEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested operator was not found, ID = %d", operatorID.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(OperatorDetailView.class);
+            }
+        }
     }
 }
