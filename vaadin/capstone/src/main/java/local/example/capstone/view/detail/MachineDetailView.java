@@ -110,8 +110,8 @@ public class MachineDetailView
     }
 
     private void populateForm(MachineEntity machineEntity) {
-        // TODO
-
+        this.machineEntity = machineEntity;
+        this.machineEntityBeanValidationBinder.readBean(this.machineEntity);
     }
 
     @Override
