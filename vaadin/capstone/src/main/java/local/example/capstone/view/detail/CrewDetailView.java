@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
@@ -38,6 +39,8 @@ import local.example.capstone.data.service.CrewService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @Route(value = "crew-detail/:crewID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Crew Detail")
@@ -115,6 +118,21 @@ public class CrewDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String CREW_ID = "crewID";
+        Optional<Long> crewId = beforeEnterEvent.getRouteParameters().getLong(CREW_ID);
+        if (crewId.isPresent()) {
+            Optional<CrewEntity> optionalCrewEntity = crewService.read(CREW_ID);
+            if (optionalCrewEntity.isPresent()) {
+                this.populateForm(optionalCrewEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested crew was not found, ID = %d", crewId.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(CrewDetailView.class);
+            }
+        }
     }
 }
