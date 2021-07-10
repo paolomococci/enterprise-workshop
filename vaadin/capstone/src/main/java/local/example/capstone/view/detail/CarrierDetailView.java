@@ -20,6 +20,7 @@ package local.example.capstone.view.detail;
 
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
@@ -87,7 +88,15 @@ public class CarrierDetailView
         this.carrierEntityGrid.setHeightFull();
 
         this.carrierEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
-            // TODO
+            if (valueChangeEvent.getValue() != null) {
+                UI.getCurrent().navigate(String.format(
+                        CARRIER_EDIT_ROUTE_TEMPLATE,
+                        valueChangeEvent.getValue().getId()
+                ));
+            } else {
+                this.clearForm();
+                UI.getCurrent().navigate(ContactDetailView.class);
+            }
         });
 
         this.carrierEntityBeanValidationBinder = new BeanValidationBinder<>(CarrierEntity.class);
