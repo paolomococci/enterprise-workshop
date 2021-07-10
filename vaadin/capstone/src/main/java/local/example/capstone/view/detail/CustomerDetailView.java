@@ -109,8 +109,8 @@ public class CustomerDetailView
     }
 
     private void populateForm(CustomerEntity customerEntity) {
-        // TODO
-
+        this.customerEntity = customerEntity;
+        this.customerEntityBeanValidationBinder.readBean(this.customerEntity);
     }
 
     @Override
