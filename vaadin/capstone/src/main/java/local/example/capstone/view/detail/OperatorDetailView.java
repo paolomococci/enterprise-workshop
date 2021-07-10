@@ -20,6 +20,7 @@ package local.example.capstone.view.detail;
 
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.JsModule;
@@ -109,7 +110,15 @@ public class OperatorDetailView
         this.operatorEntityGrid.setHeightFull();
 
         this.operatorEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
-            // TODO
+            if (valueChangeEvent.getValue() != null) {
+                UI.getCurrent().navigate(String.format(
+                        OPERATOR_EDIT_ROUTE_TEMPLATE,
+                        valueChangeEvent.getValue().getId()
+                ));
+            } else {
+                this.clearForm();
+                UI.getCurrent().navigate(ContactDetailView.class);
+            }
         });
 
         this.operatorEntityBeanValidationBinder = new BeanValidationBinder<>(OperatorEntity.class);
