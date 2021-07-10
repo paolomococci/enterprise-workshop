@@ -30,6 +30,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -108,7 +109,27 @@ public class CarrierDetailView
         });
 
         this.save.addClickListener(saveButtonClickEvent -> {
-            // TODO
+            try {
+                if (this.carrierEntity == null) {
+                    this.carrierEntity = new CarrierEntity();
+                }
+                this.carrierEntityBeanValidationBinder.writeBean(this.carrierEntity);
+                this.carrierService.update(this.carrierEntity);
+                this.clearForm();
+                this.refreshGrid();
+                Notification.show(
+                        "carrier details stored",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                UI.getCurrent().navigate(CarrierDetailView.class);
+            } catch (ValidationException validationException) {
+                Notification.show(
+                        "an exception happened while trying to store the carrier details",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+            }
         });
     }
 
