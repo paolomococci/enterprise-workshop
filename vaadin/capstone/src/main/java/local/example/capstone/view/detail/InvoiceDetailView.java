@@ -106,7 +106,7 @@ public class InvoiceDetailView
     }
 
     private void clearForm() {
-        // TODO
+        populateForm(null);
     }
 
     private void populateForm(InvoiceEntity invoiceEntity) {
