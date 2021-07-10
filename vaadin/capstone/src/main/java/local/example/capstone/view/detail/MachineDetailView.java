@@ -95,7 +95,8 @@ public class MachineDetailView
         this.machineEntityBeanValidationBinder.bindInstanceFields(this);
 
         this.cancel.addClickListener(cancelButtonClickEvent -> {
-            // TODO
+            this.clearForm();
+            this.refreshGrid();
         });
 
         this.save.addClickListener(saveButtonClickEvent -> {
