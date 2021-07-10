@@ -118,7 +118,7 @@ public class AddressDetailView
     }
 
     private void clearForm() {
-        // TODO
+        populateForm(null);
     }
 
     private void populateForm(AddressEntity addressEntity) {
