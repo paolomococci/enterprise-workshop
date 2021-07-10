@@ -106,7 +106,7 @@ public class ProductDetailView
     }
 
     private void clearForm() {
-        // TODO
+        populateForm(null);
     }
 
     private void populateForm(ProductEntity productEntity) {
