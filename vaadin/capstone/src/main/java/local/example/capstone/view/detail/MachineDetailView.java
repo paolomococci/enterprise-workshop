@@ -96,7 +96,7 @@ public class MachineDetailView
                 ));
             } else {
                 this.clearForm();
-                UI.getCurrent().navigate(ContactDetailView.class);
+                UI.getCurrent().navigate(MachineDetailView.class);
             }
         });
 
