@@ -24,6 +24,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.EmailField;
@@ -121,7 +122,8 @@ public class OperatorDetailView
     }
 
     private void refreshGrid() {
-        // TODO
+        this.operatorEntityGrid.select(null);
+        this.operatorEntityGrid.getLazyDataView().refreshAll();
     }
 
     private void clearForm() {
