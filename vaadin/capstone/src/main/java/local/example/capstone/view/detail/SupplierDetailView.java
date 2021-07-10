@@ -95,7 +95,7 @@ public class SupplierDetailView
                 ));
             } else {
                 this.clearForm();
-                UI.getCurrent().navigate(ContactDetailView.class);
+                UI.getCurrent().navigate(SupplierDetailView.class);
             }
         });
 
