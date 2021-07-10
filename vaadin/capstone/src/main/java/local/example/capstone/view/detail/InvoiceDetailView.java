@@ -23,6 +23,7 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.NumberField;
@@ -100,7 +101,8 @@ public class InvoiceDetailView
     }
 
     private void refreshGrid() {
-        // TODO
+        this.invoiceEntityGrid.select(null);
+        this.invoiceEntityGrid.getLazyDataView().refreshAll();
     }
 
     private void clearForm() {
