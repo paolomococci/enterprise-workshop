@@ -95,7 +95,7 @@ public class CustomerDetailView
                 ));
             } else {
                 this.clearForm();
-                UI.getCurrent().navigate(ContactDetailView.class);
+                UI.getCurrent().navigate(CustomerDetailView.class);
             }
         });
 
