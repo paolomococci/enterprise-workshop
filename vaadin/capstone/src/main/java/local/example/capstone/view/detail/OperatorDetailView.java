@@ -127,7 +127,7 @@ public class OperatorDetailView
     }
 
     private void clearForm() {
-        // TODO
+        populateForm(null);
     }
 
     private void populateForm(OperatorEntity operatorEntity) {
