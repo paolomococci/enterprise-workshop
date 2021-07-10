@@ -105,7 +105,7 @@ public class CustomerDetailView
     }
 
     private void clearForm() {
-        // TODO
+        populateForm(null);
     }
 
     private void populateForm(CustomerEntity customerEntity) {
