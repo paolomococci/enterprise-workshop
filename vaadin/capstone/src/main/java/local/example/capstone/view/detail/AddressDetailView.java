@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
@@ -38,6 +39,8 @@ import local.example.capstone.data.service.AddressService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @Route(value = "address-detail/:addressID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Address Detail")
@@ -128,6 +131,21 @@ public class AddressDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String ADDRESS_ID = "addressID";
+        Optional<Long> addressID = beforeEnterEvent.getRouteParameters().getLong(ADDRESS_ID);
+        if (addressID.isPresent()) {
+            Optional<AddressEntity> optionalAddressEntity = addressService.read(ADDRESS_ID);
+            if (optionalAddressEntity.isPresent()) {
+                this.populateForm(optionalAddressEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested address was not found, ID = %d", addressID.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(AddressDetailView.class);
+            }
+        }
     }
 }
