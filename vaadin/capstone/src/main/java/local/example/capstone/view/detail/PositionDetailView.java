@@ -110,8 +110,8 @@ public class PositionDetailView
     }
 
     private void populateForm(PositionEntity positionEntity) {
-        // TODO
-
+        this.positionEntity = positionEntity;
+        this.positionEntityBeanValidationBinder.readBean(this.positionEntity);
     }
 
     @Override
