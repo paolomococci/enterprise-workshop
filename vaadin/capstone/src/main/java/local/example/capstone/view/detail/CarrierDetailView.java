@@ -109,7 +109,8 @@ public class CarrierDetailView
     }
 
     private void populateForm(CarrierEntity carrierEntity) {
-        // TODO
+        this.carrierEntity = carrierEntity;
+        this.carrierEntityBeanValidationBinder.readBean(this.carrierEntity);
 
     }
 
