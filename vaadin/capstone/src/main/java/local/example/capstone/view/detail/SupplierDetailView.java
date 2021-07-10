@@ -109,8 +109,8 @@ public class SupplierDetailView
     }
 
     private void populateForm(SupplierEntity supplierEntity) {
-        // TODO
-
+        this.supplierEntity = supplierEntity;
+        this.supplierEntityBeanValidationBinder.readBean(this.supplierEntity);
     }
 
     @Override
