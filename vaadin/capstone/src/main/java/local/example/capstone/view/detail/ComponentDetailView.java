@@ -106,7 +106,7 @@ public class ComponentDetailView
     }
 
     private void clearForm() {
-        // TODO
+        populateForm(null);
     }
 
     private void populateForm(ComponentEntity componentEntity) {
