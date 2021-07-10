@@ -31,6 +31,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -109,7 +110,27 @@ public class ComponentDetailView
         });
 
         this.save.addClickListener(saveButtonClickEvent -> {
-            // TODO
+            try {
+                if (this.componentEntity == null) {
+                    this.componentEntity = new ComponentEntity();
+                }
+                this.componentEntityBeanValidationBinder.writeBean(this.componentEntity);
+                this.componentService.update(this.componentEntity);
+                this.clearForm();
+                this.refreshGrid();
+                Notification.show(
+                        "component details stored",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                UI.getCurrent().navigate(ComponentDetailView.class);
+            } catch (ValidationException validationException) {
+                Notification.show(
+                        "an exception happened while trying to store the component details",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+            }
         });
     }
 
