@@ -110,8 +110,8 @@ public class ProductDetailView
     }
 
     private void populateForm(ProductEntity productEntity) {
-        // TODO
-
+        this.productEntity = productEntity;
+        this.productEntityBeanValidationBinder.readBean(this.productEntity);
     }
 
     @Override
