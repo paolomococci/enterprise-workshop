@@ -117,7 +117,7 @@ public class OperatorDetailView
                 ));
             } else {
                 this.clearForm();
-                UI.getCurrent().navigate(ContactDetailView.class);
+                UI.getCurrent().navigate(OperatorDetailView.class);
             }
         });
 
