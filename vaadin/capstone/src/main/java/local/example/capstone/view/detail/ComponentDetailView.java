@@ -96,7 +96,7 @@ public class ComponentDetailView
                 ));
             } else {
                 this.clearForm();
-                UI.getCurrent().navigate(ContactDetailView.class);
+                UI.getCurrent().navigate(ComponentDetailView.class);
             }
         });
 
