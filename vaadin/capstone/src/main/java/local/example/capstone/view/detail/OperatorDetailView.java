@@ -32,6 +32,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -130,7 +131,27 @@ public class OperatorDetailView
         });
 
         this.save.addClickListener(saveButtonClickEvent -> {
-            // TODO
+            try {
+                if (this.operatorEntity == null) {
+                    this.operatorEntity = new OperatorEntity();
+                }
+                this.operatorEntityBeanValidationBinder.writeBean(this.operatorEntity);
+                this.operatorService.update(this.operatorEntity);
+                this.clearForm();
+                this.refreshGrid();
+                Notification.show(
+                        "operator details stored",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                UI.getCurrent().navigate(OperatorDetailView.class);
+            } catch (ValidationException validationException) {
+                Notification.show(
+                        "an exception happened while trying to store the operator details",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+            }
         });
     }
 
