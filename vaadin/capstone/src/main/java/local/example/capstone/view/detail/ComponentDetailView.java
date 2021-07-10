@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -39,6 +40,8 @@ import local.example.capstone.data.service.ComponentService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @Route(value = "component-detail/:componentID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Component Detail")
@@ -116,6 +119,21 @@ public class ComponentDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String COMPONENT_ID = "componentID";
+        Optional<Long> componentId = beforeEnterEvent.getRouteParameters().getLong(COMPONENT_ID);
+        if (componentId.isPresent()) {
+            Optional<ComponentEntity> optionalComponentEntity = componentService.read(COMPONENT_ID);
+            if (optionalComponentEntity.isPresent()) {
+                this.populateForm(optionalComponentEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested component was not found, ID = %d", componentId.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(ComponentDetailView.class);
+            }
+        }
     }
 }
