@@ -106,7 +106,7 @@ public class MachineDetailView
     }
 
     private void clearForm() {
-        // TODO
+        populateForm(null);
     }
 
     private void populateForm(MachineEntity machineEntity) {
