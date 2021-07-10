@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -39,6 +40,8 @@ import local.example.capstone.data.service.PositionService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @Route(value = "position-detail/:positionID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Position Detail")
@@ -116,6 +119,21 @@ public class PositionDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String POSITION_ID = "positionID";
+        Optional<Long> positionID = beforeEnterEvent.getRouteParameters().getLong(POSITION_ID);
+        if (positionID.isPresent()) {
+            Optional<PositionEntity> optionalPositionEntity = positionService.read(POSITION_ID);
+            if (optionalPositionEntity.isPresent()) {
+                this.populateForm(optionalPositionEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested position was not found, ID = %d", positionID.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(PositionDetailView.class);
+            }
+        }
     }
 }
