@@ -110,8 +110,8 @@ public class ComponentDetailView
     }
 
     private void populateForm(ComponentEntity componentEntity) {
-        // TODO
-
+        this.componentEntity = componentEntity;
+        this.componentEntityBeanValidationBinder.readBean(this.componentEntity);
     }
 
     @Override
