@@ -95,7 +95,7 @@ public class CarrierDetailView
                 ));
             } else {
                 this.clearForm();
-                UI.getCurrent().navigate(ContactDetailView.class);
+                UI.getCurrent().navigate(CarrierDetailView.class);
             }
         });
 
