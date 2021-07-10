@@ -23,6 +23,7 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
@@ -99,7 +100,8 @@ public class CustomerDetailView
     }
 
     private void refreshGrid() {
-        // TODO
+        this.customerEntityGrid.select(null);
+        this.customerEntityGrid.getLazyDataView().refreshAll();
     }
 
     private void clearForm() {
