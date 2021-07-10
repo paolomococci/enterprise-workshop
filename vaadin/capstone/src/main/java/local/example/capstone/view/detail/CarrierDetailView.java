@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
@@ -39,7 +40,9 @@ import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Route(value = "carrier-detail/:contactID?/:action?(edit)", layout = MainView.class)
+import java.util.Optional;
+
+@Route(value = "carrier-detail/:carrierID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Carrier Detail")
 @Tag("carrier-detail-view")
 @JsModule("./views/details/carrier-detail-view.ts")
@@ -116,6 +119,21 @@ public class CarrierDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String CARRIER_ID = "carrierID";
+        Optional<Long> carrierID = beforeEnterEvent.getRouteParameters().getLong(CARRIER_ID);
+        if (carrierID.isPresent()) {
+            Optional<CarrierEntity> optionalCarrierEntity = carrierService.read(CARRIER_ID);
+            if (optionalCarrierEntity.isPresent()) {
+                this.populateForm(optionalCarrierEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested carrier was not found, ID = %d", carrierID.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(CarrierDetailView.class);
+            }
+        }
     }
 }
