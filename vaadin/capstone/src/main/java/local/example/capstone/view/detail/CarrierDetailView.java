@@ -105,7 +105,7 @@ public class CarrierDetailView
     }
 
     private void clearForm() {
-        // TODO
+        populateForm(null);
     }
 
     private void populateForm(CarrierEntity carrierEntity) {
