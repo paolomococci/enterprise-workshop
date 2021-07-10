@@ -109,8 +109,8 @@ public class CrewDetailView
     }
 
     private void populateForm(CrewEntity crewEntity) {
-        // TODO
-
+        this.crewEntity = crewEntity;
+        this.crewEntityBeanValidationBinder.readBean(this.crewEntity);
     }
 
     @Override
