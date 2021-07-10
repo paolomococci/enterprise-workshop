@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
@@ -38,6 +39,8 @@ import local.example.capstone.data.service.SupplierService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @Route(value = "supplier-detail/:supplierID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Supplier Detail")
@@ -115,6 +118,21 @@ public class SupplierDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String SUPPLIER_ID = "supplierID";
+        Optional<Long> supplierID = beforeEnterEvent.getRouteParameters().getLong(SUPPLIER_ID);
+        if (supplierID.isPresent()) {
+            Optional<SupplierEntity> optionalSupplierEntity = supplierService.read(SUPPLIER_ID);
+            if (optionalSupplierEntity.isPresent()) {
+                this.populateForm(optionalSupplierEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested supplier was not found, ID = %d", supplierID.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(SupplierDetailView.class);
+            }
+        }
     }
 }
