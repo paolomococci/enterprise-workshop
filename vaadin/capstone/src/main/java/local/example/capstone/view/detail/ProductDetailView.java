@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -39,6 +40,8 @@ import local.example.capstone.data.service.ProductService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @Route(value = "product-detail/:productID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Product Detail")
@@ -116,6 +119,21 @@ public class ProductDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String PRODUCT_ID = "productID";
+        Optional<Long> productID = beforeEnterEvent.getRouteParameters().getLong(PRODUCT_ID);
+        if (productID.isPresent()) {
+            Optional<ProductEntity> optionalProductEntity = productService.read(PRODUCT_ID);
+            if (optionalProductEntity.isPresent()) {
+                this.populateForm(optionalProductEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested product was not found, ID = %d", productID.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(ProductDetailView.class);
+            }
+        }
     }
 }
