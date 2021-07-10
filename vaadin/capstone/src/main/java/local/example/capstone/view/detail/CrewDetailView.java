@@ -39,7 +39,7 @@ import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Route(value = "crew-detail/:contactID?/:action?(edit)", layout = MainView.class)
+@Route(value = "crew-detail/:crewID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Crew Detail")
 @Tag("crew-detail-view")
 @JsModule("./views/details/crew-detail-view.ts")
