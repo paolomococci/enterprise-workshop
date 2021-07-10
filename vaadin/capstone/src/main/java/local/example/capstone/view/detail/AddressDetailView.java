@@ -30,6 +30,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -121,7 +122,27 @@ public class AddressDetailView
         });
 
         this.save.addClickListener(saveButtonClickEvent -> {
-            // TODO
+            try {
+                if (this.addressEntity == null) {
+                    this.addressEntity = new AddressEntity();
+                }
+                this.addressEntityBeanValidationBinder.writeBean(this.addressEntity);
+                this.addressService.update(this.addressEntity);
+                this.clearForm();
+                this.refreshGrid();
+                Notification.show(
+                        "address details stored",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                UI.getCurrent().navigate(AddressDetailView.class);
+            } catch (ValidationException validationException) {
+                Notification.show(
+                        "an exception happened while trying to store the address details",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+            }
         });
     }
 
