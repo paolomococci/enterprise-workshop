@@ -31,6 +31,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -109,7 +110,27 @@ public class InvoiceDetailView
         });
 
         this.save.addClickListener(saveButtonClickEvent -> {
-            // TODO
+            try {
+                if (this.invoiceEntity == null) {
+                    this.invoiceEntity = new InvoiceEntity();
+                }
+                this.invoiceEntityBeanValidationBinder.writeBean(this.invoiceEntity);
+                this.invoiceService.update(this.invoiceEntity);
+                this.clearForm();
+                this.refreshGrid();
+                Notification.show(
+                        "invoice details stored",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                UI.getCurrent().navigate(InvoiceDetailView.class);
+            } catch (ValidationException validationException) {
+                Notification.show(
+                        "an exception happened while trying to store the invoice details",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+            }
         });
     }
 
