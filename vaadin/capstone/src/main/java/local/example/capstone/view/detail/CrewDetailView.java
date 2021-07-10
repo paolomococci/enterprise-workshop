@@ -95,7 +95,7 @@ public class CrewDetailView
                 ));
             } else {
                 this.clearForm();
-                UI.getCurrent().navigate(ContactDetailView.class);
+                UI.getCurrent().navigate(CrewDetailView.class);
             }
         });
 
