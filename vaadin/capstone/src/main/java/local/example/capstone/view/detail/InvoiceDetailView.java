@@ -110,8 +110,8 @@ public class InvoiceDetailView
     }
 
     private void populateForm(InvoiceEntity invoiceEntity) {
-        // TODO
-
+        this.invoiceEntity = invoiceEntity;
+        this.invoiceEntityBeanValidationBinder.readBean(this.invoiceEntity);
     }
 
     @Override
