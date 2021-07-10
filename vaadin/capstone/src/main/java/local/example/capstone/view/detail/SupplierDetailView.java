@@ -105,7 +105,7 @@ public class SupplierDetailView
     }
 
     private void clearForm() {
-        // TODO
+        populateForm(null);
     }
 
     private void populateForm(SupplierEntity supplierEntity) {
