@@ -105,7 +105,7 @@ public class CrewDetailView
     }
 
     private void clearForm() {
-        // TODO
+        populateForm(null);
     }
 
     private void populateForm(CrewEntity crewEntity) {
