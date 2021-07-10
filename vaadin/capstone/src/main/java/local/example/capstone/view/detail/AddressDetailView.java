@@ -107,7 +107,7 @@ public class AddressDetailView
                 ));
             } else {
                 this.clearForm();
-                UI.getCurrent().navigate(ContactDetailView.class);
+                UI.getCurrent().navigate(AddressDetailView.class);
             }
         });
 
