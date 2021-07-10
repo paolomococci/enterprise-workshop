@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -39,6 +40,8 @@ import local.example.capstone.data.service.InvoiceService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @Route(value = "invoice-detail/:invoiceID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Invoice Detail")
@@ -116,6 +119,21 @@ public class InvoiceDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String INVOICE_ID = "invoiceID";
+        Optional<Long> invoiceID = beforeEnterEvent.getRouteParameters().getLong(INVOICE_ID);
+        if (invoiceID.isPresent()) {
+            Optional<InvoiceEntity> optionalInvoiceEntity = invoiceService.read(INVOICE_ID);
+            if (optionalInvoiceEntity.isPresent()) {
+                this.populateForm(optionalInvoiceEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested invoice was not found, ID = %d", invoiceID.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(InvoiceDetailView.class);
+            }
+        }
     }
 }
