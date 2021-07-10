@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
@@ -38,6 +39,8 @@ import local.example.capstone.data.service.CustomerService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @Route(value = "customer-detail/:customerID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Customer Detail")
@@ -115,6 +118,21 @@ public class CustomerDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String CUSTOMER_ID = "customerID";
+        Optional<Long> customerId = beforeEnterEvent.getRouteParameters().getLong(CUSTOMER_ID);
+        if (customerId.isPresent()) {
+            Optional<CustomerEntity> optionalCustomerEntity = customerService.read(CUSTOMER_ID);
+            if (optionalCustomerEntity.isPresent()) {
+                this.populateForm(optionalCustomerEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested customer was not found, ID = %d", customerId.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(CustomerDetailView.class);
+            }
+        }
     }
 }
