@@ -122,8 +122,8 @@ public class AddressDetailView
     }
 
     private void populateForm(AddressEntity addressEntity) {
-        // TODO
-
+        this.addressEntity = addressEntity;
+        this.addressEntityBeanValidationBinder.readBean(this.addressEntity);
     }
 
     @Override
