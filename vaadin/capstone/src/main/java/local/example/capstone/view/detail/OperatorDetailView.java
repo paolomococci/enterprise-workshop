@@ -131,8 +131,8 @@ public class OperatorDetailView
     }
 
     private void populateForm(OperatorEntity operatorEntity) {
-        // TODO
-
+        this.operatorEntity = operatorEntity;
+        this.operatorEntityBeanValidationBinder.readBean(this.operatorEntity);
     }
 
     @Override
