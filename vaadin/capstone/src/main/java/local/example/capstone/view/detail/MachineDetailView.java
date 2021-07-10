@@ -25,6 +25,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -39,6 +40,8 @@ import local.example.capstone.data.service.MachineService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @Route(value = "machine-detail/:machineID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Machine Detail")
@@ -116,6 +119,21 @@ public class MachineDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String MACHINE_ID = "machineID";
+        Optional<Long> machineID = beforeEnterEvent.getRouteParameters().getLong(MACHINE_ID);
+        if (machineID.isPresent()) {
+            Optional<MachineEntity> optionalMachineEntity = machineService.read(MACHINE_ID);
+            if (optionalMachineEntity.isPresent()) {
+                this.populateForm(optionalMachineEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested machine was not found, ID = %d", machineID.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(MachineDetailView.class);
+            }
+        }
     }
 }
