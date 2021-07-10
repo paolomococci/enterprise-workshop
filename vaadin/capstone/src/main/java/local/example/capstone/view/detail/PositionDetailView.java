@@ -106,7 +106,7 @@ public class PositionDetailView
     }
 
     private void clearForm() {
-        // TODO
+        populateForm(null);
     }
 
     private void populateForm(PositionEntity positionEntity) {
