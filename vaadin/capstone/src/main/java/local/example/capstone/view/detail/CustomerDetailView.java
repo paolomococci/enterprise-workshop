@@ -80,8 +80,8 @@ public class CustomerDetailView
 
         this.customerService = customerService;
 
-        this.customerEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
-        this.customerEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.customerEntityGrid.addColumn(CustomerEntity::getName).setHeader((String) null).setAutoWidth(true);
+        this.customerEntityGrid.addColumn(CustomerEntity::getSticker).setHeader((String) null).setAutoWidth(true);
 
         this.customerEntityGrid.setItems(this.customerService.readAll());
 
