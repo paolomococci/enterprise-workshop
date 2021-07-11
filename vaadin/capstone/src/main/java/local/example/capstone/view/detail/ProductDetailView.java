@@ -81,8 +81,8 @@ public class ProductDetailView
 
         this.productService = productService;
 
-        this.productEntityGrid.addColumn(ProductEntity::getCode).setHeader((String) null).setAutoWidth(true);
-        this.productEntityGrid.addColumn(ProductEntity::getAmount).setHeader((String) null).setAutoWidth(true);
+        this.productEntityGrid.addColumn(ProductEntity::getCode).setHeader("Code").setAutoWidth(true);
+        this.productEntityGrid.addColumn(ProductEntity::getAmount).setHeader("Amount").setAutoWidth(true);
 
         this.productEntityGrid.setItems(this.productService.readAll());
 
