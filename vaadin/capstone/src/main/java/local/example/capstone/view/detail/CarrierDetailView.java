@@ -80,8 +80,8 @@ public class CarrierDetailView
 
         this.carrierService = carrierService;
 
-        this.carrierEntityGrid.addColumn(CarrierEntity::getName).setHeader((String) null).setAutoWidth(true);
-        this.carrierEntityGrid.addColumn(CarrierEntity::getSticker).setHeader((String) null).setAutoWidth(true);
+        this.carrierEntityGrid.addColumn(CarrierEntity::getName).setHeader("Name").setAutoWidth(true);
+        this.carrierEntityGrid.addColumn(CarrierEntity::getSticker).setHeader("Sticker").setAutoWidth(true);
 
         this.carrierEntityGrid.setItems(this.carrierService.readAll());
 
