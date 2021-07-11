@@ -97,14 +97,13 @@ public class OperatorDetailView
 
         this.operatorService = operatorService;
 
-        this.operatorEntityGrid.addColumn(OperatorEntity::getName).setHeader((String) null).setAutoWidth(true);
-        this.operatorEntityGrid.addColumn(OperatorEntity::getSurname).setHeader((String) null).setAutoWidth(true);
-        this.operatorEntityGrid.addColumn(OperatorEntity::getDateOfBirth).setHeader((String) null).setAutoWidth(true);
-        this.operatorEntityGrid.addColumn(OperatorEntity::getPhoneNumber).setHeader((String) null).setAutoWidth(true);
-        this.operatorEntityGrid.addColumn(OperatorEntity::getPhoneNumber).setHeader((String) null).setAutoWidth(true);
-        this.operatorEntityGrid.addColumn(OperatorEntity::getContributoryIdentifier).setHeader((String) null).setAutoWidth(true);
-        this.operatorEntityGrid.addColumn(OperatorEntity::getEmail).setHeader((String) null).setAutoWidth(true);
-        this.operatorEntityGrid.addColumn(OperatorEntity::getRole).setHeader((String) null).setAutoWidth(true);
+        this.operatorEntityGrid.addColumn(OperatorEntity::getName).setHeader("Name").setAutoWidth(true);
+        this.operatorEntityGrid.addColumn(OperatorEntity::getSurname).setHeader("Surname").setAutoWidth(true);
+        this.operatorEntityGrid.addColumn(OperatorEntity::getDateOfBirth).setHeader("Birthday").setAutoWidth(true);
+        this.operatorEntityGrid.addColumn(OperatorEntity::getPhoneNumber).setHeader("Phone Number").setAutoWidth(true);
+        this.operatorEntityGrid.addColumn(OperatorEntity::getContributoryIdentifier).setHeader("Contributory Identifier").setAutoWidth(true);
+        this.operatorEntityGrid.addColumn(OperatorEntity::getEmail).setHeader("Email").setAutoWidth(true);
+        this.operatorEntityGrid.addColumn(OperatorEntity::getRole).setHeader("Role").setAutoWidth(true);
 
         this.operatorEntityGrid.setItems(this.operatorService.readAll());
 
