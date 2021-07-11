@@ -18,15 +18,24 @@
 
 package local.example.capstone.data.entity;
 
+import local.example.capstone.data.AbstractItem;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.sql.Date;
 
 @Data
 @Entity
 @Table(name = "lots")
 @EqualsAndHashCode(callSuper=false)
-public class LotEntity {
+public class LotEntity
+        extends AbstractItem {
+
+    @Getter
+    @Setter
+    private Date deadline;
 }
