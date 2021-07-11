@@ -18,15 +18,35 @@
 
 package local.example.capstone.data.entity;
 
+import local.example.capstone.data.AbstractEntity;
+import local.example.capstone.data.typology.TypeEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @Data
 @Entity
 @Table(name = "capacities")
 @EqualsAndHashCode(callSuper=false)
-public class CapacityEntity {
+public class CapacityEntity
+        extends AbstractEntity {
+
+    @Getter
+    @Setter
+    private Integer usefulWeight;
+
+    @Getter
+    @Setter
+    private Integer usefulVolume;
+
+    @Getter
+    @Setter
+    @Enumerated(EnumType.STRING)
+    private TypeEnum type;
 }
