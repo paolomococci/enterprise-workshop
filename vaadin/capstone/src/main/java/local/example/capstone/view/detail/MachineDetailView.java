@@ -81,8 +81,8 @@ public class MachineDetailView
 
         this.machineService = machineService;
 
-        this.machineEntityGrid.addColumn(MachineEntity::getLabel).setHeader((String) null).setAutoWidth(true);
-        this.machineEntityGrid.addColumn(MachineEntity::getCapacity).setHeader((String) null).setAutoWidth(true);
+        this.machineEntityGrid.addColumn(MachineEntity::getLabel).setHeader("Label").setAutoWidth(true);
+        this.machineEntityGrid.addColumn(MachineEntity::getCapacity).setHeader("Capacity").setAutoWidth(true);
 
         this.machineEntityGrid.setItems(this.machineService.readAll());
 
