@@ -80,8 +80,8 @@ public class SupplierDetailView
 
         this.supplierService = supplierService;
 
-        this.supplierEntityGrid.addColumn(SupplierEntity::getName).setHeader((String) null).setAutoWidth(true);
-        this.supplierEntityGrid.addColumn(SupplierEntity::getSticker).setHeader((String) null).setAutoWidth(true);
+        this.supplierEntityGrid.addColumn(SupplierEntity::getName).setHeader("Name").setAutoWidth(true);
+        this.supplierEntityGrid.addColumn(SupplierEntity::getSticker).setHeader("Sticker").setAutoWidth(true);
 
         this.supplierEntityGrid.setItems(this.supplierService.readAll());
 
