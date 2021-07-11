@@ -81,8 +81,8 @@ public class PositionDetailView
 
         this.positionService = positionService;
 
-        this.positionEntityGrid.addColumn(PositionEntity::getLabel).setHeader((String) null).setAutoWidth(true);
-        this.positionEntityGrid.addColumn(PositionEntity::getCapacity).setHeader((String) null).setAutoWidth(true);
+        this.positionEntityGrid.addColumn(PositionEntity::getLabel).setHeader("Label").setAutoWidth(true);
+        this.positionEntityGrid.addColumn(PositionEntity::getCapacity).setHeader("Capacity").setAutoWidth(true);
 
         this.positionEntityGrid.setItems(this.positionService.readAll());
 
