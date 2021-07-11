@@ -80,8 +80,8 @@ public class CrewDetailView
 
         this.crewService = crewService;
 
-        this.crewEntityGrid.addColumn(CrewEntity::getCode).setHeader((String) null).setAutoWidth(true);
-        this.crewEntityGrid.addColumn(CrewEntity::getName).setHeader((String) null).setAutoWidth(true);
+        this.crewEntityGrid.addColumn(CrewEntity::getCode).setHeader("Code").setAutoWidth(true);
+        this.crewEntityGrid.addColumn(CrewEntity::getName).setHeader("Name").setAutoWidth(true);
 
         this.crewEntityGrid.setItems(this.crewService.readAll());
 
