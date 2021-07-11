@@ -89,11 +89,11 @@ public class AddressDetailView
 
         this.addressService = addressService;
 
-        this.addressEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
-        this.addressEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
-        this.addressEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
-        this.addressEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
-        this.addressEntityGrid.addColumn((String) null).setHeader((String) null).setAutoWidth(true);
+        this.addressEntityGrid.addColumn(AddressEntity::getStreet).setHeader((String) null).setAutoWidth(true);
+        this.addressEntityGrid.addColumn(AddressEntity::getPostalCode).setHeader((String) null).setAutoWidth(true);
+        this.addressEntityGrid.addColumn(AddressEntity::getCity).setHeader((String) null).setAutoWidth(true);
+        this.addressEntityGrid.addColumn(AddressEntity::getState).setHeader((String) null).setAutoWidth(true);
+        this.addressEntityGrid.addColumn(AddressEntity::getCountry).setHeader((String) null).setAutoWidth(true);
 
         this.addressEntityGrid.setItems(this.addressService.readAll());
 
