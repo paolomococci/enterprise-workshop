@@ -81,8 +81,8 @@ public class InvoiceDetailView
 
         this.invoiceService = invoiceService;
 
-        this.invoiceEntityGrid.addColumn(InvoiceEntity::getCode).setHeader((String) null).setAutoWidth(true);
-        this.invoiceEntityGrid.addColumn(InvoiceEntity::getTotal).setHeader((String) null).setAutoWidth(true);
+        this.invoiceEntityGrid.addColumn(InvoiceEntity::getCode).setHeader("Code").setAutoWidth(true);
+        this.invoiceEntityGrid.addColumn(InvoiceEntity::getTotal).setHeader("Total").setAutoWidth(true);
 
         this.invoiceEntityGrid.setItems(this.invoiceService.readAll());
 
