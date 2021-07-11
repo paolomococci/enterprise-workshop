@@ -81,8 +81,8 @@ public class ComponentDetailView
 
         this.componentService = componentService;
 
-        this.componentEntityGrid.addColumn(ComponentEntity::getCode).setHeader((String) null).setAutoWidth(true);
-        this.componentEntityGrid.addColumn(ComponentEntity::getAmount).setHeader((String) null).setAutoWidth(true);
+        this.componentEntityGrid.addColumn(ComponentEntity::getCode).setHeader("Code").setAutoWidth(true);
+        this.componentEntityGrid.addColumn(ComponentEntity::getAmount).setHeader("Amount").setAutoWidth(true);
 
         this.componentEntityGrid.setItems(this.componentService.readAll());
 
