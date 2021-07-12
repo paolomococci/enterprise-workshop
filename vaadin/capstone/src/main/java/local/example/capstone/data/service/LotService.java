@@ -27,4 +27,8 @@ public class LotService {
 
     @Autowired
     LotRepository lotRepository;
+
+    public List<LotEntity> readAll() {
+        return (List<LotEntity>) lotRepository.findAll();
+    }
 }
