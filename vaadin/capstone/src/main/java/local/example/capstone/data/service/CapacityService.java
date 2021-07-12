@@ -39,4 +39,20 @@ public class CapacityService {
     public Optional<CapacityEntity> read(String id) {
         return capacityRepository.findById(Long.valueOf(id));
     }
+
+    public void update(CapacityEntity updatedCapacityEntity, Long id) {
+        Optional.of(capacityRepository.findById(id).map(
+                storedCapacityEntity -> {
+                    if (updatedCapacityEntity.getUsefulWeight() != null)
+                        storedCapacityEntity.setUsefulWeight(updatedCapacityEntity.getUsefulWeight());
+                    if (updatedCapacityEntity.getUsefulVolume() != null)
+                        storedCapacityEntity.setUsefulVolume(updatedCapacityEntity.getUsefulVolume());
+                    if (updatedCapacityEntity.getType() != null)
+                        storedCapacityEntity.setType(updatedCapacityEntity.getType());
+                    return capacityRepository.save(storedCapacityEntity);
+                }).orElseGet(
+                () -> {
+                    return capacityRepository.save(updatedCapacityEntity);
+                }));
+    }
 }
