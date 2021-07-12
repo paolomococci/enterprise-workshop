@@ -55,4 +55,8 @@ public class LotService {
                     return lotRepository.save(updatedLotEntity);
                 }));
     }
+
+    public void update(LotEntity updatedLotEntity) {
+        this.update(updatedLotEntity, updatedLotEntity.getId());
+    }
 }
