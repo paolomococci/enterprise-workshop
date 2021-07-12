@@ -7,12 +7,14 @@
 @import url('./views/card-list-view.css');
 
 @import url('./views/forms/address-form-view.css');
+@import url('./views/forms/capacity-form-view.css');
 @import url('./views/forms/carrier-form-view.css');
 @import url('./views/forms/component-form-view.css');
 @import url('./views/forms/contact-form-view.css');
 @import url('./views/forms/crew-form-view.css');
 @import url('./views/forms/customer-form-view.css');
 @import url('./views/forms/invoice-form-view.css');
+@import url('./views/forms/lot-form-view.css');
 @import url('./views/forms/machine-form-view.css');
 @import url('./views/forms/operator-form-view.css');
 @import url('./views/forms/position-form-view.css');
