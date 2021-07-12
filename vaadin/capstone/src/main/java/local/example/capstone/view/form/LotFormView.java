@@ -42,7 +42,7 @@ import local.example.capstone.view.MainView;
 public class LotFormView
         extends LitTemplate {
 
-    @Id("componentCode")
+    @Id("lotCode")
     private TextField code;
 
     @Id("amount")
