@@ -18,8 +18,13 @@
 
 package local.example.capstone.data.service;
 
+import local.example.capstone.data.repository.LotRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class LotService {
+
+    @Autowired
+    LotRepository lotRepository;
 }
