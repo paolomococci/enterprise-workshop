@@ -18,5 +18,17 @@
 
 package local.example.capstone.view.form;
 
-public class CapacityFormView {
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+import local.example.capstone.view.MainView;
+
+@Route(value = "capacity-form", layout = MainView.class)
+@PageTitle("Capacity Form")
+@Tag("capacity-form-view")
+@JsModule("./views/forms/capacity-form-view.ts")
+public class CapacityFormView
+        extends LitTemplate {
 }
