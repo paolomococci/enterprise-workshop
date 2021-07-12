@@ -18,5 +18,17 @@
 
 package local.example.capstone.view.form;
 
-public class LotFormView {
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+import local.example.capstone.view.MainView;
+
+@Route(value = "lot-form", layout = MainView.class)
+@PageTitle("Lot Form")
+@Tag("lot-form-view")
+@JsModule("./views/forms/lot-form-view.ts")
+public class LotFormView
+        extends LitTemplate {
 }
