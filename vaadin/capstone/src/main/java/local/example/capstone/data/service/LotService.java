@@ -31,4 +31,8 @@ public class LotService {
     public List<LotEntity> readAll() {
         return (List<LotEntity>) lotRepository.findAll();
     }
+
+    public void create(LotEntity lotEntity) {
+        lotRepository.save(lotEntity);
+    }
 }
