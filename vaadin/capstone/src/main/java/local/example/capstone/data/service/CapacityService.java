@@ -48,6 +48,8 @@ public class CapacityService {
     public void update(CapacityEntity updatedCapacityEntity, Long id) {
         Optional.of(capacityRepository.findById(id).map(
                 storedCapacityEntity -> {
+                    if (updatedCapacityEntity.getCode() != null)
+                        storedCapacityEntity.setCode(updatedCapacityEntity.getCode());
                     if (updatedCapacityEntity.getUsefulWeight() != null)
                         storedCapacityEntity.setUsefulWeight(updatedCapacityEntity.getUsefulWeight());
                     if (updatedCapacityEntity.getUsefulVolume() != null)
