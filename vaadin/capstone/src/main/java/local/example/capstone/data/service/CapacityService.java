@@ -35,4 +35,8 @@ public class CapacityService {
     public void create(CapacityEntity capacityEntity) {
         capacityRepository.save(capacityEntity);
     }
+
+    public Optional<CapacityEntity> read(String id) {
+        return capacityRepository.findById(Long.valueOf(id));
+    }
 }
