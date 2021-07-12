@@ -96,21 +96,21 @@ public class MainView
         return new Tab[] {
                 createTab("Search", SearchView.class),
                 createTab("Address Form", AddressFormView.class),
+                createTab("Capacity Form", CapacityFormView.class),
                 createTab("Carrier Form", CarrierFormView.class),
                 createTab("Component Form", ComponentFormView.class),
                 createTab("Contact Form", ContactFormView.class),
                 createTab("Crew Form", CrewFormView.class),
                 createTab("Customer Form", CustomerFormView.class),
                 createTab("Invoice Form", InvoiceFormView.class),
+                createTab("Lot Form", LotFormView.class),
                 createTab("Machine Form", MachineFormView.class),
                 createTab("Operator Form", OperatorFormView.class),
                 createTab("Position Form", PositionFormView.class),
                 createTab("Product Form", ProductFormView.class),
                 createTab("Supplier Form", SupplierFormView.class),
                 createTab("Help", HelpView.class),
-                createTab("About", AboutView.class)/*,
-                createTab("Card List", CardListView.class),
-                createTab("Detail", DetailView.class)*/
+                createTab("About", AboutView.class)
         };
     }
 
