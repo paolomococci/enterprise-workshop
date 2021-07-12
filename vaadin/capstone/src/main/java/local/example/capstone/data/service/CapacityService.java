@@ -59,4 +59,8 @@ public class CapacityService {
     public void update(CapacityEntity updatedCapacityEntity) {
         this.update(updatedCapacityEntity, updatedCapacityEntity.getId());
     }
+
+    public void delete(Long id) {
+        capacityRepository.deleteById(id);
+    }
 }
