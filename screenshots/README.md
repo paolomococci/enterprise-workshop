@@ -11,3 +11,4 @@
 * screenshot_capstone_contact_form.png
 * screenshot_android_capstone.png
 * screenshot_quarkus-rest-bookstore.png
+* screenshot_capstone_2021-07-12.png
