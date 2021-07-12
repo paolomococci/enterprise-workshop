@@ -31,4 +31,8 @@ public class CapacityService {
     public List<CapacityEntity> readAll() {
         return (List<CapacityEntity>) capacityRepository.findAll();
     }
+
+    public void create(CapacityEntity capacityEntity) {
+        capacityRepository.save(capacityEntity);
+    }
 }
