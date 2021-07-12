@@ -27,4 +27,8 @@ public class CapacityService {
 
     @Autowired
     CapacityRepository capacityRepository;
+
+    public List<CapacityEntity> readAll() {
+        return (List<CapacityEntity>) capacityRepository.findAll();
+    }
 }
