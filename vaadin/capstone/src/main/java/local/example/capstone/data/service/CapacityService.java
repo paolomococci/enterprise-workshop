@@ -18,9 +18,13 @@
 
 package local.example.capstone.data.service;
 
+import local.example.capstone.data.entity.CapacityEntity;
 import local.example.capstone.data.repository.CapacityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CapacityService {
@@ -62,5 +66,13 @@ public class CapacityService {
 
     public void delete(Long id) {
         capacityRepository.deleteById(id);
+    }
+
+    public void delete(CapacityEntity capacityEntity) {
+        try {
+            this.delete(capacityEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
