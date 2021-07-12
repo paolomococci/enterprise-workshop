@@ -18,9 +18,13 @@
 
 package local.example.capstone.data.service;
 
+import local.example.capstone.data.entity.LotEntity;
 import local.example.capstone.data.repository.LotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LotService {
@@ -62,5 +66,13 @@ public class LotService {
 
     public void delete(Long id) {
         lotRepository.deleteById(id);
+    }
+
+    public void delete(LotEntity lotEntity) {
+        try {
+            this.delete(lotEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
     }
 }
