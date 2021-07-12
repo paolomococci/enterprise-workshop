@@ -18,5 +18,11 @@
 
 package local.example.capstone.data.repository;
 
-public interface LotRepository {
+import local.example.capstone.data.entity.LotEntity;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface LotRepository
+        extends CrudRepository<LotEntity, Long> {
 }
