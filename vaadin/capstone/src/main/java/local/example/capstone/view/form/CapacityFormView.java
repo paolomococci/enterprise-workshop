@@ -42,7 +42,7 @@ import local.example.capstone.view.MainView;
 public class CapacityFormView
         extends LitTemplate {
 
-    @Id("componentCode")
+    @Id("capacityCode")
     private TextField code;
 
     @Id("usefulWeight")
