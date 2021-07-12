@@ -22,11 +22,17 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+
+import local.example.capstone.data.entity.CapacityEntity;
+import local.example.capstone.data.service.CapacityService;
 import local.example.capstone.view.MainView;
 
 @Route(value = "capacity-form", layout = MainView.class)
@@ -49,4 +55,21 @@ public class CapacityFormView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    private Binder<CapacityEntity> capacityEntityBinder = new BeanValidationBinder<>(CapacityEntity.class);
+
+    public CapacityFormView(CapacityService capacityService) {
+        this.capacityEntityBinder.bindInstanceFields(this);
+        this.clearForm();
+        this.cancel.addClickListener(buttonClickEvent -> this.clearForm());
+        this.save.addClickListener(buttonClickEvent -> {
+            capacityService.create(this.capacityEntityBinder.getBean());
+            Notification.show("added an item " + this.capacityEntityBinder.getBean().getClass().getSimpleName());
+            this.clearForm();
+        });
+    }
+
+    private void clearForm() {
+        this.capacityEntityBinder.setBean(new CapacityEntity());
+    }
 }
