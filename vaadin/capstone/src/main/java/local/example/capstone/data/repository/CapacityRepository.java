@@ -18,5 +18,11 @@
 
 package local.example.capstone.data.repository;
 
-public interface CapacityRepository {
+import local.example.capstone.data.entity.CapacityEntity;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CapacityRepository
+        extends CrudRepository<CapacityEntity, Long> {
 }
