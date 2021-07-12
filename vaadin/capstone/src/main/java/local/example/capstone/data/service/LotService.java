@@ -59,4 +59,8 @@ public class LotService {
     public void update(LotEntity updatedLotEntity) {
         this.update(updatedLotEntity, updatedLotEntity.getId());
     }
+
+    public void delete(Long id) {
+        lotRepository.deleteById(id);
+    }
 }
