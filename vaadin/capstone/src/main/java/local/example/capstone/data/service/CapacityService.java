@@ -55,4 +55,8 @@ public class CapacityService {
                     return capacityRepository.save(updatedCapacityEntity);
                 }));
     }
+
+    public void update(CapacityEntity updatedCapacityEntity) {
+        this.update(updatedCapacityEntity, updatedCapacityEntity.getId());
+    }
 }
