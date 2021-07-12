@@ -39,6 +39,10 @@ public class CapacityEntity
 
     @Getter
     @Setter
+    private String code;
+
+    @Getter
+    @Setter
     private Integer usefulWeight;
 
     @Getter
