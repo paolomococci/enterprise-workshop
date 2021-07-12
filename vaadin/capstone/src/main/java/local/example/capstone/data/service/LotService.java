@@ -39,4 +39,20 @@ public class LotService {
     public Optional<LotEntity> read(String id) {
         return lotRepository.findById(Long.valueOf(id));
     }
+
+    public void update(LotEntity updatedLotEntity, Long id) {
+        Optional.of(lotRepository.findById(id).map(
+                storedLotEntity -> {
+                    if (updatedLotEntity.getCode() != null)
+                        storedLotEntity.setCode(updatedLotEntity.getCode());
+                    if (updatedLotEntity.getAmount() != null)
+                        storedLotEntity.setAmount(updatedLotEntity.getAmount());
+                    if (updatedLotEntity.getDeadline() != null)
+                        storedLotEntity.setDeadline(updatedLotEntity.getDeadline());
+                    return lotRepository.save(storedLotEntity);
+                }).orElseGet(
+                () -> {
+                    return lotRepository.save(updatedLotEntity);
+                }));
+    }
 }
