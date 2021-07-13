@@ -20,6 +20,9 @@ package local.example.capstone.data.entity;
 
 import local.example.capstone.data.AbstractNode;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -27,4 +30,48 @@ import javax.persistence.Table;
 @Table(name = "positions")
 public class PositionEntity
         extends AbstractNode {
+
+    @Getter
+    @Setter
+    private Boolean consumptionProduct;
+
+    @Getter
+    @Setter
+    private Boolean detergent;
+
+    @Getter
+    @Setter
+    private Boolean sanitizing;
+
+    @Getter
+    @Setter
+    private Boolean equipment;
+
+    @Getter
+    @Setter
+    private Boolean clothing;
+
+    @Getter
+    @Setter
+    private Boolean protectionDevice;
+
+    @Getter
+    @Setter
+    private Boolean primaryPackaging;
+
+    @Getter
+    @Setter
+    private Boolean secondaryPackaging;
+
+    @Getter
+    @Setter
+    private Boolean complementForShipping;
+
+    @Getter
+    @Setter
+    private Boolean rowMaterial;
+
+    @Getter
+    @Setter
+    private Boolean containingAllergens;
 }
