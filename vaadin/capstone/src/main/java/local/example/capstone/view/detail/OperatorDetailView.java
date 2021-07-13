@@ -56,8 +56,7 @@ public class OperatorDetailView
 
     private final String OPERATOR_EDIT_ROUTE_TEMPLATE = "operator-detail/%d/edit";
 
-    @Autowired
-    OperatorEntity operatorEntity;
+    private OperatorEntity operatorEntity;
 
     private final OperatorService operatorService;
 
