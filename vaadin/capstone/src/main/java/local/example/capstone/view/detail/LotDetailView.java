@@ -18,12 +18,23 @@
 
 package local.example.capstone.view.detail;
 
+import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.router.BeforeEnterEvent;
+import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 
 @PageTitle("Lot Detail")
 @Tag("lot-detail-view")
 @JsModule("./views/details/lot-detail-view.ts")
-public class LotDetailView {
+public class LotDetailView
+        extends LitTemplate
+        implements HasStyle, BeforeEnterObserver {
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        // TODO
+    }
 }
