@@ -54,8 +54,7 @@ public class CarrierDetailView
 
     private final String CARRIER_EDIT_ROUTE_TEMPLATE = "carrier-detail/%d/edit";
 
-    @Autowired
-    CarrierEntity carrierEntity;
+    private CarrierEntity carrierEntity;
 
     private final CarrierService carrierService;
 
