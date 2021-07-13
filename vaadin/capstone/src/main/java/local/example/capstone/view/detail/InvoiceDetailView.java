@@ -55,8 +55,7 @@ public class InvoiceDetailView
 
     private final String INVOICE_EDIT_ROUTE_TEMPLATE = "invoice-detail/%d/edit";
 
-    @Autowired
-    InvoiceEntity invoiceEntity;
+    private InvoiceEntity invoiceEntity;
 
     private final InvoiceService invoiceService;
 
