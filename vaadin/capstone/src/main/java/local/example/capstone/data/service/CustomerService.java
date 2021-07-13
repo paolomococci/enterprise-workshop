@@ -50,7 +50,8 @@ public class CustomerService {
                 storedCustomerEntity -> {
                     if (updatedCustomerEntity.getName() != null)
                         storedCustomerEntity.setName(updatedCustomerEntity.getName());
-                    // TODO
+                    if (updatedCustomerEntity.getSticker() != null)
+                        storedCustomerEntity.setSticker(updatedCustomerEntity.getSticker());
                     return customerRepository.save(storedCustomerEntity);
                 }).orElseGet(
                 () -> {
