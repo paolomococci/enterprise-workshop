@@ -20,6 +20,7 @@ package local.example.capstone.view.form;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.notification.Notification;
@@ -47,6 +48,9 @@ public class LotFormView
 
     @Id("amount")
     private IntegerField amount;
+
+    @Id("deadline")
+    private DatePicker deadline;
 
     @Id("save")
     private Button save;
