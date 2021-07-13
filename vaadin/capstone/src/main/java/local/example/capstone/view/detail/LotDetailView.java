@@ -18,5 +18,12 @@
 
 package local.example.capstone.view.detail;
 
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.router.PageTitle;
+
+@PageTitle("Lot Detail")
+@Tag("lot-detail-view")
+@JsModule("./views/details/lot-detail-view.ts")
 public class LotDetailView {
 }
