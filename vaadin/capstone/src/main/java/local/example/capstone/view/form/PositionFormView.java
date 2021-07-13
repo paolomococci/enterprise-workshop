@@ -20,6 +20,7 @@ package local.example.capstone.view.form;
 
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.notification.Notification;
@@ -47,6 +48,39 @@ public class PositionFormView
 
     @Id("capacity")
     private IntegerField capacity;
+
+    @Id("consumptionProduct")
+    private Checkbox consumptionProduct;
+
+    @Id("detergent")
+    private Checkbox detergent;
+
+    @Id("sanitizing")
+    private Checkbox sanitizing;
+
+    @Id("equipment")
+    private Checkbox equipment;
+
+    @Id("clothing")
+    private Checkbox clothing;
+
+    @Id("protectionDevice")
+    private Checkbox protectionDevice;
+
+    @Id("primaryPackaging")
+    private Checkbox primaryPackaging;
+
+    @Id("secondaryPackaging")
+    private Checkbox secondaryPackaging;
+
+    @Id("complementForShipping")
+    private Checkbox complementForShipping;
+
+    @Id("rowMaterial")
+    private Checkbox rowMaterial;
+
+    @Id("containingAllergens")
+    private Checkbox containingAllergens;
 
     @Id("save")
     private Button save;
