@@ -55,8 +55,7 @@ public class ProductDetailView
 
     private final String PRODUCT_EDIT_ROUTE_TEMPLATE = "product-detail/%d/edit";
 
-    @Autowired
-    ProductEntity productEntity;
+    private ProductEntity productEntity;
 
     private final ProductService productService;
 
