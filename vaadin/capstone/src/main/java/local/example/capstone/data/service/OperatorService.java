@@ -50,7 +50,18 @@ public class OperatorService {
                 storedOperatorEntity -> {
                     if (updatedOperatorEntity.getName() != null)
                         storedOperatorEntity.setName(updatedOperatorEntity.getName());
-                    // TODO
+                    if (updatedOperatorEntity.getSurname() != null)
+                        storedOperatorEntity.setSurname(updatedOperatorEntity.getSurname());
+                    if (updatedOperatorEntity.getDateOfBirth() != null)
+                        storedOperatorEntity.setDateOfBirth(updatedOperatorEntity.getDateOfBirth());
+                    if (updatedOperatorEntity.getRole() != null)
+                        storedOperatorEntity.setRole(updatedOperatorEntity.getRole());
+                    if (updatedOperatorEntity.getPhoneNumber() != null)
+                        storedOperatorEntity.setPhoneNumber(updatedOperatorEntity.getPhoneNumber());
+                    if (updatedOperatorEntity.getContributoryIdentifier() != null)
+                        storedOperatorEntity.setContributoryIdentifier(updatedOperatorEntity.getContributoryIdentifier());
+                    if (updatedOperatorEntity.getEmail() != null)
+                        storedOperatorEntity.setEmail(updatedOperatorEntity.getEmail());
                     return operatorRepository.save(storedOperatorEntity);
                 }).orElseGet(
                 () -> {
