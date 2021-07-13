@@ -26,7 +26,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -37,5 +37,5 @@ public class LotEntity
 
     @Getter
     @Setter
-    private Date deadline;
+    private LocalDate deadline;
 }
