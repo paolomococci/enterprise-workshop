@@ -48,7 +48,10 @@ public class CrewService {
     public void update(CrewEntity updatedCrewEntity, Long id) {
         Optional.of(crewRepository.findById(id).map(
                 storedCrewEntity -> {
-                    // TODO
+                    if (updatedCrewEntity.getCode() != null)
+                        storedCrewEntity.setCode(updatedCrewEntity.getCode());
+                    if (updatedCrewEntity.getName() != null)
+                        storedCrewEntity.setName(updatedCrewEntity.getCode());
                     return crewRepository.save(storedCrewEntity);
                 }).orElseGet(
                 () -> {
