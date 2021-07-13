@@ -49,7 +49,8 @@ public class ComponentService {
                 storedComponentEntity -> {
                     if (updatedComponentEntity.getCode() != null)
                         storedComponentEntity.setCode(updatedComponentEntity.getCode());
-                    // TODO
+                    if (updatedComponentEntity.getAmount() != null)
+                        storedComponentEntity.setAmount(updatedComponentEntity.getAmount());
                     return componentRepository.save(storedComponentEntity);
                 }).orElseGet(
                 () -> {
