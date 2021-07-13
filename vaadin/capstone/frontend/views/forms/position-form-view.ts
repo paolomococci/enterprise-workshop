@@ -29,7 +29,18 @@ export class PositionFormView extends LitElement {
           max="99"
           has-controls>
           <div slot="suffix">capacity</div>
-        </vaadin-integer-field>
+        </vaadin-integer-field></br>
+        <vaadin-checkbox id="consumptionProduct" style="padding-top: var(--lumo-space-m);">consumption product</vaadin-checkbox>
+        <vaadin-checkbox id="detergent" style="padding-top: var(--lumo-space-m);">detergent</vaadin-checkbox>
+        <vaadin-checkbox id="sanitizing" style="padding-top: var(--lumo-space-m);">sanitizing</vaadin-checkbox>
+        <vaadin-checkbox id="equipment" style="padding-top: var(--lumo-space-m);">equipment</vaadin-checkbox>
+        <vaadin-checkbox id="clothing" style="padding-top: var(--lumo-space-m);">clothing</vaadin-checkbox>
+        <vaadin-checkbox id="protectionDevice" style="padding-top: var(--lumo-space-m);">protection device</vaadin-checkbox>
+        <vaadin-checkbox id="primaryPackaging" style="padding-top: var(--lumo-space-m);">primary packaging</vaadin-checkbox>
+        <vaadin-checkbox id="secondaryPackaging" style="padding-top: var(--lumo-space-m);">secondary packaging</vaadin-checkbox>
+        <vaadin-checkbox id="complementForShipping" style="padding-top: var(--lumo-space-m);">complement for shipping</vaadin-checkbox>
+        <vaadin-checkbox id="rowMaterial" style="padding-top: var(--lumo-space-m);">row material</vaadin-checkbox>
+        <vaadin-checkbox id="containingAllergens" style="padding-top: var(--lumo-space-m);">containing allergens</vaadin-checkbox>
       </vaadin-form-layout>
       <vaadin-horizontal-layout
         style="margin-top: var(--lumo-space-m); margin-bottom: var(--lumo-space-l);"
