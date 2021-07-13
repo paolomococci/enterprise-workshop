@@ -50,7 +50,28 @@ public class PositionService {
                 storedPositionEntity -> {
                     if (updatedPositionEntity.getLabel() != null)
                         storedPositionEntity.setLabel(updatedPositionEntity.getLabel());
-                    // TODO
+                    if (updatedPositionEntity.getConsumptionProduct() != null)
+                        storedPositionEntity.setConsumptionProduct(updatedPositionEntity.getConsumptionProduct());
+                    if (updatedPositionEntity.getDetergent() != null)
+                        storedPositionEntity.setDetergent(updatedPositionEntity.getDetergent());
+                    if (updatedPositionEntity.getSanitizing() != null)
+                        storedPositionEntity.setSanitizing(updatedPositionEntity.getSanitizing());
+                    if (updatedPositionEntity.getEquipment() != null)
+                        storedPositionEntity.setEquipment(updatedPositionEntity.getEquipment());
+                    if (updatedPositionEntity.getClothing() != null)
+                        storedPositionEntity.setClothing(updatedPositionEntity.getClothing());
+                    if (updatedPositionEntity.getProtectionDevice() != null)
+                        storedPositionEntity.setProtectionDevice(updatedPositionEntity.getProtectionDevice());
+                    if (updatedPositionEntity.getPrimaryPackaging() != null)
+                        storedPositionEntity.setPrimaryPackaging(updatedPositionEntity.getPrimaryPackaging());
+                    if (updatedPositionEntity.getSecondaryPackaging() != null)
+                        storedPositionEntity.setSecondaryPackaging(updatedPositionEntity.getSecondaryPackaging());
+                    if (updatedPositionEntity.getComplementForShipping() != null)
+                        storedPositionEntity.setComplementForShipping(updatedPositionEntity.getComplementForShipping());
+                    if (updatedPositionEntity.getRowMaterial() != null)
+                        storedPositionEntity.setRowMaterial(updatedPositionEntity.getRowMaterial());
+                    if (updatedPositionEntity.getContainingAllergens() != null)
+                        storedPositionEntity.setContainingAllergens(updatedPositionEntity.getContainingAllergens());
                     return positionRepository.save(storedPositionEntity);
                 }).orElseGet(
                 () -> {
