@@ -54,8 +54,6 @@ public class CapacityService {
                         storedCapacityEntity.setUsefulWeight(updatedCapacityEntity.getUsefulWeight());
                     if (updatedCapacityEntity.getUsefulVolume() != null)
                         storedCapacityEntity.setUsefulVolume(updatedCapacityEntity.getUsefulVolume());
-                    if (updatedCapacityEntity.getType() != null)
-                        storedCapacityEntity.setType(updatedCapacityEntity.getType());
                     return capacityRepository.save(storedCapacityEntity);
                 }).orElseGet(
                 () -> {
