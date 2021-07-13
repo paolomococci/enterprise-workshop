@@ -50,7 +50,8 @@ public class SupplierService {
                 storedSupplierEntity -> {
                     if (updatedSupplierEntity.getName() != null)
                         storedSupplierEntity.setName(updatedSupplierEntity.getName());
-                    // TODO
+                    if (updatedSupplierEntity.getSticker() != null)
+                        storedSupplierEntity.setSticker(updatedSupplierEntity.getSticker());
                     return supplierRepository.save(storedSupplierEntity);
                 }).orElseGet(
                 () -> {
