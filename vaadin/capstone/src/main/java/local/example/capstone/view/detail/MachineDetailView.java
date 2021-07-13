@@ -55,8 +55,7 @@ public class MachineDetailView
 
     private final String MACHINE_EDIT_ROUTE_TEMPLATE = "machine-detail/%d/edit";
 
-    @Autowired
-    MachineEntity machineEntity;
+    private MachineEntity machineEntity;
 
     private final MachineService machineService;
 
