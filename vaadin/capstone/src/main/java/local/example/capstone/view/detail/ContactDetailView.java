@@ -56,8 +56,7 @@ public class ContactDetailView
 
     private final String CONTACT_EDIT_ROUTE_TEMPLATE = "contact-detail/%d/edit";
 
-    @Autowired
-    ContactEntity contactEntity;
+    private ContactEntity contactEntity;
 
     private final ContactService contactService;
 
