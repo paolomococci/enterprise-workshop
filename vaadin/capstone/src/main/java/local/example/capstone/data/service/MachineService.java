@@ -50,7 +50,8 @@ public class MachineService {
                 storedMachineEntity -> {
                     if (updatedMachineEntity.getLabel() != null)
                         storedMachineEntity.setLabel(updatedMachineEntity.getLabel());
-                    // TODO
+                    if (updatedMachineEntity.getCapacity() != null)
+                        storedMachineEntity.setCapacity(updatedMachineEntity.getCapacity());
                     return machineRepository.save(storedMachineEntity);
                 }).orElseGet(
                 () -> {
