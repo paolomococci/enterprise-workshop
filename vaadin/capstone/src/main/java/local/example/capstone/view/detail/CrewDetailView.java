@@ -54,8 +54,7 @@ public class CrewDetailView
 
     private final String CREW_EDIT_ROUTE_TEMPLATE = "crew-detail/%d/edit";
 
-    @Autowired
-    CrewEntity crewEntity;
+    private CrewEntity crewEntity;
 
     private final CrewService crewService;
 
