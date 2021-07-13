@@ -54,8 +54,7 @@ public class SupplierDetailView
 
     private final String SUPPLIER_EDIT_ROUTE_TEMPLATE = "supplier-detail/%d/edit";
 
-    @Autowired
-    SupplierEntity supplierEntity;
+    private SupplierEntity supplierEntity;
 
     private final SupplierService supplierService;
 
