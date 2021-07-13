@@ -52,7 +52,6 @@ public class CarrierService {
                         storedCarrierEntity.setName(updatedCarrierEntity.getName());
                     if (updatedCarrierEntity.getSticker() != null)
                         storedCarrierEntity.setSticker(updatedCarrierEntity.getSticker());
-                    // TODO
                     return carrierRepository.save(storedCarrierEntity);
                 }).orElseGet(
                 () -> {
