@@ -55,8 +55,7 @@ public class PositionDetailView
 
     private final String POSITION_EDIT_ROUTE_TEMPLATE = "position-detail/%d/edit";
 
-    @Autowired
-    PositionEntity positionEntity;
+    private PositionEntity positionEntity;
 
     private final PositionService positionService;
 
