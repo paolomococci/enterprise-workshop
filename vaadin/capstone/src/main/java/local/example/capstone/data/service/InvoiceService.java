@@ -48,7 +48,10 @@ public class InvoiceService {
     public void update(InvoiceEntity updatedInvoiceEntity, Long id) {
         Optional.of(invoiceRepository.findById(id).map(
                 storedInvoiceEntity -> {
-                    // TODO
+                    if (updatedInvoiceEntity.getCode() != null)
+                        storedInvoiceEntity.setCode(updatedInvoiceEntity.getCode());
+                    if (updatedInvoiceEntity.getTotal() != null)
+                        storedInvoiceEntity.setTotal(updatedInvoiceEntity.getTotal());
                     return invoiceRepository.save(storedInvoiceEntity);
                 }).orElseGet(
                 () -> {
