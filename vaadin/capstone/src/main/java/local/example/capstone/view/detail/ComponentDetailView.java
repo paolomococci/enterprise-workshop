@@ -55,8 +55,7 @@ public class ComponentDetailView
 
     private final String COMPONENT_EDIT_ROUTE_TEMPLATE = "component-detail/%d/edit";
 
-    @Autowired
-    ComponentEntity componentEntity;
+    private ComponentEntity componentEntity;
 
     private final ComponentService componentService;
 
