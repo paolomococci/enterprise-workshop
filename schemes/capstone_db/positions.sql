@@ -4,5 +4,16 @@ CREATE TABLE capstone_db.positions (
   `label` varchar(255) DEFAULT NULL,
   `updated` datetime(6) DEFAULT NULL,
   `created` datetime(6) NOT NULL,
+  `clothing` bit(1) DEFAULT NULL,
+  `complement_for_shipping` bit(1) DEFAULT NULL,
+  `consumption_product` bit(1) DEFAULT NULL,
+  `containing_allergens` bit(1) DEFAULT NULL,
+  `detergent` bit(1) DEFAULT NULL,
+  `equipment` bit(1) DEFAULT NULL,
+  `primary_packaging` bit(1) DEFAULT NULL,
+  `protection_device` bit(1) DEFAULT NULL,
+  `row_material` bit(1) DEFAULT NULL,
+  `sanitizing` bit(1) DEFAULT NULL,
+  `secondary_packaging` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
