@@ -54,8 +54,7 @@ public class CustomerDetailView
 
     private final String CUSTOMER_EDIT_ROUTE_TEMPLATE = "customer-detail/%d/edit";
 
-    @Autowired
-    CustomerEntity customerEntity;
+    private CustomerEntity customerEntity;
 
     private final CustomerService customerService;
 
