@@ -50,7 +50,8 @@ public class ProductService {
                 storedProductEntity -> {
                     if (updatedProductEntity.getCode() != null)
                         storedProductEntity.setCode(updatedProductEntity.getCode());
-                    // TODO
+                    if (updatedProductEntity.getAmount() != null)
+                        storedProductEntity.setAmount(updatedProductEntity.getAmount());
                     return productRepository.save(storedProductEntity);
                 }).orElseGet(
                 () -> {
