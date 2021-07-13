@@ -54,8 +54,7 @@ public class AddressDetailView
 
     private final String ADDRESS_EDIT_ROUTE_TEMPLATE = "address-detail/%d/edit";
 
-    @Autowired
-    AddressEntity addressEntity;
+    private AddressEntity addressEntity;
 
     private final AddressService addressService;
 
