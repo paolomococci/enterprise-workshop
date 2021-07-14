@@ -26,6 +26,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -38,6 +39,8 @@ import local.example.capstone.data.entity.CapacityEntity;
 import local.example.capstone.data.service.CapacityService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @PageTitle("Capacity Detail")
 @Tag("capacity-detail-view")
@@ -125,6 +128,21 @@ public class CapacityDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String CAPACITY_ID = "capacityID";
+        Optional<Long> capacityID = beforeEnterEvent.getRouteParameters().getLong(CAPACITY_ID);
+        if (capacityID.isPresent()) {
+            Optional<CapacityEntity> optionalCapacityEntity = capacityService.read(CAPACITY_ID);
+            if (optionalCapacityEntity.isPresent()) {
+                this.populateForm(optionalCapacityEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested capacity was not found, ID = %d", capacityID.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(CapacityDetailView.class);
+            }
+        }
     }
 }
