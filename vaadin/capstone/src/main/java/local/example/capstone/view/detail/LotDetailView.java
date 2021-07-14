@@ -34,6 +34,9 @@ import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 
 import local.example.capstone.data.entity.LotEntity;
+import local.example.capstone.data.service.LotService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @PageTitle("Lot Detail")
 @Tag("lot-detail-view")
@@ -43,6 +46,10 @@ public class LotDetailView
         implements HasStyle, BeforeEnterObserver {
 
     private final String LOT_EDIT_ROUTE_TEMPLATE = "lot-detail/%d/edit";
+
+    private LotEntity lotEntity;
+
+    private final LotService lotService;
 
     private final BeanValidationBinder<LotEntity> lotEntityBeanValidationBinder;
 
@@ -63,7 +70,10 @@ public class LotDetailView
     @Id("cancel")
     private Button cancel;
 
-    public LotDetailView() {
+    public LotDetailView(@Autowired LotService lotService) {
+        this.addClassNames("address-detail-view", "flex", "flex-col", "h-full");
+
+        this.lotService = lotService;
         this.lotEntityBeanValidationBinder = null;
     }
 
