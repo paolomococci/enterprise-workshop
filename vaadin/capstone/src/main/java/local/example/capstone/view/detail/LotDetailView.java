@@ -37,13 +37,16 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 
+import com.vaadin.flow.router.Route;
 import local.example.capstone.data.entity.LotEntity;
 import local.example.capstone.data.service.LotService;
+import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
+@Route(value = "lot-detail/:lotID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Lot Detail")
 @Tag("lot-detail-view")
 @JsModule("./views/details/lot-detail-view.ts")
