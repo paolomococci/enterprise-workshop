@@ -25,6 +25,8 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.textfield.IntegerField;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -40,6 +42,15 @@ public class CapacityDetailView
 
     @Id("grid")
     private Grid<CapacityEntity> capacityEntityGrid;
+
+    @Id("capacityCode")
+    private TextField code;
+
+    @Id("usefulWeight")
+    private IntegerField usefulWeight;
+
+    @Id("usefulVolume")
+    private IntegerField usefulVolume;
 
     @Id("save")
     private Button save;
