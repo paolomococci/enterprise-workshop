@@ -27,6 +27,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -39,6 +40,8 @@ import local.example.capstone.data.entity.LotEntity;
 import local.example.capstone.data.service.LotService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Optional;
 
 @PageTitle("Lot Detail")
 @Tag("lot-detail-view")
@@ -126,6 +129,21 @@ public class LotDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        // TODO
+        String LOT_ID = "lotID";
+        Optional<Long> lotID = beforeEnterEvent.getRouteParameters().getLong(LOT_ID);
+        if (lotID.isPresent()) {
+            Optional<LotEntity> optionalLotEntity = lotService.read(LOT_ID);
+            if (optionalLotEntity.isPresent()) {
+                this.populateForm(optionalLotEntity.get());
+            } else {
+                Notification.show(
+                        String.format("The requested lot was not found, ID = %d", lotID.get()),
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(CapacityDetailView.class);
+            }
+        }
     }
 }
