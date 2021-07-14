@@ -84,6 +84,10 @@ public class CapacityDetailView
         this.capacityEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.capacityEntityGrid.setHeightFull();
 
+        this.capacityEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+
+        });
+
         this.capacityEntityBeanValidationBinder = null;
     }
 
