@@ -20,6 +20,7 @@ package local.example.capstone.view.detail;
 
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
@@ -85,10 +86,30 @@ public class CapacityDetailView
         this.capacityEntityGrid.setHeightFull();
 
         this.capacityEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
-
+            if (valueChangeEvent.getValue() != null) {
+                UI.getCurrent().navigate(String.format(
+                        CAPACITY_EDIT_ROUTE_TEMPLATE,
+                        valueChangeEvent.getValue().getId()
+                ));
+            } else {
+                this.clearForm();
+                UI.getCurrent().navigate(CapacityDetailView.class);
+            }
         });
 
         this.capacityEntityBeanValidationBinder = null;
+    }
+
+    private void refreshGrid() {
+
+    }
+
+    private void clearForm() {
+
+    }
+
+    private void populateForm() {
+
     }
 
     @Override
