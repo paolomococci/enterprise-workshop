@@ -20,8 +20,10 @@ package local.example.capstone.view.detail;
 
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -32,6 +34,11 @@ import com.vaadin.flow.router.PageTitle;
 public class LotDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
+
+    @Id("save")
+    private Button save;
+    @Id("cancel")
+    private Button cancel;
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
