@@ -79,12 +79,16 @@ public class LotDetailView
         this.lotEntityGrid.addColumn(LotEntity::getCode).setHeader("Code").setAutoWidth(true);
         this.lotEntityGrid.addColumn(LotEntity::getAmount).setHeader("Amount").setAutoWidth(true);
         this.lotEntityGrid.addColumn(LotEntity::getDeadline).setHeader("Dead Line").setAutoWidth(true);
-        
+
         this.lotEntityGrid.setItems(this.lotService.readAll());
-        
+
         this.lotEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.lotEntityGrid.setHeightFull();
         
+        this.lotEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+
+        });
+
         this.lotEntityBeanValidationBinder = null;
     }
 
