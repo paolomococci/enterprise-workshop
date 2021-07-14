@@ -20,15 +20,9 @@ export class CapacityDetailView extends LitElement {
       <div class="flex flex-col" style="width: 400px;">
         <div class="p-l flex-grow">
           <vaadin-form-layout>
-            <vaadin-text-field label="code" id="code" pattern="[0-9]{0,8}" prevent-invalid-input></vaadin-text-field></br>
-            <vaadin-integer-field id="usefulWeight" helper-text="" value="0" min="0" max="9999" has-controls>
-              <iron-icon slot="prefix" icon="vaadin:abacus"></iron-icon>
-              <div slot="suffix">useful weight</div>
-            </vaadin-integer-field></br>
-            <vaadin-integer-field id="usefulVolume" helper-text="" value="0" min="0" max="9999" has-controls>
-              <iron-icon slot="prefix" icon="vaadin:abacus"></iron-icon>
-              <div slot="suffix">useful volume</div>
-            </vaadin-integer-field>
+            <vaadin-text-field label="code" id="capacityCode" pattern="[0-9]{0,6}" prevent-invalid-input colspan="2"></vaadin-text-field>
+            <vaadin-integer-field label="useful weight" id="usefulWeight" value="0" min="0"></vaadin-integer-field>
+            <vaadin-integer-field label="useful volume" id="usefulVolume" value="0" min="0"></vaadin-integer-field>
           </vaadin-form-layout>
         </div>
         <vaadin-horizontal-layout class="w-full flex-wrap bg-contrast-5 py-s px-l" theme="spacing">
