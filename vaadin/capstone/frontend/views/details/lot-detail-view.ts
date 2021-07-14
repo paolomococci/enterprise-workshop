@@ -13,6 +13,9 @@ export class LotDetailView extends LitElement {
   }
   render() {
     return html`<vaadin-split-layout class="w-full h-full">
+      <div class="flex-grow w-full" id="grid-wrapper">
+        <vaadin-grid id="grid"></vaadin-grid>
+      </div>
       <div class="flex flex-col" style="width: 400px;">
         <vaadin-horizontal-layout class="w-full flex-wrap bg-contrast-5 py-s px-l" theme="spacing">
           <vaadin-button theme="primary" id="save">save</vaadin-button>
