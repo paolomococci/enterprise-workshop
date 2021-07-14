@@ -118,7 +118,7 @@ public class CapacityDetailView
     }
 
     private void clearForm() {
-
+        populateForm(null);
     }
 
     private void populateForm(CapacityEntity capacityEntity) {
