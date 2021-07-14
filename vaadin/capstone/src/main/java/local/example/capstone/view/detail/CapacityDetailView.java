@@ -40,6 +40,8 @@ public class CapacityDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String CAPACITY_EDIT_ROUTE_TEMPLATE = "capacity-detail/%d/edit";
+
     @Id("grid")
     private Grid<CapacityEntity> capacityEntityGrid;
 
