@@ -97,7 +97,8 @@ public class CapacityDetailView
             }
         });
 
-        this.capacityEntityBeanValidationBinder = null;
+        this.capacityEntityBeanValidationBinder = new BeanValidationBinder<>(CapacityEntity.class);
+        this.capacityEntityBeanValidationBinder.bindInstanceFields(this);
     }
 
     private void refreshGrid() {
