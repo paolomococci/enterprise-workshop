@@ -100,6 +100,15 @@ public class LotDetailView
 
         this.lotEntityBeanValidationBinder = new BeanValidationBinder<>(LotEntity.class);
         this.lotEntityBeanValidationBinder.bindInstanceFields(this);
+
+        this.cancel.addClickListener(cancelButtonClickEvent -> {
+            this.clearForm();
+            this.refreshGrid();
+        });
+
+        this.save.addClickListener(saveButtonClickEvent -> {
+
+        });
     }
 
     private void refreshGrid() {
