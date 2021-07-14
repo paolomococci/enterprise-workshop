@@ -32,6 +32,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -110,7 +111,27 @@ public class LotDetailView
         });
 
         this.save.addClickListener(saveButtonClickEvent -> {
-
+            try {
+                if (this.lotEntity == null) {
+                    this.lotEntity = new LotEntity();
+                }
+                this.lotEntityBeanValidationBinder.writeBean(this.lotEntity);
+                this.lotService.update(this.lotEntity);
+                this.clearForm();
+                this.refreshGrid();
+                Notification.show(
+                        "lot details stored",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                UI.getCurrent().navigate(AddressDetailView.class);
+            } catch (ValidationException validationException) {
+                Notification.show(
+                        "an exception happened while trying to store the lot details",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+            }
         });
     }
 
