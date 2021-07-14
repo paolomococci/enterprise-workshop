@@ -98,7 +98,8 @@ public class LotDetailView
             }
         });
 
-        this.lotEntityBeanValidationBinder = null;
+        this.lotEntityBeanValidationBinder = new BeanValidationBinder<>(LotEntity.class);
+        this.lotEntityBeanValidationBinder.bindInstanceFields(this);
     }
 
     private void refreshGrid() {
