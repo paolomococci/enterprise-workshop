@@ -119,7 +119,7 @@ public class LotDetailView
     }
 
     private void clearForm() {
-
+        populateForm(null);
     }
 
     private void populateForm(LotEntity lotEntity) {
