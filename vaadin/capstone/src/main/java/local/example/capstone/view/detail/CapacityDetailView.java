@@ -33,6 +33,9 @@ import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 
 import local.example.capstone.data.entity.CapacityEntity;
+import local.example.capstone.data.service.CapacityService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @PageTitle("Capacity Detail")
 @Tag("capacity-detail-view")
@@ -42,6 +45,10 @@ public class CapacityDetailView
         implements HasStyle, BeforeEnterObserver {
 
     private final String CAPACITY_EDIT_ROUTE_TEMPLATE = "capacity-detail/%d/edit";
+    
+    private CapacityEntity capacityEntity;
+    
+    private final CapacityService capacityService;
 
     private final BeanValidationBinder<CapacityEntity> capacityEntityBeanValidationBinder;
 
@@ -62,7 +69,10 @@ public class CapacityDetailView
     @Id("cancel")
     private Button cancel;
 
-    public CapacityDetailView() {
+    public CapacityDetailView(@Autowired CapacityService capacityService) {
+        this.addClassNames("address-detail-view", "flex", "flex-col", "h-full");
+
+        this.capacityService = capacityService;
         this.capacityEntityBeanValidationBinder = null;
     }
 
