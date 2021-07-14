@@ -22,11 +22,14 @@ import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
+
+import local.example.capstone.data.entity.LotEntity;
 
 @PageTitle("Lot Detail")
 @Tag("lot-detail-view")
@@ -34,6 +37,9 @@ import com.vaadin.flow.router.PageTitle;
 public class LotDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
+
+    @Id("grid")
+    private Grid<LotEntity> lotEntityGrid;
 
     @Id("save")
     private Button save;
