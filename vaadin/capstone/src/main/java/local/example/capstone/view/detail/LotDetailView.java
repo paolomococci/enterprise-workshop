@@ -115,7 +115,8 @@ public class LotDetailView
     }
 
     private void refreshGrid() {
-
+        this.lotEntityGrid.select(null);
+        this.lotEntityGrid.getLazyDataView().refreshAll();
     }
 
     private void clearForm() {
