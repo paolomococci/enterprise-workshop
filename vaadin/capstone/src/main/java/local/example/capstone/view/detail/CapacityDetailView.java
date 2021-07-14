@@ -99,6 +99,15 @@ public class CapacityDetailView
 
         this.capacityEntityBeanValidationBinder = new BeanValidationBinder<>(CapacityEntity.class);
         this.capacityEntityBeanValidationBinder.bindInstanceFields(this);
+
+        this.cancel.addClickListener(cancelButtonClickEvent -> {
+            this.clearForm();
+            this.refreshGrid();
+        });
+
+        this.save.addClickListener(saveButtonClickEvent -> {
+
+        });
     }
 
     private void refreshGrid() {
