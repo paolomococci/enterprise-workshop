@@ -21,10 +21,13 @@ package local.example.capstone.view.detail;
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.textfield.IntegerField;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -40,6 +43,15 @@ public class LotDetailView
 
     @Id("grid")
     private Grid<LotEntity> lotEntityGrid;
+
+    @Id("lotCode")
+    private TextField code;
+
+    @Id("amount")
+    private IntegerField amount;
+
+    @Id("deadline")
+    private DatePicker deadline;
 
     @Id("save")
     private Button save;
