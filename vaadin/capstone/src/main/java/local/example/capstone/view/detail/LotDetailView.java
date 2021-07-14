@@ -41,6 +41,8 @@ public class LotDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String LOT_EDIT_ROUTE_TEMPLATE = "lot-detail/%d/edit";
+
     @Id("grid")
     private Grid<LotEntity> lotEntityGrid;
 
