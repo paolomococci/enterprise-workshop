@@ -27,6 +27,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -41,6 +42,8 @@ public class CapacityDetailView
         implements HasStyle, BeforeEnterObserver {
 
     private final String CAPACITY_EDIT_ROUTE_TEMPLATE = "capacity-detail/%d/edit";
+
+    private final BeanValidationBinder<CapacityEntity> capacityEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<CapacityEntity> capacityEntityGrid;
@@ -58,6 +61,10 @@ public class CapacityDetailView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    public CapacityDetailView() {
+        this.capacityEntityBeanValidationBinder = null;
+    }
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
