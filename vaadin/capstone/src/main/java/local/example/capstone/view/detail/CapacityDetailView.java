@@ -31,6 +31,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -109,7 +110,27 @@ public class CapacityDetailView
         });
 
         this.save.addClickListener(saveButtonClickEvent -> {
-
+            try {
+                if (this.capacityEntity == null) {
+                    this.capacityEntity = new CapacityEntity();
+                }
+                this.capacityEntityBeanValidationBinder.writeBean(this.capacityEntity);
+                this.capacityService.update(this.capacityEntity);
+                this.clearForm();
+                this.refreshGrid();
+                Notification.show(
+                        "capacity details stored",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+                UI.getCurrent().navigate(CapacityDetailView.class);
+            } catch (ValidationException validationException) {
+                Notification.show(
+                        "an exception happened while trying to store the capacity details",
+                        2500,
+                        Notification.Position.BOTTOM_CENTER
+                );
+            }
         });
     }
 
