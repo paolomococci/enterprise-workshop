@@ -94,7 +94,7 @@ public class LotDetailView
                 ));
             } else {
                 this.clearForm();
-                UI.getCurrent().navigate(CapacityDetailView.class);
+                UI.getCurrent().navigate(LotDetailView.class);
             }
         });
 
@@ -119,8 +119,9 @@ public class LotDetailView
 
     }
 
-    private void populateForm() {
-
+    private void populateForm(LotEntity lotEntity) {
+        this.lotEntity = lotEntity;
+        this.lotEntityBeanValidationBinder.readBean(this.lotEntity);
     }
 
     @Override
