@@ -4,6 +4,7 @@ import '@vaadin/vaadin-form-layout';
 import '@vaadin/vaadin-ordered-layout/vaadin-horizontal-layout';
 import '@vaadin/vaadin-text-field';
 import '@vaadin/vaadin-text-field/vaadin-integer-field';
+import '@vaadin/vaadin-date-picker';
 import '@vaadin/vaadin-button';
 import { customElement, html, LitElement } from 'lit-element';
 
@@ -20,12 +21,9 @@ export class LotDetailView extends LitElement {
       <div class="flex flex-col" style="width: 400px;">
         <div class="p-l flex-grow">
           <vaadin-form-layout>
-            <vaadin-text-field label="code" id="code" pattern="[0-9]{0,8}" prevent-invalid-input></vaadin-text-field>
-            <vaadin-text-field label="" id=""></vaadin-text-field></br>
-            <vaadin-integer-field id="amount" helper-text="" value="0" min="0" max="9999" has-controls>
-              <iron-icon slot="prefix" icon="vaadin:abacus"></iron-icon>
-              <div slot="suffix">amount</div>
-            </vaadin-integer-field>
+            <vaadin-text-field label="code" id="lotCode" pattern="[0-9]{0,6}" prevent-invalid-input colspan="2"></vaadin-text-field>
+            <vaadin-integer-field label="amount" id="amount" value="0" min="0"></vaadin-integer-field>
+            <vaadin-date-picker label="deadline" id="deadline"></vaadin-date-picker>
           </vaadin-form-layout>
         </div>
         <vaadin-horizontal-layout class="w-full flex-wrap bg-contrast-5 py-s px-l" theme="spacing">
