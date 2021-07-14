@@ -118,8 +118,9 @@ public class CapacityDetailView
 
     }
 
-    private void populateForm() {
-
+    private void populateForm(CapacityEntity capacityEntity) {
+        this.capacityEntity = capacityEntity;
+        this.capacityEntityBeanValidationBinder.readBean(this.capacityEntity);
     }
 
     @Override
