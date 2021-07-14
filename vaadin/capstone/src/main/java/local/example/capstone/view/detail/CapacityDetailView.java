@@ -114,7 +114,8 @@ public class CapacityDetailView
     }
 
     private void refreshGrid() {
-
+        this.capacityEntityGrid.select(null);
+        this.capacityEntityGrid.getLazyDataView().refreshAll();
     }
 
     private void clearForm() {
