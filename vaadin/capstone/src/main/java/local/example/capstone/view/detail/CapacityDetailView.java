@@ -36,13 +36,16 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 
+import com.vaadin.flow.router.Route;
 import local.example.capstone.data.entity.CapacityEntity;
 import local.example.capstone.data.service.CapacityService;
+import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
+@Route(value = "capacity-detail/:capacityID?/:action?(edit)", layout = MainView.class)
 @PageTitle("Capacity Detail")
 @Tag("capacity-detail-view")
 @JsModule("./views/details/capacity-detail-view.ts")
