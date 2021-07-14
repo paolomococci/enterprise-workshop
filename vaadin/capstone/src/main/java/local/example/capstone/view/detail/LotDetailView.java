@@ -71,7 +71,7 @@ public class LotDetailView
     private Button cancel;
 
     public LotDetailView(@Autowired LotService lotService) {
-        this.addClassNames("address-detail-view", "flex", "flex-col", "h-full");
+        this.addClassNames("lot-detail-view", "flex", "flex-col", "h-full");
 
         this.lotService = lotService;
         this.lotEntityBeanValidationBinder = null;
