@@ -70,7 +70,7 @@ public class CapacityDetailView
     private Button cancel;
 
     public CapacityDetailView(@Autowired CapacityService capacityService) {
-        this.addClassNames("address-detail-view", "flex", "flex-col", "h-full");
+        this.addClassNames("capacity-detail-view", "flex", "flex-col", "h-full");
 
         this.capacityService = capacityService;
         this.capacityEntityBeanValidationBinder = null;
