@@ -28,6 +28,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
@@ -42,6 +43,8 @@ public class LotDetailView
         implements HasStyle, BeforeEnterObserver {
 
     private final String LOT_EDIT_ROUTE_TEMPLATE = "lot-detail/%d/edit";
+
+    private final BeanValidationBinder<LotEntity> lotEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<LotEntity> lotEntityGrid;
@@ -59,6 +62,10 @@ public class LotDetailView
     private Button save;
     @Id("cancel")
     private Button cancel;
+
+    public LotDetailView() {
+        this.lotEntityBeanValidationBinder = null;
+    }
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
