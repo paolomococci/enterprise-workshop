@@ -24,6 +24,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
@@ -74,6 +75,16 @@ public class LotDetailView
         this.addClassNames("lot-detail-view", "flex", "flex-col", "h-full");
 
         this.lotService = lotService;
+
+        this.lotEntityGrid.addColumn(LotEntity::getCode).setHeader("Code").setAutoWidth(true);
+        this.lotEntityGrid.addColumn(LotEntity::getAmount).setHeader("Amount").setAutoWidth(true);
+        this.lotEntityGrid.addColumn(LotEntity::getDeadline).setHeader("Dead Line").setAutoWidth(true);
+        
+        this.lotEntityGrid.setItems(this.lotService.readAll());
+        
+        this.lotEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.lotEntityGrid.setHeightFull();
+        
         this.lotEntityBeanValidationBinder = null;
     }
 
