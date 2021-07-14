@@ -20,6 +20,7 @@ package local.example.capstone.view.detail;
 
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.JsModule;
@@ -84,12 +85,32 @@ public class LotDetailView
 
         this.lotEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.lotEntityGrid.setHeightFull();
-        
-        this.lotEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
 
+        this.lotEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
+            if (valueChangeEvent.getValue() != null) {
+                UI.getCurrent().navigate(String.format(
+                        LOT_EDIT_ROUTE_TEMPLATE,
+                        valueChangeEvent.getValue().getId()
+                ));
+            } else {
+                this.clearForm();
+                UI.getCurrent().navigate(CapacityDetailView.class);
+            }
         });
 
         this.lotEntityBeanValidationBinder = null;
+    }
+
+    private void refreshGrid() {
+
+    }
+
+    private void clearForm() {
+
+    }
+
+    private void populateForm() {
+
     }
 
     @Override
