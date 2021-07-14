@@ -23,6 +23,7 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.IntegerField;
@@ -45,9 +46,9 @@ public class CapacityDetailView
         implements HasStyle, BeforeEnterObserver {
 
     private final String CAPACITY_EDIT_ROUTE_TEMPLATE = "capacity-detail/%d/edit";
-    
+
     private CapacityEntity capacityEntity;
-    
+
     private final CapacityService capacityService;
 
     private final BeanValidationBinder<CapacityEntity> capacityEntityBeanValidationBinder;
@@ -73,6 +74,16 @@ public class CapacityDetailView
         this.addClassNames("capacity-detail-view", "flex", "flex-col", "h-full");
 
         this.capacityService = capacityService;
+
+        this.capacityEntityGrid.addColumn(CapacityEntity::getCode).setHeader("Code").setAutoWidth(true);
+        this.capacityEntityGrid.addColumn(CapacityEntity::getUsefulWeight).setHeader("Useful Weight").setAutoWidth(true);
+        this.capacityEntityGrid.addColumn(CapacityEntity::getUsefulVolume).setHeader("Useful Volume").setAutoWidth(true);
+
+        this.capacityEntityGrid.setItems(this.capacityService.readAll());
+
+        this.capacityEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.capacityEntityGrid.setHeightFull();
+
         this.capacityEntityBeanValidationBinder = null;
     }
 
