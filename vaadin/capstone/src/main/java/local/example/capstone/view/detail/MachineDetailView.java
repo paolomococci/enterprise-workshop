@@ -53,6 +53,7 @@ public class MachineDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String MACHINE_ID = "machineID";
     private final String MACHINE_EDIT_ROUTE_TEMPLATE = "machine-detail/%d/edit";
 
     private MachineEntity machineEntity;
@@ -149,7 +150,6 @@ public class MachineDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String MACHINE_ID = "machineID";
         Optional<Long> machineID = beforeEnterEvent.getRouteParameters().getLong(MACHINE_ID);
         if (machineID.isPresent()) {
             Optional<MachineEntity> optionalMachineEntity = machineService.read(MACHINE_ID);
