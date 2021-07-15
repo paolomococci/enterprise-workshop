@@ -37,6 +37,7 @@ import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.router.PageTitle;
 
 import local.example.capstone.view.form.*;
+import local.example.capstone.view.helper.HorizontalMenuItemHelper;
 
 public class MainView
         extends AppLayout {
@@ -95,6 +96,9 @@ public class MainView
     }
 
     private Iterable<? extends Tab> createHorizontalMenuItems() {
+        HorizontalMenuItemHelper[] menuItems = new HorizontalMenuItemHelper[]{
+
+        };
         return null;
     }
 
