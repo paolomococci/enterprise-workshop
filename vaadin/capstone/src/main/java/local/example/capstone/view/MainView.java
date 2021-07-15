@@ -110,6 +110,8 @@ public class MainView
     }
 
     private Tab createHorizontalTab(HorizontalMenuItemHelper horizontalMenuItemHelper) {
+        Tab tab = new Tab();
+        RouterLink routerLink = new RouterLink();
         return null;
     }
 
