@@ -52,6 +52,7 @@ public class CrewDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String CREW_ID = "crewID";
     private final String CREW_EDIT_ROUTE_TEMPLATE = "crew-detail/%d/edit";
 
     private CrewEntity crewEntity;
@@ -148,7 +149,6 @@ public class CrewDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String CREW_ID = "crewID";
         Optional<Long> crewId = beforeEnterEvent.getRouteParameters().getLong(CREW_ID);
         if (crewId.isPresent()) {
             Optional<CrewEntity> optionalCrewEntity = crewService.read(CREW_ID);
