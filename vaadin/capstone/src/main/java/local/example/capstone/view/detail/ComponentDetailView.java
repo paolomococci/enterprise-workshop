@@ -53,6 +53,7 @@ public class ComponentDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String COMPONENT_ID = "componentID";
     private final String COMPONENT_EDIT_ROUTE_TEMPLATE = "component-detail/%d/edit";
 
     private ComponentEntity componentEntity;
@@ -149,7 +150,6 @@ public class ComponentDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String COMPONENT_ID = "componentID";
         Optional<Long> componentId = beforeEnterEvent.getRouteParameters().getLong(COMPONENT_ID);
         if (componentId.isPresent()) {
             Optional<ComponentEntity> optionalComponentEntity = componentService.read(COMPONENT_ID);
