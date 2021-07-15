@@ -99,10 +99,17 @@ public class MainView
     }
 
     private Iterable<? extends Tab> createHorizontalMenuItems() {
-        HorizontalMenuItemHelper[] menuItems = new HorizontalMenuItemHelper[]{
+        HorizontalMenuItemHelper[] horizontalMenuItems = new HorizontalMenuItemHelper[]{
                 new HorizontalMenuItemHelper("Address Detail", "la la-users-cog", AddressDetailView.class)
         };
         List<Tab> tabs = new ArrayList<>();
+        for (HorizontalMenuItemHelper horizontalMenuItemHelper : horizontalMenuItems) {
+            tabs.add(this.createHorizontalTab(horizontalMenuItemHelper));
+        }
+        return null;
+    }
+
+    private Tab createHorizontalTab(HorizontalMenuItemHelper horizontalMenuItemHelper) {
         return null;
     }
 
@@ -117,27 +124,27 @@ public class MainView
 
     private Component[] createMenuItems() {
         return new Tab[] {
-                createTab("Search", SearchView.class),
-                createTab("Address Form", AddressFormView.class),
-                createTab("Capacity Form", CapacityFormView.class),
-                createTab("Carrier Form", CarrierFormView.class),
-                createTab("Component Form", ComponentFormView.class),
-                createTab("Contact Form", ContactFormView.class),
-                createTab("Crew Form", CrewFormView.class),
-                createTab("Customer Form", CustomerFormView.class),
-                createTab("Invoice Form", InvoiceFormView.class),
-                createTab("Lot Form", LotFormView.class),
-                createTab("Machine Form", MachineFormView.class),
-                createTab("Operator Form", OperatorFormView.class),
-                createTab("Position Form", PositionFormView.class),
-                createTab("Product Form", ProductFormView.class),
-                createTab("Supplier Form", SupplierFormView.class),
-                createTab("Help", HelpView.class),
-                createTab("About", AboutView.class)
+                this.createVerticalTab("Search", SearchView.class),
+                this.createVerticalTab("Address Form", AddressFormView.class),
+                this.createVerticalTab("Capacity Form", CapacityFormView.class),
+                this.createVerticalTab("Carrier Form", CarrierFormView.class),
+                this.createVerticalTab("Component Form", ComponentFormView.class),
+                this.createVerticalTab("Contact Form", ContactFormView.class),
+                this.createVerticalTab("Crew Form", CrewFormView.class),
+                this.createVerticalTab("Customer Form", CustomerFormView.class),
+                this.createVerticalTab("Invoice Form", InvoiceFormView.class),
+                this.createVerticalTab("Lot Form", LotFormView.class),
+                this.createVerticalTab("Machine Form", MachineFormView.class),
+                this.createVerticalTab("Operator Form", OperatorFormView.class),
+                this.createVerticalTab("Position Form", PositionFormView.class),
+                this.createVerticalTab("Product Form", ProductFormView.class),
+                this.createVerticalTab("Supplier Form", SupplierFormView.class),
+                this.createVerticalTab("Help", HelpView.class),
+                this.createVerticalTab("About", AboutView.class)
         };
     }
 
-    private static Tab createTab(
+    private static Tab createVerticalTab(
             String text,
             Class<? extends Component> navigationTarget
     ) {
