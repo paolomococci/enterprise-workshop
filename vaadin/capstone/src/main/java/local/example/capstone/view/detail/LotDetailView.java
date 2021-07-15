@@ -94,6 +94,7 @@ public class LotDetailView
         this.lotEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.lotEntityGrid.setHeightFull();
 
+        this.lotEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.lotEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
