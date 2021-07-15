@@ -53,6 +53,7 @@ public class ProductDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String PRODUCT_ID = "productID";
     private final String PRODUCT_EDIT_ROUTE_TEMPLATE = "product-detail/%d/edit";
 
     private ProductEntity productEntity;
@@ -149,7 +150,6 @@ public class ProductDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String PRODUCT_ID = "productID";
         Optional<Long> productID = beforeEnterEvent.getRouteParameters().getLong(PRODUCT_ID);
         if (productID.isPresent()) {
             Optional<ProductEntity> optionalProductEntity = productService.read(PRODUCT_ID);
