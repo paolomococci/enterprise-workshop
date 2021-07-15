@@ -52,6 +52,7 @@ public class SupplierDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String SUPPLIER_ID = "supplierID";
     private final String SUPPLIER_EDIT_ROUTE_TEMPLATE = "supplier-detail/%d/edit";
 
     private SupplierEntity supplierEntity;
@@ -148,7 +149,6 @@ public class SupplierDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String SUPPLIER_ID = "supplierID";
         Optional<Long> supplierID = beforeEnterEvent.getRouteParameters().getLong(SUPPLIER_ID);
         if (supplierID.isPresent()) {
             Optional<SupplierEntity> optionalSupplierEntity = supplierService.read(SUPPLIER_ID);
