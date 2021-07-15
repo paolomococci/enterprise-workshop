@@ -88,6 +88,7 @@ public class SupplierDetailView
         this.supplierEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.supplierEntityGrid.setHeightFull();
 
+        this.supplierEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.supplierEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
