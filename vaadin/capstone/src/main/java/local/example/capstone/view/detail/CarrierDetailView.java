@@ -88,6 +88,7 @@ public class CarrierDetailView
         this.carrierEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.carrierEntityGrid.setHeightFull();
 
+        this.carrierEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.carrierEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
