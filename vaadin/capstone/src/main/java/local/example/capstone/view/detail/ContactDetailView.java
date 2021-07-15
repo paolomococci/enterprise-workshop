@@ -54,6 +54,7 @@ public class ContactDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String CONTACT_ID = "contactID";
     private final String CONTACT_EDIT_ROUTE_TEMPLATE = "contact-detail/%d/edit";
 
     private ContactEntity contactEntity;
@@ -175,7 +176,6 @@ public class ContactDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String CONTACT_ID = "contactID";
         Optional<Long> contactID = beforeEnterEvent.getRouteParameters().getLong(CONTACT_ID);
         if (contactID.isPresent()) {
             Optional<ContactEntity> optionalContactEntity = contactService.read(CONTACT_ID);
