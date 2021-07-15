@@ -89,6 +89,7 @@ public class PositionDetailView
         this.positionEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.positionEntityGrid.setHeightFull();
 
+        this.positionEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.positionEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
