@@ -53,6 +53,7 @@ public class PositionDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String POSITION_ID = "positionID";
     private final String POSITION_EDIT_ROUTE_TEMPLATE = "position-detail/%d/edit";
 
     private PositionEntity positionEntity;
@@ -149,7 +150,6 @@ public class PositionDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String POSITION_ID = "positionID";
         Optional<Long> positionID = beforeEnterEvent.getRouteParameters().getLong(POSITION_ID);
         if (positionID.isPresent()) {
             Optional<PositionEntity> optionalPositionEntity = positionService.read(POSITION_ID);
