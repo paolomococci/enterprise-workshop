@@ -82,6 +82,12 @@ public class MainView
         verticalLayout.add(logoLayout, tabs);
         return verticalLayout;
     }
+    
+    private Tabs createHorizontalMenu() {
+        final Tabs menuTabs = new Tabs();
+        // TODO
+        return menuTabs;
+    }
 
     private Tabs createVerticalMenu() {
         final Tabs menuTabs = new Tabs();
