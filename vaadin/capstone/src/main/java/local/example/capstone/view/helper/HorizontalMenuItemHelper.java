@@ -25,4 +25,14 @@ public class HorizontalMenuItemHelper {
     private String label;
     private String icon;
     private Class<? extends Component> view;
+
+    public HorizontalMenuItemHelper(
+            String label, 
+            String icon, 
+            Class<? extends Component> view
+    ) {
+        this.label = label;
+        this.icon = icon;
+        this.view = view;
+    }
 }
