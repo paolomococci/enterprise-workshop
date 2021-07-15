@@ -100,6 +100,7 @@ public class AddressDetailView
         this.addressEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.addressEntityGrid.setHeightFull();
 
+        this.addressEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.addressEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
