@@ -54,6 +54,7 @@ public class OperatorDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String OPERATOR_ID = "operatorID";
     private final String OPERATOR_EDIT_ROUTE_TEMPLATE = "operator-detail/%d/edit";
 
     private OperatorEntity operatorEntity;
@@ -170,7 +171,6 @@ public class OperatorDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String OPERATOR_ID = "operatorID";
         Optional<Long> operatorID = beforeEnterEvent.getRouteParameters().getLong(OPERATOR_ID);
         if (operatorID.isPresent()) {
             Optional<OperatorEntity> optionalOperatorEntity = operatorService.read(OPERATOR_ID);
