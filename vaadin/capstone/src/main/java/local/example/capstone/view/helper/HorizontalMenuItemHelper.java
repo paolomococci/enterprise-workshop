@@ -18,5 +18,11 @@
 
 package local.example.capstone.view.helper;
 
+import com.vaadin.flow.component.Component;
+
 public class HorizontalMenuItemHelper {
+
+    private String label;
+    private String icon;
+    private Class<? extends Component> view;
 }
