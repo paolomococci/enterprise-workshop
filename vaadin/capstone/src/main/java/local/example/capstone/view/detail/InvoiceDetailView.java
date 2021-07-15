@@ -53,6 +53,7 @@ public class InvoiceDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String INVOICE_ID = "invoiceID";
     private final String INVOICE_EDIT_ROUTE_TEMPLATE = "invoice-detail/%d/edit";
 
     private InvoiceEntity invoiceEntity;
@@ -149,7 +150,6 @@ public class InvoiceDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String INVOICE_ID = "invoiceID";
         Optional<Long> invoiceID = beforeEnterEvent.getRouteParameters().getLong(INVOICE_ID);
         if (invoiceID.isPresent()) {
             Optional<InvoiceEntity> optionalInvoiceEntity = invoiceService.read(INVOICE_ID);
