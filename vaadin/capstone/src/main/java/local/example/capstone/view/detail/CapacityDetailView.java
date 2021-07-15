@@ -93,6 +93,7 @@ public class CapacityDetailView
         this.capacityEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.capacityEntityGrid.setHeightFull();
 
+        this.capacityEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.capacityEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
