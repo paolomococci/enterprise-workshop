@@ -47,7 +47,7 @@ public class MainView
     public MainView() {
         this.setPrimarySection(Section.DRAWER);
         this.addToNavbar(true, createHeaderContent());
-        this.verticalMenuTabs = createMenu();
+        this.verticalMenuTabs = createVerticalMenu();
         this.addToDrawer(
                 this.createDrawerContent(verticalMenuTabs)
         );
@@ -83,7 +83,7 @@ public class MainView
         return verticalLayout;
     }
 
-    private Tabs createMenu() {
+    private Tabs createVerticalMenu() {
         final Tabs menuTabs = new Tabs();
         menuTabs.setOrientation(Tabs.Orientation.VERTICAL);
         menuTabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
