@@ -52,6 +52,7 @@ public class CustomerDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String CUSTOMER_ID = "customerID";
     private final String CUSTOMER_EDIT_ROUTE_TEMPLATE = "customer-detail/%d/edit";
 
     private CustomerEntity customerEntity;
@@ -148,7 +149,6 @@ public class CustomerDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String CUSTOMER_ID = "customerID";
         Optional<Long> customerId = beforeEnterEvent.getRouteParameters().getLong(CUSTOMER_ID);
         if (customerId.isPresent()) {
             Optional<CustomerEntity> optionalCustomerEntity = customerService.read(CUSTOMER_ID);
