@@ -52,6 +52,7 @@ public class AddressDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String ADDRESS_ID = "addressID";
     private final String ADDRESS_EDIT_ROUTE_TEMPLATE = "address-detail/%d/edit";
 
     private AddressEntity addressEntity;
@@ -161,7 +162,6 @@ public class AddressDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String ADDRESS_ID = "addressID";
         Optional<Long> addressID = beforeEnterEvent.getRouteParameters().getLong(ADDRESS_ID);
         if (addressID.isPresent()) {
             Optional<AddressEntity> optionalAddressEntity = addressService.read(ADDRESS_ID);
