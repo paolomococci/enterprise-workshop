@@ -89,6 +89,7 @@ public class MachineDetailView
         this.machineEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.machineEntityGrid.setHeightFull();
 
+        this.machineEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.machineEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
