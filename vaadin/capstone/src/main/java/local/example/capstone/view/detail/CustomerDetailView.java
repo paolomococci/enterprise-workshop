@@ -88,6 +88,7 @@ public class CustomerDetailView
         this.customerEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.customerEntityGrid.setHeightFull();
 
+        this.customerEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.customerEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
