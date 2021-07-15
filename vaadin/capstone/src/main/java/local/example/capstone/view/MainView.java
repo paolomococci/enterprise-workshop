@@ -18,6 +18,8 @@
 
 package local.example.capstone.view;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.vaadin.flow.component.Component;
@@ -36,6 +38,7 @@ import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.router.PageTitle;
 
+import local.example.capstone.view.detail.AddressDetailView;
 import local.example.capstone.view.form.*;
 import local.example.capstone.view.helper.HorizontalMenuItemHelper;
 
@@ -97,8 +100,9 @@ public class MainView
 
     private Iterable<? extends Tab> createHorizontalMenuItems() {
         HorizontalMenuItemHelper[] menuItems = new HorizontalMenuItemHelper[]{
-
+                new HorizontalMenuItemHelper("Address Detail", "la la-users-cog", AddressDetailView.class)
         };
+        List<Tab> tabs = new ArrayList<>();
         return null;
     }
 
