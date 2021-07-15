@@ -89,6 +89,7 @@ public class ComponentDetailView
         this.componentEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.componentEntityGrid.setHeightFull();
 
+        this.componentEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.componentEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
