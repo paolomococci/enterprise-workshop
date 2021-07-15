@@ -53,6 +53,7 @@ public class CapacityDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String CAPACITY_ID = "capacityID";
     private final String CAPACITY_EDIT_ROUTE_TEMPLATE = "capacity-detail/%d/edit";
 
     private CapacityEntity capacityEntity;
@@ -153,7 +154,6 @@ public class CapacityDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String CAPACITY_ID = "capacityID";
         Optional<Long> capacityID = beforeEnterEvent.getRouteParameters().getLong(CAPACITY_ID);
         if (capacityID.isPresent()) {
             Optional<CapacityEntity> optionalCapacityEntity = capacityService.read(CAPACITY_ID);
