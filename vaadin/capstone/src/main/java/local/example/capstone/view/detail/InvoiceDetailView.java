@@ -89,6 +89,7 @@ public class InvoiceDetailView
         this.invoiceEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.invoiceEntityGrid.setHeightFull();
 
+        this.invoiceEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.invoiceEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
