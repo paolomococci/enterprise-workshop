@@ -41,15 +41,15 @@ import local.example.capstone.view.form.*;
 public class MainView
         extends AppLayout {
 
-    private final Tabs menuTabs;
+    private final Tabs verticalMenuTabs;
     private H1 appTitle;
 
     public MainView() {
         this.setPrimarySection(Section.DRAWER);
         this.addToNavbar(true, createHeaderContent());
-        this.menuTabs = createMenu();
+        this.verticalMenuTabs = createMenu();
         this.addToDrawer(
-                this.createDrawerContent(menuTabs)
+                this.createDrawerContent(verticalMenuTabs)
         );
     }
 
@@ -129,7 +129,7 @@ public class MainView
     }
 
     private Optional<Tab> getTabForComponent(Component component) {
-        return this.menuTabs.getChildren()
+        return this.verticalMenuTabs.getChildren()
                 .filter(
                     tab -> ComponentUtil.
                             getData(tab, Class.class)
@@ -149,7 +149,7 @@ public class MainView
         this.getTabForComponent(
                 this.getContent()
         ).ifPresent(
-                this.menuTabs::setSelectedTab
+                this.verticalMenuTabs::setSelectedTab
         );
         this.appTitle.setText(
                 this.getCurrentPageTitle()
