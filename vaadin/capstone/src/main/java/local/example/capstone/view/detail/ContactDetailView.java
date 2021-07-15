@@ -114,6 +114,7 @@ public class ContactDetailView
         this.contactEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.contactEntityGrid.setHeightFull();
 
+        this.contactEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.contactEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
