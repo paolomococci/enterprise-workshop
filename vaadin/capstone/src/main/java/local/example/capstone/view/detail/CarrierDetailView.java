@@ -52,6 +52,7 @@ public class CarrierDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String CARRIER_ID = "carrierID";
     private final String CARRIER_EDIT_ROUTE_TEMPLATE = "carrier-detail/%d/edit";
 
     private CarrierEntity carrierEntity;
@@ -149,7 +150,6 @@ public class CarrierDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String CARRIER_ID = "carrierID";
         Optional<Long> carrierID = beforeEnterEvent.getRouteParameters().getLong(CARRIER_ID);
         if (carrierID.isPresent()) {
             Optional<CarrierEntity> optionalCarrierEntity = carrierService.read(CARRIER_ID);
