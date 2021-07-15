@@ -54,6 +54,7 @@ public class LotDetailView
         extends LitTemplate
         implements HasStyle, BeforeEnterObserver {
 
+    private final String LOT_ID = "lotID";
     private final String LOT_EDIT_ROUTE_TEMPLATE = "lot-detail/%d/edit";
 
     private LotEntity lotEntity;
@@ -154,7 +155,6 @@ public class LotDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        String LOT_ID = "lotID";
         Optional<Long> lotID = beforeEnterEvent.getRouteParameters().getLong(LOT_ID);
         if (lotID.isPresent()) {
             Optional<LotEntity> optionalLotEntity = lotService.read(LOT_ID);
