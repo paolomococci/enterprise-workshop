@@ -87,8 +87,15 @@ public class MainView
 
     private Tabs createHorizontalMenu() {
         final Tabs menuTabs = new Tabs();
-        // TODO
+        menuTabs.getStyle().set("max-width", "100%");
+        for (Tab menuTab : createHorizontalMenuItems()) {
+            menuTab.add(menuTab);
+        }
         return menuTabs;
+    }
+
+    private Iterable<? extends Tab> createHorizontalMenuItems() {
+        return null;
     }
 
     private Tabs createVerticalMenu() {
