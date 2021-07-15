@@ -89,6 +89,7 @@ public class ProductDetailView
         this.productEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.productEntityGrid.setHeightFull();
 
+        this.productEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.productEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
