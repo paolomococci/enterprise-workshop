@@ -27,12 +27,36 @@ public class HorizontalMenuItemHelper {
     private Class<? extends Component> view;
 
     public HorizontalMenuItemHelper(
-            String label, 
-            String icon, 
+            String label,
+            String icon,
             Class<? extends Component> view
     ) {
         this.label = label;
         this.icon = icon;
+        this.view = view;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public Class<? extends Component> getView() {
+        return view;
+    }
+
+    public void setView(Class<? extends Component> view) {
         this.view = view;
     }
 }
