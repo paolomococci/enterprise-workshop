@@ -41,12 +41,14 @@ import local.example.capstone.view.form.*;
 public class MainView
         extends AppLayout {
 
+    private final Tabs horizontalMenuTabs;
     private final Tabs verticalMenuTabs;
     private H1 appTitle;
 
     public MainView() {
         this.setPrimarySection(Section.DRAWER);
         this.addToNavbar(true, createHeaderContent());
+        this.horizontalMenuTabs = new Tabs();
         this.verticalMenuTabs = createVerticalMenu();
         this.addToDrawer(
                 this.createDrawerContent(verticalMenuTabs)
@@ -82,7 +84,7 @@ public class MainView
         verticalLayout.add(logoLayout, tabs);
         return verticalLayout;
     }
-    
+
     private Tabs createHorizontalMenu() {
         final Tabs menuTabs = new Tabs();
         // TODO
