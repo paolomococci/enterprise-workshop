@@ -110,6 +110,7 @@ public class OperatorDetailView
         this.operatorEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.operatorEntityGrid.setHeightFull();
 
+        this.operatorEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.operatorEntityGrid.asSingleSelect().addValueChangeListener(valueChangeEvent -> {
             if (valueChangeEvent.getValue() != null) {
                 UI.getCurrent().navigate(String.format(
