@@ -100,6 +100,7 @@ public class CrewDetailView
             }
         });
 
+        this.crewEntityGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
         this.crewEntityBeanValidationBinder = new BeanValidationBinder<>(CrewEntity.class);
         this.crewEntityBeanValidationBinder.bindInstanceFields(this);
 
