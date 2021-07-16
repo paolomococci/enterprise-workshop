@@ -54,7 +54,7 @@ public class MainView
     public MainView() {
         this.setPrimarySection(Section.DRAWER);
         this.addToNavbar(true, createHeaderContent());
-        this.horizontalMenuTabs = new Tabs();
+        this.horizontalMenuTabs = createHorizontalMenu();
         this.verticalMenuTabs = createVerticalMenu();
         this.addToDrawer(
                 this.createDrawerContent(verticalMenuTabs)
