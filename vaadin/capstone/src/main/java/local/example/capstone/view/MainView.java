@@ -54,8 +54,8 @@ public class MainView
     public MainView() {
         this.setPrimarySection(Section.DRAWER);
         this.addToNavbar(true, createHeaderContent());
-        this.horizontalMenuTabs = createHorizontalMenu();
-        this.verticalMenuTabs = createVerticalMenu();
+        this.horizontalMenuTabs = this.createHorizontalMenu();
+        this.verticalMenuTabs = this.createVerticalMenu();
         this.addToDrawer(
                 this.createDrawerContent(verticalMenuTabs)
         );
@@ -92,23 +92,23 @@ public class MainView
     }
 
     private Tabs createHorizontalMenu() {
-        final Tabs menuTabs = new Tabs();
-        menuTabs.getStyle().set("max-width", "100%");
-        for (Tab menuTab : createHorizontalMenuItems()) {
-            menuTab.add(menuTab);
+        final Tabs horizontalMenuTabs = new Tabs();
+        horizontalMenuTabs.getStyle().set("max-width", "100%");
+        for (Tab horizontalMenuTab : createHorizontalMenuItems()) {
+            horizontalMenuTab.add(horizontalMenuTab);
         }
-        return menuTabs;
+        return horizontalMenuTabs;
     }
 
-    private Iterable<? extends Tab> createHorizontalMenuItems() {
-        HorizontalMenuItemHelper[] horizontalMenuItems = new HorizontalMenuItemHelper[]{
-                new HorizontalMenuItemHelper("Address Detail", "la la-users-cog", AddressDetailView.class)
+    private List<Tab> createHorizontalMenuItems() {
+        final HorizontalMenuItemHelper[] horizontalMenuItems = new HorizontalMenuItemHelper[]{
+                new HorizontalMenuItemHelper("Address Detail", "la la-users-cog", AddressDetailView.class),
         };
         List<Tab> tabs = new ArrayList<>();
         for (HorizontalMenuItemHelper horizontalMenuItemHelper : horizontalMenuItems) {
             tabs.add(this.createHorizontalTab(horizontalMenuItemHelper));
         }
-        return null;
+        return tabs;
     }
 
     private Tab createHorizontalTab(HorizontalMenuItemHelper horizontalMenuItemHelper) {
