@@ -19,44 +19,18 @@
 package local.example.capstone.view.helper;
 
 import com.vaadin.flow.component.Component;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@AllArgsConstructor
 public class HorizontalMenuItemHelper {
 
+    @Getter
     private String label;
-    private String icon;
+
+    @Getter
+    private String iconClass;
+
+    @Getter
     private Class<? extends Component> view;
-
-    public HorizontalMenuItemHelper(
-            String label,
-            String icon,
-            Class<? extends Component> view
-    ) {
-        this.label = label;
-        this.icon = icon;
-        this.view = view;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public Class<? extends Component> getView() {
-        return view;
-    }
-
-    public void setView(Class<? extends Component> view) {
-        this.view = view;
-    }
 }
