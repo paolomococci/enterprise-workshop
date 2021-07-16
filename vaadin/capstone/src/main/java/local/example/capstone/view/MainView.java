@@ -121,6 +121,7 @@ public class MainView
         final HorizontalMenuItemHelper[] horizontalMenuItems = new HorizontalMenuItemHelper[]{
                 new HorizontalMenuItemHelper("Address Detail", "", AddressDetailView.class),
                 new HorizontalMenuItemHelper("Capacity Detail", "", CapacityDetailView.class),
+                new HorizontalMenuItemHelper("Carrier Detail", "", CarrierDetailView.class),
         };
         List<Tab> tabs = new ArrayList<>();
         for (HorizontalMenuItemHelper horizontalMenuItemHelper : horizontalMenuItems) {
