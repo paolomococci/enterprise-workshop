@@ -95,7 +95,7 @@ public class MainView
         final Tabs horizontalMenuTabs = new Tabs();
         horizontalMenuTabs.getStyle().set("max-width", "100%");
         for (Tab horizontalMenuTab : createHorizontalMenuItems()) {
-            horizontalMenuTab.add(horizontalMenuTab);
+            horizontalMenuTabs.add(horizontalMenuTab);
         }
         return horizontalMenuTabs;
     }
