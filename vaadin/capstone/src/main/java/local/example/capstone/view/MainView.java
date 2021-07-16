@@ -24,11 +24,13 @@ import java.util.Optional;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentUtil;
+import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -112,8 +114,15 @@ public class MainView
     private Tab createHorizontalTab(HorizontalMenuItemHelper horizontalMenuItemHelper) {
         Tab tab = new Tab();
         RouterLink routerLink = new RouterLink();
-        // TODO
-        return null;
+        routerLink.setRoute(horizontalMenuItemHelper.getView());
+        Span iconSpanElement = new Span();
+        iconSpanElement.addClassNames("text-l", "pr-s");
+        if (!horizontalMenuItemHelper.getIconClass().isEmpty())
+            iconSpanElement.addClassNames(horizontalMenuItemHelper.getIconClass());
+        routerLink.add(iconSpanElement, new Text(horizontalMenuItemHelper.getLabel()));
+        tab.add(routerLink);
+        ComponentUtil.setData(tab, Class.class, horizontalMenuItemHelper.getView());
+        return tab;
     }
 
     private Tabs createVerticalMenu() {
@@ -127,23 +136,23 @@ public class MainView
 
     private Component[] createMenuItems() {
         return new Tab[] {
-                this.createVerticalTab("Search", SearchView.class),
-                this.createVerticalTab("Address Form", AddressFormView.class),
-                this.createVerticalTab("Capacity Form", CapacityFormView.class),
-                this.createVerticalTab("Carrier Form", CarrierFormView.class),
-                this.createVerticalTab("Component Form", ComponentFormView.class),
-                this.createVerticalTab("Contact Form", ContactFormView.class),
-                this.createVerticalTab("Crew Form", CrewFormView.class),
-                this.createVerticalTab("Customer Form", CustomerFormView.class),
-                this.createVerticalTab("Invoice Form", InvoiceFormView.class),
-                this.createVerticalTab("Lot Form", LotFormView.class),
-                this.createVerticalTab("Machine Form", MachineFormView.class),
-                this.createVerticalTab("Operator Form", OperatorFormView.class),
-                this.createVerticalTab("Position Form", PositionFormView.class),
-                this.createVerticalTab("Product Form", ProductFormView.class),
-                this.createVerticalTab("Supplier Form", SupplierFormView.class),
-                this.createVerticalTab("Help", HelpView.class),
-                this.createVerticalTab("About", AboutView.class)
+                createVerticalTab("Search", SearchView.class),
+                createVerticalTab("Address Form", AddressFormView.class),
+                createVerticalTab("Capacity Form", CapacityFormView.class),
+                createVerticalTab("Carrier Form", CarrierFormView.class),
+                createVerticalTab("Component Form", ComponentFormView.class),
+                createVerticalTab("Contact Form", ContactFormView.class),
+                createVerticalTab("Crew Form", CrewFormView.class),
+                createVerticalTab("Customer Form", CustomerFormView.class),
+                createVerticalTab("Invoice Form", InvoiceFormView.class),
+                createVerticalTab("Lot Form", LotFormView.class),
+                createVerticalTab("Machine Form", MachineFormView.class),
+                createVerticalTab("Operator Form", OperatorFormView.class),
+                createVerticalTab("Position Form", PositionFormView.class),
+                createVerticalTab("Product Form", ProductFormView.class),
+                createVerticalTab("Supplier Form", SupplierFormView.class),
+                createVerticalTab("Help", HelpView.class),
+                createVerticalTab("About", AboutView.class)
         };
     }
 
