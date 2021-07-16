@@ -40,7 +40,7 @@ import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.router.PageTitle;
 
-import local.example.capstone.view.detail.AddressDetailView;
+import local.example.capstone.view.detail.*;
 import local.example.capstone.view.form.*;
 import local.example.capstone.view.helper.HorizontalMenuItemHelper;
 
@@ -119,7 +119,8 @@ public class MainView
 
     private List<Tab> createHorizontalMenuItems() {
         final HorizontalMenuItemHelper[] horizontalMenuItems = new HorizontalMenuItemHelper[]{
-                new HorizontalMenuItemHelper("Address Detail", "la la-users-cog", AddressDetailView.class),
+                new HorizontalMenuItemHelper("Address Detail", "", AddressDetailView.class),
+                new HorizontalMenuItemHelper("Capacity Detail", "", CapacityDetailView.class),
         };
         List<Tab> tabs = new ArrayList<>();
         for (HorizontalMenuItemHelper horizontalMenuItemHelper : horizontalMenuItems) {
