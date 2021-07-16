@@ -129,6 +129,7 @@ public class MainView
                 new HorizontalMenuItemHelper("Invoice Detail", "", InvoiceDetailView.class),
                 new HorizontalMenuItemHelper("Lot Detail", "", LotDetailView.class),
                 new HorizontalMenuItemHelper("Machine Detail", "", MachineDetailView.class),
+                new HorizontalMenuItemHelper("Operator Detail", "", OperatorDetailView.class),
         };
         List<Tab> tabs = new ArrayList<>();
         for (HorizontalMenuItemHelper horizontalMenuItemHelper : horizontalMenuItems) {
