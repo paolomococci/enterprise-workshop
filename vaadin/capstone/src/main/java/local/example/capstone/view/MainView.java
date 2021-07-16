@@ -54,7 +54,13 @@ public class MainView
     public MainView() {
         this.setPrimarySection(Section.DRAWER);
         this.horizontalMenuTabs = this.createHorizontalMenu();
-        this.addToNavbar(true, createHeaderContent());
+        this.addToNavbar(
+                true,
+                this.createTopNavbar(
+                        (HorizontalLayout) this.createHeaderContent(),
+                        this.createHorizontalMenu()
+                )
+        );
         this.verticalMenuTabs = this.createVerticalMenu();
         this.addToDrawer(
                 this.createDrawerContent(verticalMenuTabs)
@@ -62,7 +68,14 @@ public class MainView
     }
 
     private VerticalLayout createTopNavbar(HorizontalLayout headerContent, Tabs horizontalMenu) {
-        return null;
+        VerticalLayout topNavbarVerticalLayout = new VerticalLayout();
+        topNavbarVerticalLayout.getThemeList().add("dark");
+        topNavbarVerticalLayout.setWidthFull();
+        topNavbarVerticalLayout.setSpacing(false);
+        topNavbarVerticalLayout.setPadding(false);
+        topNavbarVerticalLayout.setAlignItems(FlexComponent.Alignment.CENTER);
+        topNavbarVerticalLayout.add(headerContent, horizontalMenu);
+        return topNavbarVerticalLayout;
     }
 
     private Component createHeaderContent() {
