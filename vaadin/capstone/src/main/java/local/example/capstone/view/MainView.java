@@ -123,6 +123,7 @@ public class MainView
                 new HorizontalMenuItemHelper("Capacity Detail", "", CapacityDetailView.class),
                 new HorizontalMenuItemHelper("Carrier Detail", "", CarrierDetailView.class),
                 new HorizontalMenuItemHelper("Component Detail", "", ComponentDetailView.class),
+                new HorizontalMenuItemHelper("Contact Detail", "", ContactDetailView.class),
         };
         List<Tab> tabs = new ArrayList<>();
         for (HorizontalMenuItemHelper horizontalMenuItemHelper : horizontalMenuItems) {
