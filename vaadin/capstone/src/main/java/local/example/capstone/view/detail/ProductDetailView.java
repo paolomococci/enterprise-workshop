@@ -153,12 +153,12 @@ public class ProductDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> productId = beforeEnterEvent.getRouteParameters().getLong(PRODUCT_ID);
         if (productId.isPresent()) {
-            Optional<ProductEntity> optionalProductEntity = productService.read(String.valueOf(productId));
+            Optional<ProductEntity> optionalProductEntity = productService.read(String.valueOf(productId.get()));
             if (optionalProductEntity.isPresent()) {
                 this.populateForm(optionalProductEntity.get());
             } else {
                 Notification.show(
-                        String.format("The requested product was not found, ID = %d", productID.get()),
+                        String.format("The requested product was not found, ID = %d", productId.get()),
                         2500,
                         Notification.Position.BOTTOM_CENTER
                 );
