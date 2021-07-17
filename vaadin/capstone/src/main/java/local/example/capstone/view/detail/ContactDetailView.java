@@ -179,12 +179,12 @@ public class ContactDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> contactId = beforeEnterEvent.getRouteParameters().getLong(CONTACT_ID);
         if (contactId.isPresent()) {
-            Optional<ContactEntity> optionalContactEntity = contactService.read(String.valueOf(contactId));
+            Optional<ContactEntity> optionalContactEntity = contactService.read(String.valueOf(contactId.get()));
             if (optionalContactEntity.isPresent()) {
                 this.populateForm(optionalContactEntity.get());
             } else {
                 Notification.show(
-                        String.format("The requested contact was not found, ID = %d", contactID.get()),
+                        String.format("The requested contact was not found, ID = %d", contactId.get()),
                         2500,
                         Notification.Position.BOTTOM_CENTER
                 );
