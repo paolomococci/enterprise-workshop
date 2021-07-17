@@ -172,9 +172,9 @@ public class OperatorDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        Optional<Long> operatorID = beforeEnterEvent.getRouteParameters().getLong(OPERATOR_ID);
-        if (operatorID.isPresent()) {
-            Optional<OperatorEntity> optionalOperatorEntity = operatorService.read(OPERATOR_ID);
+        Optional<Long> operatorId = beforeEnterEvent.getRouteParameters().getLong(OPERATOR_ID);
+        if (operatorId.isPresent()) {
+            Optional<OperatorEntity> optionalOperatorEntity = operatorService.read(String.valueOf(operatorId));
             if (optionalOperatorEntity.isPresent()) {
                 this.populateForm(optionalOperatorEntity.get());
             } else {
