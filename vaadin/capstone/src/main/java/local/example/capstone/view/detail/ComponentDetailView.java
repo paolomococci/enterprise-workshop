@@ -153,7 +153,7 @@ public class ComponentDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> componentId = beforeEnterEvent.getRouteParameters().getLong(COMPONENT_ID);
         if (componentId.isPresent()) {
-            Optional<ComponentEntity> optionalComponentEntity = componentService.read(String.valueOf(componentId));
+            Optional<ComponentEntity> optionalComponentEntity = componentService.read(String.valueOf(componentId.get()));
             if (optionalComponentEntity.isPresent()) {
                 this.populateForm(optionalComponentEntity.get());
             } else {
