@@ -41,8 +41,8 @@ public class InvoiceService {
         invoiceRepository.save(invoiceEntity);
     }
 
-    public Optional<InvoiceEntity> read(String id) {
-        return invoiceRepository.findById(Long.valueOf(id));
+    public Optional<InvoiceEntity> read(Long id) {
+        return invoiceRepository.findById(id);
     }
 
     public void update(InvoiceEntity updatedInvoiceEntity, Long id) {
