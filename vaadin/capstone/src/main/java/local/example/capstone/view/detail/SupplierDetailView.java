@@ -150,9 +150,9 @@ public class SupplierDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        Optional<Long> supplierID = beforeEnterEvent.getRouteParameters().getLong(SUPPLIER_ID);
-        if (supplierID.isPresent()) {
-            Optional<SupplierEntity> optionalSupplierEntity = supplierService.read(SUPPLIER_ID);
+        Optional<Long> supplierId = beforeEnterEvent.getRouteParameters().getLong(SUPPLIER_ID);
+        if (supplierId.isPresent()) {
+            Optional<SupplierEntity> optionalSupplierEntity = supplierService.read(String.valueOf(supplierId));
             if (optionalSupplierEntity.isPresent()) {
                 this.populateForm(optionalSupplierEntity.get());
             } else {
