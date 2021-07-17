@@ -177,9 +177,9 @@ public class ContactDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        Optional<Long> contactID = beforeEnterEvent.getRouteParameters().getLong(CONTACT_ID);
-        if (contactID.isPresent()) {
-            Optional<ContactEntity> optionalContactEntity = contactService.read(CONTACT_ID);
+        Optional<Long> contactId = beforeEnterEvent.getRouteParameters().getLong(CONTACT_ID);
+        if (contactId.isPresent()) {
+            Optional<ContactEntity> optionalContactEntity = contactService.read(String.valueOf(contactId));
             if (optionalContactEntity.isPresent()) {
                 this.populateForm(optionalContactEntity.get());
             } else {
