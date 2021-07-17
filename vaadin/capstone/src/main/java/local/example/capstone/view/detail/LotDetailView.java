@@ -158,7 +158,7 @@ public class LotDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> lotId = beforeEnterEvent.getRouteParameters().getLong(LOT_ID);
         if (lotId.isPresent()) {
-            Optional<LotEntity> optionalLotEntity = lotService.read(String.valueOf(lotId.get()));
+            Optional<LotEntity> optionalLotEntity = lotService.read(lotId.get());
             if (optionalLotEntity.isPresent()) {
                 this.populateForm(optionalLotEntity.get());
             } else {
