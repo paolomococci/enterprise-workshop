@@ -153,7 +153,7 @@ public class MachineDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> machineId = beforeEnterEvent.getRouteParameters().getLong(MACHINE_ID);
         if (machineId.isPresent()) {
-            Optional<MachineEntity> optionalMachineEntity = machineService.read(String.valueOf(machineId.get()));
+            Optional<MachineEntity> optionalMachineEntity = machineService.read(machineId.get());
             if (optionalMachineEntity.isPresent()) {
                 this.populateForm(optionalMachineEntity.get());
             } else {
