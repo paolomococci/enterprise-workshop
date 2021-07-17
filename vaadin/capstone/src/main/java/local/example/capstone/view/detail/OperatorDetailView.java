@@ -174,7 +174,7 @@ public class OperatorDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> operatorId = beforeEnterEvent.getRouteParameters().getLong(OPERATOR_ID);
         if (operatorId.isPresent()) {
-            Optional<OperatorEntity> optionalOperatorEntity = operatorService.read(String.valueOf(operatorId.get()));
+            Optional<OperatorEntity> optionalOperatorEntity = operatorService.read(operatorId.get());
             if (optionalOperatorEntity.isPresent()) {
                 this.populateForm(optionalOperatorEntity.get());
             } else {
