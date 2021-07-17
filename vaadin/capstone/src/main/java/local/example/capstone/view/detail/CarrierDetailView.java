@@ -153,7 +153,7 @@ public class CarrierDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> carrierId = beforeEnterEvent.getRouteParameters().getLong(CARRIER_ID);
         if (carrierId.isPresent()) {
-            Optional<CarrierEntity> optionalCarrierEntity = carrierService.read(String.valueOf(carrierId.get()));
+            Optional<CarrierEntity> optionalCarrierEntity = carrierService.read(carrierId.get());
             if (optionalCarrierEntity.isPresent()) {
                 this.populateForm(optionalCarrierEntity.get());
             } else {
