@@ -41,8 +41,8 @@ public class SupplierService {
         supplierRepository.save(supplierEntity);
     }
 
-    public Optional<SupplierEntity> read(String id) {
-        return supplierRepository.findById(Long.valueOf(id));
+    public Optional<SupplierEntity> read(Long id) {
+        return supplierRepository.findById(id);
     }
 
     public void update(SupplierEntity updatedSupplierEntity, Long id) {
