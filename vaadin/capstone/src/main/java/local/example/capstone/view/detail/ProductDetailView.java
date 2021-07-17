@@ -153,7 +153,7 @@ public class ProductDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> productId = beforeEnterEvent.getRouteParameters().getLong(PRODUCT_ID);
         if (productId.isPresent()) {
-            Optional<ProductEntity> optionalProductEntity = productService.read(String.valueOf(productId.get()));
+            Optional<ProductEntity> optionalProductEntity = productService.read(productId.get());
             if (optionalProductEntity.isPresent()) {
                 this.populateForm(optionalProductEntity.get());
             } else {
