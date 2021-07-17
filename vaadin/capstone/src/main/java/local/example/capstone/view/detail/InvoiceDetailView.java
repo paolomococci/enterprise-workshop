@@ -153,12 +153,12 @@ public class InvoiceDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> invoiceId = beforeEnterEvent.getRouteParameters().getLong(INVOICE_ID);
         if (invoiceId.isPresent()) {
-            Optional<InvoiceEntity> optionalInvoiceEntity = invoiceService.read(String.valueOf(invoiceId));
+            Optional<InvoiceEntity> optionalInvoiceEntity = invoiceService.read(String.valueOf(invoiceId.get()));
             if (optionalInvoiceEntity.isPresent()) {
                 this.populateForm(optionalInvoiceEntity.get());
             } else {
                 Notification.show(
-                        String.format("The requested invoice was not found, ID = %d", invoiceID.get()),
+                        String.format("The requested invoice was not found, ID = %d", invoiceId.get()),
                         2500,
                         Notification.Position.BOTTOM_CENTER
                 );
