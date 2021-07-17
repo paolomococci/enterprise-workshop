@@ -41,8 +41,8 @@ public class CarrierService {
         carrierRepository.save(carrierEntity);
     }
 
-    public Optional<CarrierEntity> read(String id) {
-        return carrierRepository.findById(Long.valueOf(id));
+    public Optional<CarrierEntity> read(Long id) {
+        return carrierRepository.findById(id);
     }
 
     public void update(CarrierEntity updatedCarrierEntity, Long id) {
