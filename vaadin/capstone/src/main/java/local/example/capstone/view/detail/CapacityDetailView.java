@@ -157,12 +157,12 @@ public class CapacityDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> capacityId = beforeEnterEvent.getRouteParameters().getLong(CAPACITY_ID);
         if (capacityId.isPresent()) {
-            Optional<CapacityEntity> optionalCapacityEntity = capacityService.read(String.valueOf(capacityId));
+            Optional<CapacityEntity> optionalCapacityEntity = capacityService.read(String.valueOf(capacityId.get()));
             if (optionalCapacityEntity.isPresent()) {
                 this.populateForm(optionalCapacityEntity.get());
             } else {
                 Notification.show(
-                        String.format("The requested capacity was not found, ID = %d", capacityID.get()),
+                        String.format("The requested capacity was not found, ID = %d", capacityId.get()),
                         2500,
                         Notification.Position.BOTTOM_CENTER
                 );
