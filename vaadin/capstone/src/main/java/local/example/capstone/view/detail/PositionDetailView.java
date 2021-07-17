@@ -153,12 +153,12 @@ public class PositionDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> positionId = beforeEnterEvent.getRouteParameters().getLong(POSITION_ID);
         if (positionId.isPresent()) {
-            Optional<PositionEntity> optionalPositionEntity = positionService.read(String.valueOf(positionId));
+            Optional<PositionEntity> optionalPositionEntity = positionService.read(String.valueOf(positionId.get()));
             if (optionalPositionEntity.isPresent()) {
                 this.populateForm(optionalPositionEntity.get());
             } else {
                 Notification.show(
-                        String.format("The requested position was not found, ID = %d", positionID.get()),
+                        String.format("The requested position was not found, ID = %d", positionId.get()),
                         2500,
                         Notification.Position.BOTTOM_CENTER
                 );
