@@ -41,8 +41,8 @@ public class LotService {
         lotRepository.save(lotEntity);
     }
 
-    public Optional<LotEntity> read(String id) {
-        return lotRepository.findById(Long.valueOf(id));
+    public Optional<LotEntity> read(Long id) {
+        return lotRepository.findById(id);
     }
 
     public void update(LotEntity updatedLotEntity, Long id) {
