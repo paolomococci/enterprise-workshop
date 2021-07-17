@@ -152,7 +152,7 @@ public class CrewDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> crewId = beforeEnterEvent.getRouteParameters().getLong(CREW_ID);
         if (crewId.isPresent()) {
-            Optional<CrewEntity> optionalCrewEntity = crewService.read(String.valueOf(crewId.get()));
+            Optional<CrewEntity> optionalCrewEntity = crewService.read(crewId.get());
             if (optionalCrewEntity.isPresent()) {
                 this.populateForm(optionalCrewEntity.get());
             } else {
