@@ -179,7 +179,7 @@ public class ContactDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> contactId = beforeEnterEvent.getRouteParameters().getLong(CONTACT_ID);
         if (contactId.isPresent()) {
-            Optional<ContactEntity> optionalContactEntity = contactService.read(String.valueOf(contactId.get()));
+            Optional<ContactEntity> optionalContactEntity = contactService.read(contactId.get());
             if (optionalContactEntity.isPresent()) {
                 this.populateForm(optionalContactEntity.get());
             } else {
