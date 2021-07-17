@@ -40,8 +40,8 @@ public class ComponentService {
         componentRepository.save(componentEntity);
     }
 
-    public Optional<ComponentEntity> read(String id) {
-        return componentRepository.findById(Long.valueOf(id));
+    public Optional<ComponentEntity> read(Long id) {
+        return componentRepository.findById(id);
     }
 
     public void update(ComponentEntity updatedComponentEntity, Long id) {
