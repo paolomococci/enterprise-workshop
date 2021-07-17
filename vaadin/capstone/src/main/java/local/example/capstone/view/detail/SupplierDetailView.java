@@ -152,12 +152,12 @@ public class SupplierDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> supplierId = beforeEnterEvent.getRouteParameters().getLong(SUPPLIER_ID);
         if (supplierId.isPresent()) {
-            Optional<SupplierEntity> optionalSupplierEntity = supplierService.read(String.valueOf(supplierId));
+            Optional<SupplierEntity> optionalSupplierEntity = supplierService.read(String.valueOf(supplierId.get()));
             if (optionalSupplierEntity.isPresent()) {
                 this.populateForm(optionalSupplierEntity.get());
             } else {
                 Notification.show(
-                        String.format("The requested supplier was not found, ID = %d", supplierID.get()),
+                        String.format("The requested supplier was not found, ID = %d", supplierId.get()),
                         2500,
                         Notification.Position.BOTTOM_CENTER
                 );
