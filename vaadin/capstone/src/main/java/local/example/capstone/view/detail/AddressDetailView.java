@@ -165,12 +165,12 @@ public class AddressDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> addressId = beforeEnterEvent.getRouteParameters().getLong(ADDRESS_ID);
         if (addressId.isPresent()) {
-            Optional<AddressEntity> optionalAddressEntity = addressService.read(String.valueOf(addressId));
+            Optional<AddressEntity> optionalAddressEntity = addressService.read(String.valueOf(addressId.get()));
             if (optionalAddressEntity.isPresent()) {
                 this.populateForm(optionalAddressEntity.get());
             } else {
                 Notification.show(
-                        String.format("The requested address was not found, ID = %d", addressID.get()),
+                        String.format("The requested address was not found, ID = %d", addressId.get()),
                         2500,
                         Notification.Position.BOTTOM_CENTER
                 );
