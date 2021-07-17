@@ -153,7 +153,7 @@ public class InvoiceDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> invoiceId = beforeEnterEvent.getRouteParameters().getLong(INVOICE_ID);
         if (invoiceId.isPresent()) {
-            Optional<InvoiceEntity> optionalInvoiceEntity = invoiceService.read(String.valueOf(invoiceId.get()));
+            Optional<InvoiceEntity> optionalInvoiceEntity = invoiceService.read(invoiceId.get());
             if (optionalInvoiceEntity.isPresent()) {
                 this.populateForm(optionalInvoiceEntity.get());
             } else {
