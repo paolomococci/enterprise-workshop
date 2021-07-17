@@ -165,7 +165,7 @@ public class AddressDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> addressID = beforeEnterEvent.getRouteParameters().getLong(ADDRESS_ID);
         if (addressID.isPresent()) {
-            Optional<AddressEntity> optionalAddressEntity = addressService.read(ADDRESS_ID);
+            Optional<AddressEntity> optionalAddressEntity = addressService.read(String.valueOf(addressID));
             if (optionalAddressEntity.isPresent()) {
                 this.populateForm(optionalAddressEntity.get());
             } else {
