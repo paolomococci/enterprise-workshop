@@ -41,8 +41,8 @@ public class ProductService {
         productRepository.save(productEntity);
     }
 
-    public Optional<ProductEntity> read(String id) {
-        return productRepository.findById(Long.valueOf(id));
+    public Optional<ProductEntity> read(Long id) {
+        return productRepository.findById(id);
     }
 
     public void update(ProductEntity updatedProductEntity, Long id) {
