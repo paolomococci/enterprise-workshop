@@ -41,8 +41,8 @@ public class CustomerService {
         customerRepository.save(customerEntity);
     }
 
-    public Optional<CustomerEntity> read(String id) {
-        return customerRepository.findById(Long.valueOf(id));
+    public Optional<CustomerEntity> read(Long id) {
+        return customerRepository.findById(id);
     }
 
     public void update(CustomerEntity updatedCustomerEntity, Long id) {
