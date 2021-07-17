@@ -155,9 +155,9 @@ public class CapacityDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        Optional<Long> capacityID = beforeEnterEvent.getRouteParameters().getLong(CAPACITY_ID);
-        if (capacityID.isPresent()) {
-            Optional<CapacityEntity> optionalCapacityEntity = capacityService.read(String.valueOf(capacityID));
+        Optional<Long> capacityId = beforeEnterEvent.getRouteParameters().getLong(CAPACITY_ID);
+        if (capacityId.isPresent()) {
+            Optional<CapacityEntity> optionalCapacityEntity = capacityService.read(String.valueOf(capacityId));
             if (optionalCapacityEntity.isPresent()) {
                 this.populateForm(optionalCapacityEntity.get());
             } else {
