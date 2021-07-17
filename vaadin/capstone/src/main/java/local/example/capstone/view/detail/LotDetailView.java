@@ -158,12 +158,12 @@ public class LotDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> lotId = beforeEnterEvent.getRouteParameters().getLong(LOT_ID);
         if (lotId.isPresent()) {
-            Optional<LotEntity> optionalLotEntity = lotService.read(String.valueOf(lotId));
+            Optional<LotEntity> optionalLotEntity = lotService.read(String.valueOf(lotId.get()));
             if (optionalLotEntity.isPresent()) {
                 this.populateForm(optionalLotEntity.get());
             } else {
                 Notification.show(
-                        String.format("The requested lot was not found, ID = %d", lotID.get()),
+                        String.format("The requested lot was not found, ID = %d", lotId.get()),
                         2500,
                         Notification.Position.BOTTOM_CENTER
                 );
