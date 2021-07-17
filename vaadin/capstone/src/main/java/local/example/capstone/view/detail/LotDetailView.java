@@ -156,9 +156,9 @@ public class LotDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        Optional<Long> lotID = beforeEnterEvent.getRouteParameters().getLong(LOT_ID);
-        if (lotID.isPresent()) {
-            Optional<LotEntity> optionalLotEntity = lotService.read(LOT_ID);
+        Optional<Long> lotId = beforeEnterEvent.getRouteParameters().getLong(LOT_ID);
+        if (lotId.isPresent()) {
+            Optional<LotEntity> optionalLotEntity = lotService.read(String.valueOf(lotId));
             if (optionalLotEntity.isPresent()) {
                 this.populateForm(optionalLotEntity.get());
             } else {
