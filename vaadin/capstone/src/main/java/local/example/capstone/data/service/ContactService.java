@@ -41,8 +41,8 @@ public class ContactService {
         contactRepository.save(contactEntity);
     }
 
-    public Optional<ContactEntity> read(String id) {
-        return contactRepository.findById(Long.valueOf(id));
+    public Optional<ContactEntity> read(Long id) {
+        return contactRepository.findById(id);
     }
 
     public void update(ContactEntity updatedContactEntity, Long id) {
