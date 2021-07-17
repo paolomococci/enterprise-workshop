@@ -152,7 +152,7 @@ public class CustomerDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> customerId = beforeEnterEvent.getRouteParameters().getLong(CUSTOMER_ID);
         if (customerId.isPresent()) {
-            Optional<CustomerEntity> optionalCustomerEntity = customerService.read(String.valueOf(customerId.get()));
+            Optional<CustomerEntity> optionalCustomerEntity = customerService.read(customerId.get());
             if (optionalCustomerEntity.isPresent()) {
                 this.populateForm(optionalCustomerEntity.get());
             } else {
