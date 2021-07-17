@@ -153,12 +153,12 @@ public class MachineDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> machineId = beforeEnterEvent.getRouteParameters().getLong(MACHINE_ID);
         if (machineId.isPresent()) {
-            Optional<MachineEntity> optionalMachineEntity = machineService.read(String.valueOf(machineId));
+            Optional<MachineEntity> optionalMachineEntity = machineService.read(String.valueOf(machineId.get()));
             if (optionalMachineEntity.isPresent()) {
                 this.populateForm(optionalMachineEntity.get());
             } else {
                 Notification.show(
-                        String.format("The requested machine was not found, ID = %d", machineID.get()),
+                        String.format("The requested machine was not found, ID = %d", machineId.get()),
                         2500,
                         Notification.Position.BOTTOM_CENTER
                 );
