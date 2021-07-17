@@ -151,9 +151,9 @@ public class MachineDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        Optional<Long> machineID = beforeEnterEvent.getRouteParameters().getLong(MACHINE_ID);
-        if (machineID.isPresent()) {
-            Optional<MachineEntity> optionalMachineEntity = machineService.read(MACHINE_ID);
+        Optional<Long> machineId = beforeEnterEvent.getRouteParameters().getLong(MACHINE_ID);
+        if (machineId.isPresent()) {
+            Optional<MachineEntity> optionalMachineEntity = machineService.read(String.valueOf(machineId));
             if (optionalMachineEntity.isPresent()) {
                 this.populateForm(optionalMachineEntity.get());
             } else {
