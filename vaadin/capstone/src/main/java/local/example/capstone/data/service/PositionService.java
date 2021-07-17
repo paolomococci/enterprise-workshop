@@ -41,8 +41,8 @@ public class PositionService {
         positionRepository.save(positionEntity);
     }
 
-    public Optional<PositionEntity> read(String id) {
-        return positionRepository.findById(Long.valueOf(id));
+    public Optional<PositionEntity> read(Long id) {
+        return positionRepository.findById(id);
     }
 
     public void update(PositionEntity updatedPositionEntity, Long id) {
