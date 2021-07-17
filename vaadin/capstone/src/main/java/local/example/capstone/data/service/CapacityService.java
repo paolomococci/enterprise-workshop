@@ -41,8 +41,8 @@ public class CapacityService {
         capacityRepository.save(capacityEntity);
     }
 
-    public Optional<CapacityEntity> read(String id) {
-        return capacityRepository.findById(Long.valueOf(id));
+    public Optional<CapacityEntity> read(Long id) {
+        return capacityRepository.findById(id);
     }
 
     public void update(CapacityEntity updatedCapacityEntity, Long id) {
