@@ -174,12 +174,12 @@ public class OperatorDetailView
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> operatorId = beforeEnterEvent.getRouteParameters().getLong(OPERATOR_ID);
         if (operatorId.isPresent()) {
-            Optional<OperatorEntity> optionalOperatorEntity = operatorService.read(String.valueOf(operatorId));
+            Optional<OperatorEntity> optionalOperatorEntity = operatorService.read(String.valueOf(operatorId.get()));
             if (optionalOperatorEntity.isPresent()) {
                 this.populateForm(optionalOperatorEntity.get());
             } else {
                 Notification.show(
-                        String.format("The requested operator was not found, ID = %d", operatorID.get()),
+                        String.format("The requested operator was not found, ID = %d", operatorId.get()),
                         2500,
                         Notification.Position.BOTTOM_CENTER
                 );
