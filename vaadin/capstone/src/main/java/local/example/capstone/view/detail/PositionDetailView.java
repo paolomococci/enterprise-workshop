@@ -151,9 +151,9 @@ public class PositionDetailView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-        Optional<Long> positionID = beforeEnterEvent.getRouteParameters().getLong(POSITION_ID);
-        if (positionID.isPresent()) {
-            Optional<PositionEntity> optionalPositionEntity = positionService.read(POSITION_ID);
+        Optional<Long> positionId = beforeEnterEvent.getRouteParameters().getLong(POSITION_ID);
+        if (positionId.isPresent()) {
+            Optional<PositionEntity> optionalPositionEntity = positionService.read(String.valueOf(positionId));
             if (optionalPositionEntity.isPresent()) {
                 this.populateForm(optionalPositionEntity.get());
             } else {
