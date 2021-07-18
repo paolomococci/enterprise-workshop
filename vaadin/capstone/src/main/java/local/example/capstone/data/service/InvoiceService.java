@@ -22,6 +22,7 @@ import local.example.capstone.data.entity.InvoiceEntity;
 import local.example.capstone.data.repository.InvoiceRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public class InvoiceService {
     InvoiceRepository invoiceRepository;
 
     public List<InvoiceEntity> readAll() {
+        return (List<InvoiceEntity>) invoiceRepository.findAll();
+    }
+
+    public List<InvoiceEntity> readAll(PageRequest pageRequest) {
         return (List<InvoiceEntity>) invoiceRepository.findAll();
     }
 
