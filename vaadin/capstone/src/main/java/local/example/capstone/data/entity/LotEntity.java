@@ -23,8 +23,7 @@ import local.example.capstone.data.AbstractItem;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
@@ -35,4 +34,8 @@ public class LotEntity
         extends AbstractItem {
 
     private LocalDate deadline;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "lot_product_fk")
+    private MachineEntity lotProduct;
 }
