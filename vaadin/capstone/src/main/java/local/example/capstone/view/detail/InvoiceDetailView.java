@@ -60,7 +60,7 @@ public class InvoiceDetailView
 
     private final InvoiceService invoiceService;
 
-    private final BeanValidationBinder<InvoiceEntity> invoiceEntityBeanValidationBinder;
+    private BeanValidationBinder<InvoiceEntity> invoiceEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<InvoiceEntity> invoiceEntityGrid;
