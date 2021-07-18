@@ -22,6 +22,7 @@ import local.example.capstone.data.entity.ProductEntity;
 import local.example.capstone.data.repository.ProductRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public class ProductService {
     ProductRepository productRepository;
 
     public List<ProductEntity> readAll() {
+        return (List<ProductEntity>) productRepository.findAll();
+    }
+
+    public List<ProductEntity> readAll(PageRequest pageRequest) {
         return (List<ProductEntity>) productRepository.findAll();
     }
 
