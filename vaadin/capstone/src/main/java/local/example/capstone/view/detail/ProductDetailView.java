@@ -60,7 +60,7 @@ public class ProductDetailView
 
     private final ProductService productService;
 
-    private final BeanValidationBinder<ProductEntity> productEntityBeanValidationBinder;
+    private BeanValidationBinder<ProductEntity> productEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<ProductEntity> productEntityGrid;
