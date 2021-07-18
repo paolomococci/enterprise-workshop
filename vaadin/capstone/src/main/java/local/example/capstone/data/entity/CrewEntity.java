@@ -24,7 +24,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.LinkedList;
+import java.util.List;
 
 @Data
 @Entity
@@ -35,4 +39,7 @@ public class CrewEntity
 
     private String code;
     private String name;
+
+    @OneToMany(mappedBy = "crew", fetch = FetchType.LAZY)
+    private List<OperatorEntity> operators = new LinkedList<>();
 }
