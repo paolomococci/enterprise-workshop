@@ -35,4 +35,7 @@ public class ProductEntity
 
     @OneToMany(mappedBy = "lotProduct", fetch = FetchType.LAZY)
     private List<LotEntity> lots = new LinkedList<>();
+
+    @OneToMany(mappedBy = "componentProduct", fetch = FetchType.LAZY)
+    private List<ComponentEntity> components = new LinkedList<>();
 }
