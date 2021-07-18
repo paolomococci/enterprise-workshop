@@ -59,7 +59,7 @@ public class SupplierDetailView
 
     private final SupplierService supplierService;
 
-    private final BeanValidationBinder<SupplierEntity> supplierEntityBeanValidationBinder;
+    private BeanValidationBinder<SupplierEntity> supplierEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<SupplierEntity> supplierEntityGrid;
