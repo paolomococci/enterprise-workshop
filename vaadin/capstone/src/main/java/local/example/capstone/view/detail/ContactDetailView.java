@@ -37,12 +37,14 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
 import local.example.capstone.data.entity.ContactEntity;
 import local.example.capstone.data.service.ContactService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -61,7 +63,7 @@ public class ContactDetailView
 
     private final ContactService contactService;
 
-    private BeanValidationBinder<ContactEntity> contactEntityBeanValidationBinder;
+    private final BeanValidationBinder<ContactEntity> contactEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<ContactEntity> contactEntityGrid;
@@ -109,7 +111,15 @@ public class ContactDetailView
         this.contactEntityGrid.addColumn(ContactEntity::getProfession).setHeader("Profession").setAutoWidth(true);
         this.contactEntityGrid.addColumn(ContactEntity::getRole).setHeader("Role").setAutoWidth(true);
 
-        this.contactEntityGrid.setItems(this.contactService.readAll());
+        this.contactEntityGrid.setItems(
+                contactEntityVoidQuery -> this.contactService.readAll(
+                        PageRequest.of(
+                                contactEntityVoidQuery.getPage(),
+                                contactEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(contactEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.contactEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.contactEntityGrid.setHeightFull();
