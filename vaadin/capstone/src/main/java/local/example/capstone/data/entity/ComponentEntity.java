@@ -21,10 +21,17 @@ package local.example.capstone.data.entity;
 import local.example.capstone.data.AbstractItem;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Table(name = "components")
 public class ComponentEntity
         extends AbstractItem {
+
+    @OneToMany(mappedBy = "lotComponent", fetch = FetchType.LAZY)
+    private List<LotEntity> lots = new LinkedList<>();
 }
