@@ -61,7 +61,7 @@ public class OperatorDetailView
 
     private final OperatorService operatorService;
 
-    private final BeanValidationBinder<OperatorEntity> operatorEntityBeanValidationBinder;
+    private BeanValidationBinder<OperatorEntity> operatorEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<OperatorEntity> operatorEntityGrid;
