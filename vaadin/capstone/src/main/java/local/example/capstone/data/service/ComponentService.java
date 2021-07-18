@@ -20,7 +20,9 @@ package local.example.capstone.data.service;
 
 import local.example.capstone.data.entity.ComponentEntity;
 import local.example.capstone.data.repository.ComponentRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +35,10 @@ public class ComponentService {
     ComponentRepository componentRepository;
 
     public List<ComponentEntity> readAll() {
+        return (List<ComponentEntity>) componentRepository.findAll();
+    }
+
+    public List<ComponentEntity> readAll(PageRequest pageRequest) {
         return (List<ComponentEntity>) componentRepository.findAll();
     }
 
