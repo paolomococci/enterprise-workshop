@@ -35,12 +35,14 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
 import local.example.capstone.data.entity.CrewEntity;
 import local.example.capstone.data.service.CrewService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -59,7 +61,7 @@ public class CrewDetailView
 
     private final CrewService crewService;
 
-    private BeanValidationBinder<CrewEntity> crewEntityBeanValidationBinder;
+    private final BeanValidationBinder<CrewEntity> crewEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<CrewEntity> crewEntityGrid;
@@ -83,7 +85,15 @@ public class CrewDetailView
         this.crewEntityGrid.addColumn(CrewEntity::getCode).setHeader("Code").setAutoWidth(true);
         this.crewEntityGrid.addColumn(CrewEntity::getName).setHeader("Name").setAutoWidth(true);
 
-        this.crewEntityGrid.setItems(this.crewService.readAll());
+        this.crewEntityGrid.setItems(
+                crewEntityVoidQuery -> this.crewService.readAll(
+                        PageRequest.of(
+                                crewEntityVoidQuery.getPage(),
+                                crewEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(crewEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.crewEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.crewEntityGrid.setHeightFull();
