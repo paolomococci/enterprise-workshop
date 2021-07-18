@@ -37,5 +37,5 @@ public class LotEntity
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "lot_product_fk")
-    private MachineEntity lotProduct;
+    private ProductEntity lotProduct;
 }
