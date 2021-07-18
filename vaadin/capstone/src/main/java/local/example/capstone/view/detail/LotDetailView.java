@@ -61,7 +61,7 @@ public class LotDetailView
 
     private final LotService lotService;
 
-    private final BeanValidationBinder<LotEntity> lotEntityBeanValidationBinder;
+    private BeanValidationBinder<LotEntity> lotEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<LotEntity> lotEntityGrid;
