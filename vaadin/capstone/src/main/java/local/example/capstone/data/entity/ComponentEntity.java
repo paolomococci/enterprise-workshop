@@ -35,4 +35,8 @@ public class ComponentEntity
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "component_product_fk")
     private ProductEntity componentProduct;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "component_invoice_fk")
+    private InvoiceEntity componentInvoice;
 }
