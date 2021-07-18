@@ -59,7 +59,7 @@ public class AddressDetailView
 
     private final AddressService addressService;
 
-    private final BeanValidationBinder<AddressEntity> addressEntityBeanValidationBinder;
+    private BeanValidationBinder<AddressEntity> addressEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<AddressEntity> addressEntityGrid;
