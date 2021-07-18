@@ -40,6 +40,6 @@ public class CrewEntity
     private String code;
     private String name;
 
-    @OneToMany(mappedBy = "crew", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "operatorCrew", fetch = FetchType.LAZY)
     private List<OperatorEntity> operators = new LinkedList<>();
 }
