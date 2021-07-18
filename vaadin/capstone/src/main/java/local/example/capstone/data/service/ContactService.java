@@ -22,6 +22,7 @@ import local.example.capstone.data.entity.ContactEntity;
 import local.example.capstone.data.repository.ContactRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public class ContactService {
     ContactRepository contactRepository;
 
     public List<ContactEntity> readAll() {
+        return (List<ContactEntity>) contactRepository.findAll();
+    }
+
+    public List<ContactEntity> readAll(PageRequest pageRequest) {
         return (List<ContactEntity>) contactRepository.findAll();
     }
 
