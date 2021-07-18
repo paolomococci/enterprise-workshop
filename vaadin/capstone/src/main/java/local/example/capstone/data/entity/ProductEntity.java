@@ -20,11 +20,14 @@ package local.example.capstone.data.entity;
 
 import local.example.capstone.data.AbstractItem;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "products")
 public class ProductEntity
         extends AbstractItem {
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_machine_fk")
+    private MachineEntity productMachine;
 }
