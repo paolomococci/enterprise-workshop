@@ -23,8 +23,7 @@ import local.example.capstone.data.AbstractNode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "positions")
@@ -74,4 +73,8 @@ public class PositionEntity
     @Getter
     @Setter
     private Boolean containingAllergens;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "machine_fk")
+    private MachineEntity machine;
 }
