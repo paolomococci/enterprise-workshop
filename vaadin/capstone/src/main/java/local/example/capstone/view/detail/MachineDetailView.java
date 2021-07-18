@@ -36,12 +36,14 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
 import local.example.capstone.data.entity.MachineEntity;
 import local.example.capstone.data.service.MachineService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -60,7 +62,7 @@ public class MachineDetailView
 
     private final MachineService machineService;
 
-    private BeanValidationBinder<MachineEntity> machineEntityBeanValidationBinder;
+    private final BeanValidationBinder<MachineEntity> machineEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<MachineEntity> machineEntityGrid;
@@ -84,7 +86,15 @@ public class MachineDetailView
         this.machineEntityGrid.addColumn(MachineEntity::getLabel).setHeader("Label").setAutoWidth(true);
         this.machineEntityGrid.addColumn(MachineEntity::getCapacity).setHeader("Capacity").setAutoWidth(true);
 
-        this.machineEntityGrid.setItems(this.machineService.readAll());
+        this.machineEntityGrid.setItems(
+                machineEntityVoidQuery -> this.machineService.readAll(
+                        PageRequest.of(
+                                machineEntityVoidQuery.getPage(),
+                                machineEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(machineEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.machineEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.machineEntityGrid.setHeightFull();
