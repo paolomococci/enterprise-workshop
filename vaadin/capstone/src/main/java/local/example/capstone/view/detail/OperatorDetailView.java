@@ -37,12 +37,14 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
 import local.example.capstone.data.entity.OperatorEntity;
 import local.example.capstone.data.service.OperatorService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -61,7 +63,7 @@ public class OperatorDetailView
 
     private final OperatorService operatorService;
 
-    private BeanValidationBinder<OperatorEntity> operatorEntityBeanValidationBinder;
+    private final BeanValidationBinder<OperatorEntity> operatorEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<OperatorEntity> operatorEntityGrid;
@@ -105,7 +107,15 @@ public class OperatorDetailView
         this.operatorEntityGrid.addColumn(OperatorEntity::getEmail).setHeader("Email").setAutoWidth(true);
         this.operatorEntityGrid.addColumn(OperatorEntity::getRole).setHeader("Role").setAutoWidth(true);
 
-        this.operatorEntityGrid.setItems(this.operatorService.readAll());
+        this.operatorEntityGrid.setItems(
+                operatorEntityVoidQuery -> this.operatorService.readAll(
+                        PageRequest.of(
+                                operatorEntityVoidQuery.getPage(),
+                                operatorEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(operatorEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.operatorEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.operatorEntityGrid.setHeightFull();
