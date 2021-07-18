@@ -35,12 +35,14 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
 import local.example.capstone.data.entity.CustomerEntity;
 import local.example.capstone.data.service.CustomerService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -59,7 +61,7 @@ public class CustomerDetailView
 
     private final CustomerService customerService;
 
-    private BeanValidationBinder<CustomerEntity> customerEntityBeanValidationBinder;
+    private final BeanValidationBinder<CustomerEntity> customerEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<CustomerEntity> customerEntityGrid;
@@ -83,7 +85,15 @@ public class CustomerDetailView
         this.customerEntityGrid.addColumn(CustomerEntity::getName).setHeader("Name").setAutoWidth(true);
         this.customerEntityGrid.addColumn(CustomerEntity::getSticker).setHeader("Sticker").setAutoWidth(true);
 
-        this.customerEntityGrid.setItems(this.customerService.readAll());
+        this.customerEntityGrid.setItems(
+                customerEntityVoidQuery -> this.customerService.readAll(
+                        PageRequest.of(
+                                customerEntityVoidQuery.getPage(),
+                                customerEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(customerEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.customerEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.customerEntityGrid.setHeightFull();
