@@ -34,4 +34,7 @@ public class MachineEntity
 
     @OneToMany(mappedBy = "positionMachine", fetch = FetchType.LAZY)
     private List<PositionEntity> positions = new LinkedList<>();
+
+    @OneToMany(mappedBy = "crewMachine", fetch = FetchType.LAZY)
+    private List<PositionEntity> crews = new LinkedList<>();
 }
