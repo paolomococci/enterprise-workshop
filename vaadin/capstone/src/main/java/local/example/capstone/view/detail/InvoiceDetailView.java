@@ -36,12 +36,14 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
 import local.example.capstone.data.entity.InvoiceEntity;
 import local.example.capstone.data.service.InvoiceService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -60,7 +62,7 @@ public class InvoiceDetailView
 
     private final InvoiceService invoiceService;
 
-    private BeanValidationBinder<InvoiceEntity> invoiceEntityBeanValidationBinder;
+    private final BeanValidationBinder<InvoiceEntity> invoiceEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<InvoiceEntity> invoiceEntityGrid;
@@ -84,7 +86,15 @@ public class InvoiceDetailView
         this.invoiceEntityGrid.addColumn(InvoiceEntity::getCode).setHeader("Code").setAutoWidth(true);
         this.invoiceEntityGrid.addColumn(InvoiceEntity::getTotal).setHeader("Total").setAutoWidth(true);
 
-        this.invoiceEntityGrid.setItems(this.invoiceService.readAll());
+        this.invoiceEntityGrid.setItems(
+                invoiceEntityVoidQuery -> this.invoiceService.readAll(
+                        PageRequest.of(
+                                invoiceEntityVoidQuery.getPage(),
+                                invoiceEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(invoiceEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.invoiceEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.invoiceEntityGrid.setHeightFull();
