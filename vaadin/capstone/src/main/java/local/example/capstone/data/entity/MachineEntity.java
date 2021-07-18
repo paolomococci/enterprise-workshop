@@ -32,6 +32,6 @@ import java.util.List;
 public class MachineEntity
         extends AbstractNode {
 
-    @OneToMany(mappedBy = "machine", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "positionMachine", fetch = FetchType.LAZY)
     private List<PositionEntity> positions = new LinkedList<>();
 }
