@@ -35,12 +35,14 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
 import local.example.capstone.data.entity.CarrierEntity;
 import local.example.capstone.data.service.CarrierService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -59,7 +61,7 @@ public class CarrierDetailView
 
     private final CarrierService carrierService;
 
-    private BeanValidationBinder<CarrierEntity> carrierEntityBeanValidationBinder;
+    private final BeanValidationBinder<CarrierEntity> carrierEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<CarrierEntity> carrierEntityGrid;
@@ -83,7 +85,15 @@ public class CarrierDetailView
         this.carrierEntityGrid.addColumn(CarrierEntity::getName).setHeader("Name").setAutoWidth(true);
         this.carrierEntityGrid.addColumn(CarrierEntity::getSticker).setHeader("Sticker").setAutoWidth(true);
 
-        this.carrierEntityGrid.setItems(this.carrierService.readAll());
+        this.carrierEntityGrid.setItems(
+                carrierEntityVoidQuery -> this.carrierService.readAll(
+                        PageRequest.of(
+                                carrierEntityVoidQuery.getPage(),
+                                carrierEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(carrierEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.carrierEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.carrierEntityGrid.setHeightFull();
