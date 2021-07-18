@@ -37,6 +37,6 @@ public class OperatorEntity
     private String email;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "crew_fk")
-    private CrewEntity crew;
+    @JoinColumn(name = "operator_crew_fk")
+    private CrewEntity operatorCrew;
 }
