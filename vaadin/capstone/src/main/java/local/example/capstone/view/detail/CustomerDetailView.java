@@ -59,7 +59,7 @@ public class CustomerDetailView
 
     private final CustomerService customerService;
 
-    private final BeanValidationBinder<CustomerEntity> customerEntityBeanValidationBinder;
+    private BeanValidationBinder<CustomerEntity> customerEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<CustomerEntity> customerEntityGrid;
