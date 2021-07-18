@@ -60,7 +60,7 @@ public class CapacityDetailView
 
     private final CapacityService capacityService;
 
-    private final BeanValidationBinder<CapacityEntity> capacityEntityBeanValidationBinder;
+    private BeanValidationBinder<CapacityEntity> capacityEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<CapacityEntity> capacityEntityGrid;
