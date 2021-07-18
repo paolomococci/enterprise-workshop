@@ -22,6 +22,7 @@ import local.example.capstone.data.entity.SupplierEntity;
 import local.example.capstone.data.repository.SupplierRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public class SupplierService {
     SupplierRepository supplierRepository;
 
     public List<SupplierEntity> readAll() {
+        return (List<SupplierEntity>) supplierRepository.findAll();
+    }
+
+    public List<SupplierEntity> readAll(PageRequest pageRequest) {
         return (List<SupplierEntity>) supplierRepository.findAll();
     }
 
