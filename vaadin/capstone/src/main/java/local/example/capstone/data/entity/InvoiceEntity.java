@@ -41,4 +41,7 @@ public class InvoiceEntity
 
     @OneToMany(mappedBy = "productInvoice", fetch = FetchType.LAZY)
     private List<ProductEntity> products = new LinkedList<>();
+
+    @OneToMany(mappedBy = "componentInvoice", fetch = FetchType.LAZY)
+    private List<ComponentEntity> components = new LinkedList<>();
 }
