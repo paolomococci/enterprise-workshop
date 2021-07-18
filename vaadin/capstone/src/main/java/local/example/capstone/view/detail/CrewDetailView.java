@@ -59,7 +59,7 @@ public class CrewDetailView
 
     private final CrewService crewService;
 
-    private final BeanValidationBinder<CrewEntity> crewEntityBeanValidationBinder;
+    private BeanValidationBinder<CrewEntity> crewEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<CrewEntity> crewEntityGrid;
