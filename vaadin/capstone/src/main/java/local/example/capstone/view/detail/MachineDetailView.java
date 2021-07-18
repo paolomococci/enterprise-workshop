@@ -60,7 +60,7 @@ public class MachineDetailView
 
     private final MachineService machineService;
 
-    private final BeanValidationBinder<MachineEntity> machineEntityBeanValidationBinder;
+    private BeanValidationBinder<MachineEntity> machineEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<MachineEntity> machineEntityGrid;
