@@ -22,6 +22,7 @@ import local.example.capstone.data.entity.LotEntity;
 import local.example.capstone.data.repository.LotRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public class LotService {
     LotRepository lotRepository;
 
     public List<LotEntity> readAll() {
+        return (List<LotEntity>) lotRepository.findAll();
+    }
+
+    public List<LotEntity> readAll(PageRequest pageRequest) {
         return (List<LotEntity>) lotRepository.findAll();
     }
 
