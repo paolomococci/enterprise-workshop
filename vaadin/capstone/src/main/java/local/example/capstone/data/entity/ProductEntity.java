@@ -21,6 +21,8 @@ package local.example.capstone.data.entity;
 import local.example.capstone.data.AbstractItem;
 
 import javax.persistence.*;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -30,4 +32,7 @@ public class ProductEntity
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "product_machine_fk")
     private MachineEntity productMachine;
+
+    @OneToMany(mappedBy = "lotProduct", fetch = FetchType.LAZY)
+    private List<LotEntity> lots = new LinkedList<>();
 }
