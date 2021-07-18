@@ -19,12 +19,15 @@
 package local.example.capstone.data.entity;
 
 import local.example.capstone.data.AbstractEntity;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.LinkedList;
+import java.util.List;
 
 @Data
 @Entity
@@ -35,4 +38,7 @@ public class InvoiceEntity
 
     private String code;
     private Double total;
+
+    @OneToMany(mappedBy = "productInvoice", fetch = FetchType.LAZY)
+    private List<ProductEntity> products = new LinkedList<>();
 }
