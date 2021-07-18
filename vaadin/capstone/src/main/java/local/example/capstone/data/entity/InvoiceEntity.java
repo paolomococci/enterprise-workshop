@@ -22,10 +22,7 @@ import local.example.capstone.data.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -44,4 +41,12 @@ public class InvoiceEntity
 
     @OneToMany(mappedBy = "componentInvoice", fetch = FetchType.LAZY)
     private List<ComponentEntity> components = new LinkedList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "invoice_customer",
+            joinColumns = { @JoinColumn(name = "invoice_id") },
+            inverseJoinColumns = { @JoinColumn(name = "customer_id") }
+    )
+    private List<CustomerEntity> customers = new LinkedList<>();
 }
