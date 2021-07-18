@@ -77,4 +77,8 @@ public class PositionEntity
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "position_machine_fk")
     private MachineEntity positionMachine;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "position_lot_fk")
+    private LotEntity positionLot;
 }
