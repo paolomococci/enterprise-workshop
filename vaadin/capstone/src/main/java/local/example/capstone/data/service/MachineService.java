@@ -22,6 +22,7 @@ import local.example.capstone.data.entity.MachineEntity;
 import local.example.capstone.data.repository.MachineRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public class MachineService {
     MachineRepository machineRepository;
 
     public List<MachineEntity> readAll() {
+        return (List<MachineEntity>) machineRepository.findAll();
+    }
+
+    public List<MachineEntity> readAll(PageRequest pageRequest) {
         return (List<MachineEntity>) machineRepository.findAll();
     }
 
