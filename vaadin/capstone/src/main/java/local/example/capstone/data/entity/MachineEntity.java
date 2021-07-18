@@ -21,10 +21,17 @@ package local.example.capstone.data.entity;
 import local.example.capstone.data.AbstractNode;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Table(name = "machines")
 public class MachineEntity
         extends AbstractNode {
+
+    @OneToMany(mappedBy = "machine", fetch = FetchType.LAZY)
+    private List<PositionEntity> positions = new LinkedList<>();
 }
