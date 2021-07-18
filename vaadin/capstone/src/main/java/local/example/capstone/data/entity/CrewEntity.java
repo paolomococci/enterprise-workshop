@@ -23,10 +23,7 @@ import local.example.capstone.data.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -42,4 +39,8 @@ public class CrewEntity
 
     @OneToMany(mappedBy = "operatorCrew", fetch = FetchType.LAZY)
     private List<OperatorEntity> operators = new LinkedList<>();
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "crew_machine_fk")
+    private MachineEntity crewMachine;
 }
