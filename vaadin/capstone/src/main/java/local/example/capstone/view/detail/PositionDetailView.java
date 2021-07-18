@@ -36,12 +36,14 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
 import local.example.capstone.data.entity.PositionEntity;
 import local.example.capstone.data.service.PositionService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -60,7 +62,7 @@ public class PositionDetailView
 
     private final PositionService positionService;
 
-    private BeanValidationBinder<PositionEntity> positionEntityBeanValidationBinder;
+    private final BeanValidationBinder<PositionEntity> positionEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<PositionEntity> positionEntityGrid;
@@ -84,7 +86,15 @@ public class PositionDetailView
         this.positionEntityGrid.addColumn(PositionEntity::getLabel).setHeader("Label").setAutoWidth(true);
         this.positionEntityGrid.addColumn(PositionEntity::getCapacity).setHeader("Capacity").setAutoWidth(true);
 
-        this.positionEntityGrid.setItems(this.positionService.readAll());
+        this.positionEntityGrid.setItems(
+                positionEntityVoidQuery -> this.positionService.readAll(
+                        PageRequest.of(
+                                positionEntityVoidQuery.getPage(),
+                                positionEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(positionEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.positionEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.positionEntityGrid.setHeightFull();
