@@ -22,6 +22,7 @@ import local.example.capstone.data.entity.AddressEntity;
 import local.example.capstone.data.repository.AddressRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public class AddressService {
     AddressRepository addressRepository;
 
     public List<AddressEntity> readAll() {
+        return (List<AddressEntity>) addressRepository.findAll();
+    }
+
+    public List<AddressEntity> readAll(PageRequest pageRequest) {
         return (List<AddressEntity>) addressRepository.findAll();
     }
 
