@@ -23,8 +23,7 @@ import local.example.capstone.data.AbstractEmployee;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -36,4 +35,8 @@ public class OperatorEntity
     private String phoneNumber;
     private String contributoryIdentifier;
     private String email;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "crew_fk")
+    private CrewEntity crew;
 }
