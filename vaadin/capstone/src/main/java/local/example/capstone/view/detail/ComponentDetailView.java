@@ -36,12 +36,14 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
 import local.example.capstone.data.entity.ComponentEntity;
 import local.example.capstone.data.service.ComponentService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -60,7 +62,7 @@ public class ComponentDetailView
 
     private final ComponentService componentService;
 
-    private BeanValidationBinder<ComponentEntity> componentEntityBeanValidationBinder;
+    private final BeanValidationBinder<ComponentEntity> componentEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<ComponentEntity> componentEntityGrid;
@@ -84,7 +86,15 @@ public class ComponentDetailView
         this.componentEntityGrid.addColumn(ComponentEntity::getCode).setHeader("Code").setAutoWidth(true);
         this.componentEntityGrid.addColumn(ComponentEntity::getAmount).setHeader("Amount").setAutoWidth(true);
 
-        this.componentEntityGrid.setItems(this.componentService.readAll());
+        this.componentEntityGrid.setItems(
+                componentEntityVoidQuery -> this.componentService.readAll(
+                        PageRequest.of(
+                                componentEntityVoidQuery.getPage(),
+                                componentEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(componentEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.componentEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.componentEntityGrid.setHeightFull();
