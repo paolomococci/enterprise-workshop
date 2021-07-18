@@ -42,4 +42,7 @@ public class LotEntity
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "lot_component_fk")
     private ComponentEntity lotComponent;
+
+    @OneToOne(mappedBy = "positionLot")
+    private PositionEntity position;
 }
