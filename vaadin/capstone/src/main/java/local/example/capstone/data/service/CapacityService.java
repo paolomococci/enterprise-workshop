@@ -22,6 +22,7 @@ import local.example.capstone.data.entity.CapacityEntity;
 import local.example.capstone.data.repository.CapacityRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public class CapacityService {
     CapacityRepository capacityRepository;
 
     public List<CapacityEntity> readAll() {
+        return (List<CapacityEntity>) capacityRepository.findAll();
+    }
+
+    public List<CapacityEntity> readAll(PageRequest pageRequest) {
         return (List<CapacityEntity>) capacityRepository.findAll();
     }
 
