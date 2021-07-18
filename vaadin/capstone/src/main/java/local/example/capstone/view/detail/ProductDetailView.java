@@ -36,12 +36,14 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
 import local.example.capstone.data.entity.ProductEntity;
 import local.example.capstone.data.service.ProductService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -60,7 +62,7 @@ public class ProductDetailView
 
     private final ProductService productService;
 
-    private BeanValidationBinder<ProductEntity> productEntityBeanValidationBinder;
+    private final BeanValidationBinder<ProductEntity> productEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<ProductEntity> productEntityGrid;
@@ -84,7 +86,15 @@ public class ProductDetailView
         this.productEntityGrid.addColumn(ProductEntity::getCode).setHeader("Code").setAutoWidth(true);
         this.productEntityGrid.addColumn(ProductEntity::getAmount).setHeader("Amount").setAutoWidth(true);
 
-        this.productEntityGrid.setItems(this.productService.readAll());
+        this.productEntityGrid.setItems(
+                productEntityVoidQuery -> this.productService.readAll(
+                        PageRequest.of(
+                                productEntityVoidQuery.getPage(),
+                                productEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(productEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.productEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.productEntityGrid.setHeightFull();
