@@ -75,6 +75,6 @@ public class PositionEntity
     private Boolean containingAllergens;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "machine_fk")
-    private MachineEntity machine;
+    @JoinColumn(name = "position_machine_fk")
+    private MachineEntity positionMachine;
 }
