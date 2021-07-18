@@ -22,6 +22,7 @@ import local.example.capstone.data.entity.OperatorEntity;
 import local.example.capstone.data.repository.OperatorRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public class OperatorService {
     OperatorRepository operatorRepository;
 
     public List<OperatorEntity> readAll() {
+        return (List<OperatorEntity>) operatorRepository.findAll();
+    }
+
+    public List<OperatorEntity> readAll(PageRequest pageRequest) {
         return (List<OperatorEntity>) operatorRepository.findAll();
     }
 
