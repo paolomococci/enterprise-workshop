@@ -61,7 +61,7 @@ public class ContactDetailView
 
     private final ContactService contactService;
 
-    private final BeanValidationBinder<ContactEntity> contactEntityBeanValidationBinder;
+    private BeanValidationBinder<ContactEntity> contactEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<ContactEntity> contactEntityGrid;
