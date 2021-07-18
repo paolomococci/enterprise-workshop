@@ -59,7 +59,7 @@ public class CarrierDetailView
 
     private final CarrierService carrierService;
 
-    private final BeanValidationBinder<CarrierEntity> carrierEntityBeanValidationBinder;
+    private BeanValidationBinder<CarrierEntity> carrierEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<CarrierEntity> carrierEntityGrid;
