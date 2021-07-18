@@ -20,10 +20,7 @@ package local.example.capstone.data.entity;
 
 import local.example.capstone.data.AbstractItem;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -34,4 +31,8 @@ public class ComponentEntity
 
     @OneToMany(mappedBy = "lotComponent", fetch = FetchType.LAZY)
     private List<LotEntity> lots = new LinkedList<>();
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "component_product_fk")
+    private ProductEntity componentProduct;
 }
