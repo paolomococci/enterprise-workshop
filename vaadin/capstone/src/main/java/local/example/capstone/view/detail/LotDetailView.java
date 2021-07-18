@@ -36,13 +36,15 @@ import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
-
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
+
 import local.example.capstone.data.entity.LotEntity;
 import local.example.capstone.data.service.LotService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -61,7 +63,7 @@ public class LotDetailView
 
     private final LotService lotService;
 
-    private BeanValidationBinder<LotEntity> lotEntityBeanValidationBinder;
+    private final BeanValidationBinder<LotEntity> lotEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<LotEntity> lotEntityGrid;
@@ -89,7 +91,15 @@ public class LotDetailView
         this.lotEntityGrid.addColumn(LotEntity::getAmount).setHeader("Amount").setAutoWidth(true);
         this.lotEntityGrid.addColumn(LotEntity::getDeadline).setHeader("Dead Line").setAutoWidth(true);
 
-        this.lotEntityGrid.setItems(this.lotService.readAll());
+        this.lotEntityGrid.setItems(
+                lotEntityVoidQuery -> this.lotService.readAll(
+                        PageRequest.of(
+                                lotEntityVoidQuery.getPage(),
+                                lotEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(lotEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.lotEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.lotEntityGrid.setHeightFull();
