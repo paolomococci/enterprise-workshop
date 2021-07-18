@@ -35,12 +35,14 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
 import local.example.capstone.data.entity.AddressEntity;
 import local.example.capstone.data.service.AddressService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -95,7 +97,15 @@ public class AddressDetailView
         this.addressEntityGrid.addColumn(AddressEntity::getState).setHeader("State").setAutoWidth(true);
         this.addressEntityGrid.addColumn(AddressEntity::getCountry).setHeader("Country").setAutoWidth(true);
 
-        this.addressEntityGrid.setItems(this.addressService.readAll());
+        this.addressEntityGrid.setItems(
+                addressEntityVoidQuery -> this.addressService.readAll(
+                        PageRequest.of(
+                                addressEntityVoidQuery.getPage(),
+                                addressEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(addressEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.addressEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.addressEntityGrid.setHeightFull();
