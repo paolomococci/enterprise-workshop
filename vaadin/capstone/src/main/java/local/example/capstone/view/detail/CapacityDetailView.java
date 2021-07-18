@@ -35,13 +35,15 @@ import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
-
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
+
 import local.example.capstone.data.entity.CapacityEntity;
 import local.example.capstone.data.service.CapacityService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -88,7 +90,15 @@ public class CapacityDetailView
         this.capacityEntityGrid.addColumn(CapacityEntity::getUsefulWeight).setHeader("Useful Weight").setAutoWidth(true);
         this.capacityEntityGrid.addColumn(CapacityEntity::getUsefulVolume).setHeader("Useful Volume").setAutoWidth(true);
 
-        this.capacityEntityGrid.setItems(this.capacityService.readAll());
+        this.capacityEntityGrid.setItems(
+                capacityEntityVoidQuery -> this.capacityService.readAll(
+                        PageRequest.of(
+                                capacityEntityVoidQuery.getPage(),
+                                capacityEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(capacityEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.capacityEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.capacityEntityGrid.setHeightFull();
