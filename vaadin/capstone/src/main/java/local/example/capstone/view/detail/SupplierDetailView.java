@@ -35,12 +35,14 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
 import local.example.capstone.data.entity.SupplierEntity;
 import local.example.capstone.data.service.SupplierService;
 import local.example.capstone.view.MainView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 
@@ -59,7 +61,7 @@ public class SupplierDetailView
 
     private final SupplierService supplierService;
 
-    private BeanValidationBinder<SupplierEntity> supplierEntityBeanValidationBinder;
+    private final BeanValidationBinder<SupplierEntity> supplierEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<SupplierEntity> supplierEntityGrid;
@@ -83,7 +85,15 @@ public class SupplierDetailView
         this.supplierEntityGrid.addColumn(SupplierEntity::getName).setHeader("Name").setAutoWidth(true);
         this.supplierEntityGrid.addColumn(SupplierEntity::getSticker).setHeader("Sticker").setAutoWidth(true);
 
-        this.supplierEntityGrid.setItems(this.supplierService.readAll());
+        this.supplierEntityGrid.setItems(
+                supplierEntityVoidQuery -> this.supplierService.readAll(
+                        PageRequest.of(
+                                supplierEntityVoidQuery.getPage(),
+                                supplierEntityVoidQuery.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(supplierEntityVoidQuery)
+                        )
+                ).stream()
+        );
 
         this.supplierEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.supplierEntityGrid.setHeightFull();
