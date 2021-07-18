@@ -60,7 +60,7 @@ public class ComponentDetailView
 
     private final ComponentService componentService;
 
-    private final BeanValidationBinder<ComponentEntity> componentEntityBeanValidationBinder;
+    private BeanValidationBinder<ComponentEntity> componentEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<ComponentEntity> componentEntityGrid;
