@@ -60,7 +60,7 @@ public class PositionDetailView
 
     private final PositionService positionService;
 
-    private final BeanValidationBinder<PositionEntity> positionEntityBeanValidationBinder;
+    private BeanValidationBinder<PositionEntity> positionEntityBeanValidationBinder;
 
     @Id("grid")
     private Grid<PositionEntity> positionEntityGrid;
