@@ -23,8 +23,9 @@ import local.example.capstone.data.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.LinkedList;
+import java.util.List;
 
 @Data
 @Entity
@@ -38,4 +39,12 @@ public class AddressEntity
     private String city;
     private String state;
     private String country;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "address_supplier",
+            joinColumns = { @JoinColumn(name = "address_id") },
+            inverseJoinColumns = { @JoinColumn(name = "supplier_id") }
+    )
+    private List<SupplierEntity> addressesSuppliers = new LinkedList<>();
 }
