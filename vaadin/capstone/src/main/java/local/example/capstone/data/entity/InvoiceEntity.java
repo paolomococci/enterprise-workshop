@@ -48,7 +48,7 @@ public class InvoiceEntity
             joinColumns = { @JoinColumn(name = "invoice_id") },
             inverseJoinColumns = { @JoinColumn(name = "customer_id") }
     )
-    private List<CustomerEntity> customers = new LinkedList<>();
+    private List<CustomerEntity> invoicesCustomers = new LinkedList<>();
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
@@ -56,7 +56,7 @@ public class InvoiceEntity
             joinColumns = { @JoinColumn(name = "invoice_id") },
             inverseJoinColumns = { @JoinColumn(name = "carrier_id") }
     )
-    private List<CarrierEntity> carriers = new LinkedList<>();
+    private List<CarrierEntity> invoicesCarriers = new LinkedList<>();
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
@@ -64,5 +64,5 @@ public class InvoiceEntity
             joinColumns = { @JoinColumn(name = "invoice_id") },
             inverseJoinColumns = { @JoinColumn(name = "supplier_id") }
     )
-    private List<SupplierEntity> suppliers = new LinkedList<>();
+    private List<SupplierEntity> invoicesSuppliers = new LinkedList<>();
 }
