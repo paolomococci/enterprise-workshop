@@ -46,4 +46,12 @@ public class ContactEntity
             inverseJoinColumns = { @JoinColumn(name = "customer_id") }
     )
     private List<CustomerEntity> contactsCustomers = new LinkedList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "contact_carrier",
+            joinColumns = { @JoinColumn(name = "contact_id") },
+            inverseJoinColumns = { @JoinColumn(name = "carrier_id") }
+    )
+    private List<CustomerEntity> contactsCarriers = new LinkedList<>();
 }
