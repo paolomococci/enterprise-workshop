@@ -21,10 +21,16 @@ package local.example.capstone.data.entity;
 import local.example.capstone.data.AbstractCompany;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Table(name = "suppliers")
 public class SupplierEntity
         extends AbstractCompany {
+
+    @ManyToMany(mappedBy = "suppliers")
+    private List<InvoiceEntity> invoices = new LinkedList<>();
 }
