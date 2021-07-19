@@ -42,7 +42,7 @@ public class InvoiceEntity
     @OneToMany(mappedBy = "componentInvoice", fetch = FetchType.LAZY)
     private List<ComponentEntity> components = new LinkedList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "invoice_customer",
             joinColumns = { @JoinColumn(name = "invoice_id") },
