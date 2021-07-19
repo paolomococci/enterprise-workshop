@@ -20,9 +20,7 @@ package local.example.capstone.data.entity;
 
 import local.example.capstone.data.AbstractCompany;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -30,6 +28,9 @@ import java.util.List;
 @Table(name = "customers")
 public class CustomerEntity
         extends AbstractCompany {
+
+    @OneToMany(mappedBy = "productCustomer", fetch = FetchType.LAZY)
+    private List<ProductEntity> products = new LinkedList<>();
 
     @ManyToMany(mappedBy = "invoicesCustomers")
     private List<InvoiceEntity> invoices = new LinkedList<>();
