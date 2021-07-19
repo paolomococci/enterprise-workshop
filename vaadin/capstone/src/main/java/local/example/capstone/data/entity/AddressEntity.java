@@ -42,6 +42,14 @@ public class AddressEntity
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
+            name = "address_customer",
+            joinColumns = { @JoinColumn(name = "address_id") },
+            inverseJoinColumns = { @JoinColumn(name = "customer_id") }
+    )
+    private List<CustomerEntity> addressesCustomers = new LinkedList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
             name = "address_carrier",
             joinColumns = { @JoinColumn(name = "address_id") },
             inverseJoinColumns = { @JoinColumn(name = "carrier_id") }
