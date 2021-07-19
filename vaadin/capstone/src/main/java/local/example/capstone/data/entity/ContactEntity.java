@@ -53,5 +53,5 @@ public class ContactEntity
             joinColumns = { @JoinColumn(name = "contact_id") },
             inverseJoinColumns = { @JoinColumn(name = "carrier_id") }
     )
-    private List<CustomerEntity> contactsCarriers = new LinkedList<>();
+    private List<CarrierEntity> contactsCarriers = new LinkedList<>();
 }
