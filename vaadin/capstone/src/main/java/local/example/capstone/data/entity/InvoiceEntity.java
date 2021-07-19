@@ -57,4 +57,12 @@ public class InvoiceEntity
             inverseJoinColumns = { @JoinColumn(name = "carrier_id") }
     )
     private List<CarrierEntity> carriers = new LinkedList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "invoice_supplier",
+            joinColumns = { @JoinColumn(name = "invoice_id") },
+            inverseJoinColumns = { @JoinColumn(name = "supplier_id") }
+    )
+    private List<SupplierEntity> suppliers = new LinkedList<>();
 }
