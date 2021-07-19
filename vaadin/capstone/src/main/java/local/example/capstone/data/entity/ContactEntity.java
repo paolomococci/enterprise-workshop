@@ -23,8 +23,9 @@ import local.example.capstone.data.AbstractEmployee;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.LinkedList;
+import java.util.List;
 
 @Data
 @Entity
@@ -37,4 +38,12 @@ public class ContactEntity
     private String contributoryIdentifier;
     private String email;
     private String profession;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "contact_customer",
+            joinColumns = { @JoinColumn(name = "contact_id") },
+            inverseJoinColumns = { @JoinColumn(name = "customer_id") }
+    )
+    private List<CustomerEntity> contactsCustomers = new LinkedList<>();
 }
