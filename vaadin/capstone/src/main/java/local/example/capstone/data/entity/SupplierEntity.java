@@ -31,7 +31,7 @@ import java.util.List;
 public class SupplierEntity
         extends AbstractCompany {
 
-    @ManyToMany(mappedBy = "suppliers")
+    @ManyToMany(mappedBy = "invoicesSuppliers")
     private List<InvoiceEntity> invoices = new LinkedList<>();
 
     @ManyToMany(mappedBy = "contactsSuppliers")
