@@ -33,4 +33,7 @@ public class SupplierEntity
 
     @ManyToMany(mappedBy = "suppliers")
     private List<InvoiceEntity> invoices = new LinkedList<>();
+
+    @ManyToMany(mappedBy = "contactsSuppliers")
+    private List<ContactEntity> contacts = new LinkedList<>();
 }
