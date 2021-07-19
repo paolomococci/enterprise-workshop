@@ -1,9 +1,9 @@
 CREATE TABLE capstone_db.positions (
   `id` bigint(20) NOT NULL,
   `capacity` int(11) DEFAULT NULL,
-  `label` varchar(255) DEFAULT NULL,
-  `updated` datetime(6) DEFAULT NULL,
   `created` datetime(6) NOT NULL,
+  `label` varchar(255) DEFAULT NULL,
+  `updated` datetime(6) NOT NULL,
   `clothing` bit(1) DEFAULT NULL,
   `complement_for_shipping` bit(1) DEFAULT NULL,
   `consumption_product` bit(1) DEFAULT NULL,
@@ -15,5 +15,11 @@ CREATE TABLE capstone_db.positions (
   `row_material` bit(1) DEFAULT NULL,
   `sanitizing` bit(1) DEFAULT NULL,
   `secondary_packaging` bit(1) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `position_lot_fk` bigint(20) DEFAULT NULL,
+  `position_machine_fk` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKijvxf9qi7kage7y87jl0qb2po` (`position_lot_fk`),
+  KEY `FK9n25rn8rbpeovi810xjxqf70t` (`position_machine_fk`),
+  CONSTRAINT `FK9n25rn8rbpeovi810xjxqf70t` FOREIGN KEY (`position_machine_fk`) REFERENCES `machines` (`id`),
+  CONSTRAINT `FKijvxf9qi7kage7y87jl0qb2po` FOREIGN KEY (`position_lot_fk`) REFERENCES `lots` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
