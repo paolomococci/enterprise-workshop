@@ -37,6 +37,10 @@ public class ProductEntity
     @JoinColumn(name = "product_invoice_fk")
     private InvoiceEntity productInvoice;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_customer_fk")
+    private CustomerEntity productCustomer;
+
     @OneToMany(mappedBy = "lotProduct", fetch = FetchType.LAZY)
     private List<LotEntity> lots = new LinkedList<>();
 
