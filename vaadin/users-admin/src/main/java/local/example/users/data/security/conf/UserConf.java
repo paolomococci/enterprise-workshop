@@ -18,5 +18,8 @@
 
 package local.example.users.data.security.conf;
 
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
 public class UserConf {
 }
