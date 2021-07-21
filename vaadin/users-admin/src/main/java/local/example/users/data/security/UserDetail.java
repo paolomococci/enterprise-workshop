@@ -18,5 +18,8 @@
 
 package local.example.users.data.security;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class UserDetail {
 }
