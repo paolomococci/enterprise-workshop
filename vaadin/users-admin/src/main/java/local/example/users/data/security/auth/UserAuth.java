@@ -18,5 +18,8 @@
 
 package local.example.users.data.security.auth;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class UserAuth {
 }
