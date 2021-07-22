@@ -44,7 +44,7 @@ public class UserDetail
             throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
         if (user == null) {
-            throw new UsernameNotFoundException("no known user with username: " + username);
+            throw new UsernameNotFoundException("there is no user with username: " + username);
         } else {
             return new org.springframework.security.core.userdetails.User(
                     user.getUsername(),
