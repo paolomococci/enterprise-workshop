@@ -18,8 +18,53 @@
 
 package local.example.users.data.security.auth;
 
+import com.vaadin.flow.component.UI;
+import com.vaadin.flow.server.VaadinServletRequest;
+
+import local.example.users.data.entity.User;
+import local.example.users.data.repository.UserRepository;
+import local.example.users.data.security.conf.UserConf;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Component
 public class UserAuth {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    private UserDetails getUserAuth() {
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        Object principalAuthenticationFromSecurityContext = securityContext.getAuthentication().getPrincipal();
+        if (principalAuthenticationFromSecurityContext instanceof UserDetails) {
+            UserDetails userDetails = (UserDetails) securityContext.getAuthentication().getPrincipal();
+            return userDetails;
+        }
+        return null;
+    }
+
+    public Optional<User> get() {
+        UserDetails userDetail = getUserAuth();
+        if (userDetail == null) {
+            return Optional.empty();
+        }
+        return Optional.of(userRepository.findByUsername(userDetail.getUsername()));
+    }
+
+    public void logout() {
+        UI.getCurrent().getPage().setLocation(UserConf.LOGOUT_URL);
+        SecurityContextLogoutHandler securityContextLogoutHandler = new SecurityContextLogoutHandler();
+        securityContextLogoutHandler.logout(
+                VaadinServletRequest.getCurrent().getHttpServletRequest(),
+                null,
+                null
+        );
+    }
 }
