@@ -16,7 +16,7 @@
  *
  */
 
-package local.example.users.preset;
+package local.example.users.data.preset;
 
 import com.vaadin.flow.spring.annotation.SpringComponent;
 
