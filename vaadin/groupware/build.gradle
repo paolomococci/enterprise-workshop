@@ -45,6 +45,10 @@ dependencyManagement {
 	}
 }
 
+vaadin {
+	optimizeBundle = false
+}
+
 test {
 	useJUnitPlatform()
 }
