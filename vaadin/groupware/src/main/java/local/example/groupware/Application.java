@@ -18,11 +18,23 @@
 
 package local.example.groupware;
 
+import com.vaadin.flow.component.page.AppShellConfigurator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+import javax.annotation.PostConstruct;
+import java.util.TimeZone;
 
 @SpringBootApplication
-public class Application {
+public class Application
+		extends SpringBootServletInitializer
+		implements AppShellConfigurator {
+
+	@PostConstruct
+	void started() {
+		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
