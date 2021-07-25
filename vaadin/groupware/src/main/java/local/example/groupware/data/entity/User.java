@@ -39,5 +39,5 @@ public class User
     private Set<Role> roles;
 
     @Lob
-    private String profilePictureUrl;
+    private String profileImageUrl;
 }
