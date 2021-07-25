@@ -18,11 +18,22 @@
 
 package local.example.groupware.view;
 
+import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteAlias;
+import com.vaadin.flow.server.auth.AnonymousAllowed;
 
 @PageTitle("Sample")
+@AnonymousAllowed
+@Route(value = "sample", layout = MainView.class)
+@RouteAlias(value = "", layout = MainView.class)
 public class SampleView
         extends Div {
+
+    public SampleView() {
+        this.addClassName("sample-view");
+        this.add(new Text("textual content"));
     }
 }
