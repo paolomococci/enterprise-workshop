@@ -26,10 +26,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 
-import javax.annotation.security.RolesAllowed;
-
 @PageTitle("Hello")
-//@RolesAllowed("user")
 @AnonymousAllowed
 @Route(value = "hello", layout = MainView.class)
 public class HelloView
