@@ -18,11 +18,38 @@
 
 package local.example.groupware.view;
 
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.server.auth.AnonymousAllowed;
+
+import javax.annotation.security.RolesAllowed;
 
 @PageTitle("Hello")
+//@RolesAllowed("user")
+@AnonymousAllowed
+@Route(value = "hello", layout = MainView.class)
 public class HelloView
         extends HorizontalLayout {
+
+    private TextField name;
+    private Button hello;
+
+    public HelloView() {
+        addClassName("hello-view");
+        this.name = new TextField("name");
+        this.hello = new Button("Hello");
+        add(this.name, this.hello);
+        setVerticalComponentAlignment(
+                Alignment.STRETCH,
+                this.name,
+                this.hello
+        );
+        this.hello.addClickListener(e -> {
+            Notification.show("Hello " + this.name.getValue());
+        });
     }
 }
