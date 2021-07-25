@@ -5,8 +5,9 @@
     "crud",
     "frontend"
   ],
-  "license": "Apache-2.0",
   "name": "groupware",
+  "license": "Apache-2.0",
+  "private": true,
   "vaadin": {
     "dependencies": {
       "@polymer/iron-icon": "3.0.1",
