@@ -94,7 +94,7 @@ public class MainView
 
     private List<Tab> createMenuItems() {
         MenuItemHelper[] menuItems = new MenuItemHelper[] {
-                new MenuItemHelper("About", "la la-file", SampleView.class),
+                new MenuItemHelper("Sample", "la la-file", SampleView.class),
                 new MenuItemHelper("Hello", "la la-globe", HelloView.class),
                 new MenuItemHelper("Users", "la la-users-cog", UserView.class),
         };
