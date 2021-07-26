@@ -18,6 +18,8 @@
 
 package local.example.user.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -33,10 +35,12 @@ public class User
 
     private String username;
     private String name;
+
+    @JsonIgnore
     private String hashedPassword;
 
-    @ElementCollection(fetch = FetchType.LAZY)
-    private Set<Role> roles;
+    /*@ElementCollection(fetch = FetchType.LAZY)
+    private Set<Role> roles;*/
 
     @Lob
     private String profileImageUrl;
