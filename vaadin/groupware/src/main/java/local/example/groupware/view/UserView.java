@@ -42,12 +42,14 @@ import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 import elemental.json.Json;
 
 import local.example.groupware.data.entity.User;
 
 import local.example.groupware.data.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.util.UriUtils;
 
 import javax.annotation.security.RolesAllowed;
@@ -113,7 +115,14 @@ public class UserView
                 .setWidth("96px")
                 .setFlexGrow(0);
 
-        this.userGrid.setItems(query -> userService.readAll().stream());
+        this.userGrid.setItems(query -> userService
+                .readAllPageable(
+                        PageRequest.of(
+                                query.getPage(),
+                                query.getPageSize(),
+                                VaadinSpringDataHelpers.toSpringDataSort(query))
+                )
+                .stream());
         this.userGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.userGrid.setHeightFull();
 
