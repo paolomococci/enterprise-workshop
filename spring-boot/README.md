@@ -3,3 +3,4 @@
 * seed
 * staff-handler
 * cat-families
+* warehouse
