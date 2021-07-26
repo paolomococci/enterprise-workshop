@@ -73,7 +73,7 @@ public class UserView
     private TextField username;
     private TextField name;
     private TextField hashedPassword;
-    private TextField roles;
+    //private TextField roles;
     private Upload profileImageUrl;
     private Image profileImageUrlPreview;
 
@@ -101,7 +101,7 @@ public class UserView
         this.userGrid.addColumn("username").setAutoWidth(true);
         this.userGrid.addColumn("name").setAutoWidth(true);
         this.userGrid.addColumn("hashedPassword").setAutoWidth(true);
-        this.userGrid.addColumn("roles").setAutoWidth(true);
+        //this.userGrid.addColumn("roles").setAutoWidth(true);
 
         TemplateRenderer<User> profileImageUrlRenderer;
         profileImageUrlRenderer = TemplateRenderer
@@ -192,7 +192,7 @@ public class UserView
         this.username = new TextField("Username");
         this.name = new TextField("Name");
         this.hashedPassword = new TextField("Hashed Password");
-        this.roles = new TextField("Roles");
+        //this.roles = new TextField("Roles");
         Label profileImageUrlLabel = new Label("Profile Picture Url");
         this.profileImageUrlPreview = new Image();
         this.profileImageUrlPreview.setWidth("100%");
@@ -205,7 +205,7 @@ public class UserView
                 this.username,
                 this.name,
                 this.hashedPassword,
-                this.roles,
+                //this.roles,
                 profileImageUrlLabel,
                 this.profileImageUrl
         };
