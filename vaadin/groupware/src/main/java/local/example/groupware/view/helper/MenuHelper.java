@@ -20,32 +20,18 @@ package local.example.groupware.view.helper;
 
 import com.vaadin.flow.component.Component;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
 public class MenuHelper {
 
+    @Getter
     private String text;
+
+    @Getter
     private String iconClass;
+
+    @Getter
     private Class<? extends Component> view;
-
-    public MenuHelper(
-            String text,
-            String iconClass,
-            Class<? extends Component> view
-    ) {
-        this.text = text;
-        this.iconClass = iconClass;
-        this.view = view;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public String getIconClass() {
-        return this.iconClass;
-    }
-
-    public Class<? extends Component> getView() {
-        return this.view;
-    }
-
 }
