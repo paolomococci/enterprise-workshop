@@ -70,6 +70,7 @@ public class UserView
 
     private final String USER_ID = "userID";
     private final String USER_EDIT_ROUTE_TEMPLATE = "users/%d/edit";
+    private final String SPAN = "<span style='border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; width: 64px; height: 64px'><img style='max-width: 100%' src='[[item.profileImageUrl]]' /></span>";
 
     private Grid<User> userGrid = new Grid<>(User.class, false);
 
@@ -106,13 +107,14 @@ public class UserView
         this.userGrid.addColumn("hashedPassword").setAutoWidth(true);
         this.userGrid.addColumn("roles").setAutoWidth(true);
 
-        TemplateRenderer<User> profilePictureUrlRenderer;
-        profilePictureUrlRenderer = TemplateRenderer
+        TemplateRenderer<User> profileImageUrlRenderer;
+        profileImageUrlRenderer = TemplateRenderer
                 .<User>of(
-                    "<span style='border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; width: 64px; height: 64px'><img style='max-width: 100%' src='[[item.profilePictureUrl]]' /></span>")
-                .withProperty("profilePictureUrl", User::getProfileImageUrl);
+                        SPAN
+                )
+                .withProperty("profileImageUrl", User::getProfileImageUrl);
 
-        this.userGrid.addColumn(profilePictureUrlRenderer)
+        this.userGrid.addColumn(profileImageUrlRenderer)
                 .setHeader("Profile Picture Url")
                 .setWidth("96px")
                 .setFlexGrow(0);
