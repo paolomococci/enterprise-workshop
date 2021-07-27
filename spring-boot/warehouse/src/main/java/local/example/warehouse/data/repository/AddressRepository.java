@@ -20,10 +20,10 @@ package local.example.warehause.data.repository;
 
 import local.example.warehause.data.entity.AddressEntity;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(path = "addresses", collectionResourceRel = "addresses")
 public interface AddressRepository
-        extends JpaRepository<AddressEntity, Long> {
+        extends CrudRepository<AddressEntity, Long> {
 }
