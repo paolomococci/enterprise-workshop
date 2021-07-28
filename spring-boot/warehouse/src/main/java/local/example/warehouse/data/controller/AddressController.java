@@ -18,5 +18,10 @@
 
 package local.example.warehause.data.controller;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(value = "/api/addresses")
 public class AddressController {
 }
