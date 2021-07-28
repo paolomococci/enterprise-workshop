@@ -18,5 +18,29 @@
 
 package local.example.staff.configuration
 
+import org.springframework.context.annotation.Bean
+import org.springframework.core.Ordered
+import org.springframework.core.annotation.Order
+import org.springframework.stereotype.Component
+import org.springframework.web.cors.CorsConfiguration
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource
+import org.springframework.web.filter.CorsFilter
+
+@Component
+@Order(Ordered.HIGHEST_PRECEDENCE)
 class CorsFilterConfig {
+
+    @Bean
+    fun corsFilter(): CorsFilter? {
+        val urlBasedCorsConfigurationSource = UrlBasedCorsConfigurationSource()
+        val corsConfiguration = CorsConfiguration()
+        corsConfiguration.allowCredentials = false
+        corsConfiguration.addAllowedOrigin("http://127.0.0.1:8010")
+        corsConfiguration.allowedMethods =
+            listOf("DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT")
+        corsConfiguration.allowedHeaders =
+            listOf("Accept", "Authorization", "Content-Type", "Origin", "X-Requested-With")
+        urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration)
+        return CorsFilter(urlBasedCorsConfigurationSource)
+    }
 }
