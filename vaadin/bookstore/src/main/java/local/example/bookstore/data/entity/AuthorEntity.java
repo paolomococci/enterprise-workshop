@@ -19,6 +19,7 @@
 package local.example.bookstore.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
