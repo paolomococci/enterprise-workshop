@@ -18,5 +18,31 @@
 
 package local.example.bookstore.data.entity;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
+
+@MappedSuperclass
+@EqualsAndHashCode
 public abstract class AbstractEntity {
+
+    @Id
+    @Getter
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Getter
+    @UpdateTimestamp
+    @Column(nullable = false)
+    private Timestamp updated;
+
+    @Getter
+    @CreationTimestamp
+    @Column(nullable = false)
+    private Timestamp created;
 }
