@@ -18,5 +18,6 @@
 
 package local.example.bookstore.data.entity;
 
-public class BookEntity {
+public class BookEntity
+        extends AbstractEntity {
 }
