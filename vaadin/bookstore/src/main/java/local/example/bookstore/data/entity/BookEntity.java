@@ -19,7 +19,9 @@
 package local.example.bookstore.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -27,6 +29,7 @@ import java.util.List;
 
 @Data
 @Entity(name = "books")
+@EqualsAndHashCode(callSuper=false)
 @Table(name = "BOOK", uniqueConstraints = @UniqueConstraint(columnNames = {"ISBN"}))
 public class BookEntity
         extends AbstractEntity {
