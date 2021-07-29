@@ -33,6 +33,7 @@ public class AuthorEntity
 
     private String name;
     private String surname;
+    private String alias;
     private String username;
     private LocalDate birthday;
     private String email;
