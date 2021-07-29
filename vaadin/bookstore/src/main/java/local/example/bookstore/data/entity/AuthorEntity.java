@@ -54,7 +54,7 @@ public class AuthorEntity
     private String email;
 
     @Column(name = "ACTIVE")
-    private boolean active;
+    private Boolean active;
 
     @ManyToMany(targetEntity = BookEntity.class, cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(
