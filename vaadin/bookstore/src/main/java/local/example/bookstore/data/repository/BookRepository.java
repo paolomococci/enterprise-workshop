@@ -18,5 +18,12 @@
 
 package local.example.bookstore.data.repository;
 
-public interface BookRepository {
+import local.example.bookstore.data.entity.BookEntity;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface BookRepository
+        extends JpaRepository<BookEntity, Long> {
 }
