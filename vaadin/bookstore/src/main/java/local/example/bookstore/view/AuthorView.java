@@ -18,5 +18,18 @@
 
 package local.example.bookstore.view;
 
-public class AuthorView {
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.router.*;
+
+@PageTitle("Author")
+@Route(value = "author/:authorID?/:action?(edit)", layout = MainView.class)
+@RouteAlias(value = "", layout = MainView.class)
+public class AuthorView
+        extends Div
+        implements BeforeEnterObserver {
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+
+    }
 }
