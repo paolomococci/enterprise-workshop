@@ -20,6 +20,7 @@ package local.example.bookstore.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -29,6 +30,7 @@ import java.util.List;
 
 @Data
 @Entity(name = "authors")
+@EqualsAndHashCode(callSuper=false)
 @Table(name = "AUTHOR", uniqueConstraints = @UniqueConstraint(columnNames = {"ALIAS"}))
 public class AuthorEntity
         extends AbstractEntity {
