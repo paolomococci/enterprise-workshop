@@ -18,14 +18,73 @@
 
 package local.example.bookstore.data.service;
 
+import local.example.bookstore.data.entity.AuthorEntity;
 import local.example.bookstore.data.repository.AuthorRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AuthorService {
 
     @Autowired
     AuthorRepository authorRepository;
+
+    public List<AuthorEntity> readAll() {
+        return (List<AuthorEntity>) authorRepository.findAll();
+    }
+
+    public List<AuthorEntity> readAll(PageRequest pageRequest) {
+        return (List<AuthorEntity>) authorRepository.findAll();
+    }
+
+    public void create(AuthorEntity addressEntity) {
+        authorRepository.save(addressEntity);
+    }
+
+    public Optional<AuthorEntity> read(Long id) {
+        return authorRepository.findById(id);
+    }
+
+    public void update(AuthorEntity updatedAuthorEntity, Long id) {
+        Optional.of(authorRepository.findById(id).map(
+                storedAuthorEntity -> {
+                    if (updatedAuthorEntity.getName() != null)
+                        storedAuthorEntity.setName(updatedAuthorEntity.getName());
+                    if (updatedAuthorEntity.getSurname() != null)
+                        storedAuthorEntity.setSurname(updatedAuthorEntity.getSurname());
+                    if (updatedAuthorEntity.getAlias() != null)
+                        storedAuthorEntity.setAlias(updatedAuthorEntity.getAlias());
+                    if (updatedAuthorEntity.getBirthday() != null)
+                        storedAuthorEntity.setBirthday(updatedAuthorEntity.getBirthday());
+                    if (updatedAuthorEntity.getEmail() != null)
+                        storedAuthorEntity.setEmail(updatedAuthorEntity.getEmail());
+                    if (updatedAuthorEntity.getActive() != null)
+                        storedAuthorEntity.setActive(updatedAuthorEntity.getActive());
+                    return authorRepository.save(storedAuthorEntity);
+                }).orElseGet(
+                () -> {
+                    return authorRepository.save(updatedAuthorEntity);
+                }));
+    }
+
+    public void update(AuthorEntity updatedAuthorEntity) {
+        this.update(updatedAuthorEntity, updatedAuthorEntity.getId());
+    }
+
+    public void delete(Long id) {
+        authorRepository.deleteById(id);
+    }
+
+    public void delete(AuthorEntity addressEntity) {
+        try {
+            this.delete(addressEntity.getId());
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
+    }
 }
