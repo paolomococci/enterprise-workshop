@@ -18,15 +18,33 @@
 
 package local.example.bookstore.data.entity;
 
+import lombok.Data;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Data
+@Entity(name = "books")
+@Table(name = "BOOK", uniqueConstraints = @UniqueConstraint(columnNames = {"ISBN"}))
 public class BookEntity
         extends AbstractEntity {
 
+    @Column(name = "TITLE")
     private String title;
+
+    @Column(name = "SUBTITLE")
     private String subtitle;
+
+    @Column(name = "ISBN", unique = true)
     private String isbn;
+
+    @Column(name = "PAGES")
     private Integer pages;
+
+    @Column(name = "PUBLICATION")
     private LocalDate publication;
+
+    @Lob
+    @Column(name = "IMAGE")
     private String uriImage;
 }
