@@ -18,5 +18,42 @@
 
 package local.example.bookstore.data.helper;
 
-public class RepositoryHelper {
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.Optional;
+
+public abstract class RepositoryHelper<T, ID> {
+
+    protected abstract JpaRepository<T, ID> getRepository ();
+
+    public long count() {
+        return getRepository().count();
+    }
+
+    public T create(T entity) {
+        return getRepository().save(entity);
+    }
+
+    public List<T> readAll() {
+        return getRepository().findAll();
+    }
+
+    public Optional<T> get(ID id) {
+        return getRepository().findById(id);
+    }
+
+    public T update(T entity) {
+        return getRepository().save(entity);
+    }
+
+    public Page<T> readAllPageable(Pageable pageable) {
+        return getRepository().findAll(pageable);
+    }
+
+    public void delete(ID id) {
+        getRepository().deleteById(id);
+    }
 }
