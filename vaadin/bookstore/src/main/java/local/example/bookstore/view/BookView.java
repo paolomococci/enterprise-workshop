@@ -18,5 +18,20 @@
 
 package local.example.bookstore.view;
 
-public class BookView {
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.router.BeforeEnterEvent;
+import com.vaadin.flow.router.BeforeEnterObserver;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+
+@PageTitle("Book")
+@Route(value = "book/:bookID?/:action?(edit)", layout = MainView.class)
+public class BookView
+        extends Div
+        implements BeforeEnterObserver {
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+
+    }
 }
