@@ -18,15 +18,14 @@
 
 package local.example.bookstore.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity(name = "authors")
@@ -36,20 +35,29 @@ public class AuthorEntity
 
     @Column(name = "NAME")
     private String name;
-    
+
     @Column(name = "SURNAME")
     private String surname;
-    
+
     @Column(name = "ALIAS", unique = true)
     private String alias;
-    
+
     @Column(name = "BIRTHDAY")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
-    
+
     @Email
     @Column(name = "EMAIL")
     private String email;
-    
+
     @Column(name = "ACTIVE")
     private boolean active;
+
+    @ManyToMany(targetEntity = BookEntity.class, cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "AUTHOR_BOOK",
+            joinColumns = {@JoinColumn(name = "AUTHOR_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "BOOK_ID")}
+    )
+    private List<BookEntity> books;
 }
