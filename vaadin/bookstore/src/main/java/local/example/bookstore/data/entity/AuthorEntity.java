@@ -20,22 +20,36 @@ package local.example.bookstore.data.entity;
 
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Email;
 
 import java.time.LocalDate;
 
 @Data
 @Entity(name = "authors")
-@Table(name = "AUTHOR")
+@Table(name = "AUTHOR", uniqueConstraints = @UniqueConstraint(columnNames = {"ALIAS"}))
 public class AuthorEntity
         extends AbstractEntity {
 
+    @Column(name = "NAME")
     private String name;
+    
+    @Column(name = "SURNAME")
     private String surname;
+    
+    @Column(name = "ALIAS", unique = true)
     private String alias;
-    private String username;
+    
+    @Column(name = "BIRTHDAY")
     private LocalDate birthday;
+    
+    @Email
+    @Column(name = "EMAIL")
     private String email;
+    
+    @Column(name = "ACTIVE")
     private boolean active;
 }
