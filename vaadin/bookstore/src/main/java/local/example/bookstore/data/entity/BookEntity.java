@@ -18,6 +18,15 @@
 
 package local.example.bookstore.data.entity;
 
+import java.time.LocalDate;
+
 public class BookEntity
         extends AbstractEntity {
+
+    private String title;
+    private String subtitle;
+    private String isbn;
+    private Integer pages;
+    private LocalDate publication;
+    private String uriImage;
 }
