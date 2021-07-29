@@ -18,5 +18,14 @@
 
 package local.example.bookstore.view;
 
-public class MainView {
+import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.server.PWA;
+import com.vaadin.flow.theme.Theme;
+
+@PageTitle("Main")
+@Theme(themeFolder = "bookstore")
+@PWA(name = "bookstore", shortName = "bookstore", enableInstallPrompt = false)
+public class MainView
+        extends AppLayout {
 }
