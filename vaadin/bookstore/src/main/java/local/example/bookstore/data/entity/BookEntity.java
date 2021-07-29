@@ -18,10 +18,12 @@
 
 package local.example.bookstore.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity(name = "books")
@@ -42,9 +44,18 @@ public class BookEntity
     private Integer pages;
 
     @Column(name = "PUBLICATION")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate publication;
 
     @Lob
     @Column(name = "IMAGE")
     private String uriImage;
+
+    @ManyToMany(
+            targetEntity = AuthorEntity.class,
+            mappedBy = "books",
+            cascade = {CascadeType.ALL},
+            fetch = FetchType.LAZY
+    )
+    private List<AuthorEntity> authors;
 }
