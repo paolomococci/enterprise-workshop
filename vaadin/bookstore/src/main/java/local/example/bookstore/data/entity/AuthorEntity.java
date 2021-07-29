@@ -18,6 +18,23 @@
 
 package local.example.bookstore.data.entity;
 
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import java.time.LocalDate;
+
+@Data
+@Entity(name = "authors")
+@Table(name = "AUTHOR")
 public class AuthorEntity
         extends AbstractEntity {
+
+    private String name;
+    private String surname;
+    private String username;
+    private LocalDate birthday;
+    private String email;
+    private boolean active;
 }
