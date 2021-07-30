@@ -30,6 +30,9 @@ public class BookView
         extends Div
         implements BeforeEnterObserver {
 
+    private final String BOOK_ID = "bookID";
+    private final String BOOK_EDIT_ROUTE = "book/%d/edit";
+
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
 
