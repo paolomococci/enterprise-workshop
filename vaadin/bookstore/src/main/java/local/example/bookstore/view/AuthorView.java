@@ -18,8 +18,11 @@
 
 package local.example.bookstore.view;
 
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.router.*;
+
+import local.example.bookstore.data.entity.AuthorEntity;
 
 @PageTitle("Author")
 @Route(value = "author/:authorID?/:action?(edit)", layout = MainView.class)
@@ -30,6 +33,8 @@ public class AuthorView
 
     private final String AUTHOR_ID = "authorID";
     private final String AUTHOR_EDIT_ROUTE = "author/%d/edit";
+
+    private Grid<AuthorEntity> authorEntityGrid = new Grid<>(AuthorEntity.class, false);
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
