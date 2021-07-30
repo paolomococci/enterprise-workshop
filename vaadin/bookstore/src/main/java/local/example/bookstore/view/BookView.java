@@ -21,6 +21,7 @@ package local.example.bookstore.view;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.*;
 
@@ -46,8 +47,36 @@ public class BookView
     private BookEntity bookEntity;
     private BookService bookService;
 
+    public BookView() {
+        // TODO
+    }
+
+    private void createEditorLayout(SplitLayout splitLayout) {
+        // TODO
+    }
+
+    private void createButtonLayout(Div editorLayoutDiv) {
+        // TODO
+    }
+
+    private void createGridLayout(SplitLayout splitLayout) {
+        // TODO
+    }
+
+    private void refreshGrid() {
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private void populateForm(BookEntity bookEntity) {
+        // TODO
+    }
+
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-
+        // TODO
     }
 }
