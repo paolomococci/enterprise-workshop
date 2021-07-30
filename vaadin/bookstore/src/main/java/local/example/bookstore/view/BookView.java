@@ -18,12 +18,10 @@
 
 package local.example.bookstore.view;
 
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.router.BeforeEnterEvent;
-import com.vaadin.flow.router.BeforeEnterObserver;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.*;
 
 import local.example.bookstore.data.entity.BookEntity;
 
@@ -37,6 +35,9 @@ public class BookView
     private final String BOOK_EDIT_ROUTE = "book/%d/edit";
 
     private Grid<BookEntity> bookEntityGrid = new Grid<>(BookEntity.class, false);
+
+    private Button cancel = new Button("Cancel");
+    private Button save = new Button("Save");
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
