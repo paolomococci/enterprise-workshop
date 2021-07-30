@@ -33,5 +33,5 @@ public class MenuItemHelper {
     private String iconClass;
 
     @Getter
-    private Class<? extends Component> view;
+    private Class<? extends Component> tabView;
 }
