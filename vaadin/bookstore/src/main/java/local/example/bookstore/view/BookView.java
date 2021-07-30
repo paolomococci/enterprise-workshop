@@ -88,7 +88,8 @@ public class BookView
     }
 
     private void populateForm(BookEntity bookEntity) {
-        // TODO
+        this.bookEntity = bookEntity;
+        this.bookEntityBeanValidationBinder.readBean(this.bookEntity);
     }
 
     @Override
