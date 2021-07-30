@@ -35,6 +35,8 @@ import com.vaadin.flow.router.Route;
 import local.example.bookstore.data.entity.BookEntity;
 import local.example.bookstore.data.service.BookService;
 
+import java.util.Optional;
+
 @PageTitle("Book")
 @Route(value = "book/:bookID?/:action?(edit)", layout = MainView.class)
 public class BookView
@@ -82,7 +84,7 @@ public class BookView
     }
 
     private void clearForm() {
-        // TODO
+        this.populateForm(null);
     }
 
     private void populateForm(BookEntity bookEntity) {
@@ -91,6 +93,7 @@ public class BookView
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        Optional<Long> bookId = beforeEnterEvent.getRouteParameters().getLong(BOOK_ID);
         // TODO
     }
 }
