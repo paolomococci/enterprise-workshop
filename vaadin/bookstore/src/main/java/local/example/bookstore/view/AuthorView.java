@@ -28,6 +28,9 @@ public class AuthorView
         extends Div
         implements BeforeEnterObserver {
 
+    private final String AUTHOR_ID = "authorID";
+    private final String AUTHOR_EDIT_ROUTE = "author/%d/edit";
+
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
 
