@@ -84,7 +84,8 @@ public class AuthorView
     }
 
     private void populateForm(AuthorEntity authorEntity) {
-        // TODO
+        this.authorEntity = authorEntity;
+        this.authorEntityBeanValidationBinder.readBean(this.authorEntity);
     }
 
     @Override
