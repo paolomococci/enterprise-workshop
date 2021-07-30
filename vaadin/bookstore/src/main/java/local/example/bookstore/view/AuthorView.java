@@ -19,9 +19,12 @@
 package local.example.bookstore.view;
 
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.checkbox.Checkbox;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.*;
 
@@ -40,6 +43,12 @@ public class AuthorView
 
     private Grid<AuthorEntity> authorEntityGrid = new Grid<>(AuthorEntity.class, false);
 
+    private TextField name;
+    private TextField surname;
+    private TextField alias;
+    private TextField email;
+    private DatePicker birthday;
+    private Checkbox active;
     private Button cancel = new Button("Cancel");
     private Button save = new Button("Save");
 
