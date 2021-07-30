@@ -19,11 +19,18 @@
 package local.example.bookstore.view;
 
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
-import com.vaadin.flow.router.*;
+import com.vaadin.flow.router.BeforeEnterEvent;
+import com.vaadin.flow.router.BeforeEnterObserver;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
 
 import local.example.bookstore.data.entity.BookEntity;
 import local.example.bookstore.data.service.BookService;
@@ -39,6 +46,13 @@ public class BookView
 
     private Grid<BookEntity> bookEntityGrid = new Grid<>(BookEntity.class, false);
 
+    private TextField title;
+    private TextField subtitle;
+    private TextField isbn;
+    private TextField pages;
+    private DatePicker publication;
+    private Upload imageUpload;
+    private Image imagePreview;
     private Button cancel = new Button("Cancel");
     private Button save = new Button("Save");
 
