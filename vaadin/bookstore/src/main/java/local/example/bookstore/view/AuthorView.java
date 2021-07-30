@@ -21,9 +21,11 @@ package local.example.bookstore.view;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.*;
 
 import local.example.bookstore.data.entity.AuthorEntity;
+import local.example.bookstore.data.service.AuthorService;
 
 @PageTitle("Author")
 @Route(value = "author/:authorID?/:action?(edit)", layout = MainView.class)
@@ -39,6 +41,11 @@ public class AuthorView
 
     private Button cancel = new Button("Cancel");
     private Button save = new Button("Save");
+
+    private BeanValidationBinder<AuthorEntity> authorEntityBeanValidationBinder;
+    
+    private AuthorEntity authorEntity;
+    private AuthorService authorService;
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
