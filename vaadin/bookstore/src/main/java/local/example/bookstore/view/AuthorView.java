@@ -21,6 +21,7 @@ package local.example.bookstore.view;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.router.*;
 
@@ -43,12 +44,40 @@ public class AuthorView
     private Button save = new Button("Save");
 
     private BeanValidationBinder<AuthorEntity> authorEntityBeanValidationBinder;
-    
+
     private AuthorEntity authorEntity;
     private AuthorService authorService;
 
+    public AuthorView() {
+        // TODO
+    }
+
+    private void createEditorLayout(SplitLayout splitLayout) {
+        // TODO
+    }
+
+    private void createButtonLayout(Div editorLayoutDiv) {
+        // TODO
+    }
+
+    private void createGridLayout(SplitLayout splitLayout) {
+        // TODO
+    }
+
+    private void refreshGrid() {
+        // TODO
+    }
+
+    private void clearForm() {
+        // TODO
+    }
+
+    private void populateForm(AuthorEntity authorEntity) {
+        // TODO
+    }
+
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
-
+        // TODO
     }
 }
