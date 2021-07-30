@@ -51,7 +51,7 @@ public class BookView
     private TextField isbn;
     private TextField pages;
     private DatePicker publication;
-    private Upload imageUpload;
+    private Upload uriImageUpload;
     private Image imagePreview;
     private Button cancel = new Button("Cancel");
     private Button save = new Button("Save");
