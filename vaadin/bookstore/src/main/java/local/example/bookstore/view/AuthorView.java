@@ -31,6 +31,8 @@ import com.vaadin.flow.router.*;
 import local.example.bookstore.data.entity.AuthorEntity;
 import local.example.bookstore.data.service.AuthorService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Optional;
 
 @PageTitle("Author")
@@ -59,7 +61,11 @@ public class AuthorView
     private AuthorEntity authorEntity;
     private AuthorService authorService;
 
-    public AuthorView() {
+    public AuthorView(
+            @Autowired AuthorService authorService
+    ) {
+        this.addClassNames("author-view", "flex", "flex-col", "h-full");
+        this.authorService = authorService;
         // TODO
     }
 
