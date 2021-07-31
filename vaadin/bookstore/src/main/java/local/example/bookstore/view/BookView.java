@@ -47,6 +47,7 @@ public class BookView
 
     private final String BOOK_ID = "bookID";
     private final String BOOK_EDIT_ROUTE = "book/%d/edit";
+    private final String TEMPLATE_RENDER_BOOK_IMAGE = "<img style='height: 64px' src='[[item.uriImageUpload]]' />";
 
     private Grid<BookEntity> bookEntityGrid = new Grid<>(BookEntity.class, false);
 
@@ -74,6 +75,12 @@ public class BookView
         SplitLayout splitLayout = new SplitLayout();
         splitLayout.setSizeFull();
         // TODO
+        this.bookEntityGrid.addColumn(BookEntity::getTitle).setHeader("Title").setAutoWidth(true);
+        this.bookEntityGrid.addColumn(BookEntity::getSubtitle).setHeader("Subtitle").setAutoWidth(true);
+        this.bookEntityGrid.addColumn(BookEntity::getIsbn).setHeader("ISBN").setAutoWidth(true);
+        this.bookEntityGrid.addColumn(BookEntity::getPages).setHeader("Pages").setAutoWidth(true);
+        this.bookEntityGrid.addColumn(BookEntity::getPublication).setHeader("Publication").setAutoWidth(true);
+        this.bookEntityGrid.addColumn("").setHeader("Image").setAutoWidth(true);
     }
 
     private void createEditorLayout(SplitLayout splitLayout) {
