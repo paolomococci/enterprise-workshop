@@ -124,7 +124,8 @@ public class BookView
     }
 
     private void refreshGrid() {
-        // TODO
+        this.bookEntityGrid.select(null);
+        this.bookEntityGrid.getDataProvider().refreshAll();
     }
 
     private void clearForm() {
