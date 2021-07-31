@@ -26,6 +26,7 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.renderer.TemplateRenderer;
 import com.vaadin.flow.router.*;
 
 import local.example.bookstore.data.entity.AuthorEntity;
@@ -70,13 +71,19 @@ public class AuthorView
 
         SplitLayout splitLayout = new SplitLayout();
         splitLayout.setSizeFull();
+        
         // TODO
+
+        TemplateRenderer<AuthorEntity> authorActiveTemplateRenderer;
+        authorActiveTemplateRenderer = TemplateRenderer.<AuthorEntity>of(TEMPLATE_RENDER_ACTIVE)
+                .withProperty("active", AuthorEntity::getActive);
+
         this.authorEntityGrid.addColumn(AuthorEntity::getName).setHeader("Name").setAutoWidth(true);
         this.authorEntityGrid.addColumn(AuthorEntity::getSurname).setHeader("Surname").setAutoWidth(true);
         this.authorEntityGrid.addColumn(AuthorEntity::getAlias).setHeader("Alias").setAutoWidth(true);
         this.authorEntityGrid.addColumn(AuthorEntity::getEmail).setHeader("Email").setAutoWidth(true);
         this.authorEntityGrid.addColumn(AuthorEntity::getBirthday).setHeader("Birthday").setAutoWidth(true);
-        this.authorEntityGrid.addColumn("").setHeader("Active").setAutoWidth(true);
+        this.authorEntityGrid.addColumn(authorActiveTemplateRenderer).setHeader("Active").setAutoWidth(true);
     }
 
     private void createEditorLayout(SplitLayout splitLayout) {
