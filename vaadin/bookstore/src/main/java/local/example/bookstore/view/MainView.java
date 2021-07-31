@@ -34,6 +34,7 @@ import com.vaadin.flow.theme.Theme;
 
 import local.example.bookstore.view.helper.MenuItemHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,7 +66,14 @@ public class MainView
     }
 
     private List<Tab> createMenuItems() {
-        // TODO
+        MenuItemHelper[] menuItemHelpers = new MenuItemHelper[] {
+                // TODO
+        };
+        List<Tab> menuTabs = new ArrayList<>();
+        for (MenuItemHelper menuItemHelper : menuItemHelpers) {
+            menuTabs.add(createTab(menuItemHelper));
+
+        }
         return null;
     }
 
@@ -81,8 +89,8 @@ public class MainView
         routerLink.add(iconElementSpan, new Text(menuItemHelper.getLabel()));
         menuTab.add(routerLink);
         ComponentUtil.setData(
-                menuTab, 
-                Class.class, 
+                menuTab,
+                Class.class,
                 menuItemHelper.getTabView()
         );
         return menuTab;
