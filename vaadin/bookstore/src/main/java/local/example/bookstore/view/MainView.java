@@ -20,12 +20,15 @@ package local.example.bookstore.view;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentUtil;
+import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.theme.Theme;
 
@@ -67,7 +70,21 @@ public class MainView
     }
 
     private Tab createTab(MenuItemHelper menuItemHelper) {
-        // TODO
+        Tab menuTab = new Tab();
+        RouterLink routerLink = new RouterLink();
+        routerLink.setRoute(menuItemHelper.getTabView());
+        Span iconElementSpan = new Span();
+        iconElementSpan.addClassNames("text-l", "pr-s");
+        if (!menuItemHelper.getIconClass().isEmpty()) {
+            iconElementSpan.addClassNames(menuItemHelper.getIconClass());
+        }
+        routerLink.add(iconElementSpan, new Text(menuItemHelper.getLabel()));
+        menuTab.add(routerLink);
+        ComponentUtil.setData(
+                menuTab, 
+                Class.class, 
+                menuItemHelper.getTabView()
+        );
         return null;
     }
 
