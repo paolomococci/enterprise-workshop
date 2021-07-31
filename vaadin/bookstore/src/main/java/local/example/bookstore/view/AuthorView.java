@@ -44,6 +44,7 @@ public class AuthorView
 
     private final String AUTHOR_ID = "authorID";
     private final String AUTHOR_EDIT_ROUTE = "author/%d/edit";
+    private final String TEMPLATE_RENDER_ACTIVE = "<iron-icon hidden='[[!item.active]]' icon='vaadin:check' style='width: var(--lumo-icon-size-s); height: var(--lumo-icon-size-s); color: var(--lumo-primary-text-color);'></iron-icon><iron-icon hidden='[[item.active]]' icon='vaadin:minus' style='width: var(--lumo-icon-size-s); height: var(--lumo-icon-size-s); color: var(--lumo-disabled-text-color);'></iron-icon>";
 
     private Grid<AuthorEntity> authorEntityGrid = new Grid<>(AuthorEntity.class, false);
 
@@ -70,6 +71,12 @@ public class AuthorView
         SplitLayout splitLayout = new SplitLayout();
         splitLayout.setSizeFull();
         // TODO
+        this.authorEntityGrid.addColumn(AuthorEntity::getName).setHeader("Name").setAutoWidth(true);
+        this.authorEntityGrid.addColumn(AuthorEntity::getSurname).setHeader("Surname").setAutoWidth(true);
+        this.authorEntityGrid.addColumn(AuthorEntity::getAlias).setHeader("Alias").setAutoWidth(true);
+        this.authorEntityGrid.addColumn(AuthorEntity::getEmail).setHeader("Email").setAutoWidth(true);
+        this.authorEntityGrid.addColumn(AuthorEntity::getBirthday).setHeader("Birthday").setAutoWidth(true);
+        this.authorEntityGrid.addColumn("").setHeader("Active").setAutoWidth(true);
     }
 
     private void createEditorLayout(SplitLayout splitLayout) {
