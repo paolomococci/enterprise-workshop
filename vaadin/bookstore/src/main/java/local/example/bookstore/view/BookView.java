@@ -21,6 +21,7 @@ package local.example.bookstore.view;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
@@ -88,6 +89,10 @@ public class BookView
         this.bookEntityGrid.addColumn(BookEntity::getPages).setHeader("Pages").setAutoWidth(true);
         this.bookEntityGrid.addColumn(BookEntity::getPublication).setHeader("Publication").setAutoWidth(true);
         this.bookEntityGrid.addColumn(bookUriImageTemplateRenderer).setHeader("Image").setAutoWidth(true);
+
+        // TODO CRUD service
+        this.bookEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.bookEntityGrid.setHeightFull();
 
         this.bookEntityGrid.asSingleSelect().addValueChangeListener(
                 valueChangeEvent -> {
