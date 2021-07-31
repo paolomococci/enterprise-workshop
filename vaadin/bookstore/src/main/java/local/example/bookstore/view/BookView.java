@@ -29,6 +29,7 @@ import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -188,6 +189,19 @@ public class BookView
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> bookId = beforeEnterEvent.getRouteParameters().getLong(BOOK_ID);
-        // TODO
+        if (bookId.isPresent()) {
+            Optional<BookEntity> bookFromBackend = this.bookService.read(bookId.get());
+            if (bookFromBackend.isPresent()) {
+                this.populateForm(bookFromBackend.get());
+            } else {
+                Notification.show(
+                        String.format("Sorry, book defined by ID: %d could not be found!", bookId.get()),
+                        2500,
+                        Notification.Position.BOTTOM_START
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(BookView.class);
+            }
+        }
     }
 }
