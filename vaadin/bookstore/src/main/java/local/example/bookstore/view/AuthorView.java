@@ -79,7 +79,9 @@ public class AuthorView
         SplitLayout splitLayout = new SplitLayout();
         splitLayout.setSizeFull();
 
-        // TODO
+        this.createGridLayout(splitLayout);
+        this.createEditorLayout(splitLayout);
+        this.add(splitLayout);
 
         TemplateRenderer<AuthorEntity> authorActiveTemplateRenderer;
         authorActiveTemplateRenderer = TemplateRenderer.<AuthorEntity>of(TEMPLATE_RENDER_ACTIVE)
