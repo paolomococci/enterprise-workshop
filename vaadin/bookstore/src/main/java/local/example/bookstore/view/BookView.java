@@ -18,13 +18,17 @@
 
 package local.example.bookstore.view;
 
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -113,8 +117,40 @@ public class BookView
         });
     }
 
-    private void createEditorLayout(SplitLayout splitLayout) {
-        // TODO
+    private void createEditorLayout(SplitLayout editorSplitLayout) {
+        Div editorLayoutDiv = new Div();
+        editorLayoutDiv.setClassName("flex flex-col");
+        editorLayoutDiv.setWidth("400px");
+        Div editorDiv = new Div();
+        editorDiv.setClassName("p-l flex-grow");
+        editorLayoutDiv.add(editorDiv);
+        FormLayout formLayout = new FormLayout();
+        this.title = new TextField("Title");
+        this.subtitle = new TextField("Subtitle");
+        this.isbn = new TextField("ISBN");
+        this.pages = new TextField("Pages");
+        this.publication = new DatePicker("Publication");
+        Label imageLabel = new Label("Image");
+        this.imagePreview = new Image();
+        this.imagePreview.setWidth("100%");
+        this.uriImageUpload = new Upload();
+        this.uriImageUpload.getStyle().set("box-sizing", "border-box");
+        this.uriImageUpload.getElement().appendChild(this.imagePreview.getElement());
+        Component[] componentFields = new Component[]{
+                this.title,
+                this.subtitle,
+                this.isbn,
+                this.pages,
+                this.publication,
+                imageLabel, this.uriImageUpload
+        };
+        for (Component componentField : componentFields) {
+            ((HasStyle) componentField).addClassName("full-width");
+        }
+        formLayout.add(componentFields);
+        editorDiv.add(formLayout);
+        this.createButtonLayout(editorLayoutDiv);
+        editorSplitLayout.addToSecondary(editorLayoutDiv);
     }
 
     private void createButtonLayout(Div buttonsLayoutDiv) {
