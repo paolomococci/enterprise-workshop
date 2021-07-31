@@ -85,7 +85,7 @@ public class MainView
                 Class.class, 
                 menuItemHelper.getTabView()
         );
-        return null;
+        return menuTab;
     }
 
     private Optional<Tab> getTabForComponent(Component component) {
