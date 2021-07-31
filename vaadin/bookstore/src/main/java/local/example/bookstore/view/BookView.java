@@ -35,6 +35,8 @@ import com.vaadin.flow.router.Route;
 import local.example.bookstore.data.entity.BookEntity;
 import local.example.bookstore.data.service.BookService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Optional;
 
 @PageTitle("Book")
@@ -63,7 +65,11 @@ public class BookView
     private BookEntity bookEntity;
     private BookService bookService;
 
-    public BookView() {
+    public BookView(
+            @Autowired BookService bookService
+    ) {
+        this.addClassNames("book-view", "flex", "flex-col", "h-full");
+        this.bookService = bookService;
         // TODO
     }
 
