@@ -18,10 +18,13 @@
 
 package local.example.bookstore.view;
 
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
@@ -109,8 +112,36 @@ public class AuthorView
         });
     }
 
-    private void createEditorLayout(SplitLayout splitLayout) {
-        // TODO
+    private void createEditorLayout(SplitLayout editorSplitLayout) {
+        Div editorLayoutDiv = new Div();
+        editorLayoutDiv.setClassName("flex flex-col");
+        editorLayoutDiv.setWidth("400px");
+        Div editorDiv = new Div();
+        editorDiv.setClassName("p-l flex-grow");
+        editorLayoutDiv.add(editorDiv);
+        FormLayout formLayout = new FormLayout();
+        this.name = new TextField("Name");
+        this.surname = new TextField("Surname");
+        this.alias = new TextField("Alias");
+        this.email = new TextField("Email");
+        this.birthday = new DatePicker("Birthday");
+        this.active = new Checkbox("Active");
+        this.active.getStyle().set("padding-top", "var(--lumo-space-m)");
+        Component[] componentFields = new Component[]{
+                this.name, 
+                this.surname, 
+                this.alias, 
+                this.email, 
+                this.birthday, 
+                this.active
+        };
+        for (Component componentField : componentFields) {
+            ((HasStyle) componentField).addClassName("full-width");
+        }
+        formLayout.add(componentFields);
+        editorDiv.add(formLayout);
+        this.createButtonLayout(editorLayoutDiv);
+        editorSplitLayout.addToSecondary(editorLayoutDiv);
     }
 
     private void createButtonLayout(Div buttonsLayoutDiv) {
