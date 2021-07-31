@@ -88,6 +88,12 @@ public class BookView
         this.bookEntityGrid.addColumn(BookEntity::getPages).setHeader("Pages").setAutoWidth(true);
         this.bookEntityGrid.addColumn(BookEntity::getPublication).setHeader("Publication").setAutoWidth(true);
         this.bookEntityGrid.addColumn(bookUriImageTemplateRenderer).setHeader("Image").setAutoWidth(true);
+
+        this.bookEntityGrid.asSingleSelect().addValueChangeListener(
+                valueChangeEvent -> {
+
+                }
+        );
     }
 
     private void createEditorLayout(SplitLayout splitLayout) {
