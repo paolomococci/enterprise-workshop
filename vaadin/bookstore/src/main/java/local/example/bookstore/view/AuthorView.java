@@ -95,7 +95,7 @@ public class AuthorView
 
                 }
         );
-        
+
         this.authorEntityBeanValidationBinder = new BeanValidationBinder<>(AuthorEntity.class);
 
         this.cancel.addClickListener(cancelClickEvent -> {
@@ -116,7 +116,11 @@ public class AuthorView
     }
 
     private void createGridLayout(SplitLayout splitLayout) {
-        // TODO
+        Div gridWrapperDiv = new Div();
+        gridWrapperDiv.setId("grid-wrapper");
+        gridWrapperDiv.setWidthFull();
+        splitLayout.addToPrimary(gridWrapperDiv);
+        gridWrapperDiv.add(this.authorEntityGrid);
     }
 
     private void refreshGrid() {
