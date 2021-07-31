@@ -109,7 +109,8 @@ public class AuthorView
         this.authorEntityBeanValidationBinder = new BeanValidationBinder<>(AuthorEntity.class);
 
         this.cancel.addClickListener(cancelClickEvent -> {
-            // TODO
+            this.clearForm();
+            this.refreshGrid();
         });
 
         this.save.addClickListener(saveClickEvent -> {
