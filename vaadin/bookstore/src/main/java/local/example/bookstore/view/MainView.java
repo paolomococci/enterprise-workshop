@@ -19,6 +19,7 @@
 package local.example.bookstore.view;
 
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -71,8 +72,11 @@ public class MainView
     }
 
     private Optional<Tab> getTabForComponent(Component component) {
-        // TODO
-        return null;
+        return menuTabs
+                .getChildren()
+                .filter(tab -> ComponentUtil.getData(tab, Class.class).equals(component.getClass()))
+                .findFirst()
+                .map(Tab.class::cast);
     }
 
     @Override
