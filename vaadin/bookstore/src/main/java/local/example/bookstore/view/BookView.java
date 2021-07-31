@@ -120,7 +120,11 @@ public class BookView
     }
 
     private void createGridLayout(SplitLayout splitLayout) {
-        // TODO
+        Div gridWrapperDiv = new Div();
+        gridWrapperDiv.setId("grid-wrapper");
+        gridWrapperDiv.setWidthFull();
+        splitLayout.addToPrimary(gridWrapperDiv);
+        gridWrapperDiv.add(this.bookEntityGrid);
     }
 
     private void refreshGrid() {
