@@ -22,6 +22,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -71,7 +72,7 @@ public class AuthorView
 
         SplitLayout splitLayout = new SplitLayout();
         splitLayout.setSizeFull();
-        
+
         // TODO
 
         TemplateRenderer<AuthorEntity> authorActiveTemplateRenderer;
@@ -84,6 +85,10 @@ public class AuthorView
         this.authorEntityGrid.addColumn(AuthorEntity::getEmail).setHeader("Email").setAutoWidth(true);
         this.authorEntityGrid.addColumn(AuthorEntity::getBirthday).setHeader("Birthday").setAutoWidth(true);
         this.authorEntityGrid.addColumn(authorActiveTemplateRenderer).setHeader("Active").setAutoWidth(true);
+
+        // TODO CRUD service
+        this.authorEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        this.authorEntityGrid.setHeightFull();
 
         this.authorEntityGrid.asSingleSelect().addValueChangeListener(
                 valueChangeEvent -> {
