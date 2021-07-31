@@ -84,6 +84,12 @@ public class AuthorView
         this.authorEntityGrid.addColumn(AuthorEntity::getEmail).setHeader("Email").setAutoWidth(true);
         this.authorEntityGrid.addColumn(AuthorEntity::getBirthday).setHeader("Birthday").setAutoWidth(true);
         this.authorEntityGrid.addColumn(authorActiveTemplateRenderer).setHeader("Active").setAutoWidth(true);
+
+        this.authorEntityGrid.asSingleSelect().addValueChangeListener(
+                valueChangeEvent -> {
+
+                }
+        );
     }
 
     private void createEditorLayout(SplitLayout splitLayout) {
