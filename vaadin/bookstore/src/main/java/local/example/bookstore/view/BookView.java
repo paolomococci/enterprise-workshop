@@ -99,6 +99,16 @@ public class BookView
 
                 }
         );
+
+        this.bookEntityBeanValidationBinder = new BeanValidationBinder<>(BookEntity.class);
+
+        this.cancel.addClickListener(cancelClickEvent -> {
+            // TODO
+        });
+
+        this.save.addClickListener(saveClickEvent -> {
+            // TODO
+        });
     }
 
     private void createEditorLayout(SplitLayout splitLayout) {
