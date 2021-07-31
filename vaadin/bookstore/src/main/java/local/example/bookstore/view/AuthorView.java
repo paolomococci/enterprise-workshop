@@ -66,6 +66,9 @@ public class AuthorView
     ) {
         this.addClassNames("author-view", "flex", "flex-col", "h-full");
         this.authorService = authorService;
+
+        SplitLayout splitLayout = new SplitLayout();
+        splitLayout.setSizeFull();
         // TODO
     }
 
