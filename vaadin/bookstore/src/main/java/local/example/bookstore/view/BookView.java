@@ -70,6 +70,9 @@ public class BookView
     ) {
         this.addClassNames("book-view", "flex", "flex-col", "h-full");
         this.bookService = bookService;
+
+        SplitLayout splitLayout = new SplitLayout();
+        splitLayout.setSizeFull();
         // TODO
     }
 
