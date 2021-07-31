@@ -74,7 +74,7 @@ public class MainView
             menuTabs.add(createTab(menuItemHelper));
 
         }
-        return null;
+        return menuTabs;
     }
 
     private Tab createTab(MenuItemHelper menuItemHelper) {
