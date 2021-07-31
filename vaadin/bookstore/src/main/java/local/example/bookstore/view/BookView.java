@@ -114,7 +114,8 @@ public class BookView
         this.bookEntityBeanValidationBinder = new BeanValidationBinder<>(BookEntity.class);
 
         this.cancel.addClickListener(cancelClickEvent -> {
-            // TODO
+            this.clearForm();
+            this.refreshGrid();
         });
 
         this.save.addClickListener(saveClickEvent -> {
