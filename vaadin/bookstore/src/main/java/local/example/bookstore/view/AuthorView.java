@@ -120,7 +120,8 @@ public class AuthorView
     }
 
     private void refreshGrid() {
-        // TODO
+        this.authorEntityGrid.select(null);
+        this.authorEntityGrid.getDataProvider().refreshAll();
     }
 
     private void clearForm() {
