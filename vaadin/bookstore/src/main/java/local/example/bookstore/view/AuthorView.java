@@ -95,6 +95,16 @@ public class AuthorView
 
                 }
         );
+        
+        this.authorEntityBeanValidationBinder = new BeanValidationBinder<>(AuthorEntity.class);
+
+        this.cancel.addClickListener(cancelClickEvent -> {
+            // TODO
+        });
+
+        this.save.addClickListener(saveClickEvent -> {
+            // TODO
+        });
     }
 
     private void createEditorLayout(SplitLayout splitLayout) {
