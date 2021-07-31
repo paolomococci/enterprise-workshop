@@ -66,7 +66,7 @@ public class MainView
         for (Tab menuTab : this.createMenuItems()) {
             menuTabs.add(menuTab);
         }
-        return null;
+        return menuTabs;
     }
 
     private List<Tab> createMenuItems() {
