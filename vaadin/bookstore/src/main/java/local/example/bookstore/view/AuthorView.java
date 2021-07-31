@@ -20,6 +20,7 @@ package local.example.bookstore.view;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasStyle;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.checkbox.Checkbox;
@@ -33,6 +34,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.data.renderer.TemplateRenderer;
 import com.vaadin.flow.router.*;
 
@@ -111,7 +113,17 @@ public class AuthorView
         });
 
         this.save.addClickListener(saveClickEvent -> {
-            // TODO
+            try {
+                if (this.authorEntity == null) {
+                    this.authorEntity = new AuthorEntity();
+                }
+                this.authorEntityBeanValidationBinder.writeBean(this.authorEntity);
+                this.authorService.update(this.authorEntity);
+                Notification.show("author fields saved");
+                UI.getCurrent().navigate(AuthorView.class);
+            } catch (ValidationException validationException) {
+                Notification.show("an exception happened while trying to save the author fields");
+            }
         });
     }
 
