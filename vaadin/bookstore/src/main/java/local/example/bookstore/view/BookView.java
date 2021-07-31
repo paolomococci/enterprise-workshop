@@ -20,6 +20,7 @@ package local.example.bookstore.view;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasStyle;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.datepicker.DatePicker;
@@ -35,6 +36,7 @@ import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.data.renderer.TemplateRenderer;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
@@ -116,7 +118,17 @@ public class BookView
         });
 
         this.save.addClickListener(saveClickEvent -> {
-            // TODO
+            try {
+                if (this.bookEntity == null) {
+                    this.bookEntity = new BookEntity();
+                }
+                this.bookEntityBeanValidationBinder.writeBean(this.bookEntity);
+                this.bookService.update(this.bookEntity);
+                Notification.show("book fields saved");
+                UI.getCurrent().navigate(BookView.class);
+            } catch (ValidationException validationException) {
+                Notification.show("an exception happened while trying to save the book fields");
+            }
         });
     }
 
