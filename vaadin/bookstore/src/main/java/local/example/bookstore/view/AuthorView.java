@@ -28,6 +28,7 @@ import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -128,11 +129,11 @@ public class AuthorView
         this.active = new Checkbox("Active");
         this.active.getStyle().set("padding-top", "var(--lumo-space-m)");
         Component[] componentFields = new Component[]{
-                this.name, 
-                this.surname, 
-                this.alias, 
-                this.email, 
-                this.birthday, 
+                this.name,
+                this.surname,
+                this.alias,
+                this.email,
+                this.birthday,
                 this.active
         };
         for (Component componentField : componentFields) {
@@ -179,6 +180,19 @@ public class AuthorView
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         Optional<Long> authorId = beforeEnterEvent.getRouteParameters().getLong(AUTHOR_ID);
-        // TODO
+        if (authorId.isPresent()) {
+            Optional<AuthorEntity> authorFromBackend = this.authorService.read(authorId.get());
+            if (authorFromBackend.isPresent()) {
+                this.populateForm(authorFromBackend.get());
+            } else {
+                Notification.show(
+                        String.format("Sorry, author defined by ID: %d could not be found!", authorId.get()),
+                        2500,
+                        Notification.Position.BOTTOM_START
+                );
+                this.refreshGrid();
+                beforeEnterEvent.forwardTo(AuthorView.class);
+            }
+        }
     }
 }
