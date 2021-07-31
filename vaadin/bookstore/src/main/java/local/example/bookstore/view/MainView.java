@@ -61,7 +61,11 @@ public class MainView
     }
 
     private Tabs createMenuTabs() {
-        // TODO
+        final Tabs menuTabs = new Tabs();
+        menuTabs.getStyle().set("max-width", "100%");
+        for (Tab menuTab : this.createMenuItems()) {
+            menuTabs.add(menuTab);
+        }
         return null;
     }
 
