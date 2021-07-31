@@ -84,7 +84,9 @@ public class BookView
         SplitLayout splitLayout = new SplitLayout();
         splitLayout.setSizeFull();
 
-        // TODO
+        this.createGridLayout(splitLayout);
+        this.createEditorLayout(splitLayout);
+        this.add(splitLayout);
 
         TemplateRenderer<BookEntity> bookUriImageTemplateRenderer;
         bookUriImageTemplateRenderer = TemplateRenderer.<BookEntity>of(TEMPLATE_RENDER_BOOK_IMAGE)
