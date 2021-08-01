@@ -73,7 +73,7 @@ public class MainView
         Avatar avatar = new Avatar();
         avatar.addClassNames("ms-auto", "me-m");
         headerHorizontalLayout.add(avatar);
-        return null;
+        return headerHorizontalLayout;
     }
 
     private Tabs createMenuTabs() {
