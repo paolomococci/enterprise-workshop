@@ -57,7 +57,7 @@ public class BookView
         implements BeforeEnterObserver {
 
     private final String BOOK_ID = "bookID";
-    private final String BOOK_EDIT_ROUTE = "book/%d/edit";
+    private final String TEMPLATE_BOOK_EDIT_ROUTE = "book/%d/edit";
     private final String TEMPLATE_RENDER_BOOK_IMAGE = "<img style='height: 64px' src='[[item.uriImage]]' />";
 
     private Grid<BookEntity> bookEntityGrid = new Grid<>(BookEntity.class, false);
@@ -108,7 +108,14 @@ public class BookView
         this.bookEntityGrid.asSingleSelect().addValueChangeListener(
                 valueChangeEvent -> {
                     if (valueChangeEvent.getValue() != null) {
-                        // TODO
+
+                        UI.getCurrent()
+                                .navigate(
+                                        String.format(
+                                                TEMPLATE_BOOK_EDIT_ROUTE,
+                                                valueChangeEvent.getValue().getId()
+                                        )
+                                );
                     } else {
                         this.clearForm();
                         UI.getCurrent().navigate(BookView.class);
@@ -215,7 +222,10 @@ public class BookView
                 this.populateForm(bookFromBackend.get());
             } else {
                 Notification.show(
-                        String.format("Sorry, book defined by ID: %d could not be found!", bookId.get()),
+                        String.format(
+                                "Sorry, book defined by ID: %d could not be found!", 
+                                bookId.get()
+                        ),
                         2500,
                         Notification.Position.BOTTOM_START
                 );
