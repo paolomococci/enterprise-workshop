@@ -22,6 +22,7 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Span;
@@ -69,6 +70,9 @@ public class MainView
         logo.setId("logo");
         headerHorizontalLayout.add(logo);
         headerHorizontalLayout.add(new H1("bookstore"));
+        Avatar avatar = new Avatar();
+        avatar.addClassNames("ms-auto", "me-m");
+        headerHorizontalLayout.add(avatar);
         return null;
     }
 
