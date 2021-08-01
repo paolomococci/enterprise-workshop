@@ -101,7 +101,8 @@ public class BookView
         this.bookEntityGrid.addColumn(BookEntity::getPublication).setHeader("Publication").setAutoWidth(true);
         this.bookEntityGrid.addColumn(bookUriImageTemplateRenderer).setHeader("Image").setAutoWidth(true);
 
-        // TODO CRUD service
+        // TODO this.bookEntityGrid.setDataProvider();
+
         this.bookEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.bookEntityGrid.setHeightFull();
 
@@ -223,7 +224,7 @@ public class BookView
             } else {
                 Notification.show(
                         String.format(
-                                "Sorry, book defined by ID: %d could not be found!", 
+                                "Sorry, book defined by ID: %d could not be found!",
                                 bookId.get()
                         ),
                         2500,
