@@ -35,6 +35,7 @@ import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.ValidationException;
+import com.vaadin.flow.data.provider.DataProvider;
 import com.vaadin.flow.data.renderer.TemplateRenderer;
 import com.vaadin.flow.router.*;
 
@@ -96,8 +97,13 @@ public class AuthorView
         this.authorEntityGrid.addColumn(AuthorEntity::getBirthday).setHeader("Birthday").setAutoWidth(true);
         this.authorEntityGrid.addColumn(authorActiveTemplateRenderer).setHeader("Active").setAutoWidth(true);
 
-        // TODO this.authorEntityGrid.setDataProvider();
-        
+        this.authorEntityGrid.setDataProvider(
+                DataProvider.fromCallbacks(
+                        query -> this.authorService.readAll().stream(),
+                        query -> this.authorService.count()
+                )
+        );
+
         this.authorEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.authorEntityGrid.setHeightFull();
 
