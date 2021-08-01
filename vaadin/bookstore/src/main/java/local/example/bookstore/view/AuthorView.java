@@ -96,7 +96,8 @@ public class AuthorView
         this.authorEntityGrid.addColumn(AuthorEntity::getBirthday).setHeader("Birthday").setAutoWidth(true);
         this.authorEntityGrid.addColumn(authorActiveTemplateRenderer).setHeader("Active").setAutoWidth(true);
 
-        // TODO CRUD service
+        // TODO this.authorEntityGrid.setDataProvider();
+        
         this.authorEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.authorEntityGrid.setHeightFull();
 
