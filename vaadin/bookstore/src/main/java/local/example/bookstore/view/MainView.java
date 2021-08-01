@@ -65,7 +65,7 @@ public class MainView
         topBarVerticalLayout.setPadding(false);
         topBarVerticalLayout.setAlignItems(FlexComponent.Alignment.CENTER);
         topBarVerticalLayout.add(headerHorizontalLayout, menuTabs);
-        return null;
+        return topBarVerticalLayout;
     }
 
     private HorizontalLayout createHeader() {
