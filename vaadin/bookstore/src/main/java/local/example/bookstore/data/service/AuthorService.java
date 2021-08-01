@@ -87,4 +87,8 @@ public class AuthorService {
             exception.getMessage();
         }
     }
+
+    public int count() {
+        return (int) this.authorRepository.count();
+    }
 }
