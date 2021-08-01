@@ -87,4 +87,8 @@ public class BookService {
             exception.getMessage();
         }
     }
+
+    public int count() {
+        return (int) this.bookRepository.count();
+    }
 }
