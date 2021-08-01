@@ -37,6 +37,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.ValidationException;
+import com.vaadin.flow.data.provider.DataProvider;
 import com.vaadin.flow.data.renderer.TemplateRenderer;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
@@ -101,7 +102,12 @@ public class BookView
         this.bookEntityGrid.addColumn(BookEntity::getPublication).setHeader("Publication").setAutoWidth(true);
         this.bookEntityGrid.addColumn(bookUriImageTemplateRenderer).setHeader("Image").setAutoWidth(true);
 
-        // TODO this.bookEntityGrid.setDataProvider();
+        this.bookEntityGrid.setDataProvider(
+                DataProvider.fromCallbacks(
+                        query -> this.bookService.readAll().stream(),
+                        query -> this.bookService.count()
+                )
+        );
 
         this.bookEntityGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         this.bookEntityGrid.setHeightFull();
