@@ -107,7 +107,12 @@ public class BookView
 
         this.bookEntityGrid.asSingleSelect().addValueChangeListener(
                 valueChangeEvent -> {
-
+                    if (valueChangeEvent.getValue() != null) {
+                        // TODO
+                    } else {
+                        this.clearForm();
+                        UI.getCurrent().navigate(BookView.class);
+                    }
                 }
         );
 
