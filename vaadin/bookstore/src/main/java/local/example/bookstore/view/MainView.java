@@ -58,7 +58,13 @@ public class MainView
             HorizontalLayout headerHorizontalLayout,
             Tabs menuTabs
     ) {
-        // TODO
+        VerticalLayout topBarVerticalLayout = new VerticalLayout();
+        topBarVerticalLayout.getThemeList().add("dark");
+        topBarVerticalLayout.setWidthFull();
+        topBarVerticalLayout.setSpacing(false);
+        topBarVerticalLayout.setPadding(false);
+        topBarVerticalLayout.setAlignItems(FlexComponent.Alignment.CENTER);
+        topBarVerticalLayout.add(headerHorizontalLayout, menuTabs);
         return null;
     }
 
