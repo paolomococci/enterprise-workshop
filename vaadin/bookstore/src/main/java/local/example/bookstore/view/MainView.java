@@ -51,7 +51,9 @@ public class MainView
     private final Tabs menuTabs;
 
     public MainView() {
-        menuTabs = new Tabs();
+        HorizontalLayout mainHeaderHorizontalLayout = this.createHeader();
+        menuTabs = this.createMenuTabs();
+        this.addToNavbar(this.createTopBar(mainHeaderHorizontalLayout, this.menuTabs));
     }
 
     private VerticalLayout createTopBar(
