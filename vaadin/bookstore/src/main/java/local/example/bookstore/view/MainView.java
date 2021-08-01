@@ -54,7 +54,10 @@ public class MainView
         menuTabs = new Tabs();
     }
 
-    private VerticalLayout createTopBar() {
+    private VerticalLayout createTopBar(
+            HorizontalLayout headerHorizontalLayout,
+            Tabs menuTabs
+    ) {
         // TODO
         return null;
     }
