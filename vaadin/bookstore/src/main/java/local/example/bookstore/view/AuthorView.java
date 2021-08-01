@@ -102,7 +102,12 @@ public class AuthorView
 
         this.authorEntityGrid.asSingleSelect().addValueChangeListener(
                 valueChangeEvent -> {
-
+                    if (valueChangeEvent.getValue() != null) {
+                        // TODO
+                    } else {
+                        this.clearForm();
+                        UI.getCurrent().navigate(AuthorView.class);
+                    }
                 }
         );
 
