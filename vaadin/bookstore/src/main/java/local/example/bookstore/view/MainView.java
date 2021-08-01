@@ -98,12 +98,12 @@ public class MainView
 
     private List<Tab> createMenuItems() {
         MenuItemHelper[] menuItemHelpers = new MenuItemHelper[] {
-                // TODO
+                //new MenuItemHelper("Author", "la la-people-carry", AuthorView.class),
+                //new MenuItemHelper("Book", "la la-book", BookView.class),
         };
         List<Tab> menuTabs = new ArrayList<>();
         for (MenuItemHelper menuItemHelper : menuItemHelpers) {
             menuTabs.add(createTab(menuItemHelper));
-
         }
         return menuTabs;
     }
@@ -128,9 +128,13 @@ public class MainView
     }
 
     private Optional<Tab> getTabForComponent(Component component) {
-        return menuTabs
+        return this.menuTabs
                 .getChildren()
-                .filter(tab -> ComponentUtil.getData(tab, Class.class).equals(component.getClass()))
+                .filter(tab -> {
+                    return ComponentUtil
+                            .getData(tab, Class.class)
+                            .equals(component.getClass());
+                })
                 .findFirst()
                 .map(Tab.class::cast);
     }
@@ -138,6 +142,7 @@ public class MainView
     @Override
     protected void afterNavigation() {
         super.afterNavigation();
-        getTabForComponent(getContent()).ifPresent(menuTabs::setSelectedTab);
+        getTabForComponent(getContent())
+                .ifPresent(this.menuTabs::setSelectedTab);
     }
 }
