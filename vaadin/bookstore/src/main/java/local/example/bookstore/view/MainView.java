@@ -22,7 +22,10 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
@@ -56,7 +59,16 @@ public class MainView
     }
 
     private HorizontalLayout createHeader() {
-        // TODO
+        HorizontalLayout headerHorizontalLayout = new HorizontalLayout();
+        headerHorizontalLayout.setClassName("topmenu-header");
+        headerHorizontalLayout.setPadding(false);
+        headerHorizontalLayout.setSpacing(false);
+        headerHorizontalLayout.setWidthFull();
+        headerHorizontalLayout.setAlignItems(FlexComponent.Alignment.CENTER);
+        Image logo = new Image("images/logo.png", "bookstore logo");
+        logo.setId("logo");
+        headerHorizontalLayout.add(logo);
+        headerHorizontalLayout.add(new H1("bookstore"));
         return null;
     }
 
