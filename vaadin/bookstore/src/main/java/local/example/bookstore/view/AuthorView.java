@@ -53,7 +53,7 @@ public class AuthorView
         implements BeforeEnterObserver {
 
     private final String AUTHOR_ID = "authorID";
-    private final String AUTHOR_EDIT_ROUTE = "author/%d/edit";
+    private final String TEMPLATE_AUTHOR_EDIT_ROUTE = "author/%d/edit";
     private final String TEMPLATE_RENDER_ACTIVE = "<iron-icon hidden='[[!item.active]]' icon='vaadin:check' style='width: var(--lumo-icon-size-s); height: var(--lumo-icon-size-s); color: var(--lumo-primary-text-color);'></iron-icon><iron-icon hidden='[[item.active]]' icon='vaadin:minus' style='width: var(--lumo-icon-size-s); height: var(--lumo-icon-size-s); color: var(--lumo-disabled-text-color);'></iron-icon>";
 
     private Grid<AuthorEntity> authorEntityGrid = new Grid<>(AuthorEntity.class, false);
@@ -103,7 +103,13 @@ public class AuthorView
         this.authorEntityGrid.asSingleSelect().addValueChangeListener(
                 valueChangeEvent -> {
                     if (valueChangeEvent.getValue() != null) {
-                        // TODO
+                        UI.getCurrent()
+                                .navigate(
+                                        String.format(
+                                                TEMPLATE_AUTHOR_EDIT_ROUTE,
+                                                valueChangeEvent.getValue().getId()
+                                        )
+                                );
                     } else {
                         this.clearForm();
                         UI.getCurrent().navigate(AuthorView.class);
@@ -206,7 +212,10 @@ public class AuthorView
                 this.populateForm(authorFromBackend.get());
             } else {
                 Notification.show(
-                        String.format("Sorry, author defined by ID: %d could not be found!", authorId.get()),
+                        String.format(
+                                "Sorry, author defined by ID: %d could not be found!",
+                                authorId.get()
+                        ),
                         2500,
                         Notification.Position.BOTTOM_START
                 );
