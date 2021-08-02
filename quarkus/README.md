@@ -6,3 +6,4 @@
 * quarkus-rest-bookstore
 * botanical-garden
 * basic-started
+* training
