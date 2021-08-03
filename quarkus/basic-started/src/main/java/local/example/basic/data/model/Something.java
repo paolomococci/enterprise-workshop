@@ -19,6 +19,7 @@
 package local.example.basic.data.model;
 
 import javax.persistence.Cacheable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -27,4 +28,12 @@ import javax.persistence.Table;
 @Table(name = "SOMETHING")
 public class Something {
 
+	@Column(name = "CODE", length = 16, unique = true)
+	private String code;
+
+	@Column(name = "NAME", length = 255, unique = true)
+	private String name;
+
+	@Column(name = "DESCRIPTION", length = 1024, unique = true)
+	private String descrition;
 }
