@@ -77,7 +77,7 @@ public class SomethingResource {
 	}
 
 	@PUT
-    @Path("{id}")
+    	@Path("{id}")
 	@Transactional
 	public Something update(@PathParam Long id, Something something) {
 		// TODO
@@ -85,7 +85,7 @@ public class SomethingResource {
 	}
 
 	@PATCH
-    @Path("{id}")
+    	@Path("{id}")
 	@Transactional
 	public Something partialUpdate(@PathParam Long id, Something something) {
 		// TODO
@@ -93,7 +93,7 @@ public class SomethingResource {
 	}
 
 	@DELETE
-    @Path("{id}")
+    	@Path("{id}")
 	@Transactional
 	public Response delete(@PathParam Long id) {
 		// TODO
