@@ -23,10 +23,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+
 @Entity
 @Cacheable
 @Table(name = "SOMETHING")
-public class Something {
+public class Something 
+		extends PanacheEntity {
 
 	@Column(name = "CODE", length = 16, unique = true)
 	private String code;
