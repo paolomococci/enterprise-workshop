@@ -21,6 +21,9 @@ package local.example.basic.data.resource;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
+
+import javax.inject.Inject;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -32,6 +35,9 @@ import javax.ws.rs.ext.Provider;
 
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.quarkus.panache.common.Sort;
 import local.example.basic.data.model.Something;
@@ -60,10 +66,21 @@ public class SomethingResource {
 	@Provider
 	public static class ErrorMapper implements ExceptionMapper<Exception> {
 
+		@Inject
+		ObjectMapper objectMapper;
+
 		@Override
 		public Response toResponse(Exception exception) {
-			// TODO
-			return null;
+			LOGGER.error("failed to handle request", exception);
+			int code = 500;
+			if (exception instanceof WebApplicationException)
+				code = ((WebApplicationException) exception).getResponse().getStatus();
+			ObjectNode objectNode = objectMapper.createObjectNode();
+			objectNode.put("exceptionType", exception.getClass().getName());
+			objectNode.put("code", code);
+			if (exception.getMessage() != null)
+				objectNode.put("error", exception.getMessage());
+			return Response.status(code).entity(objectNode).build();
 		}		
 	}
 }
