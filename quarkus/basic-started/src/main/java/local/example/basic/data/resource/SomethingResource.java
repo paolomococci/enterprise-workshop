@@ -25,8 +25,10 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 import org.jboss.logging.Logger;
+import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import io.quarkus.panache.common.Sort;
 import local.example.basic.data.model.Something;
@@ -42,5 +44,13 @@ public class SomethingResource {
 	@GET
 	public List<Something> readAll() {
 		return Something.listAll(Sort.by("code"));
+	}
+
+	@GET
+	public Something read(@PathParam Long id) {
+		Something something = Something.findById(id);
+		if (something == null)
+			throw new WebApplicationException("Thing with id: " + id + " not found", 404);
+		return something;
 	}
 }
