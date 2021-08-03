@@ -37,6 +37,30 @@ public class Something
 	@Column(name = "NAME", length = 255, unique = true)
 	private String name;
 
-	@Column(name = "DESCRIPTION", length = 1024, unique = true)
+	@Column(name = "DESCRIPTION", length = 1024, unique = false)
 	private String descrition;
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescrition() {
+		return descrition;
+	}
+
+	public void setDescrition(String descrition) {
+		this.descrition = descrition;
+	}
 }
