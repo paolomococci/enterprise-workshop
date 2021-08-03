@@ -6,3 +6,8 @@ A simple example to start developing with Quarkus.
 ```
 mvn io.quarkus:quarkus-maven-plugin:2.1.0.Final:create -DprojectGroupId=local.example -DprojectArtifactId=basic-started -DclassName="local.example.basic.ApplicationResource" -Dpath="/basic"
 ```
+
+## I add extensions to access PostgreSQL
+```
+./mvnw quarkus:add-extension -Dextensions="quarkus-hibernate-orm-panache,quarkus-jdbc-postgresql,quarkus-resteasy-jackson"
+```
