@@ -98,9 +98,17 @@ public class SomethingResource {
 	@PATCH
     	@Path("{id}")
 	@Transactional
-	public Something partialUpdate(@PathParam Long id, Something something) {
-		// TODO
-		return null;
+	public Something partialUpdate(@PathParam Long id, Something somethingUpdated) {
+		Something somethingAlreadyRegistered = Something.findById(id);
+		if (somethingAlreadyRegistered == null)
+			throw new WebApplicationException("thing with id: " + id + " not found", 404);
+		if (somethingUpdated.getCode() != null)
+			somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
+		if (somethingUpdated.getName() != null)
+			somethingAlreadyRegistered.setName(somethingUpdated.getName());
+		if (somethingUpdated.getDescrition() != null)
+			somethingAlreadyRegistered.setDescrition(somethingUpdated.getDescrition());
+		return somethingAlreadyRegistered;
 	}
 
 	@DELETE
