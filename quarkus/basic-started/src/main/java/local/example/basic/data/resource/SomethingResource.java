@@ -96,8 +96,11 @@ public class SomethingResource {
     	@Path("{id}")
 	@Transactional
 	public Response delete(@PathParam Long id) {
-		// TODO
-		return null;
+		Something something = Something.findById(id);
+		if (something == null)
+			throw new WebApplicationException("thing with id: " + id + " not found", 404);
+		something.delete();
+		return Response.status(204).build();
 	}
 
 	@Provider
