@@ -18,6 +18,13 @@
 
 package local.example.basic.data.model;
 
+import javax.persistence.Cacheable;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Cacheable
+@Table(name = "SOMETHING")
 public class Something {
 
 }
