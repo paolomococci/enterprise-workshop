@@ -63,15 +63,17 @@ public class SomethingResource {
 	public Something read(@PathParam Long id) {
 		Something something = Something.findById(id);
 		if (something == null)
-			throw new WebApplicationException("Thing with id: " + id + " not found", 404);
+			throw new WebApplicationException("thing with id: " + id + " not found", 404);
 		return something;
 	}
 
 	@POST
 	@Transactional
 	public Response create(Something something) {
-		// TODO
-		return null;
+		if (something.id != null)
+			throw new WebApplicationException("entity already registered in the system", 422);
+		something.persist();
+		return Response.ok(something).status(201).build();
 	}
 
 	@PUT
