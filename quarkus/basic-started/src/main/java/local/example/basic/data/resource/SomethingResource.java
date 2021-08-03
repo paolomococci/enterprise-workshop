@@ -18,10 +18,18 @@
 
 package local.example.basic.data.resource;
 
+import java.util.List;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+
+import org.jboss.logging.Logger;
+
+import io.quarkus.panache.common.Sort;
+import local.example.basic.data.model.Something;
 
 @Path("things")
 @ApplicationScoped
@@ -29,4 +37,10 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 public class SomethingResource {
 
+	private static final Logger LOGGER = Logger.getLogger(SomethingResource.class.getName());
+
+	@GET
+	public List<Something> readAll() {
+		return Something.listAll(Sort.by("code"));
+	}
 }
