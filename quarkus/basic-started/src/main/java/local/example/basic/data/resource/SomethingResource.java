@@ -21,11 +21,15 @@ package local.example.basic.data.resource;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
-
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.PATCH;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
@@ -61,6 +65,37 @@ public class SomethingResource {
 		if (something == null)
 			throw new WebApplicationException("Thing with id: " + id + " not found", 404);
 		return something;
+	}
+
+	@POST
+	@Transactional
+	public Response create(Something something) {
+		// TODO
+		return null;
+	}
+
+	@PUT
+    @Path("{id}")
+	@Transactional
+	public Something update(@PathParam Long id, Something something) {
+		// TODO
+		return null;
+	}
+
+	@PATCH
+    @Path("{id}")
+	@Transactional
+	public Something partialUpdate(@PathParam Long id, Something something) {
+		// TODO
+		return null;
+	}
+
+	@DELETE
+    @Path("{id}")
+	@Transactional
+	public Response delete(@PathParam Long id) {
+		// TODO
+		return null;
 	}
 
 	@Provider
