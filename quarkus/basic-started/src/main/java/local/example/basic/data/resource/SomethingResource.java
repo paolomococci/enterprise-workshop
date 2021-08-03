@@ -79,9 +79,20 @@ public class SomethingResource {
 	@PUT
     	@Path("{id}")
 	@Transactional
-	public Something update(@PathParam Long id, Something something) {
-		// TODO
-		return null;
+	public Something update(@PathParam Long id, somethingUpdated) {
+		if (
+				somethingUpdated.getCode() == null || 
+				somethingUpdated.getName() == null || 
+				somethingUpdated.getDescrition() == null	
+			)
+			throw new WebApplicationException("one or more fields of the entity have not been set", 422);
+		Something somethingAlreadyRegistered = Something.findById(id);
+		if (somethingAlreadyRegistered == null)
+			throw new WebApplicationException("thing with id: " + id + " not found", 404);
+		somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
+		somethingAlreadyRegistered.setName(somethingUpdated.getName());
+		somethingAlreadyRegistered.setDescrition(somethingUpdated.getDescrition());
+		return somethingAlreadyRegistered;
 	}
 
 	@PATCH
