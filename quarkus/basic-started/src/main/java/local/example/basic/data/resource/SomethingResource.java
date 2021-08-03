@@ -123,7 +123,8 @@ public class SomethingResource {
 	}
 
 	@Provider
-	public static class ErrorMapper implements ExceptionMapper<Exception> {
+	public static class ErrorMapper 
+			implements ExceptionMapper<Exception> {
 
 		@Inject
 		ObjectMapper objectMapper;
