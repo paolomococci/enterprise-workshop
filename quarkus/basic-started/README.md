@@ -33,4 +33,25 @@ Content-Type: application/json
 < 
 * Connection #0 to host 127.0.0.1 left intact
 []
+
+$ curl -v -i http://127.0.0.1:8080/things/1
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8080 (#0)
+> GET /things/1 HTTP/1.1
+> Host: 127.0.0.1:8080
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 404 Not Found
+HTTP/1.1 404 Not Found
+< Content-Length: 103
+Content-Length: 103
+< Content-Type: application/json
+Content-Type: application/json
+
+< 
+* Connection #0 to host 127.0.0.1 left intact
+{"exceptionType":"javax.ws.rs.WebApplicationException","code":404,"error":"thing with id: 1 not found"}
+
 ```
