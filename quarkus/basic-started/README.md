@@ -11,3 +11,26 @@ mvn io.quarkus:quarkus-maven-plugin:2.1.0.Final:create -DprojectGroupId=local.ex
 ```
 ./mvnw quarkus:add-extension -Dextensions="quarkus-hibernate-orm-panache,quarkus-jdbc-postgresql,quarkus-resteasy-jackson"
 ```
+
+## example of use:
+```
+$ curl -v -i http://127.0.0.1:8080/things
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8080 (#0)
+> GET /things HTTP/1.1
+> Host: 127.0.0.1:8080
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+< Content-Length: 2
+Content-Length: 2
+< Content-Type: application/json
+Content-Type: application/json
+
+< 
+* Connection #0 to host 127.0.0.1 left intact
+[]
+```
