@@ -60,6 +60,7 @@ public class SomethingResource {
 	}
 
 	@GET
+    	@Path("{id}")
 	public Something read(@PathParam Long id) {
 		Something something = Something.findById(id);
 		if (something == null)
