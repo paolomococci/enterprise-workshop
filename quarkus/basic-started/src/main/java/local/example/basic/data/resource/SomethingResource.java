@@ -60,7 +60,7 @@ public class SomethingResource {
 	}
 
 	@GET
-    	@Path("{id}")
+	@Path("{id}")
 	public Something read(@PathParam Long id) {
 		Something something = Something.findById(id);
 		if (something == null)
@@ -78,13 +78,13 @@ public class SomethingResource {
 	}
 
 	@PUT
-    	@Path("{id}")
+	@Path("{id}")
 	@Transactional
 	public Something update(@PathParam Long id, Something somethingUpdated) {
 		if (
 				somethingUpdated.getCode() == null || 
 				somethingUpdated.getName() == null || 
-				somethingUpdated.getDescrition() == null	
+				somethingUpdated.getDescription() == null	
 			)
 			throw new WebApplicationException("one or more fields of the entity have not been set", 422);
 		Something somethingAlreadyRegistered = Something.findById(id);
@@ -92,12 +92,12 @@ public class SomethingResource {
 			throw new WebApplicationException("thing with id: " + id + " not found", 404);
 		somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
 		somethingAlreadyRegistered.setName(somethingUpdated.getName());
-		somethingAlreadyRegistered.setDescrition(somethingUpdated.getDescrition());
+		somethingAlreadyRegistered.setDescription(somethingUpdated.getDescription());
 		return somethingAlreadyRegistered;
 	}
 
 	@PATCH
-    	@Path("{id}")
+	@Path("{id}")
 	@Transactional
 	public Something partialUpdate(@PathParam Long id, Something somethingUpdated) {
 		Something somethingAlreadyRegistered = Something.findById(id);
@@ -107,13 +107,13 @@ public class SomethingResource {
 			somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
 		if (somethingUpdated.getName() != null)
 			somethingAlreadyRegistered.setName(somethingUpdated.getName());
-		if (somethingUpdated.getDescrition() != null)
-			somethingAlreadyRegistered.setDescrition(somethingUpdated.getDescrition());
+		if (somethingUpdated.getDescription() != null)
+			somethingAlreadyRegistered.setDescription(somethingUpdated.getDescription());
 		return somethingAlreadyRegistered;
 	}
 
 	@DELETE
-    	@Path("{id}")
+	@Path("{id}")
 	@Transactional
 	public Response delete(@PathParam Long id) {
 		Something something = Something.findById(id);
