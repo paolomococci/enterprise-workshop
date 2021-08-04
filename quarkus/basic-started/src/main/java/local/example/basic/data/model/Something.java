@@ -38,7 +38,7 @@ public class Something
 	private String name;
 
 	@Column(name = "DESCRIPTION", length = 1024, unique = false)
-	private String descrition;
+	private String description;
 
 	public String getCode() {
 		return code;
@@ -57,10 +57,10 @@ public class Something
 	}
 
 	public String getDescrition() {
-		return descrition;
+		return description;
 	}
 
 	public void setDescrition(String descrition) {
-		this.descrition = descrition;
+		this.description = descrition;
 	}
 }
