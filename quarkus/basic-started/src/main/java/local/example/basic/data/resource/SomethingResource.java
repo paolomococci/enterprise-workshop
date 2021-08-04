@@ -80,7 +80,7 @@ public class SomethingResource {
 	@PUT
     	@Path("{id}")
 	@Transactional
-	public Something update(@PathParam Long id, somethingUpdated) {
+	public Something update(@PathParam Long id, Something somethingUpdated) {
 		if (
 				somethingUpdated.getCode() == null || 
 				somethingUpdated.getName() == null || 
