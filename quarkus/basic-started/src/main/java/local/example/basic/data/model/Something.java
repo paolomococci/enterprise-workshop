@@ -18,9 +18,12 @@
 
 package local.example.basic.data.model;
 
+import javax.persistence.Basic;
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
@@ -31,13 +34,17 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 public class Something 
 		extends PanacheEntity {
 
-	@Column(name = "CODE", length = 16, unique = true)
+	@Basic(fetch = FetchType.LAZY)
+	@Column(name = "CODE", length = 16, nullable = false, unique = true)
 	private String code;
 
-	@Column(name = "NAME", length = 255, unique = true)
+	@Basic(fetch = FetchType.LAZY)
+	@Column(name = "NAME", length = 255, nullable = false, unique = true)
 	private String name;
 
-	@Column(name = "DESCRIPTION", length = 1024, unique = false)
+	@Lob
+	@Basic(fetch = FetchType.LAZY)
+	@Column(columnDefinition = "text" ,name = "DESCRIPTION", nullable = true, unique = false)
 	private String description;
 
 	public String getCode() {
