@@ -79,12 +79,12 @@ public class SomethingResource {
 	public Response create(Something something) {
 		try {
 			if (something.id != null)
-				throw new WebApplicationException("entity already registered in the system", 422);
+				throw new RestApplicationException("entity already registered in the system", 422);
 			something.persist();
 			return Response.ok(something).status(201).build();
-		} catch (WebApplicationException webApplicationException) {
+		} catch (RestApplicationException restApplicationException) {
 			// Unprocessable Entity
-			return Response.ok(null).status(webApplicationException.getResponse().getStatus()).build();
+			return Response.ok(null).status(restApplicationException.getResponse().getStatus()).build();
 		}		
 	}
 
