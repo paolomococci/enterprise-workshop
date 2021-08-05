@@ -76,10 +76,15 @@ public class SomethingResource {
 	@POST
 	@Transactional
 	public Response create(Something something) {
-		if (something.id != null)
-			throw new WebApplicationException("entity already registered in the system", 422);
-		something.persist();
-		return Response.ok(something).status(201).build();
+		try {
+			if (something.id != null)
+				throw new WebApplicationException("entity already registered in the system", 422);
+			something.persist();
+			return Response.ok(something).status(201).build();
+		} catch (WebApplicationException webApplicationException) {
+			webApplicationException.getMessage();
+		}
+		return Response.ok(null).status(422).build();
 	}
 
 	@PUT
