@@ -68,9 +68,8 @@ public class SomethingResource {
 				throw new WebApplicationException("thing with id: " + id + " not found", 404);
 			return Response.ok(something).status(200).build();
 		} catch (WebApplicationException webApplicationException) {
-			webApplicationException.getCause();
 			// Not Found
-			return Response.ok(null).status(404).build();
+			return Response.ok(null).status(webApplicationException.getResponse().getStatus()).build();
 		}
 	}
 
