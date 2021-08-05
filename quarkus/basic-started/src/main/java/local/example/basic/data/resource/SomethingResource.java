@@ -82,9 +82,8 @@ public class SomethingResource {
 			something.persist();
 			return Response.ok(something).status(201).build();
 		} catch (WebApplicationException webApplicationException) {
-			webApplicationException.getMessage();
 			// Unprocessable entity
-			return Response.ok(null).status(422).build();
+			return Response.ok(null).status(webApplicationException.getResponse().getStatus()).build();
 		}		
 	}
 
