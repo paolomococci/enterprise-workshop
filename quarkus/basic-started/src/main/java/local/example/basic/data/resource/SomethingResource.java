@@ -98,17 +98,17 @@ public class SomethingResource {
 					somethingUpdated.getName() == null || 
 					somethingUpdated.getDescription() == null	
 				)
-				throw new WebApplicationException("one or more fields of the entity have not been set", 422);
+				throw new RestApplicationException("one or more fields of the entity have not been set", 422);
 			Something somethingAlreadyRegistered = Something.findById(id);
 			if (somethingAlreadyRegistered == null)
-				throw new WebApplicationException("thing with id: " + id + " not found", 404);
+				throw new RestApplicationException("thing with id: " + id + " not found", 404);
 			somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
 			somethingAlreadyRegistered.setName(somethingUpdated.getName());
 			somethingAlreadyRegistered.setDescription(somethingUpdated.getDescription());
 			return Response.ok(somethingAlreadyRegistered).status(200).build();
-		} catch (WebApplicationException webApplicationException) {
+		} catch (RestApplicationException restApplicationException) {
 			// Not Found or Unprocessable Entity
-			return Response.ok(null).status(webApplicationException.getResponse().getStatus()).build();
+			return Response.ok(null).status(restApplicationException.getResponse().getStatus()).build();
 		}
 	}
 
