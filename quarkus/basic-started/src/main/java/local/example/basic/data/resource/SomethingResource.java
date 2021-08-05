@@ -82,7 +82,7 @@ public class SomethingResource {
 			something.persist();
 			return Response.ok(something).status(201).build();
 		} catch (WebApplicationException webApplicationException) {
-			// Unprocessable entity
+			// Unprocessable Entity
 			return Response.ok(null).status(webApplicationException.getResponse().getStatus()).build();
 		}		
 	}
@@ -90,20 +90,25 @@ public class SomethingResource {
 	@PUT
 	@Path("{id}")
 	@Transactional
-	public Something update(@PathParam Long id, Something somethingUpdated) {
-		if (
-				somethingUpdated.getCode() == null || 
-				somethingUpdated.getName() == null || 
-				somethingUpdated.getDescription() == null	
-			)
-			throw new WebApplicationException("one or more fields of the entity have not been set", 422);
-		Something somethingAlreadyRegistered = Something.findById(id);
-		if (somethingAlreadyRegistered == null)
-			throw new WebApplicationException("thing with id: " + id + " not found", 404);
-		somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
-		somethingAlreadyRegistered.setName(somethingUpdated.getName());
-		somethingAlreadyRegistered.setDescription(somethingUpdated.getDescription());
-		return somethingAlreadyRegistered;
+	public Response update(@PathParam Long id, Something somethingUpdated) {
+		try {
+			if (
+					somethingUpdated.getCode() == null || 
+					somethingUpdated.getName() == null || 
+					somethingUpdated.getDescription() == null	
+				)
+				throw new WebApplicationException("one or more fields of the entity have not been set", 422);
+			Something somethingAlreadyRegistered = Something.findById(id);
+			if (somethingAlreadyRegistered == null)
+				throw new WebApplicationException("thing with id: " + id + " not found", 404);
+			somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
+			somethingAlreadyRegistered.setName(somethingUpdated.getName());
+			somethingAlreadyRegistered.setDescription(somethingUpdated.getDescription());
+			return Response.ok(somethingAlreadyRegistered).status(200).build();
+		} catch (WebApplicationException webApplicationException) {
+			// Not Found or Unprocessable Entity
+			return Response.ok(null).status(webApplicationException.getResponse().getStatus()).build();
+		}
 	}
 
 	@PATCH
