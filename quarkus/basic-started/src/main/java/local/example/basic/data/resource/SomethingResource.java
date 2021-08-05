@@ -45,6 +45,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.quarkus.panache.common.Sort;
 import local.example.basic.data.model.Something;
+import local.example.basic.error.RestApplicationException;
 
 @Path("things")
 @ApplicationScoped
@@ -65,11 +66,11 @@ public class SomethingResource {
 		try {
 			Something something = Something.findById(id);
 			if (something == null)
-				throw new WebApplicationException("thing with id: " + id + " not found", 404);
+				throw new RestApplicationException("thing with id: " + id + " not found", 404);
 			return Response.ok(something).status(200).build();
-		} catch (WebApplicationException webApplicationException) {
+		} catch (RestApplicationException restApplicationException) {
 			// Not Found
-			return Response.ok(null).status(webApplicationException.getResponse().getStatus()).build();
+			return Response.ok(null).status(restApplicationException.getResponse().getStatus()).build();
 		}
 	}
 
