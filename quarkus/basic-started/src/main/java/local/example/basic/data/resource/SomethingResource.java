@@ -61,11 +61,16 @@ public class SomethingResource {
 
 	@GET
 	@Path("{id}")
-	public Something read(@PathParam Long id) {
-		Something something = Something.findById(id);
-		if (something == null)
-			throw new WebApplicationException("thing with id: " + id + " not found", 404);
-		return something;
+	public Response read(@PathParam Long id) {
+		try {
+			Something something = Something.findById(id);
+			if (something == null)
+				throw new WebApplicationException("thing with id: " + id + " not found", 404);
+			return Response.ok(something).status(200).build();
+		} catch (WebApplicationException webApplicationException) {
+			webApplicationException.getCause();
+		}
+		return Response.ok(null).status(404).build();
 	}
 
 	@POST
