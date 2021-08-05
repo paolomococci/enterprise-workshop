@@ -56,8 +56,11 @@ public class SomethingResource {
 	private static final Logger LOGGER = Logger.getLogger(SomethingResource.class.getName());
 
 	@GET
-	public List<Something> readAll() {
-		return Something.listAll(Sort.by("code"));
+	public Response readAll() {
+		List<Something> somethings = Something.listAll(Sort.by("code"));
+		if (somethings.isEmpty())
+			return Response.noContent().build();
+		return Response.ok(somethings).status(200).build();
 	}
 
 	@GET
