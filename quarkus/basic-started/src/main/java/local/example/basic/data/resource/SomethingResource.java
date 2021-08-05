@@ -69,8 +69,9 @@ public class SomethingResource {
 			return Response.ok(something).status(200).build();
 		} catch (WebApplicationException webApplicationException) {
 			webApplicationException.getCause();
+			// Not Found
+			return Response.ok(null).status(404).build();
 		}
-		return Response.ok(null).status(404).build();
 	}
 
 	@POST
@@ -83,8 +84,9 @@ public class SomethingResource {
 			return Response.ok(something).status(201).build();
 		} catch (WebApplicationException webApplicationException) {
 			webApplicationException.getMessage();
-		}
-		return Response.ok(null).status(422).build();
+			// Unprocessable entity
+			return Response.ok(null).status(422).build();
+		}		
 	}
 
 	@PUT
