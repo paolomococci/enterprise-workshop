@@ -114,17 +114,22 @@ public class SomethingResource {
 	@PATCH
 	@Path("{id}")
 	@Transactional
-	public Something partialUpdate(@PathParam Long id, Something somethingUpdated) {
-		Something somethingAlreadyRegistered = Something.findById(id);
-		if (somethingAlreadyRegistered == null)
-			throw new WebApplicationException("thing with id: " + id + " not found", 404);
-		if (somethingUpdated.getCode() != null)
-			somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
-		if (somethingUpdated.getName() != null)
-			somethingAlreadyRegistered.setName(somethingUpdated.getName());
-		if (somethingUpdated.getDescription() != null)
-			somethingAlreadyRegistered.setDescription(somethingUpdated.getDescription());
-		return somethingAlreadyRegistered;
+	public Response partialUpdate(@PathParam Long id, Something somethingUpdated) {
+		try {
+			Something somethingAlreadyRegistered = Something.findById(id);
+			if (somethingAlreadyRegistered == null)
+				throw new WebApplicationException("thing with id: " + id + " not found", 404);
+			if (somethingUpdated.getCode() != null)
+				somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
+			if (somethingUpdated.getName() != null)
+				somethingAlreadyRegistered.setName(somethingUpdated.getName());
+			if (somethingUpdated.getDescription() != null)
+				somethingAlreadyRegistered.setDescription(somethingUpdated.getDescription());
+			return Response.ok(somethingAlreadyRegistered).status(200).build();
+		} catch (WebApplicationException webApplicationException) {
+			// Not Found
+			return Response.ok(null).status(webApplicationException.getResponse().getStatus()).build();
+		}
 	}
 
 	@DELETE
