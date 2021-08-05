@@ -142,7 +142,7 @@ public class SomethingResource {
 			if (something == null)
 				throw new RestApplicationException("thing with id: " + id + " not found", 404);
 			something.delete();
-			return Response.status(204).build();
+			return Response.noContent().build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found
 			return Response.status(restApplicationException.getResponse().getStatus()).build();
