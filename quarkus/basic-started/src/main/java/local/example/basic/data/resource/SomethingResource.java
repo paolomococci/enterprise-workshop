@@ -119,7 +119,7 @@ public class SomethingResource {
 		try {
 			Something somethingAlreadyRegistered = Something.findById(id);
 			if (somethingAlreadyRegistered == null)
-				throw new WebApplicationException("thing with id: " + id + " not found", 404);
+				throw new RestApplicationException("thing with id: " + id + " not found", 404);
 			if (somethingUpdated.getCode() != null)
 				somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
 			if (somethingUpdated.getName() != null)
@@ -127,9 +127,9 @@ public class SomethingResource {
 			if (somethingUpdated.getDescription() != null)
 				somethingAlreadyRegistered.setDescription(somethingUpdated.getDescription());
 			return Response.ok(somethingAlreadyRegistered).status(200).build();
-		} catch (WebApplicationException webApplicationException) {
+		} catch (RestApplicationException restApplicationException) {
 			// Not Found
-			return Response.ok(null).status(webApplicationException.getResponse().getStatus()).build();
+			return Response.ok(null).status(restApplicationException.getResponse().getStatus()).build();
 		}
 	}
 
