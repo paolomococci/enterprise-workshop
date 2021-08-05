@@ -14,46 +14,6 @@ mvn io.quarkus:quarkus-maven-plugin:2.1.0.Final:create -DprojectGroupId=local.ex
 
 ## example of use:
 ```
-$ curl -v -i http://127.0.0.1:8080/things
-*   Trying 127.0.0.1...
-* TCP_NODELAY set
-* Connected to 127.0.0.1 (127.0.0.1) port 8080 (#0)
-> GET /things HTTP/1.1
-> Host: 127.0.0.1:8080
-> User-Agent: curl/7.58.0
-> Accept: */*
-> 
-< HTTP/1.1 200 OK
-HTTP/1.1 200 OK
-< Content-Length: 2
-Content-Length: 2
-< Content-Type: application/json
-Content-Type: application/json
-
-< 
-* Connection #0 to host 127.0.0.1 left intact
-[]
-
-$ curl -v -i http://127.0.0.1:8080/things/1
-*   Trying 127.0.0.1...
-* TCP_NODELAY set
-* Connected to 127.0.0.1 (127.0.0.1) port 8080 (#0)
-> GET /things/1 HTTP/1.1
-> Host: 127.0.0.1:8080
-> User-Agent: curl/7.58.0
-> Accept: */*
-> 
-< HTTP/1.1 404 Not Found
-HTTP/1.1 404 Not Found
-< Content-Length: 103
-Content-Length: 103
-< Content-Type: application/json
-Content-Type: application/json
-
-< 
-* Connection #0 to host 127.0.0.1 left intact
-{"exceptionType":"javax.ws.rs.WebApplicationException","code":404,"error":"thing with id: 1 not found"}
-
 $ curl -v -i -H "Content-Type:application/json" -d "{\"code\":\"21002347\",\"name\":\"someone\",\"description\":\"some description\"}" http://127.0.0.1:8080/things
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
@@ -96,4 +56,39 @@ Content-Type: application/json
 < 
 * Connection #0 to host 127.0.0.1 left intact
 [{"id":1,"code":"21002347","name":"someone","description":"some description"}]
+
+$ curl -v -i http://127.0.0.1:8080/things/1
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8080 (#0)
+> GET /things/1 HTTP/1.1
+> Host: 127.0.0.1:8080
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+< Content-Length: 76
+Content-Length: 76
+< Content-Type: application/json
+Content-Type: application/json
+
+< 
+* Connection #0 to host 127.0.0.1 left intact
+{"id":1,"code":"21002347","name":"someone","description":"some description"}
+
+$ curl -v -i -X DELETE http://127.0.0.1:8080/things/1
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8080 (#0)
+> DELETE /things/1 HTTP/1.1
+> Host: 127.0.0.1:8080
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 204 No Content
+HTTP/1.1 204 No Content
+
+< 
+* Connection #0 to host 127.0.0.1 left intact
 ```
