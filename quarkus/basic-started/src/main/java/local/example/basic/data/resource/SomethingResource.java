@@ -62,7 +62,7 @@ public class SomethingResource {
 		List<Something> somethings = Something.listAll(Sort.by("code"));
 		if (somethings.isEmpty())
 			return Response.noContent().build();
-		return Response.ok(somethings).status(Status.CREATED).build();
+		return Response.ok(somethings).build();
 	}
 
 	@GET
@@ -72,7 +72,7 @@ public class SomethingResource {
 			Something something = Something.findById(id);
 			if (something == null)
 				throw new RestApplicationException("thing with id: " + id + " not found", 404);
-			return Response.ok(something).status(200).build();
+			return Response.ok(something).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found
 			return Response.status(restApplicationException.getResponse().getStatus()).build();
@@ -86,7 +86,7 @@ public class SomethingResource {
 			if (something.id != null)
 				throw new RestApplicationException("entity already registered in the system", 422);
 			something.persist();
-			return Response.ok(something).status(201).build();
+			return Response.ok(something).status(Status.CREATED).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Unprocessable Entity
 			return Response.status(restApplicationException.getResponse().getStatus()).build();
@@ -110,7 +110,7 @@ public class SomethingResource {
 			somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
 			somethingAlreadyRegistered.setName(somethingUpdated.getName());
 			somethingAlreadyRegistered.setDescription(somethingUpdated.getDescription());
-			return Response.ok(somethingAlreadyRegistered).status(200).build();
+			return Response.ok(somethingAlreadyRegistered).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found or Unprocessable Entity
 			return Response.status(restApplicationException.getResponse().getStatus()).build();
@@ -131,7 +131,7 @@ public class SomethingResource {
 				somethingAlreadyRegistered.setName(somethingUpdated.getName());
 			if (somethingUpdated.getDescription() != null)
 				somethingAlreadyRegistered.setDescription(somethingUpdated.getDescription());
-			return Response.ok(somethingAlreadyRegistered).status(200).build();
+			return Response.ok(somethingAlreadyRegistered).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found
 			return Response.status(restApplicationException.getResponse().getStatus()).build();
