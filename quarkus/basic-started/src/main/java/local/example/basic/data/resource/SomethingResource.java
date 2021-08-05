@@ -70,7 +70,7 @@ public class SomethingResource {
 			return Response.ok(something).status(200).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found
-			return Response.ok(null).status(restApplicationException.getResponse().getStatus()).build();
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
 		}
 	}
 
@@ -84,7 +84,7 @@ public class SomethingResource {
 			return Response.ok(something).status(201).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Unprocessable Entity
-			return Response.ok(null).status(restApplicationException.getResponse().getStatus()).build();
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
 		}		
 	}
 
@@ -108,7 +108,7 @@ public class SomethingResource {
 			return Response.ok(somethingAlreadyRegistered).status(200).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found or Unprocessable Entity
-			return Response.ok(null).status(restApplicationException.getResponse().getStatus()).build();
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
 		}
 	}
 
@@ -129,7 +129,7 @@ public class SomethingResource {
 			return Response.ok(somethingAlreadyRegistered).status(200).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found
-			return Response.ok(null).status(restApplicationException.getResponse().getStatus()).build();
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
 		}
 	}
 
