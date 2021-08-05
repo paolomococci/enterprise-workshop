@@ -34,6 +34,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
@@ -44,6 +45,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.quarkus.panache.common.Sort;
+
 import local.example.basic.data.model.Something;
 import local.example.basic.error.RestApplicationException;
 
@@ -60,7 +62,7 @@ public class SomethingResource {
 		List<Something> somethings = Something.listAll(Sort.by("code"));
 		if (somethings.isEmpty())
 			return Response.noContent().build();
-		return Response.ok(somethings).status(200).build();
+		return Response.ok(somethings).status(Status.CREATED).build();
 	}
 
 	@GET
