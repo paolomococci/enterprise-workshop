@@ -136,11 +136,16 @@ public class SomethingResource {
 	@Path("{id}")
 	@Transactional
 	public Response delete(@PathParam Long id) {
-		Something something = Something.findById(id);
-		if (something == null)
-			throw new WebApplicationException("thing with id: " + id + " not found", 404);
-		something.delete();
-		return Response.status(204).build();
+		try {
+			Something something = Something.findById(id);
+			if (something == null)
+				throw new WebApplicationException("thing with id: " + id + " not found", 404);
+			something.delete();
+			return Response.status(204).build();
+		} catch (WebApplicationException webApplicationException) {
+			// Not Found
+			return Response.ok(null).status(webApplicationException.getResponse().getStatus()).build();
+		}
 	}
 
 	@Provider
