@@ -71,7 +71,7 @@ public class SomethingResource {
 		try {
 			Something something = Something.findById(id);
 			if (something == null)
-				throw new RestApplicationException("thing with id: " + id + " not found", 404);
+				throw new RestApplicationException("thing with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
 			return Response.ok(something).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found
@@ -106,7 +106,7 @@ public class SomethingResource {
 				throw new RestApplicationException("one or more fields of the entity have not been set", 422);
 			Something somethingAlreadyRegistered = Something.findById(id);
 			if (somethingAlreadyRegistered == null)
-				throw new RestApplicationException("thing with id: " + id + " not found", 404);
+				throw new RestApplicationException("thing with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
 			somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
 			somethingAlreadyRegistered.setName(somethingUpdated.getName());
 			somethingAlreadyRegistered.setDescription(somethingUpdated.getDescription());
@@ -124,7 +124,7 @@ public class SomethingResource {
 		try {
 			Something somethingAlreadyRegistered = Something.findById(id);
 			if (somethingAlreadyRegistered == null)
-				throw new RestApplicationException("thing with id: " + id + " not found", 404);
+				throw new RestApplicationException("thing with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
 			if (somethingUpdated.getCode() != null)
 				somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
 			if (somethingUpdated.getName() != null)
@@ -145,7 +145,7 @@ public class SomethingResource {
 		try {
 			Something something = Something.findById(id);
 			if (something == null)
-				throw new RestApplicationException("thing with id: " + id + " not found", 404);
+				throw new RestApplicationException("thing with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
 			something.delete();
 			return Response.noContent().build();
 		} catch (RestApplicationException restApplicationException) {
