@@ -145,7 +145,7 @@ public class SomethingResource {
 			return Response.status(204).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found
-			return Response.ok(null).status(restApplicationException.getResponse().getStatus()).build();
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
 		}
 	}
 
