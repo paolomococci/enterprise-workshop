@@ -28,4 +28,7 @@ import local.example.basic.data.model.Something;
 public class SomethingRepository 
 		implements PanacheRepository<Something> {
 
+	public Something findByCode(String code) {
+		return this.find("code", code).firstResult();
+	}
 }
