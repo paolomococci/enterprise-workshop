@@ -159,13 +159,29 @@ public class SomethingController {
 		}
 	}
 
+	@DELETE
+	@Path("/delete/code/{code}")
+	@Transactional
+	public Response deleteByCode(@PathParam("code") String code) {
+		try {
+			Something something = somethingRepository.findByCode(code);
+			if (something == null)
+				throw new RestApplicationException("thing with code: " + code + " not found", Status.NOT_FOUND.getStatusCode());
+			something.delete();
+			return Response.noContent().build();
+		} catch (RestApplicationException restApplicationException) {
+			// Not Found
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
 	@GET
 	@Path("/code/{code}")
 	public Response searchByCode(@PathParam("code") String code) {
 		try {
 			Something something = somethingRepository.findByCode(code);
 			if (something == null)
-				throw new RestApplicationException("not found", Status.NOT_FOUND.getStatusCode());
+				throw new RestApplicationException("thing with code: " + code + " not found", Status.NOT_FOUND.getStatusCode());
 			return Response.ok(something).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found
@@ -179,7 +195,7 @@ public class SomethingController {
 		try {
 			Something something = somethingRepository.findByCode(name);
 			if (something == null)
-				throw new RestApplicationException("not found", Status.NOT_FOUND.getStatusCode());
+				throw new RestApplicationException("thing with code: " + name + " not found", Status.NOT_FOUND.getStatusCode());
 			return Response.ok(something).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found
