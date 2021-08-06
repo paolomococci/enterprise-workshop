@@ -143,6 +143,27 @@ public class SomethingController {
 		}
 	}
 
+	@PATCH
+	@Path("/update/code/{code}")
+	@Transactional
+	public Response partialUpdateByCode(@PathParam("code") String code, Something somethingUpdated) {
+		try {
+			Something somethingAlreadyRegistered = somethingRepository.findByCode(code);
+			if (somethingAlreadyRegistered == null)
+				throw new RestApplicationException("thing with code: " + code + " not found", Status.NOT_FOUND.getStatusCode());
+			if (somethingUpdated.getCode() != null)
+				somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
+			if (somethingUpdated.getName() != null)
+				somethingAlreadyRegistered.setName(somethingUpdated.getName());
+			if (somethingUpdated.getDescription() != null)
+				somethingAlreadyRegistered.setDescription(somethingUpdated.getDescription());
+			return Response.ok(somethingAlreadyRegistered).build();
+		} catch (RestApplicationException restApplicationException) {
+			// Not Found
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
 	@DELETE
 	@Path("{id}")
 	@Transactional
@@ -195,7 +216,7 @@ public class SomethingController {
 		try {
 			Something something = somethingRepository.findByCode(name);
 			if (something == null)
-				throw new RestApplicationException("thing with code: " + name + " not found", Status.NOT_FOUND.getStatusCode());
+				throw new RestApplicationException("thing with name: " + name + " not found", Status.NOT_FOUND.getStatusCode());
 			return Response.ok(something).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found
