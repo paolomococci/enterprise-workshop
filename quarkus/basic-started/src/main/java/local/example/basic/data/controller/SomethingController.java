@@ -177,10 +177,10 @@ public class SomethingController {
 	@Path("/name/{name}")
 	public Response searchByName(@PathParam("name") String name) {
 		try {
-			//Something something = SomethingRepository.findByName(name);
-			if (true)
+			Something something = somethingRepository.findByCode(name);
+			if (something == null)
 				throw new RestApplicationException("not found", Status.NOT_FOUND.getStatusCode());
-			return Response.ok(null).build();
+			return Response.ok(something).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found
 			return Response.status(restApplicationException.getResponse().getStatus()).build();
