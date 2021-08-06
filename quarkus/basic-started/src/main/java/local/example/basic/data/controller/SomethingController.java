@@ -16,7 +16,7 @@
  *
  */
 
-package local.example.basic.data.resource;
+package local.example.basic.data.controller;
 
 import java.util.List;
 
@@ -54,9 +54,9 @@ import local.example.basic.error.RestApplicationException;
 @ApplicationScoped
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class SomethingResource {
+public class SomethingController {
 
-	private static final Logger LOGGER = Logger.getLogger(SomethingResource.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(SomethingController.class.getName());
 
 	@GET
 	public Response readAll() {
@@ -187,7 +187,7 @@ public class SomethingResource {
 	@Path("/count")
 	public Response count() {
 		try {
-			//Long numberOfThings = SomethingRepository.count();
+			//Long numberOfThings = SomethingRepository.count(id);
 			if (true)
 				throw new RestApplicationException("no conten", Status.NO_CONTENT.getStatusCode());
 			return Response.ok(null).build();
