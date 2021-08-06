@@ -155,6 +155,20 @@ public class SomethingResource {
 		}
 	}
 
+	@GET
+	@Path("/code/{code}")
+	public Response searchByCode(@PathParam("code") String code) {
+		try {
+			//Something something = SomethingRepository.findByCode(code);
+			if (true)
+				throw new RestApplicationException("not found", Status.NOT_FOUND.getStatusCode());
+			return Response.ok(null).build();
+		} catch (RestApplicationException restApplicationException) {
+			// Not Found
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
 	@Provider
 	public static class ErrorMapper 
 			implements ExceptionMapper<Exception> {
