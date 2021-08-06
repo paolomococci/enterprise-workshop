@@ -183,6 +183,20 @@ public class SomethingResource {
 		}
 	}
 
+	@GET
+	@Path("/count")
+	public Response count() {
+		try {
+			//Long numberOfThings = SomethingRepository.count();
+			if (true)
+				throw new RestApplicationException("no conten", Status.NO_CONTENT.getStatusCode());
+			return Response.ok(null).build();
+		} catch (RestApplicationException restApplicationException) {
+			// No Content
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
 	@Provider
 	public static class ErrorMapper 
 			implements ExceptionMapper<Exception> {
