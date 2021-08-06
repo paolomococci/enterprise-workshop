@@ -128,7 +128,7 @@ public class SomethingController {
 	@Transactional
 	public Response partialUpdate(@PathParam Long id, Something somethingUpdated) {
 		try {
-			Something somethingAlreadyRegistered = Something.findById(id);
+			Something somethingAlreadyRegistered = Something.findById(id, LockModeType.PESSIMISTIC_WRITE);
 			if (somethingAlreadyRegistered == null)
 				throw new RestApplicationException("thing with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
 			if (somethingUpdated.getCode() != null)
