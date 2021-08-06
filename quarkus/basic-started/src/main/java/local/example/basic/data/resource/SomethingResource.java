@@ -169,6 +169,20 @@ public class SomethingResource {
 		}
 	}
 
+	@GET
+	@Path("/name/{name}")
+	public Response searchByName(@PathParam("name") String name) {
+		try {
+			//Something something = SomethingRepository.findByName(name);
+			if (true)
+				throw new RestApplicationException("not found", Status.NOT_FOUND.getStatusCode());
+			return Response.ok(null).build();
+		} catch (RestApplicationException restApplicationException) {
+			// Not Found
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
 	@Provider
 	public static class ErrorMapper 
 			implements ExceptionMapper<Exception> {
