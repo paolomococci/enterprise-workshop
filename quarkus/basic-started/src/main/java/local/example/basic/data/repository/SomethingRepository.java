@@ -18,6 +18,9 @@
 
 package local.example.basic.data.repository;
 
+import javax.enterprise.context.ApplicationScoped;
+
+@ApplicationScoped
 public class SomethingRepository {
 
 }
