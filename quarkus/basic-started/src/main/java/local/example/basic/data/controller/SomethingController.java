@@ -22,6 +22,7 @@ import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.LockModeType;
 import javax.transaction.Transactional;
 
 import javax.ws.rs.Consumes;
@@ -109,7 +110,7 @@ public class SomethingController {
 					somethingUpdated.getDescription() == null	
 				)
 				throw new RestApplicationException("one or more fields of the entity have not been set", 422);
-			Something somethingAlreadyRegistered = Something.findById(id);
+			Something somethingAlreadyRegistered = Something.findById(id, LockModeType.PESSIMISTIC_WRITE);
 			if (somethingAlreadyRegistered == null)
 				throw new RestApplicationException("thing with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
 			somethingAlreadyRegistered.setCode(somethingUpdated.getCode());
