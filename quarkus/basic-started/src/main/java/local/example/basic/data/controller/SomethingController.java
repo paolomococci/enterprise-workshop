@@ -187,7 +187,7 @@ public class SomethingController {
 	@Path("/count")
 	public Response count() {
 		try {
-			//Long numberOfThings = SomethingRepository.count(id);
+			//Long numberOfThings = SomethingRepository.numberOfThings();
 			if (true)
 				throw new RestApplicationException("no conten", Status.NO_CONTENT.getStatusCode());
 			return Response.ok(null).build();
