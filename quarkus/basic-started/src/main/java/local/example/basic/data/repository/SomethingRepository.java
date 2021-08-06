@@ -31,4 +31,8 @@ public class SomethingRepository
 	public Something findByCode(String code) {
 		return this.find("code", code).firstResult();
 	}
+
+	public Something findByName(String name) {
+		return this.find("name", name).firstResult();
+	}
 }
