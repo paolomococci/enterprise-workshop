@@ -191,10 +191,10 @@ public class SomethingController {
 	@Path("/count")
 	public Response count() {
 		try {
-			//Long numberOfThings = SomethingRepository.numberOfThings();
-			if (true)
+			Long numberOfThings = somethingRepository.numberOfThings();
+			if (numberOfThings == 0L)
 				throw new RestApplicationException("no conten", Status.NO_CONTENT.getStatusCode());
-			return Response.ok(null).build();
+			return Response.ok(numberOfThings).build();
 		} catch (RestApplicationException restApplicationException) {
 			// No Content
 			return Response.status(restApplicationException.getResponse().getStatus()).build();
