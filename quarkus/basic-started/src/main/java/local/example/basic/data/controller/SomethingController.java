@@ -48,6 +48,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.quarkus.panache.common.Sort;
 
 import local.example.basic.data.model.Something;
+import local.example.basic.data.repository.SomethingRepository;
 import local.example.basic.error.RestApplicationException;
 
 @Path("things")
@@ -55,6 +56,9 @@ import local.example.basic.error.RestApplicationException;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class SomethingController {
+
+	@Inject
+	SomethingRepository somethingRepository;
 
 	private static final Logger LOGGER = Logger.getLogger(SomethingController.class.getName());
 
@@ -159,10 +163,10 @@ public class SomethingController {
 	@Path("/code/{code}")
 	public Response searchByCode(@PathParam("code") String code) {
 		try {
-			//Something something = SomethingRepository.findByCode(code);
-			if (true)
+			Something something = somethingRepository.findByCode(code);
+			if (something == null)
 				throw new RestApplicationException("not found", Status.NOT_FOUND.getStatusCode());
-			return Response.ok(null).build();
+			return Response.ok(something).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Not Found
 			return Response.status(restApplicationException.getResponse().getStatus()).build();
