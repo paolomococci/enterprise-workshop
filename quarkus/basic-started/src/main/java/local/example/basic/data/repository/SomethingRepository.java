@@ -19,6 +19,7 @@
 package local.example.basic.data.repository;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.LockModeType;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
@@ -29,11 +30,15 @@ public class SomethingRepository
 		implements PanacheRepository<Something> {
 
 	public Something findByCode(String code) {
-		return this.find("code", code).firstResult();
+		return this.find("code", code)
+				.withLock(LockModeType.PESSIMISTIC_WRITE)
+				.firstResult();
 	}
 
 	public Something findByName(String name) {
-		return this.find("name", name).firstResult();
+		return this.find("name", name)
+				.withLock(LockModeType.PESSIMISTIC_READ)
+				.firstResult();
 	}
 
 	public Long numberOfThings() {
