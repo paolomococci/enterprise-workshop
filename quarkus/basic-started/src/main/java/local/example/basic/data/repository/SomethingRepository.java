@@ -35,4 +35,8 @@ public class SomethingRepository
 	public Something findByName(String name) {
 		return this.find("name", name).firstResult();
 	}
+
+	public Long numberOfThings() {
+		return Long.valueOf(this.count());
+	}
 }
