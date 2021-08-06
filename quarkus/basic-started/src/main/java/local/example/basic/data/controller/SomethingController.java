@@ -64,7 +64,7 @@ public class SomethingController {
 
 	@GET
 	public Response readAll() {
-		List<Something> somethings = Something.listAll(Sort.by("code"));
+		List<Something> somethings = Something.listAll(Sort.by("code").and("name"));
 		if (somethings.isEmpty())
 			return Response.noContent().build();
 		return Response.ok(somethings).build();
