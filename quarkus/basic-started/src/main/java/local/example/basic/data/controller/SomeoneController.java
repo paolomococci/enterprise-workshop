@@ -162,7 +162,7 @@ public class SomeoneController {
 			try {
 				Someone someoneAlreadyRegistered = someoneRepository.findByEmail(email);
 				if (someoneAlreadyRegistered == null)
-					throw new RestApplicationException("some with code: " + email + " not found", Status.NOT_FOUND.getStatusCode());
+					throw new RestApplicationException("some with email: " + email + " not found", Status.NOT_FOUND.getStatusCode());
 				if (someoneUpdated.getName() != null)
 					someoneAlreadyRegistered.setName(someoneUpdated.getName());
 				if (someoneUpdated.getSurname() != null)
