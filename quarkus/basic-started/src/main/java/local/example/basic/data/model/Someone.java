@@ -28,12 +28,13 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 @Entity
 @Cacheable
-@Table(name = "SOMEONE")
+@Table(name = "SOMEONE", uniqueConstraints = @UniqueConstraint(columnNames = {"EMAIL", "PHONE"}))
 public class Someone 
 		extends PanacheEntity {
 
