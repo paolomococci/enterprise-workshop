@@ -26,8 +26,6 @@ import javax.persistence.FetchType;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
-//import com.fasterxml.jackson.annotation.JsonProperty;
-
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 @Entity
@@ -45,7 +43,6 @@ public class Something
 	private String name;
 
 	@Lob
-	//@JsonProperty(value = "connoted")
 	@Basic(fetch = FetchType.LAZY)
 	@Column(columnDefinition = "text" ,name = "DESCRIPTION", nullable = true, unique = false)
 	private String description;
