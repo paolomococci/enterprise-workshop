@@ -31,7 +31,7 @@ public class SomeoneRepository
 
 	public Someone findByName(String name) {
 		return this.find("name", name)
-				.withLock(LockModeType.PESSIMISTIC_WRITE)
+				.withLock(LockModeType.PESSIMISTIC_READ)
 				.firstResult();
 	}
 
