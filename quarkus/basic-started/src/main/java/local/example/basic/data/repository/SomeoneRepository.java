@@ -34,4 +34,10 @@ public class SomeoneRepository
 				.withLock(LockModeType.PESSIMISTIC_WRITE)
 				.firstResult();
 	}
+
+	public Someone findBySurname(String surname) {
+		return this.find("surname", surname)
+				.withLock(LockModeType.PESSIMISTIC_READ)
+				.firstResult();
+	}
 }
