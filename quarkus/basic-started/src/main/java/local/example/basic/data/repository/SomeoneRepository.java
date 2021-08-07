@@ -52,4 +52,8 @@ public class SomeoneRepository
 				.withLock(LockModeType.PESSIMISTIC_READ)
 				.firstResult();
 	}
+
+	public Long quantityOfSomes() {
+		return Long.valueOf(this.count());
+	}
 }
