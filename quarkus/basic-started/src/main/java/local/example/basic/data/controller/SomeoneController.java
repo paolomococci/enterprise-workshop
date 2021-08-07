@@ -213,8 +213,15 @@ public class SomeoneController {
 		@GET
 		@Path("/email/{email}")
 		public Response searchByEmail(@PathParam("email") String email) {
-			// TODO
-			return null;
+			try {
+				Someone someone = someoneRepository.findByEmail(email);
+				if (someone == null)
+					throw new RestApplicationException("thing with email: " + email + " not found", Status.NOT_FOUND.getStatusCode());
+				return Response.ok(someone).build();
+			} catch (RestApplicationException restApplicationException) {
+				// Not Found
+				return Response.status(restApplicationException.getResponse().getStatus()).build();
+			}
 		}
 
 		@GET
