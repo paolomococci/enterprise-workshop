@@ -18,6 +18,16 @@
 
 package local.example.basic.data.model;
 
-public class Someone {
+import javax.persistence.Cacheable;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+
+@Entity
+@Cacheable
+@Table(name = "SOMEONE")
+public class Someone 
+		extends PanacheEntity {
 
 }
