@@ -46,4 +46,10 @@ public class SomeoneRepository
 				.withLock(LockModeType.PESSIMISTIC_WRITE)
 				.firstResult();
 	}
+
+	public Someone findByPhone(String phone) {
+		return this.find("phone", phone)
+				.withLock(LockModeType.PESSIMISTIC_READ)
+				.firstResult();
+	}
 }
