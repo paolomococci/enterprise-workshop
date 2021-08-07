@@ -162,7 +162,7 @@ public class SomeoneController {
 			try {
 				Someone someoneAlreadyRegistered = someoneRepository.findByEmail(email);
 				if (someoneAlreadyRegistered == null)
-					throw new RestApplicationException("some with email: " + email + " not found", Status.NOT_FOUND.getStatusCode());
+					throw new RestApplicationException("some with email address: " + email + " not found", Status.NOT_FOUND.getStatusCode());
 				if (someoneUpdated.getName() != null)
 					someoneAlreadyRegistered.setName(someoneUpdated.getName());
 				if (someoneUpdated.getSurname() != null)
@@ -201,7 +201,7 @@ public class SomeoneController {
 			try {
 				Someone someone = someoneRepository.findByEmail(email);
 				if (someone == null)
-					throw new RestApplicationException("some with email: " + email + " not found", Status.NOT_FOUND.getStatusCode());
+					throw new RestApplicationException("some with email address: " + email + " not found", Status.NOT_FOUND.getStatusCode());
 				someone.delete();
 				return Response.noContent().build();
 			} catch (RestApplicationException restApplicationException) {
@@ -216,7 +216,7 @@ public class SomeoneController {
 			try {
 				Someone someone = someoneRepository.findByEmail(email);
 				if (someone == null)
-					throw new RestApplicationException("thing with email: " + email + " not found", Status.NOT_FOUND.getStatusCode());
+					throw new RestApplicationException("some with email address: " + email + " not found", Status.NOT_FOUND.getStatusCode());
 				return Response.ok(someone).build();
 			} catch (RestApplicationException restApplicationException) {
 				// Not Found
@@ -227,8 +227,15 @@ public class SomeoneController {
 		@GET
 		@Path("/phone/{phone}")
 		public Response searchByPhone(@PathParam("phone") String phone) {
-			// TODO
-			return null;
+			try {
+				Someone someone = someoneRepository.findByPhone(phone);
+				if (someone == null)
+					throw new RestApplicationException("some with phone number: " + phone + " not found", Status.NOT_FOUND.getStatusCode());
+				return Response.ok(someone).build();
+			} catch (RestApplicationException restApplicationException) {
+				// Not Found
+				return Response.status(restApplicationException.getResponse().getStatus()).build();
+			}
 		}
 
 		@GET
