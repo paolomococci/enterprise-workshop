@@ -40,4 +40,10 @@ public class SomeoneRepository
 				.withLock(LockModeType.PESSIMISTIC_READ)
 				.firstResult();
 	}
+
+	public Someone findByEmail(String email) {
+		return this.find("email", email)
+				.withLock(LockModeType.PESSIMISTIC_WRITE)
+				.firstResult();
+	}
 }
