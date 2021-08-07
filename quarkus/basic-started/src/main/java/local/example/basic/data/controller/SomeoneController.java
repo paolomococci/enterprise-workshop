@@ -22,6 +22,7 @@ import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.LockModeType;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -95,7 +96,7 @@ public class SomeoneController {
 		public Response create(Someone someone) {
 			try {
 				if (someone.id != null)
-					throw new RestApplicationException("entity already registered in the system", 422);
+					throw new RestApplicationException("some already registered in the system", 422);
 				someone.persist();
 				return Response.ok(someone).status(Status.CREATED).build();
 			} catch (RestApplicationException restApplicationException) {
@@ -108,8 +109,26 @@ public class SomeoneController {
 		@Path("{id}")
 		@Transactional
 		public Response update(@PathParam Long id, Someone someoneUpdated) {
-			// TODO
-			return null;
+			try {
+				if (
+						someoneUpdated.getName() == null || 
+						someoneUpdated.getSurname() == null ||
+						someoneUpdated.getEmail() == null ||  
+						someoneUpdated.getPhone() == null	
+					)
+					throw new RestApplicationException("one or more fields of the entity have not been set", 422);
+				Someone someoneAlreadyRegistered = Someone.findById(id, LockModeType.PESSIMISTIC_WRITE);
+				if (someoneAlreadyRegistered == null)
+					throw new RestApplicationException("thing with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
+				someoneAlreadyRegistered.setName(someoneUpdated.getName());
+				someoneAlreadyRegistered.setSurname(someoneUpdated.getSurname());
+				someoneAlreadyRegistered.setEmail(someoneUpdated.getEmail());
+				someoneAlreadyRegistered.setPhone(someoneUpdated.getPhone());
+				return Response.ok(someoneAlreadyRegistered).build();
+			} catch (RestApplicationException restApplicationException) {
+				// Not Found or Unprocessable Entity
+				return Response.status(restApplicationException.getResponse().getStatus()).build();
+			}
 		}
 
 		@PATCH
