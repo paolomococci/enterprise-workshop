@@ -119,7 +119,7 @@ public class SomeoneController {
 					throw new RestApplicationException("one or more fields of the entity have not been set", 422);
 				Someone someoneAlreadyRegistered = Someone.findById(id, LockModeType.PESSIMISTIC_WRITE);
 				if (someoneAlreadyRegistered == null)
-					throw new RestApplicationException("thing with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
+					throw new RestApplicationException("some with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
 				someoneAlreadyRegistered.setName(someoneUpdated.getName());
 				someoneAlreadyRegistered.setSurname(someoneUpdated.getSurname());
 				someoneAlreadyRegistered.setEmail(someoneUpdated.getEmail());
@@ -135,8 +135,23 @@ public class SomeoneController {
 		@Path("{id}")
 		@Transactional
 		public Response partialUpdate(@PathParam Long id, Someone someoneUpdated) {
-			// TODO
-			return null;
+			try {
+				Someone someoneAlreadyRegistered = Someone.findById(id, LockModeType.PESSIMISTIC_WRITE);
+				if (someoneAlreadyRegistered == null)
+					throw new RestApplicationException("some with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
+				if (someoneUpdated.getName() != null)
+					someoneAlreadyRegistered.setName(someoneUpdated.getName());
+				if (someoneUpdated.getSurname() != null)
+					someoneAlreadyRegistered.setSurname(someoneUpdated.getSurname());
+				if (someoneUpdated.getEmail() != null)
+					someoneAlreadyRegistered.setEmail(someoneUpdated.getEmail());
+				if (someoneUpdated.getPhone() != null)
+					someoneAlreadyRegistered.setPhone(someoneUpdated.getPhone());
+				return Response.ok(someoneAlreadyRegistered).build();
+			} catch (RestApplicationException restApplicationException) {
+				// Not Found
+				return Response.status(restApplicationException.getResponse().getStatus()).build();
+			}
 		}
 
 		@PATCH
