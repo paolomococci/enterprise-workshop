@@ -24,6 +24,11 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.ExceptionMapper;
+import javax.ws.rs.ext.Provider;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import local.example.basic.data.repository.SomeoneRepository;
 
@@ -35,4 +40,17 @@ public class SomeoneController {
 
 	@Inject
 	SomeoneRepository someoneRepository;
+
+	@Provider
+	public static class ErrorMapper 
+			implements ExceptionMapper<Exception> {
+
+		@Inject
+		ObjectMapper objectMapper;
+
+		@Override
+		public Response toResponse(Exception exception) {
+			return null;
+		}		
+	}
 }
