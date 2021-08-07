@@ -59,7 +59,7 @@ import local.example.basic.error.RestApplicationException;
 public class SomethingController {
 
 	@Inject
-	static SomethingRepository somethingRepository;
+	SomethingRepository somethingRepository;
 
 	private static final Logger LOGGER = Logger.getLogger(SomethingController.class.getName());
 
