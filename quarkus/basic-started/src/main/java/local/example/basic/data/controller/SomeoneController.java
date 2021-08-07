@@ -34,6 +34,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
@@ -47,6 +48,7 @@ import io.quarkus.panache.common.Sort;
 
 import local.example.basic.data.model.Someone;
 import local.example.basic.data.repository.SomeoneRepository;
+import local.example.basic.error.RestApplicationException;
 
 @Path("somes")
 @ApplicationScoped
@@ -77,8 +79,15 @@ public class SomeoneController {
 		@GET
 		@Path("{id}")
 		public Response read(@PathParam Long id) {
-			// TODO
-			return null;
+			try {
+				Someone someone = Someone.findById(id);
+				if (someone == null)
+					throw new RestApplicationException("some with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
+				return Response.ok(someone).build();
+			} catch (RestApplicationException restApplicationException) {
+				// Not Found
+				return Response.status(restApplicationException.getResponse().getStatus()).build();
+			}
 		}
 
 		@POST
