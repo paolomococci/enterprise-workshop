@@ -241,8 +241,15 @@ public class SomeoneController {
 		@GET
 		@Path("/count")
 		public Response count() {
-			// TODO
-			return null;
+			try {
+				Long quantityOfSomes = someoneRepository.quantityOfSomes();
+				if (quantityOfSomes == 0L)
+					throw new RestApplicationException("no conten", Status.NO_CONTENT.getStatusCode());
+				return Response.ok(quantityOfSomes).build();
+			} catch (RestApplicationException restApplicationException) {
+				// No Content
+				return Response.status(restApplicationException.getResponse().getStatus()).build();
+			}
 		}
 
 		@Override
