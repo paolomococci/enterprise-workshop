@@ -29,6 +29,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -38,6 +39,7 @@ import org.jboss.logging.Logger;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import local.example.basic.data.model.Someone;
 import local.example.basic.data.repository.SomeoneRepository;
@@ -144,7 +146,15 @@ public class SomeoneController {
 		@Override
 		public Response toResponse(Exception exception) {
 			LOGGER.error("failed to handle request", exception);
-			return null;
+			int code = 500;
+			if (exception instanceof WebApplicationException)
+				code = ((WebApplicationException) exception).getResponse().getStatus();
+			ObjectNode objectNode = objectMapper.createObjectNode();
+			objectNode.put("exceptionType", exception.getClass().getName());
+			objectNode.put("code", code);
+			if (exception.getMessage() != null)
+				objectNode.put("error", exception.getMessage());
+			return Response.status(code).entity(objectNode).build();
 		}		
 	}
 }
