@@ -26,6 +26,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -33,7 +34,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 @Entity
 @Cacheable
-@Table(name = "SOMETHING")
+@Table(name = "SOMETHING", uniqueConstraints = @UniqueConstraint(columnNames = {"CODE", "NAME"}))
 public class Something 
 		extends PanacheEntity {
 
