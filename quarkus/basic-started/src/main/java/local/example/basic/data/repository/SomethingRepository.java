@@ -41,7 +41,7 @@ public class SomethingRepository
 				.firstResult();
 	}
 
-	public Long numberOfThings() {
+	public Long quantityOfThings() {
 		return Long.valueOf(this.count());
 	}
 }
