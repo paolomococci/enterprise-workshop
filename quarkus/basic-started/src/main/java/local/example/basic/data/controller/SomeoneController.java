@@ -28,6 +28,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
+import org.jboss.logging.Logger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import local.example.basic.data.repository.SomeoneRepository;
@@ -48,8 +50,11 @@ public class SomeoneController {
 		@Inject
 		ObjectMapper objectMapper;
 
+		private static final Logger LOGGER = Logger.getLogger(SomeoneController.class.getName());
+
 		@Override
 		public Response toResponse(Exception exception) {
+			LOGGER.error("failed to handle request", exception);
 			return null;
 		}		
 	}
