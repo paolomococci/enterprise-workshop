@@ -198,8 +198,16 @@ public class SomeoneController {
 		@Path("/delete/email/{email}")
 		@Transactional
 		public Response deleteByEmail(@PathParam("email") String email) {
-			// TODO
-			return null;
+			try {
+				Someone someone = someoneRepository.findByEmail(email);
+				if (someone == null)
+					throw new RestApplicationException("some with email: " + email + " not found", Status.NOT_FOUND.getStatusCode());
+				someone.delete();
+				return Response.noContent().build();
+			} catch (RestApplicationException restApplicationException) {
+				// Not Found
+				return Response.status(restApplicationException.getResponse().getStatus()).build();
+			}
 		}
 
 		@GET
