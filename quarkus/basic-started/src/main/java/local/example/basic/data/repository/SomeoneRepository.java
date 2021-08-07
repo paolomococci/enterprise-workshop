@@ -19,12 +19,19 @@
 package local.example.basic.data.repository;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.LockModeType;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
+
 import local.example.basic.data.model.Someone;
 
 @ApplicationScoped
 public class SomeoneRepository 
 		implements PanacheRepository<Someone> {
 
+	public Someone findByName(String name) {
+		return this.find("name", name)
+				.withLock(LockModeType.PESSIMISTIC_WRITE)
+				.firstResult();
+	}
 }
