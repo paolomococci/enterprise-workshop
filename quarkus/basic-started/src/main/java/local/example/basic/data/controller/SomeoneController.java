@@ -93,8 +93,15 @@ public class SomeoneController {
 		@POST
 		@Transactional
 		public Response create(Someone someone) {
-			// TODO
-			return null;	
+			try {
+				if (someone.id != null)
+					throw new RestApplicationException("entity already registered in the system", 422);
+				someone.persist();
+				return Response.ok(someone).status(Status.CREATED).build();
+			} catch (RestApplicationException restApplicationException) {
+				// Unprocessable Entity
+				return Response.status(restApplicationException.getResponse().getStatus()).build();
+			}
 		}
 
 		@PUT
