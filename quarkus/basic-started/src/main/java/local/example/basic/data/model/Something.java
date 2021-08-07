@@ -24,7 +24,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
@@ -46,6 +49,10 @@ public class Something
 	@Basic(fetch = FetchType.LAZY)
 	@Column(columnDefinition = "text" ,name = "DESCRIPTION", nullable = true, unique = false)
 	private String description;
+
+	@ManyToOne
+	@JsonIgnore
+	private Someone someone;
 
 	public String getCode() {
 		return code;
@@ -69,5 +76,13 @@ public class Something
 
 	public void setDescription(String descrition) {
 		this.description = descrition;
+	}
+
+	public Someone getSomeone() {
+		return someone;
+	}
+
+	public void setSomeone(Someone someone) {
+		this.someone = someone;
 	}
 }
