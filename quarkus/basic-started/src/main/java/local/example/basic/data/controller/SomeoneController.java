@@ -24,6 +24,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.LockModeType;
 import javax.transaction.Transactional;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -58,7 +59,7 @@ import local.example.basic.error.RestApplicationException;
 public class SomeoneController {
 
 	@Inject
-	SomeoneRepository someoneRepository;
+	static SomeoneRepository someoneRepository;
 
 	@Provider
 	public static class ErrorMapper 
@@ -158,8 +159,23 @@ public class SomeoneController {
 		@Path("/update/email/{email}")
 		@Transactional
 		public Response partialUpdateByEmail(@PathParam("email") String email, Someone someoneUpdated) {
-			// TODO
-			return null;
+			try {
+				Someone someoneAlreadyRegistered = someoneRepository.findByEmail(email);
+				if (someoneAlreadyRegistered == null)
+					throw new RestApplicationException("some with code: " + email + " not found", Status.NOT_FOUND.getStatusCode());
+				if (someoneUpdated.getName() != null)
+					someoneAlreadyRegistered.setName(someoneUpdated.getName());
+				if (someoneUpdated.getSurname() != null)
+					someoneAlreadyRegistered.setSurname(someoneUpdated.getSurname());
+				if (someoneUpdated.getEmail() != null)
+					someoneAlreadyRegistered.setEmail(someoneUpdated.getEmail());
+				if (someoneUpdated.getPhone() != null)
+					someoneAlreadyRegistered.setPhone(someoneUpdated.getPhone());
+				return Response.ok(someoneAlreadyRegistered).build();
+			} catch (RestApplicationException restApplicationException) {
+				// Not Found
+				return Response.status(restApplicationException.getResponse().getStatus()).build();
+			}
 		}
 
 		@DELETE
