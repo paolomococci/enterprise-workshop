@@ -18,11 +18,15 @@
 
 package local.example.basic.data.model;
 
+import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.Cacheable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
@@ -48,4 +52,52 @@ public class Someone
 	@Basic(fetch = FetchType.LAZY)
 	@Column(name = "PHONE", length = 64, nullable = false, unique = true)
 	private String phone;
+
+	@OneToMany(
+			mappedBy = "someone",
+			cascade = CascadeType.ALL,
+			orphanRemoval = true,
+			fetch = FetchType.EAGER
+			)
+	private List<Something> somethings;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public List<Something> getSomethings() {
+		return somethings;
+	}
+
+	public void setSomethings(List<Something> somethings) {
+		this.somethings = somethings;
+	}
 }
