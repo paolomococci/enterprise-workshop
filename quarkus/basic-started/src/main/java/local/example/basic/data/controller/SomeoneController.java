@@ -59,7 +59,191 @@ import local.example.basic.error.RestApplicationException;
 public class SomeoneController {
 
 	@Inject
-	static SomeoneRepository someoneRepository;
+	SomeoneRepository someoneRepository;
+
+	private static final Logger LOGGER = Logger.getLogger(SomeoneController.class.getName());
+
+	@GET
+	public Response readAll() {
+		List<Someone> someone = Someone.listAll(Sort.by("email").and("surname").and("name"));
+		if (someone.isEmpty())
+			return Response.noContent().build();
+		return Response.ok(someone).build();
+	}
+
+	@GET
+	@Path("{id}")
+	public Response read(@PathParam Long id) {
+		try {
+			Someone someone = Someone.findById(id);
+			if (someone == null)
+				throw new RestApplicationException("some with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
+			return Response.ok(someone).build();
+		} catch (RestApplicationException restApplicationException) {
+			// Not Found
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
+	@POST
+	@Transactional
+	public Response create(Someone someone) {
+		try {
+			if (someone.id != null)
+				throw new RestApplicationException("some already registered in the system", 422);
+			someone.persist();
+			return Response.ok(someone).status(Status.CREATED).build();
+		} catch (RestApplicationException restApplicationException) {
+			// Unprocessable Entity
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
+	@PUT
+	@Path("{id}")
+	@Transactional
+	public Response update(@PathParam Long id, Someone someoneUpdated) {
+		try {
+			if (
+					someoneUpdated.getName() == null || 
+					someoneUpdated.getSurname() == null ||
+					someoneUpdated.getEmail() == null ||  
+					someoneUpdated.getPhone() == null	
+				)
+				throw new RestApplicationException("one or more fields of the entity have not been set", 422);
+			Someone someoneAlreadyRegistered = Someone.findById(id, LockModeType.PESSIMISTIC_WRITE);
+			if (someoneAlreadyRegistered == null)
+				throw new RestApplicationException("some with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
+			someoneAlreadyRegistered.setName(someoneUpdated.getName());
+			someoneAlreadyRegistered.setSurname(someoneUpdated.getSurname());
+			someoneAlreadyRegistered.setEmail(someoneUpdated.getEmail());
+			someoneAlreadyRegistered.setPhone(someoneUpdated.getPhone());
+			return Response.ok(someoneAlreadyRegistered).build();
+		} catch (RestApplicationException restApplicationException) {
+			// Not Found or Unprocessable Entity
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
+	@PATCH
+	@Path("{id}")
+	@Transactional
+	public Response partialUpdate(@PathParam Long id, Someone someoneUpdated) {
+		try {
+			Someone someoneAlreadyRegistered = Someone.findById(id, LockModeType.PESSIMISTIC_WRITE);
+			if (someoneAlreadyRegistered == null)
+				throw new RestApplicationException("some with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
+			if (someoneUpdated.getName() != null)
+				someoneAlreadyRegistered.setName(someoneUpdated.getName());
+			if (someoneUpdated.getSurname() != null)
+				someoneAlreadyRegistered.setSurname(someoneUpdated.getSurname());
+			if (someoneUpdated.getEmail() != null)
+				someoneAlreadyRegistered.setEmail(someoneUpdated.getEmail());
+			if (someoneUpdated.getPhone() != null)
+				someoneAlreadyRegistered.setPhone(someoneUpdated.getPhone());
+			return Response.ok(someoneAlreadyRegistered).build();
+		} catch (RestApplicationException restApplicationException) {
+			// Not Found
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
+	@PATCH
+	@Path("/update/email/{email}")
+	@Transactional
+	public Response partialUpdateByEmail(@PathParam("email") String email, Someone someoneUpdated) {
+		try {
+			Someone someoneAlreadyRegistered = someoneRepository.findByEmail(email);
+			if (someoneAlreadyRegistered == null)
+				throw new RestApplicationException("some with email address: " + email + " not found", Status.NOT_FOUND.getStatusCode());
+			if (someoneUpdated.getName() != null)
+				someoneAlreadyRegistered.setName(someoneUpdated.getName());
+			if (someoneUpdated.getSurname() != null)
+				someoneAlreadyRegistered.setSurname(someoneUpdated.getSurname());
+			if (someoneUpdated.getEmail() != null)
+				someoneAlreadyRegistered.setEmail(someoneUpdated.getEmail());
+			if (someoneUpdated.getPhone() != null)
+				someoneAlreadyRegistered.setPhone(someoneUpdated.getPhone());
+			return Response.ok(someoneAlreadyRegistered).build();
+		} catch (RestApplicationException restApplicationException) {
+			// Not Found
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
+	@DELETE
+	@Path("{id}")
+	@Transactional
+	public Response delete(@PathParam Long id) {
+		try {
+			Someone someone = Someone.findById(id);
+			if (someone == null)
+				throw new RestApplicationException("some with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
+			someone.delete();
+			return Response.noContent().build();
+		} catch (RestApplicationException restApplicationException) {
+			// Not Found
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
+	@DELETE
+	@Path("/delete/email/{email}")
+	@Transactional
+	public Response deleteByEmail(@PathParam("email") String email) {
+		try {
+			Someone someone = someoneRepository.findByEmail(email);
+			if (someone == null)
+				throw new RestApplicationException("some with email address: " + email + " not found", Status.NOT_FOUND.getStatusCode());
+			someone.delete();
+			return Response.noContent().build();
+		} catch (RestApplicationException restApplicationException) {
+			// Not Found
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
+	@GET
+	@Path("/email/{email}")
+	public Response searchByEmail(@PathParam("email") String email) {
+		try {
+			Someone someone = someoneRepository.findByEmail(email);
+			if (someone == null)
+				throw new RestApplicationException("some with email address: " + email + " not found", Status.NOT_FOUND.getStatusCode());
+			return Response.ok(someone).build();
+		} catch (RestApplicationException restApplicationException) {
+			// Not Found
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
+	@GET
+	@Path("/phone/{phone}")
+	public Response searchByPhone(@PathParam("phone") String phone) {
+		try {
+			Someone someone = someoneRepository.findByPhone(phone);
+			if (someone == null)
+				throw new RestApplicationException("some with phone number: " + phone + " not found", Status.NOT_FOUND.getStatusCode());
+			return Response.ok(someone).build();
+		} catch (RestApplicationException restApplicationException) {
+			// Not Found
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
+
+	@GET
+	@Path("/count")
+	public Response count() {
+		try {
+			Long quantityOfSomes = someoneRepository.quantityOfSomes();
+			if (quantityOfSomes == 0L)
+				throw new RestApplicationException("no conten", Status.NO_CONTENT.getStatusCode());
+			return Response.ok(quantityOfSomes).build();
+		} catch (RestApplicationException restApplicationException) {
+			// No Content
+			return Response.status(restApplicationException.getResponse().getStatus()).build();
+		}
+	}
 
 	@Provider
 	public static class ErrorMapper 
@@ -67,190 +251,6 @@ public class SomeoneController {
 
 		@Inject
 		ObjectMapper objectMapper;
-
-		private static final Logger LOGGER = Logger.getLogger(SomeoneController.class.getName());
-
-		@GET
-		public Response readAll() {
-			List<Someone> someone = Someone.listAll(Sort.by("email").and("surname").and("name"));
-			if (someone.isEmpty())
-				return Response.noContent().build();
-			return Response.ok(someone).build();
-		}
-
-		@GET
-		@Path("{id}")
-		public Response read(@PathParam Long id) {
-			try {
-				Someone someone = Someone.findById(id);
-				if (someone == null)
-					throw new RestApplicationException("some with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
-				return Response.ok(someone).build();
-			} catch (RestApplicationException restApplicationException) {
-				// Not Found
-				return Response.status(restApplicationException.getResponse().getStatus()).build();
-			}
-		}
-
-		@POST
-		@Transactional
-		public Response create(Someone someone) {
-			try {
-				if (someone.id != null)
-					throw new RestApplicationException("some already registered in the system", 422);
-				someone.persist();
-				return Response.ok(someone).status(Status.CREATED).build();
-			} catch (RestApplicationException restApplicationException) {
-				// Unprocessable Entity
-				return Response.status(restApplicationException.getResponse().getStatus()).build();
-			}
-		}
-
-		@PUT
-		@Path("{id}")
-		@Transactional
-		public Response update(@PathParam Long id, Someone someoneUpdated) {
-			try {
-				if (
-						someoneUpdated.getName() == null || 
-						someoneUpdated.getSurname() == null ||
-						someoneUpdated.getEmail() == null ||  
-						someoneUpdated.getPhone() == null	
-					)
-					throw new RestApplicationException("one or more fields of the entity have not been set", 422);
-				Someone someoneAlreadyRegistered = Someone.findById(id, LockModeType.PESSIMISTIC_WRITE);
-				if (someoneAlreadyRegistered == null)
-					throw new RestApplicationException("some with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
-				someoneAlreadyRegistered.setName(someoneUpdated.getName());
-				someoneAlreadyRegistered.setSurname(someoneUpdated.getSurname());
-				someoneAlreadyRegistered.setEmail(someoneUpdated.getEmail());
-				someoneAlreadyRegistered.setPhone(someoneUpdated.getPhone());
-				return Response.ok(someoneAlreadyRegistered).build();
-			} catch (RestApplicationException restApplicationException) {
-				// Not Found or Unprocessable Entity
-				return Response.status(restApplicationException.getResponse().getStatus()).build();
-			}
-		}
-
-		@PATCH
-		@Path("{id}")
-		@Transactional
-		public Response partialUpdate(@PathParam Long id, Someone someoneUpdated) {
-			try {
-				Someone someoneAlreadyRegistered = Someone.findById(id, LockModeType.PESSIMISTIC_WRITE);
-				if (someoneAlreadyRegistered == null)
-					throw new RestApplicationException("some with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
-				if (someoneUpdated.getName() != null)
-					someoneAlreadyRegistered.setName(someoneUpdated.getName());
-				if (someoneUpdated.getSurname() != null)
-					someoneAlreadyRegistered.setSurname(someoneUpdated.getSurname());
-				if (someoneUpdated.getEmail() != null)
-					someoneAlreadyRegistered.setEmail(someoneUpdated.getEmail());
-				if (someoneUpdated.getPhone() != null)
-					someoneAlreadyRegistered.setPhone(someoneUpdated.getPhone());
-				return Response.ok(someoneAlreadyRegistered).build();
-			} catch (RestApplicationException restApplicationException) {
-				// Not Found
-				return Response.status(restApplicationException.getResponse().getStatus()).build();
-			}
-		}
-
-		@PATCH
-		@Path("/update/email/{email}")
-		@Transactional
-		public Response partialUpdateByEmail(@PathParam("email") String email, Someone someoneUpdated) {
-			try {
-				Someone someoneAlreadyRegistered = someoneRepository.findByEmail(email);
-				if (someoneAlreadyRegistered == null)
-					throw new RestApplicationException("some with email address: " + email + " not found", Status.NOT_FOUND.getStatusCode());
-				if (someoneUpdated.getName() != null)
-					someoneAlreadyRegistered.setName(someoneUpdated.getName());
-				if (someoneUpdated.getSurname() != null)
-					someoneAlreadyRegistered.setSurname(someoneUpdated.getSurname());
-				if (someoneUpdated.getEmail() != null)
-					someoneAlreadyRegistered.setEmail(someoneUpdated.getEmail());
-				if (someoneUpdated.getPhone() != null)
-					someoneAlreadyRegistered.setPhone(someoneUpdated.getPhone());
-				return Response.ok(someoneAlreadyRegistered).build();
-			} catch (RestApplicationException restApplicationException) {
-				// Not Found
-				return Response.status(restApplicationException.getResponse().getStatus()).build();
-			}
-		}
-
-		@DELETE
-		@Path("{id}")
-		@Transactional
-		public Response delete(@PathParam Long id) {
-			try {
-				Someone someone = Someone.findById(id);
-				if (someone == null)
-					throw new RestApplicationException("some with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
-				someone.delete();
-				return Response.noContent().build();
-			} catch (RestApplicationException restApplicationException) {
-				// Not Found
-				return Response.status(restApplicationException.getResponse().getStatus()).build();
-			}
-		}
-
-		@DELETE
-		@Path("/delete/email/{email}")
-		@Transactional
-		public Response deleteByEmail(@PathParam("email") String email) {
-			try {
-				Someone someone = someoneRepository.findByEmail(email);
-				if (someone == null)
-					throw new RestApplicationException("some with email address: " + email + " not found", Status.NOT_FOUND.getStatusCode());
-				someone.delete();
-				return Response.noContent().build();
-			} catch (RestApplicationException restApplicationException) {
-				// Not Found
-				return Response.status(restApplicationException.getResponse().getStatus()).build();
-			}
-		}
-
-		@GET
-		@Path("/email/{email}")
-		public Response searchByEmail(@PathParam("email") String email) {
-			try {
-				Someone someone = someoneRepository.findByEmail(email);
-				if (someone == null)
-					throw new RestApplicationException("some with email address: " + email + " not found", Status.NOT_FOUND.getStatusCode());
-				return Response.ok(someone).build();
-			} catch (RestApplicationException restApplicationException) {
-				// Not Found
-				return Response.status(restApplicationException.getResponse().getStatus()).build();
-			}
-		}
-
-		@GET
-		@Path("/phone/{phone}")
-		public Response searchByPhone(@PathParam("phone") String phone) {
-			try {
-				Someone someone = someoneRepository.findByPhone(phone);
-				if (someone == null)
-					throw new RestApplicationException("some with phone number: " + phone + " not found", Status.NOT_FOUND.getStatusCode());
-				return Response.ok(someone).build();
-			} catch (RestApplicationException restApplicationException) {
-				// Not Found
-				return Response.status(restApplicationException.getResponse().getStatus()).build();
-			}
-		}
-
-		@GET
-		@Path("/count")
-		public Response count() {
-			try {
-				Long quantityOfSomes = someoneRepository.quantityOfSomes();
-				if (quantityOfSomes == 0L)
-					throw new RestApplicationException("no conten", Status.NO_CONTENT.getStatusCode());
-				return Response.ok(quantityOfSomes).build();
-			} catch (RestApplicationException restApplicationException) {
-				// No Content
-				return Response.status(restApplicationException.getResponse().getStatus()).build();
-			}
-		}
 
 		@Override
 		public Response toResponse(Exception exception) {
