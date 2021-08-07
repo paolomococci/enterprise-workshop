@@ -20,7 +20,13 @@ package local.example.basic.data.controller;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.PATCH;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -29,9 +35,11 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 import org.jboss.logging.Logger;
+import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import local.example.basic.data.model.Someone;
 import local.example.basic.data.repository.SomeoneRepository;
 
 @Path("somes")
@@ -51,6 +59,87 @@ public class SomeoneController {
 		ObjectMapper objectMapper;
 
 		private static final Logger LOGGER = Logger.getLogger(SomeoneController.class.getName());
+
+		@GET
+		public Response readAll() {
+			// TODO
+			return null;
+		}
+
+		@GET
+		@Path("{id}")
+		public Response read(@PathParam Long id) {
+			// TODO
+			return null;
+		}
+
+		@POST
+		@Transactional
+		public Response create(Someone someone) {
+			// TODO
+			return null;	
+		}
+
+		@PUT
+		@Path("{id}")
+		@Transactional
+		public Response update(@PathParam Long id, Someone someoneUpdated) {
+			// TODO
+			return null;
+		}
+
+		@PATCH
+		@Path("{id}")
+		@Transactional
+		public Response partialUpdate(@PathParam Long id, Someone someoneUpdated) {
+			// TODO
+			return null;
+		}
+
+		@PATCH
+		@Path("/update/email/{email}")
+		@Transactional
+		public Response partialUpdateByEmail(@PathParam("email") String email, Someone someoneUpdated) {
+			// TODO
+			return null;
+		}
+
+		@DELETE
+		@Path("{id}")
+		@Transactional
+		public Response delete(@PathParam Long id) {
+			// TODO
+			return null;
+		}
+
+		@DELETE
+		@Path("/delete/email/{email}")
+		@Transactional
+		public Response deleteByEmail(@PathParam("email") String email) {
+			// TODO
+			return null;
+		}
+
+		@GET
+		@Path("/email/{email}")
+		public Response searchByEmail(@PathParam("email") String email) {
+			// TODO
+			return null;
+		}
+
+		@GET
+		@Path("/phone/{phone}")
+		public Response searchByPhone(@PathParam("phone") String phone) {
+			// TODO
+			return null;
+		}
+
+		@GET
+		@Path("/count")
+		public Response count() {
+			// TODO
+			return null;
+		}
 
 		@Override
 		public Response toResponse(Exception exception) {
