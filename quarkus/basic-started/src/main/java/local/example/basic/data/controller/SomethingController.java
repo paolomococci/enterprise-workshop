@@ -59,7 +59,7 @@ import local.example.basic.error.RestApplicationException;
 public class SomethingController {
 
 	@Inject
-	SomethingRepository somethingRepository;
+	static SomethingRepository somethingRepository;
 
 	private static final Logger LOGGER = Logger.getLogger(SomethingController.class.getName());
 
@@ -90,13 +90,13 @@ public class SomethingController {
 	public Response create(Something something) {
 		try {
 			if (something.id != null)
-				throw new RestApplicationException("entity already registered in the system", 422);
+				throw new RestApplicationException("thing already registered in the system", 422);
 			something.persist();
 			return Response.ok(something).status(Status.CREATED).build();
 		} catch (RestApplicationException restApplicationException) {
 			// Unprocessable Entity
 			return Response.status(restApplicationException.getResponse().getStatus()).build();
-		}		
+		}
 	}
 
 	@PUT
