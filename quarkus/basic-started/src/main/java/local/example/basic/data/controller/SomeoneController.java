@@ -18,6 +18,8 @@
 
 package local.example.basic.data.controller;
 
+import java.util.List;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -40,6 +42,8 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import io.quarkus.panache.common.Sort;
 
 import local.example.basic.data.model.Someone;
 import local.example.basic.data.repository.SomeoneRepository;
@@ -64,8 +68,10 @@ public class SomeoneController {
 
 		@GET
 		public Response readAll() {
-			// TODO
-			return null;
+			List<Someone> someone = Someone.listAll(Sort.by("email").and("surname").and("name"));
+			if (someone.isEmpty())
+				return Response.noContent().build();
+			return Response.ok(someone).build();
 		}
 
 		@GET
