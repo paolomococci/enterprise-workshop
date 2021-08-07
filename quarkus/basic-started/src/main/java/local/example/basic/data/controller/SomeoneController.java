@@ -19,10 +19,13 @@
 package local.example.basic.data.controller;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import local.example.basic.data.repository.SomeoneRepository;
 
 @Path("somes")
 @ApplicationScoped
@@ -30,4 +33,6 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 public class SomeoneController {
 
+	@Inject
+	SomeoneRepository someoneRepository;
 }
