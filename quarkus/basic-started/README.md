@@ -92,3 +92,36 @@ HTTP/1.1 204 No Content
 < 
 * Connection #0 to host 127.0.0.1 left intact
 ```
+
+## when there are no entities registered in the system you will get
+```
+$ curl -v -i http://127.0.0.1:8080/things
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8080 (#0)
+> GET /things HTTP/1.1
+> Host: 127.0.0.1:8080
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 204 No Content
+HTTP/1.1 204 No Content
+
+< 
+* Connection #0 to host 127.0.0.1 left intact
+
+curl -v -i http://127.0.0.1:8080/somes
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8080 (#0)
+> GET /somes HTTP/1.1
+> Host: 127.0.0.1:8080
+> User-Agent: curl/7.58.0
+> Accept: */*
+> 
+< HTTP/1.1 204 No Content
+HTTP/1.1 204 No Content
+
+< 
+* Connection #0 to host 127.0.0.1 left intact
+```
