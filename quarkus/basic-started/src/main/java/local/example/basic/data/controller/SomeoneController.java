@@ -182,8 +182,16 @@ public class SomeoneController {
 		@Path("{id}")
 		@Transactional
 		public Response delete(@PathParam Long id) {
-			// TODO
-			return null;
+			try {
+				Someone someone = Someone.findById(id);
+				if (someone == null)
+					throw new RestApplicationException("some with id: " + id + " not found", Status.NOT_FOUND.getStatusCode());
+				someone.delete();
+				return Response.noContent().build();
+			} catch (RestApplicationException restApplicationException) {
+				// Not Found
+				return Response.status(restApplicationException.getResponse().getStatus()).build();
+			}
 		}
 
 		@DELETE
