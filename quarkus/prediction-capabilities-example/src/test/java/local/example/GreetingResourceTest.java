@@ -28,11 +28,11 @@ import static org.hamcrest.CoreMatchers.is;
 public class GreetingResourceTest {
 
     @Test
-    public void testHelloEndpoint() {
+    public void workEndpointTest() {
         given()
-          .when().get("/hello")
+          .when().get("/work")
           .then()
              .statusCode(200)
-             .body(is("Hello RESTEasy"));
+             .body(is("it works"));
     }
 }
