@@ -1,1 +1,9 @@
-
+<PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
+  <Header/>
+  <DataDictionary numberOfFields="5">
+    <!-- todo -->
+  </DataDictionary>
+  <RegressionModel functionName="classification" modelName="LogReg" targetFieldName="Something">
+    <!-- todo -->
+  </RegressionModel>
+</PMML>
