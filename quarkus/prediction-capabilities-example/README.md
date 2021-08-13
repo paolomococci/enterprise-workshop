@@ -6,5 +6,5 @@ mvn io.quarkus:quarkus-maven-plugin:2.1.2.Final:create -DprojectGroupId=local.ex
 ```
 ## first start:
 ```
-./mvnw clean quarkus:dev
+./mvnw compile quarkus:dev
 ```
