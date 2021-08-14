@@ -4,6 +4,20 @@
     <!-- todo -->
   </DataDictionary>
   <RegressionModel functionName="classification" modelName="LogReg" targetFieldName="Something">
-    <!-- todo -->
+    <MiningSchema>
+      <!-- todo -->
+    </MiningSchema>
+    <Output>
+      <!-- todo -->
+    </Output>
+    <RegressionTable>
+      <!-- todo -->
+    </RegressionTable>
+    <RegressionTable>
+      <!-- todo -->
+    </RegressionTable>
+    <RegressionTable>
+      <!-- todo -->
+    </RegressionTable>
   </RegressionModel>
 </PMML>
