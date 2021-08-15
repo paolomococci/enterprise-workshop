@@ -18,6 +18,16 @@
 
 package local.example.data.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "SCHEDULE")
 public class Schedule {
 
+	@Id
+	@GeneratedValue
+	private Long id;
 }
