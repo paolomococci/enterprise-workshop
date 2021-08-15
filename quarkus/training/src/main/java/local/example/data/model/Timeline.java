@@ -18,6 +18,9 @@
 
 package local.example.data.model;
 
+import java.time.DayOfWeek;
+import java.time.LocalTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -31,7 +34,36 @@ public class Timeline {
 	@GeneratedValue
 	private Long id;
 
+	private DayOfWeek dayOfWeek;
+
+	private LocalTime start;
+	private LocalTime stop;
+
 	public Long getId() {
 		return id;
+	}
+
+	public DayOfWeek getDayOfWeek() {
+		return dayOfWeek;
+	}
+
+	public void setDayOfWeek(DayOfWeek dayOfWeek) {
+		this.dayOfWeek = dayOfWeek;
+	}
+
+	public LocalTime getStart() {
+		return start;
+	}
+
+	public void setStart(LocalTime start) {
+		this.start = start;
+	}
+
+	public LocalTime getStop() {
+		return stop;
+	}
+
+	public void setStop(LocalTime stop) {
+		this.stop = stop;
 	}
 }
