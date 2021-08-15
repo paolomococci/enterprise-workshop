@@ -39,6 +39,10 @@ public class Timeline {
 	private LocalTime start;
 	private LocalTime stop;
 
+	public Timeline() {
+		super();
+	}
+
 	public Long getId() {
 		return id;
 	}
