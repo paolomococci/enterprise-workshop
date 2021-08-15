@@ -30,4 +30,8 @@ public class Timeline {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	public Long getId() {
+		return id;
+	}
 }
