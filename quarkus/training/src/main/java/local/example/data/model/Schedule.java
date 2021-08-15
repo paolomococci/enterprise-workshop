@@ -39,6 +39,10 @@ public class Schedule {
 
 	private List<Tutorial> tutorials;
 
+	public Schedule() {
+		super();
+	}
+
 	public Long getId() {
 		return id;
 	}
