@@ -21,6 +21,7 @@ package local.example.data.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,7 +32,39 @@ public class Tutorial {
 	@GeneratedValue
 	private Long id;
 
+	private String title;
+
+	@ManyToOne
+	private Timeline timeline;
+
+	@ManyToOne
+	private Bench bench;
+
 	public Long getId() {
 		return id;
+	}
+
+	public String getName() {
+		return title;
+	}
+
+	public void setName(String title) {
+		this.title = title;
+	}
+
+	public Timeline getTimeline() {
+		return timeline;
+	}
+
+	public void setTimeline(Timeline timeline) {
+		this.timeline = timeline;
+	}
+
+	public Bench getBench() {
+		return bench;
+	}
+
+	public void setBench(Bench bench) {
+		this.bench = bench;
 	}
 }
