@@ -33,6 +33,10 @@ public class Bench {
 
 	private String name;
 
+	public Bench() {
+		super();
+	}
+
 	public Long getId() {
 		return id;
 	}
