@@ -18,6 +18,8 @@
 
 package local.example.data.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -31,7 +33,37 @@ public class Schedule {
 	@GeneratedValue
 	private Long id;
 
+	private List<Timeline> timelines;
+
+	private List<Bench> benchs;
+
+	private List<Tutorial> tutorials;
+
 	public Long getId() {
 		return id;
+	}
+
+	public List<Timeline> getTimelines() {
+		return timelines;
+	}
+
+	public void setTimelines(List<Timeline> timelines) {
+		this.timelines = timelines;
+	}
+
+	public List<Bench> getBenchs() {
+		return benchs;
+	}
+
+	public void setBenchs(List<Bench> benchs) {
+		this.benchs = benchs;
+	}
+
+	public List<Tutorial> getTutorials() {
+		return tutorials;
+	}
+
+	public void setTutorials(List<Tutorial> tutorials) {
+		this.tutorials = tutorials;
 	}
 }
