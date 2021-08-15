@@ -40,6 +40,10 @@ public class Tutorial {
 	@ManyToOne
 	private Bench bench;
 
+	public Tutorial() {
+		super();
+	}
+
 	public Long getId() {
 		return id;
 	}
