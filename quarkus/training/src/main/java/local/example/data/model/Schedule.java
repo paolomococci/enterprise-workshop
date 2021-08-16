@@ -25,11 +25,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
+import org.optaplanner.core.api.domain.solution.PlanningScore;
 import org.optaplanner.core.api.domain.solution.PlanningSolution;
 import org.optaplanner.core.api.domain.solution.ProblemFactCollectionProperty;
 import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
+import org.optaplanner.core.api.solver.SolverStatus;
 
 @Entity
 @PlanningSolution
@@ -39,6 +43,13 @@ public class Schedule {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@Transient
+	@PlanningScore
+	private HardSoftScore hardSoftScore;
+
+	@Transient
+	private SolverStatus solverStatus;
 
 	@OneToMany
 	@ProblemFactCollectionProperty
@@ -60,6 +71,22 @@ public class Schedule {
 
 	public Long getId() {
 		return id;
+	}
+
+	public HardSoftScore getHardSoftScore() {
+		return hardSoftScore;
+	}
+
+	public void setHardSoftScore(HardSoftScore hardSoftScore) {
+		this.hardSoftScore = hardSoftScore;
+	}
+
+	public SolverStatus getSolverStatus() {
+		return solverStatus;
+	}
+
+	public void setSolverStatus(SolverStatus solverStatus) {
+		this.solverStatus = solverStatus;
 	}
 
 	public List<Bench> getBenchs() {
