@@ -23,6 +23,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -33,10 +34,13 @@ public class Schedule {
 	@GeneratedValue
 	private Long id;
 
-	private List<Timeline> timelines;
-
+	@OneToMany
 	private List<Bench> benchs;
 
+	@OneToMany
+	private List<Timeline> timelines;
+
+	@OneToMany
 	private List<Tutorial> tutorials;
 
 	public Schedule() {
@@ -47,20 +51,20 @@ public class Schedule {
 		return id;
 	}
 
-	public List<Timeline> getTimelines() {
-		return timelines;
-	}
-
-	public void setTimelines(List<Timeline> timelines) {
-		this.timelines = timelines;
-	}
-
 	public List<Bench> getBenchs() {
 		return benchs;
 	}
 
 	public void setBenchs(List<Bench> benchs) {
 		this.benchs = benchs;
+	}
+
+	public List<Timeline> getTimelines() {
+		return timelines;
+	}
+
+	public void setTimelines(List<Timeline> timelines) {
+		this.timelines = timelines;
 	}
 
 	public List<Tutorial> getTutorials() {
