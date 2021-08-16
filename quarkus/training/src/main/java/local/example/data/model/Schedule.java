@@ -26,6 +26,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
+import org.optaplanner.core.api.domain.solution.ProblemFactCollectionProperty;
+import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
+
 @Entity
 @Table(name = "SCHEDULE")
 public class Schedule {
@@ -35,12 +39,17 @@ public class Schedule {
 	private Long id;
 
 	@OneToMany
+	@ProblemFactCollectionProperty
+	@ValueRangeProvider(id = "benchRange")
 	private List<Bench> benchs;
 
 	@OneToMany
+	@ProblemFactCollectionProperty
+	@ValueRangeProvider(id = "timelineRange")
 	private List<Timeline> timelines;
 
 	@OneToMany
+	@PlanningEntityCollectionProperty
 	private List<Tutorial> tutorials;
 
 	public Schedule() {
