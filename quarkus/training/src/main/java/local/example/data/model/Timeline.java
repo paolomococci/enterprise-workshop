@@ -20,10 +20,13 @@ package local.example.data.model;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -38,6 +41,12 @@ public class Timeline {
 
 	private LocalTime start;
 	private LocalTime stop;
+
+	@ManyToOne
+	private Schedule schedule;
+
+	@OneToMany
+	private List<Tutorial> tutorials;
 
 	public Timeline() {
 		super();
@@ -69,5 +78,21 @@ public class Timeline {
 
 	public void setStop(LocalTime stop) {
 		this.stop = stop;
+	}
+
+	public Schedule getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(Schedule schedule) {
+		this.schedule = schedule;
+	}
+
+	public List<Tutorial> getTutorials() {
+		return tutorials;
+	}
+
+	public void setTutorials(List<Tutorial> tutorials) {
+		this.tutorials = tutorials;
 	}
 }
