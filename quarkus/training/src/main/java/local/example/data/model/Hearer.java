@@ -18,6 +18,34 @@
 
 package local.example.data.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "HEARER")
 public class Hearer {
 
+	@Id
+	@GeneratedValue
+	private Long id;
+
+	private String name;
+
+	public Hearer() {
+		super();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Long getId() {
+		return id;
+	}
 }
