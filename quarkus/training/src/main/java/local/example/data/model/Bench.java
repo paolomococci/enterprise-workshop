@@ -18,9 +18,13 @@
 
 package local.example.data.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -32,6 +36,12 @@ public class Bench {
 	private Long id;
 
 	private String name;
+
+	@ManyToOne
+	private Schedule schedule;
+
+	@OneToMany
+	private List<Tutorial> tutorials;
 
 	public Bench() {
 		super();
@@ -47,5 +57,21 @@ public class Bench {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Schedule getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(Schedule schedule) {
+		this.schedule = schedule;
+	}
+
+	public List<Tutorial> getTutorials() {
+		return tutorials;
+	}
+
+	public void setTutorials(List<Tutorial> tutorials) {
+		this.tutorials = tutorials;
 	}
 }
