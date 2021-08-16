@@ -27,10 +27,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
+import org.optaplanner.core.api.domain.solution.PlanningSolution;
 import org.optaplanner.core.api.domain.solution.ProblemFactCollectionProperty;
 import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
 
 @Entity
+@PlanningSolution
 @Table(name = "SCHEDULE")
 public class Schedule {
 
