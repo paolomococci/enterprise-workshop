@@ -18,10 +18,13 @@
 
 package local.example.data.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.optaplanner.core.api.domain.lookup.PlanningId;
@@ -37,6 +40,12 @@ public class Tutorial {
 	private Long id;
 
 	private String title;
+
+	@OneToMany
+	private List<Hearer> hearers;
+
+	@OneToMany
+	private List<Tutor> tutors;
 
 	@ManyToOne
 	@PlanningVariable(valueRangeProviderRefs = "benchRange")
@@ -63,6 +72,22 @@ public class Tutorial {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public List<Tutor> getTutors() {
+		return tutors;
+	}
+
+	public void setTutors(List<Tutor> tutors) {
+		this.tutors = tutors;
+	}
+
+	public List<Hearer> getHearers() {
+		return hearers;
+	}
+
+	public void setHearers(List<Hearer> hearers) {
+		this.hearers = hearers;
 	}
 
 	public Bench getBench() {
