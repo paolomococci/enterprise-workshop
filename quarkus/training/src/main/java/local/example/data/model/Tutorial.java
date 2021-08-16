@@ -35,10 +35,13 @@ public class Tutorial {
 	private String title;
 
 	@ManyToOne
-	private Timeline timeline;
+	private Bench bench;
 
 	@ManyToOne
-	private Bench bench;
+	private Schedule schedule;
+
+	@ManyToOne
+	private Timeline timeline;
 
 	public Tutorial() {
 		super();
@@ -48,20 +51,12 @@ public class Tutorial {
 		return id;
 	}
 
-	public String getName() {
+	public String getTitle() {
 		return title;
 	}
 
-	public void setName(String title) {
+	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public Timeline getTimeline() {
-		return timeline;
-	}
-
-	public void setTimeline(Timeline timeline) {
-		this.timeline = timeline;
 	}
 
 	public Bench getBench() {
@@ -70,5 +65,21 @@ public class Tutorial {
 
 	public void setBench(Bench bench) {
 		this.bench = bench;
+	}
+
+	public Schedule getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(Schedule schedule) {
+		this.schedule = schedule;
+	}
+
+	public Timeline getTimeline() {
+		return timeline;
+	}
+
+	public void setTimeline(Timeline timeline) {
+		this.timeline = timeline;
 	}
 }
