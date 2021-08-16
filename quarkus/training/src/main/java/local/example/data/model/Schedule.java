@@ -39,6 +39,7 @@ import org.optaplanner.core.api.solver.SolverStatus;
 @PlanningSolution
 @Table(name = "SCHEDULE")
 public class Schedule {
+	// TODO implement EasyScoreCalculator, ConstraintProvider or IncrementalScoreCalculator
 
 	@Id
 	@GeneratedValue
