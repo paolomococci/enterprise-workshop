@@ -24,23 +24,29 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.optaplanner.core.api.domain.lookup.PlanningId;
+import org.optaplanner.core.api.domain.variable.PlanningVariable;
+
 @Entity
 @Table(name = "TUTORIAL")
 public class Tutorial {
 
 	@Id
+	@PlanningId
 	@GeneratedValue
 	private Long id;
 
 	private String title;
 
 	@ManyToOne
+	@PlanningVariable(valueRangeProviderRefs = "benchRange")
 	private Bench bench;
 
 	@ManyToOne
 	private Schedule schedule;
 
 	@ManyToOne
+	@PlanningVariable(valueRangeProviderRefs = "timelineRange")
 	private Timeline timeline;
 
 	public Tutorial() {
