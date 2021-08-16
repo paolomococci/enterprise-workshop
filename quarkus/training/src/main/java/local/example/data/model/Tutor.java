@@ -21,6 +21,7 @@ package local.example.data.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -33,8 +34,15 @@ public class Tutor {
 
 	private String name;
 
+	@ManyToOne
+	private Tutorial tutorial;
+
 	public Tutor() {
 		super();
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getName() {
@@ -45,7 +53,11 @@ public class Tutor {
 		this.name = name;
 	}
 
-	public Long getId() {
-		return id;
+	public Tutorial getTutorial() {
+		return tutorial;
+	}
+
+	public void setTutorial(Tutorial tutorial) {
+		this.tutorial = tutorial;
 	}
 }
