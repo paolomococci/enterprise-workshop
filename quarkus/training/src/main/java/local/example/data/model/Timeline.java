@@ -29,11 +29,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.optaplanner.core.api.domain.lookup.PlanningId;
+
 @Entity
 @Table(name = "TIMELINE")
 public class Timeline {
 
 	@Id
+	@PlanningId
 	@GeneratedValue
 	private Long id;
 
