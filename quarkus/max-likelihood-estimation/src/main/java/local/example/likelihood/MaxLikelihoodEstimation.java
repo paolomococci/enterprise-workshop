@@ -18,17 +18,33 @@
 
 package local.example.likelihood;
 
+import javax.inject.Inject;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.jboss.resteasy.annotations.jaxrs.PathParam;
+
+import local.example.likelihood.service.MaxLikelihoodEstimationService;
+
 @Path("/likelihood")
 public class MaxLikelihoodEstimation {
 
+	@Inject
+	MaxLikelihoodEstimationService maxLikelihoodEstimationService;
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
+    public String sample() {
         return "Max Likelihood Estimation, response example in TEXT_PLAIN";
+    }
+
+    @GET
+    @Path("{stringPathParam}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String sample(@PathParam String stringPathParam) {
+        return this.maxLikelihoodEstimationService.inject(stringPathParam);
     }
 }
