@@ -14,3 +14,9 @@ mvn io.quarkus:quarkus-maven-plugin:2.1.2.Final:create -DprojectGroupId=local.ex
 ```
 ./mvnw test
 ```
+
+## Example of use:
+```
+$ curl -w "\n" http://localhost:8080/likelihood
+Max Likelihood Estimation, response example in TEXT_PLAIN
+```
