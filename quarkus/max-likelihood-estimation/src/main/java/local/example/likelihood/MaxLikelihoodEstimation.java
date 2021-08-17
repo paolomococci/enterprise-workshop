@@ -37,14 +37,14 @@ public class MaxLikelihoodEstimation {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String sample() {
+    public String simple() {
         return "Max Likelihood Estimation, response example in TEXT_PLAIN";
     }
 
     @GET
     @Path("{stringPathParam}")
     @Produces(MediaType.TEXT_PLAIN)
-    public String sample(@PathParam String stringPathParam) {
+    public String parameterized(@PathParam String stringPathParam) {
         return this.maxLikelihoodEstimationService.inject(stringPathParam);
     }
 }
