@@ -28,11 +28,20 @@ import static org.hamcrest.CoreMatchers.is;
 public class MaxLikelihoodEstimationTest {
 
     @Test
-    public void testHelloEndpoint() {
+    public void simpleEndpointTest() {
         given()
           .when().get("/likelihood")
           .then()
              .statusCode(200)
              .body(is("Max Likelihood Estimation, response example in TEXT_PLAIN"));
+    }
+
+    @Test
+    public void injectedStringPathParamEndpointTest() {
+        given()
+          .when().get("/likelihood/injected_string")
+          .then()
+             .statusCode(200)
+             .body(is("injected value: injected_string"));
     }
 }
