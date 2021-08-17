@@ -33,6 +33,6 @@ public class MaxLikelihoodEstimationTest {
           .when().get("/likelihood")
           .then()
              .statusCode(200)
-             .body(is("Max Likelihood Estimation example"));
+             .body(is("Max Likelihood Estimation, response example in TEXT_PLAIN"));
     }
 }
