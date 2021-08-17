@@ -29,6 +29,6 @@ public class MaxLikelihoodEstimation {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "Max Likelihood Estimation example";
+        return "Max Likelihood Estimation, response example in TEXT_PLAIN";
     }
 }
