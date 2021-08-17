@@ -18,6 +18,12 @@
 
 package local.example.likelihood.service;
 
+import javax.enterprise.context.ApplicationScoped;
+
+@ApplicationScoped
 public class MaxLikelihoodEstimationService {
 
+	public String inject(String stringPathParam) {
+		return "injected value: " + stringPathParam;
+	}
 }
