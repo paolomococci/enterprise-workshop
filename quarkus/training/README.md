@@ -6,3 +6,13 @@ Example of optimization and planning developed thanks to OptaPlanner, a constrai
 ```
 mvn io.quarkus:quarkus-maven-plugin:2.1.2.Final:create -DprojectGroupId=local.example -DprojectArtifactId=training -Dextensions="resteasy,resteasy-jackson,optaplanner-quarkus,optaplanner-quarkus-jackson,quarkus-hibernate-validator,quarkus-jdbc-mariadb,quarkus-hibernate-orm-panache" -DnoExamples
 ```
+
+## run in test mode:
+```
+./mvnw test
+```
+
+## run in development mode:
+```
+./mvnw compile quarkus:dev
+```
