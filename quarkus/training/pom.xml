@@ -88,6 +88,11 @@
       <artifactId>optaplanner-quarkus-benchmark</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- web application user interface dependencies -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-webjars-locator</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
