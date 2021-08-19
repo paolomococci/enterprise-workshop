@@ -18,9 +18,35 @@
 
 package local.example.controller;
 
+import org.junit.jupiter.api.Test;
+
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
 public class HearerControllerTest {
 
+	@Test
+	public void create() {
+		// TODO
+	}
+
+	@Test
+	public void read() {
+		// TODO
+	}
+
+	@Test
+	public void readAll() {
+		// TODO
+	}
+
+	@Test
+	public void update() {
+		// TODO
+	}
+
+	@Test
+	public void delete() {
+		// TODO
+	}
 }
