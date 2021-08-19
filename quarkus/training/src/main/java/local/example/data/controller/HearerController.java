@@ -18,6 +18,9 @@
 
 package local.example.data.controller;
 
+import io.quarkus.rest.data.panache.ResourceProperties;
+
+@ResourceProperties(path = "hearer")
 public class HearerController {
 
 }
