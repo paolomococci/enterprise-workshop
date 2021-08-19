@@ -21,6 +21,7 @@ package local.example.solver;
 import io.quarkus.test.junit.NativeImageTest;
 
 @NativeImageTest
-public class ScheduleBenchmarkIT {
+public class ScheduleBenchmarkIT 
+		extends ScheduleBenchmarkTest {
 
 }
