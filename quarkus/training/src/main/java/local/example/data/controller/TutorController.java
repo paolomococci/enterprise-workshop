@@ -18,9 +18,14 @@
 
 package local.example.data.controller;
 
+import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
+import local.example.data.model.Tutor;
+import local.example.data.repository.TutorRepository;
+
 @ResourceProperties(path = "tutor")
-public interface TutorController {
+public interface TutorController 
+		extends PanacheRepositoryResource<TutorRepository, Tutor, Long> {
 
 }
