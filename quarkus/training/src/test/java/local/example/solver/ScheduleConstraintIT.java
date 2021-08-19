@@ -18,6 +18,9 @@
 
 package local.example.solver;
 
+import io.quarkus.test.junit.NativeImageTest;
+
+@NativeImageTest
 public class ScheduleConstraintIT {
 
 }
