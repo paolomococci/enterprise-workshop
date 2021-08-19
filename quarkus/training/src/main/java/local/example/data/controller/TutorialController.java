@@ -21,6 +21,6 @@ package local.example.data.controller;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
 @ResourceProperties(path = "tutorial")
-public class TutorialController {
+public interface TutorialController {
 
 }
