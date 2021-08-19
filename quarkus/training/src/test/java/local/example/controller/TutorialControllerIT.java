@@ -21,6 +21,7 @@ package local.example.controller;
 import io.quarkus.test.junit.NativeImageTest;
 
 @NativeImageTest
-public class TutorialControllerIT {
+public class TutorialControllerIT 
+		extends TutorialControllerTest {
 
 }
