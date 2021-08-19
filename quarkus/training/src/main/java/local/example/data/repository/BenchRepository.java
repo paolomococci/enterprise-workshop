@@ -20,7 +20,12 @@ package local.example.data.repository;
 
 import javax.enterprise.context.ApplicationScoped;
 
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+
+import local.example.data.model.Bench;
+
 @ApplicationScoped
-public class BenchRepository {
+public class BenchRepository 
+		implements PanacheRepository<Bench> {
 
 }
