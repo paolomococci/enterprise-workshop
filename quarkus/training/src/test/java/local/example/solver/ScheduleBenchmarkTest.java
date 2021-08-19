@@ -18,9 +18,15 @@
 
 package local.example.solver;
 
+import org.junit.jupiter.api.Test;
+
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
 public class ScheduleBenchmarkTest {
 
+	@Test
+	public void benchmarkTest() {
+		// TODO
+	}
 }
