@@ -26,42 +26,36 @@ public class ScheduleSolver
 		implements ConstraintProvider {
 
 	Constraint tutorHardConstraint(ConstraintFactory constraintFactory ) {
-		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
 				.penalize(null, null);
 	}
 
 	Constraint hearerHardConstraint(ConstraintFactory constraintFactory ) {
-		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
 				.penalize(null, null);
 	}
 
 	Constraint benchHardConstraint(ConstraintFactory constraintFactory ) {
-		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
 				.penalize(null, null);
 	}
 
 	Constraint tutorialsSoftConstraint(ConstraintFactory constraintFactory ) {
-		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
 				.penalize(null, null);
 	}
 
 	Constraint tutorBenchSoftConstraint(ConstraintFactory constraintFactory ) {
-		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
 				.penalize(null, null);
 	}
 
 	Constraint tutorScheduleSoftConstraint(ConstraintFactory constraintFactory ) {
-		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
 				.penalize(null, null);
@@ -69,6 +63,8 @@ public class ScheduleSolver
 
 	@Override
 	public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
-		return new Constraint[] {};
+		return new Constraint[] {
+				// TODO
+		};
 	}
 }
