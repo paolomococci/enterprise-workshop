@@ -25,21 +25,21 @@ import org.optaplanner.core.api.score.stream.ConstraintProvider;
 public class ScheduleSolver 
 		implements ConstraintProvider {
 
-	Constraint tutorsConstraint(ConstraintFactory constraintFactory ) {
+	Constraint tutorHardConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
 				.penalize(null, null);
 	}
 
-	Constraint hearersConstraint(ConstraintFactory constraintFactory ) {
+	Constraint hearerHardConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
 				.penalize(null, null);
 	}
 
-	Constraint tutorialsConstraint(ConstraintFactory constraintFactory ) {
+	Constraint tutorialsSoftConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
@@ -53,14 +53,14 @@ public class ScheduleSolver
 				.penalize(null, null);
 	}
 
-	Constraint tutorsBenchesConstraint(ConstraintFactory constraintFactory ) {
+	Constraint tutorBenchSoftConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
 				.penalize(null, null);
 	}
 
-	Constraint tutorsScheduleConstraint(ConstraintFactory constraintFactory ) {
+	Constraint tutorScheduleSoftConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
