@@ -45,6 +45,11 @@ public class ScheduleSolver
 		return null;
 	}
 
+	Constraint tutorsBenchesConstraint(ConstraintFactory constraintFactory ) {
+		// TODO
+		return null;
+	}
+
 	@Override
 	public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
 		// TODO
