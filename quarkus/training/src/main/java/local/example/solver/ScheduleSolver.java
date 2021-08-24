@@ -18,6 +18,16 @@
 
 package local.example.solver;
 
-public class ScheduleSolver {
+import org.optaplanner.core.api.score.stream.Constraint;
+import org.optaplanner.core.api.score.stream.ConstraintFactory;
+import org.optaplanner.core.api.score.stream.ConstraintProvider;
 
+public class ScheduleSolver 
+		implements ConstraintProvider {
+
+	@Override
+	public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
+		// TODO
+		return null;
+	}
 }
