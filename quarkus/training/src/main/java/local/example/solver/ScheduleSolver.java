@@ -39,14 +39,14 @@ public class ScheduleSolver
 				.penalize(null, null);
 	}
 
-	Constraint tutorialsSoftConstraint(ConstraintFactory constraintFactory ) {
+	Constraint benchHardConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
 				.penalize(null, null);
 	}
 
-	Constraint benchHardConstraint(ConstraintFactory constraintFactory ) {
+	Constraint tutorialsSoftConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
