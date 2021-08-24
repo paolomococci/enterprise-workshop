@@ -30,6 +30,11 @@ public class ScheduleSolver
 		return null;
 	}
 
+	Constraint hearersConstraint(ConstraintFactory constraintFactory ) {
+		// TODO
+		return null;
+	}
+
 	@Override
 	public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
 		// TODO
