@@ -69,7 +69,6 @@ public class ScheduleSolver
 
 	@Override
 	public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
-		// TODO
-		return null;
+		return new Constraint[] {};
 	}
 }
