@@ -46,7 +46,7 @@ public class ScheduleSolver
 				.penalize(null, null);
 	}
 
-	Constraint benchesConstraint(ConstraintFactory constraintFactory ) {
+	Constraint benchHardConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
 		return constraintFactory
 				.fromUniquePair(null)
