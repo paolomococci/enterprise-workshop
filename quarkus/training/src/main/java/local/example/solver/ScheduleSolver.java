@@ -27,32 +27,44 @@ public class ScheduleSolver
 
 	Constraint tutorsConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
-		return null;
+		return constraintFactory
+				.fromUniquePair(null)
+				.penalize(null, null);
 	}
 
 	Constraint hearersConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
-		return null;
+		return constraintFactory
+				.fromUniquePair(null)
+				.penalize(null, null);
 	}
 
 	Constraint tutorialsConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
-		return null;
+		return constraintFactory
+				.fromUniquePair(null)
+				.penalize(null, null);
 	}
 
 	Constraint benchesConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
-		return null;
+		return constraintFactory
+				.fromUniquePair(null)
+				.penalize(null, null);
 	}
 
 	Constraint tutorsBenchesConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
-		return null;
+		return constraintFactory
+				.fromUniquePair(null)
+				.penalize(null, null);
 	}
 
 	Constraint tutorsScheduleConstraint(ConstraintFactory constraintFactory ) {
 		// TODO
-		return null;
+		return constraintFactory
+				.fromUniquePair(null)
+				.penalize(null, null);
 	}
 
 	@Override
