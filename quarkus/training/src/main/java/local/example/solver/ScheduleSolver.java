@@ -25,6 +25,11 @@ import org.optaplanner.core.api.score.stream.ConstraintProvider;
 public class ScheduleSolver 
 		implements ConstraintProvider {
 
+	Constraint tutorConstraint(ConstraintFactory constraintFactory ) {
+		// TODO
+		return null;
+	}
+
 	@Override
 	public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
 		// TODO
