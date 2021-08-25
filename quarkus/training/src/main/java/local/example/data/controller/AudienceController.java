@@ -18,6 +18,14 @@
 
 package local.example.data.controller;
 
-public interface AudienceController {
+import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
+import io.quarkus.rest.data.panache.ResourceProperties;
+
+import local.example.data.model.Audience;
+import local.example.data.repository.AudienceRepository;
+
+@ResourceProperties(path = "audience")
+public interface AudienceController 
+		extends PanacheRepositoryResource<AudienceRepository, Audience, Long> {
 
 }
