@@ -33,4 +33,8 @@ public class Audience {
 	@PlanningId
 	@GeneratedValue
 	private Long id;
+
+	public Audience() {
+		super();
+	}
 }
