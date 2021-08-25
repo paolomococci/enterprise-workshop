@@ -43,7 +43,7 @@ public class HearerControllerTest {
 
 	@Test
 	public void readAll() {
-		List<Hearer> audiences = RestAssured.given()
+		List<Hearer> hearers = RestAssured.given()
 				.when().get("/hearer")
 				.then()
 				.statusCode(200)
@@ -51,7 +51,7 @@ public class HearerControllerTest {
 				.body()
 				.jsonPath()
 				.getList(".", Hearer.class);
-		Assertions.assertTrue(audiences.isEmpty());
+		Assertions.assertTrue(hearers.isEmpty());
 	}
 
 	@Test
