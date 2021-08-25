@@ -43,7 +43,7 @@ public class BenchControllerTest {
 
 	@Test
 	public void readAll() {
-		List<Bench> audiences = RestAssured.given()
+		List<Bench> benchs = RestAssured.given()
 				.when().get("/bench")
 				.then()
 				.statusCode(200)
@@ -51,7 +51,7 @@ public class BenchControllerTest {
 				.body()
 				.jsonPath()
 				.getList(".", Bench.class);
-		Assertions.assertTrue(audiences.isEmpty());
+		Assertions.assertTrue(benchs.isEmpty());
 	}
 
 	@Test
