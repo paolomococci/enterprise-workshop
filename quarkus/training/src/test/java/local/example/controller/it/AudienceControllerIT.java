@@ -20,6 +20,8 @@ package local.example.controller.it;
 
 import io.quarkus.test.junit.NativeImageTest;
 
+import local.example.controller.AudienceControllerTest;
+
 @NativeImageTest
 public class AudienceControllerIT 
 		extends AudienceControllerTest {
