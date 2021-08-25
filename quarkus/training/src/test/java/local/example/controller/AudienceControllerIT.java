@@ -18,6 +18,10 @@
 
 package local.example.controller;
 
-public class AudienceControllerIT {
+import io.quarkus.test.junit.NativeImageTest;
+
+@NativeImageTest
+public class AudienceControllerIT 
+		extends AudienceControllerTest {
 
 }
