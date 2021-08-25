@@ -18,9 +18,15 @@
 
 package local.example.controller;
 
+import java.util.List;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.RestAssured;
+
+import local.example.data.model.Tutorial;
 
 @QuarkusTest
 public class TutorialControllerTest {
@@ -37,7 +43,15 @@ public class TutorialControllerTest {
 
 	@Test
 	public void readAll() {
-		// TODO
+		List<Tutorial> tutorials = RestAssured.given()
+				.when().get("/tutorial")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Tutorial.class);
+		Assertions.assertTrue(tutorials.isEmpty());
 	}
 
 	@Test
