@@ -25,6 +25,7 @@ import org.junit.jupiter.api.Test;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
+
 import local.example.data.model.Audience;
 
 @QuarkusTest
