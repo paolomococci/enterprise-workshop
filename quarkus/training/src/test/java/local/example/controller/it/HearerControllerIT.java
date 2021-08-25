@@ -16,7 +16,7 @@
  *
  */
 
-package local.example.controller;
+package local.example.controller.it;
 
 import io.quarkus.test.junit.NativeImageTest;
 
