@@ -18,6 +18,19 @@
 
 package local.example.data.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.optaplanner.core.api.domain.lookup.PlanningId;
+
+@Entity
+@Table(name = "AUDIENCE")
 public class Audience {
 
+	@Id
+	@PlanningId
+	@GeneratedValue
+	private Long id;
 }
