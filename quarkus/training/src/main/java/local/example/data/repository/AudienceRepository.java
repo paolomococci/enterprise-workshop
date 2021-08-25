@@ -18,6 +18,14 @@
 
 package local.example.data.repository;
 
-public class AudienceRepository {
+import javax.enterprise.context.ApplicationScoped;
+
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+
+import local.example.data.model.Audience;
+
+@ApplicationScoped
+public class AudienceRepository 
+		implements PanacheRepository<Audience> {
 
 }
