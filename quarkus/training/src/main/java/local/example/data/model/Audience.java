@@ -18,9 +18,12 @@
 
 package local.example.data.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.optaplanner.core.api.domain.lookup.PlanningId;
@@ -36,7 +39,30 @@ public class Audience {
 
 	private String name;
 
+	@OneToMany
+	private List<Hearer> listeners;
+
 	public Audience() {
 		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public List<Hearer> getListeners() {
+		return listeners;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setListeners(List<Hearer> listeners) {
+		this.listeners = listeners;
 	}
 }
