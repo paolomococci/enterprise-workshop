@@ -34,6 +34,8 @@ public class Audience {
 	@GeneratedValue
 	private Long id;
 
+	private String name;
+
 	public Audience() {
 		super();
 	}
