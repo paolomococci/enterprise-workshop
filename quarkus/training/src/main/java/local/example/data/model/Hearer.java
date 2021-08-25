@@ -35,6 +35,9 @@ public class Hearer {
 	private String name;
 
 	@ManyToOne
+	private Audience audience;
+
+	@ManyToOne
 	private Tutorial tutorial;
 
 	public Hearer() {
@@ -53,8 +56,16 @@ public class Hearer {
 		this.name = name;
 	}
 
+	public Audience getAudience() {
+		return audience;
+	}
+
 	public Tutorial getTutorial() {
 		return tutorial;
+	}
+
+	public void setAudience(Audience audience) {
+		this.audience = audience;
 	}
 
 	public void setTutorial(Tutorial tutorial) {
