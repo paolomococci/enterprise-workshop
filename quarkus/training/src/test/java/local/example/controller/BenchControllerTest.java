@@ -96,7 +96,11 @@ public class BenchControllerTest {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		// TODO
+		RestAssured.given()
+				.when()
+				.delete("/bench/{id}", BenchControllerTest.getBench().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Bench getBench() {
