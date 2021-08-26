@@ -37,19 +37,7 @@ public class TutorControllerTest {
 
 	@Test
 	@Order(1)
-	public void create() {
-		// TODO
-	}
-
-	@Test
-	@Order(2)
-	public void read() {
-		// TODO
-	}
-
-	@Test
-	@Order(3)
-	public void readAll() {
+	public void readAllEmptyTest() {
 		List<Tutor> tutors = RestAssured.given()
 				.when().get("/tutor")
 				.then()
@@ -62,14 +50,41 @@ public class TutorControllerTest {
 	}
 
 	@Test
-	@Order(4)
-	public void update() {
+	@Order(2)
+	public void createTest() {
 		// TODO
 	}
 
 	@Test
+	@Order(3)
+	public void readTest() {
+		// TODO
+	}
+
+	@Test
+	@Order(4)
+	public void readAllTest() {
+		List<Tutor> tutors = RestAssured.given()
+				.when().get("/tutor")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Tutor.class);
+		// TODO
+		Assertions.assertTrue(tutors.isEmpty());
+	}
+
+	@Test
 	@Order(5)
-	public void delete() {
+	public void updateTest() {
+		// TODO
+	}
+
+	@Test
+	@Order(6)
+	public void deleteTest() {
 		// TODO
 	}
 }
