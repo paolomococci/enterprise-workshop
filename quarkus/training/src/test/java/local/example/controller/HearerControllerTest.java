@@ -35,6 +35,8 @@ import local.example.data.model.Hearer;
 @TestMethodOrder(OrderAnnotation.class)
 public class HearerControllerTest {
 
+	private static Hearer hearer;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -86,5 +88,13 @@ public class HearerControllerTest {
 	@Order(6)
 	public void deleteTest() {
 		// TODO
+	}
+
+	public static Hearer getHearer() {
+		return hearer;
+	}
+
+	public static void setHearer(Hearer hearer) {
+		HearerControllerTest.hearer = hearer;
 	}
 }
