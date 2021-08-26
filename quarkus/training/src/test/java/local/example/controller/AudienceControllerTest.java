@@ -21,7 +21,10 @@ package local.example.controller;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
@@ -29,19 +32,23 @@ import io.restassured.RestAssured;
 import local.example.data.model.Audience;
 
 @QuarkusTest
+@TestMethodOrder(OrderAnnotation.class)
 public class AudienceControllerTest {
 
 	@Test
+	@Order(1)
 	public void create() {
 		// TODO
 	}
 
 	@Test
+	@Order(2)
 	public void read() {
 		// TODO
 	}
 
 	@Test
+	@Order(3)
 	public void readAll() {
 		List<Audience> audiences = RestAssured.given()
 				.when().get("/audience")
@@ -55,11 +62,13 @@ public class AudienceControllerTest {
 	}
 
 	@Test
+	@Order(4)
 	public void update() {
 		// TODO
 	}
 
 	@Test
+	@Order(5)
 	public void delete() {
 		// TODO
 	}
