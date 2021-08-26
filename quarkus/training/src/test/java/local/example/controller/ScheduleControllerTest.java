@@ -96,7 +96,11 @@ public class ScheduleControllerTest {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		// TODO
+		RestAssured.given()
+				.when()
+				.delete("/schedule/{id}", ScheduleControllerTest.getSchedule().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Schedule getSchedule() {
