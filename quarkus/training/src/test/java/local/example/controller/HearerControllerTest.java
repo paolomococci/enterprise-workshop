@@ -96,7 +96,11 @@ public class HearerControllerTest {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		// TODO
+		RestAssured.given()
+				.when()
+				.delete("/hearer/{id}", HearerControllerTest.getHearer().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Hearer getHearer() {
