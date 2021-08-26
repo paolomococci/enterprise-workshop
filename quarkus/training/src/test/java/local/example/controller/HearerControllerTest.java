@@ -84,8 +84,7 @@ public class HearerControllerTest {
 				.body()
 				.jsonPath()
 				.getList(".", Hearer.class);
-		// TODO
-		Assertions.assertTrue(hearers.isEmpty());
+		Assertions.assertFalse(hearers.isEmpty());
 	}
 
 	@Test
