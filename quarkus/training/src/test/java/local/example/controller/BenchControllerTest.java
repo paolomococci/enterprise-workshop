@@ -84,8 +84,7 @@ public class BenchControllerTest {
 				.body()
 				.jsonPath()
 				.getList(".", Bench.class);
-		// TODO
-		Assertions.assertTrue(benchs.isEmpty());
+		Assertions.assertFalse(benchs.isEmpty());
 	}
 
 	@Test
