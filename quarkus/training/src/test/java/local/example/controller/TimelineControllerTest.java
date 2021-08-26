@@ -96,7 +96,11 @@ public class TimelineControllerTest {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		// TODO
+		RestAssured.given()
+				.when()
+				.delete("/timeline/{id}", TimelineControllerTest.getTimeline().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Timeline getTimeline() {
