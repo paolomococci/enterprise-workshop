@@ -41,7 +41,7 @@ public class AudienceControllerTest {
 
 	@Test
 	@Order(1)
-	//@Disabled
+	@Disabled
 	public void readAllEmptyTest() {
 		List<Audience> audiences = RestAssured.given()
 				.when().get("/audience")
