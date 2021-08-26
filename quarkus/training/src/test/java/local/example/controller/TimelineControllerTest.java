@@ -37,19 +37,7 @@ public class TimelineControllerTest {
 
 	@Test
 	@Order(1)
-	public void create() {
-		// TODO
-	}
-
-	@Test
-	@Order(2)
-	public void read() {
-		// TODO
-	}
-
-	@Test
-	@Order(3)
-	public void readAll() {
+	public void readAllEmptyTest() {
 		List<Timeline> timelines = RestAssured.given()
 				.when().get("/timeline")
 				.then()
@@ -62,14 +50,41 @@ public class TimelineControllerTest {
 	}
 
 	@Test
-	@Order(4)
-	public void update() {
+	@Order(2)
+	public void createTest() {
 		// TODO
 	}
 
 	@Test
+	@Order(3)
+	public void readTest() {
+		// TODO
+	}
+
+	@Test
+	@Order(4)
+	public void readAllTest() {
+		List<Timeline> timelines = RestAssured.given()
+				.when().get("/timeline")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Timeline.class);
+		// TODO
+		Assertions.assertTrue(timelines.isEmpty());
+	}
+
+	@Test
 	@Order(5)
-	public void delete() {
+	public void updateTest() {
+		// TODO
+	}
+
+	@Test
+	@Order(6)
+	public void deleteTest() {
 		// TODO
 	}
 }
