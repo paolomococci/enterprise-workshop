@@ -35,6 +35,8 @@ import local.example.data.model.Timeline;
 @TestMethodOrder(OrderAnnotation.class)
 public class TimelineControllerTest {
 
+	private static Timeline timeline;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -86,5 +88,13 @@ public class TimelineControllerTest {
 	@Order(6)
 	public void deleteTest() {
 		// TODO
+	}
+
+	public static Timeline getTimeline() {
+		return timeline;
+	}
+
+	public static void setTimeline(Timeline timeline) {
+		TimelineControllerTest.timeline = timeline;
 	}
 }
