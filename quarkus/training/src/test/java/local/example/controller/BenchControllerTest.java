@@ -64,6 +64,7 @@ public class BenchControllerTest {
 				.statusCode(201)
 				.extract()
 				.as(Bench.class));
+		Assertions.assertNotNull(BenchControllerTest.getBench().getId());
 	}
 
 	@Test
