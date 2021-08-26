@@ -28,6 +28,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 import local.example.data.model.Tutorial;
 
@@ -54,7 +55,15 @@ public class TutorialControllerTest {
 	@Test
 	@Order(2)
 	public void createTest() {
-		// TODO
+		TutorialControllerTest.setTutorial(RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"title\":\"some title\"}")
+				.post("/tutorial")
+				.then()
+				.statusCode(201)
+				.extract()
+				.as(Tutorial.class));
 	}
 
 	@Test
