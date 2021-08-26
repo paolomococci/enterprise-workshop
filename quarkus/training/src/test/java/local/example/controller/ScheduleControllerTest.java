@@ -84,8 +84,7 @@ public class ScheduleControllerTest {
 				.body()
 				.jsonPath()
 				.getList(".", Schedule.class);
-		// TODO
-		Assertions.assertTrue(schedules.isEmpty());
+		Assertions.assertFalse(schedules.isEmpty());
 	}
 
 	@Test
