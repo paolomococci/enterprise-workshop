@@ -86,8 +86,7 @@ public class AudienceControllerTest {
 				.body()
 				.jsonPath()
 				.getList(".", Audience.class);
-		// TODO
-		Assertions.assertTrue(audiences.isEmpty());
+		Assertions.assertFalse(audiences.isEmpty());
 	}
 
 	@Test
