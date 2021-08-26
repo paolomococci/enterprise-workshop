@@ -84,8 +84,7 @@ public class TimelineControllerTest {
 				.body()
 				.jsonPath()
 				.getList(".", Timeline.class);
-		// TODO
-		Assertions.assertTrue(timelines.isEmpty());
+		Assertions.assertFalse(timelines.isEmpty());
 	}
 
 	@Test
