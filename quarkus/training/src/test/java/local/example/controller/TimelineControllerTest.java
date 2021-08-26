@@ -64,6 +64,7 @@ public class TimelineControllerTest {
 				.statusCode(201)
 				.extract()
 				.as(Timeline.class));
+		Assertions.assertNotNull(TimelineControllerTest.getTimeline().getId());
 	}
 
 	@Test
