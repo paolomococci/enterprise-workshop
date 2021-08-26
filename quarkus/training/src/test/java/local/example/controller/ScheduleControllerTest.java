@@ -35,6 +35,8 @@ import local.example.data.model.Schedule;
 @TestMethodOrder(OrderAnnotation.class)
 public class ScheduleControllerTest {
 
+	private static Schedule schedule;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -86,5 +88,13 @@ public class ScheduleControllerTest {
 	@Order(6)
 	public void deleteTest() {
 		// TODO
+	}
+
+	public static Schedule getSchedule() {
+		return schedule;
+	}
+
+	public static void setSchedule(Schedule schedule) {
+		ScheduleControllerTest.schedule = schedule;
 	}
 }
