@@ -99,7 +99,11 @@ public class AudienceControllerTest {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		// TODO
+		RestAssured.given()
+				.when()
+				.delete("/audience/{id}", AudienceControllerTest.getAudience().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Audience getAudience() {
