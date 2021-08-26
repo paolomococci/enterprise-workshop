@@ -84,8 +84,7 @@ public class TutorialControllerTest {
 				.body()
 				.jsonPath()
 				.getList(".", Tutorial.class);
-		// TODO
-		Assertions.assertTrue(tutorials.isEmpty());
+		Assertions.assertFalse(tutorials.isEmpty());
 	}
 
 	@Test
