@@ -35,6 +35,8 @@ import local.example.data.model.Bench;
 @TestMethodOrder(OrderAnnotation.class)
 public class BenchControllerTest {
 
+	private static Bench bench;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -86,5 +88,13 @@ public class BenchControllerTest {
 	@Order(6)
 	public void deleteTest() {
 		// TODO
+	}
+
+	public static Bench getBench() {
+		return bench;
+	}
+
+	public static void setBench(Bench bench) {
+		BenchControllerTest.bench = bench;
 	}
 }
