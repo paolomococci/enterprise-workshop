@@ -28,6 +28,7 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 import local.example.data.model.Hearer;
 
@@ -54,7 +55,15 @@ public class HearerControllerTest {
 	@Test
 	@Order(2)
 	public void createTest() {
-		// TODO
+		HearerControllerTest.setHearer(RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something\"}")
+				.post("/hearer")
+				.then()
+				.statusCode(201)
+				.extract()
+				.as(Hearer.class));
 	}
 
 	@Test
