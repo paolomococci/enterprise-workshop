@@ -57,7 +57,16 @@ public class AudienceControllerTest {
 	@Test
 	@Order(2)
 	public void createTest() {
-		// TODO
+		AudienceControllerTest.setAudience(RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something\"}")
+				.post("/audience")
+				.then()
+				.statusCode(201)
+				.extract()
+				.as(Audience.class));
+		Assertions.assertNotNull(AudienceControllerTest.getAudience().getId());
 	}
 
 	@Test
