@@ -35,6 +35,8 @@ import local.example.data.model.Tutorial;
 @TestMethodOrder(OrderAnnotation.class)
 public class TutorialControllerTest {
 
+	private static Tutorial tutorial;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -86,5 +88,13 @@ public class TutorialControllerTest {
 	@Order(6)
 	public void deleteTest() {
 		// TODO
+	}
+
+	public static Tutorial getTutorial() {
+		return tutorial;
+	}
+
+	public static void setTutorial(Tutorial tutorial) {
+		TutorialControllerTest.tutorial = tutorial;
 	}
 }
