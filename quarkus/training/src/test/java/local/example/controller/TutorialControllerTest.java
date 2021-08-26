@@ -96,7 +96,11 @@ public class TutorialControllerTest {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		// TODO
+		RestAssured.given()
+				.when()
+				.delete("/tutorial/{id}", TutorialControllerTest.getTutorial().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Tutorial getTutorial() {
