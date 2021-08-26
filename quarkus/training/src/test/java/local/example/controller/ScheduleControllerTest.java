@@ -64,6 +64,7 @@ public class ScheduleControllerTest {
 				.statusCode(201)
 				.extract()
 				.as(Schedule.class));
+		Assertions.assertNotNull(ScheduleControllerTest.getSchedule().getId());
 	}
 
 	@Test
