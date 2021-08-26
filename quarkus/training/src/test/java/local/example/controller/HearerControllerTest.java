@@ -64,6 +64,7 @@ public class HearerControllerTest {
 				.statusCode(201)
 				.extract()
 				.as(Hearer.class));
+		Assertions.assertNotNull(HearerControllerTest.getHearer().getId());
 	}
 
 	@Test
