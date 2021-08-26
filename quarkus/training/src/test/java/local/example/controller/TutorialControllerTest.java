@@ -64,6 +64,7 @@ public class TutorialControllerTest {
 				.statusCode(201)
 				.extract()
 				.as(Tutorial.class));
+		Assertions.assertNotNull(TutorialControllerTest.getTutorial().getId());
 	}
 
 	@Test
