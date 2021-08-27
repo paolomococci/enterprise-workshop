@@ -70,7 +70,15 @@ public class BenchControllerTest {
 	@Test
 	@Order(3)
 	public void readTest() {
-		// TODO
+		Bench temporaryBench  = RestAssured.given()
+				.when()
+				.get("/bench/{id}", BenchControllerTest.getBench().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Bench.class);
+		Assertions.assertNotNull(temporaryBench.getId());
+		Assertions.assertTrue(temporaryBench.getName().contentEquals("something"));
 	}
 
 	@Test
