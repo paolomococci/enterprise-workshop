@@ -101,7 +101,7 @@ public class TutorControllerTest {
 		RestAssured.given()
 				.when()
 				.contentType(ContentType.JSON)
-				.body("{\"name\":\"something else\"}")
+				.body("{\"name\":\"somebody else\"}")
 				.put("/tutor/{id}", TutorControllerTest.getTutor().getId())
 				.then()
 				.statusCode(204);
@@ -112,7 +112,7 @@ public class TutorControllerTest {
 				.statusCode(200)
 				.extract()
 				.as(Tutor.class);
-		Assertions.assertTrue(temporaryTutor.getName().contentEquals("something else"));
+		Assertions.assertTrue(temporaryTutor.getName().contentEquals("somebody else"));
 	}
 
 	@Test
