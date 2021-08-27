@@ -20,6 +20,7 @@ package local.example.data.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -39,11 +40,13 @@ import org.optaplanner.core.api.solver.SolverStatus;
 @PlanningSolution
 @Table(name = "SCHEDULE")
 public class Schedule {
-	// TODO implement EasyScoreCalculator, ConstraintProvider or IncrementalScoreCalculator
 
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@Column(nullable = true, unique = true)
+	private String name;
 
 	@Transient
 	@PlanningScore
@@ -74,40 +77,48 @@ public class Schedule {
 		return id;
 	}
 
-	public HardSoftScore getHardSoftScore() {
-		return hardSoftScore;
+	public String getName() {
+		return name;
 	}
 
-	public void setHardSoftScore(HardSoftScore hardSoftScore) {
-		this.hardSoftScore = hardSoftScore;
+	public HardSoftScore getHardSoftScore() {
+		return hardSoftScore;
 	}
 
 	public SolverStatus getSolverStatus() {
 		return solverStatus;
 	}
 
-	public void setSolverStatus(SolverStatus solverStatus) {
-		this.solverStatus = solverStatus;
-	}
-
 	public List<Bench> getBenchs() {
 		return benchs;
-	}
-
-	public void setBenchs(List<Bench> benchs) {
-		this.benchs = benchs;
 	}
 
 	public List<Timeline> getTimelines() {
 		return timelines;
 	}
 
-	public void setTimelines(List<Timeline> timelines) {
-		this.timelines = timelines;
-	}
-
 	public List<Tutorial> getTutorials() {
 		return tutorials;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setHardSoftScore(HardSoftScore hardSoftScore) {
+		this.hardSoftScore = hardSoftScore;
+	}
+
+	public void setSolverStatus(SolverStatus solverStatus) {
+		this.solverStatus = solverStatus;
+	}
+
+	public void setBenchs(List<Bench> benchs) {
+		this.benchs = benchs;
+	}
+
+	public void setTimelines(List<Timeline> timelines) {
+		this.timelines = timelines;
 	}
 
 	public void setTutorials(List<Tutorial> tutorials) {
