@@ -72,7 +72,15 @@ public class AudienceControllerTest {
 	@Test
 	@Order(3)
 	public void readTest() {
-		// TODO
+		Audience temporaryAudience  = RestAssured.given()
+				.when()
+				.get("/audience/{id}", AudienceControllerTest.getAudience().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Audience.class);
+		Assertions.assertNotNull(temporaryAudience.getId());
+		Assertions.assertTrue(temporaryAudience.getName().contentEquals("something"));
 	}
 
 	@Test
