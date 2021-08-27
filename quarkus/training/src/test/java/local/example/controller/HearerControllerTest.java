@@ -70,7 +70,15 @@ public class HearerControllerTest {
 	@Test
 	@Order(3)
 	public void readTest() {
-		// TODO
+		Hearer temporaryHearer  = RestAssured.given()
+				.when()
+				.get("/hearer/{id}", HearerControllerTest.getHearer().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Hearer.class);
+		Assertions.assertNotNull(temporaryHearer.getId());
+		Assertions.assertTrue(temporaryHearer.getName().contentEquals("something"));
 	}
 
 	@Test
