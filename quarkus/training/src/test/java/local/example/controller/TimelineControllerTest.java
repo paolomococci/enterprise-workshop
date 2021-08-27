@@ -70,7 +70,14 @@ public class TimelineControllerTest {
 	@Test
 	@Order(3)
 	public void readTest() {
-		// TODO
+		Timeline temporaryTimeline  = RestAssured.given()
+				.when()
+				.get("/timeline/{id}", TimelineControllerTest.getTimeline().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Timeline.class);
+		Assertions.assertNotNull(temporaryTimeline.getId());
 	}
 
 	@Test
