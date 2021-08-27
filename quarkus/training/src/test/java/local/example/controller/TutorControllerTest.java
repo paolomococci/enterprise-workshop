@@ -98,7 +98,21 @@ public class TutorControllerTest {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		// TODO
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something else\"}")
+				.put("/tutor/{id}", TutorControllerTest.getTutor().getId())
+				.then()
+				.statusCode(204);
+		Tutor temporaryTutor  = RestAssured.given()
+				.when()
+				.get("/tutor/{id}", TutorControllerTest.getTutor().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Tutor.class);
+		Assertions.assertTrue(temporaryTutor.getName().contentEquals("something else"));
 	}
 
 	@Test
