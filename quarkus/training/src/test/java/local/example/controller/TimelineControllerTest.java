@@ -78,6 +78,7 @@ public class TimelineControllerTest {
 				.extract()
 				.as(Timeline.class);
 		Assertions.assertNotNull(temporaryTimeline.getId());
+		Assertions.assertTrue(temporaryTimeline.getLabel().contentEquals("something"));
 	}
 
 	@Test
