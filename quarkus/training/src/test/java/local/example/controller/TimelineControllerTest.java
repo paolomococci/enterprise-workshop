@@ -58,7 +58,7 @@ public class TimelineControllerTest {
 		TimelineControllerTest.setTimeline(RestAssured.given()
 				.when()
 				.contentType(ContentType.JSON)
-				.body("{}")
+				.body("{\"label\":\"something\"}")
 				.post("/timeline")
 				.then()
 				.statusCode(201)
