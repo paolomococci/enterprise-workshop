@@ -98,7 +98,21 @@ public class ScheduleControllerTest {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		// TODO
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something else\"}")
+				.put("/schedule/{id}", ScheduleControllerTest.getSchedule().getId())
+				.then()
+				.statusCode(204);
+		Schedule temporarySchedule  = RestAssured.given()
+				.when()
+				.get("/schedule/{id}", ScheduleControllerTest.getSchedule().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Schedule.class);
+		Assertions.assertTrue(temporarySchedule.getName().contentEquals("something else"));
 	}
 
 	@Test
