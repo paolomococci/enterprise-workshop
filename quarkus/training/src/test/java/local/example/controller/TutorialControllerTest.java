@@ -98,7 +98,21 @@ public class TutorialControllerTest {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		// TODO
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"title\":\"some other title\"}")
+				.put("/tutorial/{id}", TutorialControllerTest.getTutorial().getId())
+				.then()
+				.statusCode(204);
+		Tutorial temporaryTutorial  = RestAssured.given()
+				.when()
+				.get("/tutorial/{id}", TutorialControllerTest.getTutorial().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Tutorial.class);
+		Assertions.assertTrue(temporaryTutorial.getTitle().contentEquals("some other title"));
 	}
 
 	@Test
