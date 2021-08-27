@@ -98,7 +98,21 @@ public class BenchControllerTest {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		// TODO
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something else\"}")
+				.put("/bench/{id}", BenchControllerTest.getBench().getId())
+				.then()
+				.statusCode(204);
+		Bench temporaryBench  = RestAssured.given()
+				.when()
+				.get("/bench/{id}", BenchControllerTest.getBench().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Bench.class);
+		Assertions.assertTrue(temporaryBench.getName().contentEquals("something else"));
 	}
 
 	@Test
