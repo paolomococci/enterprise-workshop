@@ -100,7 +100,21 @@ public class AudienceControllerTest {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		// TODO
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something else\"}")
+				.put("/audience/{id}", AudienceControllerTest.getAudience().getId())
+				.then()
+				.statusCode(204);
+		Audience temporaryAudience  = RestAssured.given()
+				.when()
+				.get("/audience/{id}", AudienceControllerTest.getAudience().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Audience.class);
+		Assertions.assertTrue(temporaryAudience.getName().contentEquals("something else"));
 	}
 
 	@Test
