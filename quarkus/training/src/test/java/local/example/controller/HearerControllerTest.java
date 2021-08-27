@@ -58,7 +58,7 @@ public class HearerControllerTest {
 		HearerControllerTest.setHearer(RestAssured.given()
 				.when()
 				.contentType(ContentType.JSON)
-				.body("{\"name\":\"something\"}")
+				.body("{\"name\":\"somebody\"}")
 				.post("/hearer")
 				.then()
 				.statusCode(201)
@@ -78,7 +78,7 @@ public class HearerControllerTest {
 				.extract()
 				.as(Hearer.class);
 		Assertions.assertNotNull(temporaryHearer.getId());
-		Assertions.assertTrue(temporaryHearer.getName().contentEquals("something"));
+		Assertions.assertTrue(temporaryHearer.getName().contentEquals("somebody"));
 	}
 
 	@Test
