@@ -70,7 +70,15 @@ public class ScheduleControllerTest {
 	@Test
 	@Order(3)
 	public void readTest() {
-		// TODO
+		Schedule temporarySchedule  = RestAssured.given()
+				.when()
+				.get("/schedule/{id}", ScheduleControllerTest.getSchedule().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Schedule.class);
+		Assertions.assertNotNull(temporarySchedule.getId());
+		Assertions.assertTrue(temporarySchedule.getName().contentEquals("something"));
 	}
 
 	@Test
