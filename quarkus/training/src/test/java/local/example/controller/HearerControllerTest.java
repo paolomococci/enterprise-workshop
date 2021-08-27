@@ -98,7 +98,21 @@ public class HearerControllerTest {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		// TODO
+		RestAssured.given()
+			.when()
+			.contentType(ContentType.JSON)
+			.body("{\"name\":\"something else\"}")
+			.put("/hearer/{id}", HearerControllerTest.getHearer().getId())
+			.then()
+			.statusCode(204);
+		Hearer temporaryHearer  = RestAssured.given()
+				.when()
+				.get("/hearer/{id}", HearerControllerTest.getHearer().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Hearer.class);
+		Assertions.assertTrue(temporaryHearer.getName().contentEquals("something else"));
 	}
 
 	@Test
