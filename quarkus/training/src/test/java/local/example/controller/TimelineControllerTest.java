@@ -98,7 +98,21 @@ public class TimelineControllerTest {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		// TODO
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"label\":\"something else\"}")
+				.put("/timeline/{id}", TimelineControllerTest.getTimeline().getId())
+				.then()
+				.statusCode(204);
+		Timeline temporaryTimeline  = RestAssured.given()
+				.when()
+				.get("/timeline/{id}", TimelineControllerTest.getTimeline().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Timeline.class);
+		Assertions.assertTrue(temporaryTimeline.getLabel().contentEquals("something else"));
 	}
 
 	@Test
