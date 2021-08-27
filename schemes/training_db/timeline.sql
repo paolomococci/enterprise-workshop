@@ -1,6 +1,7 @@
 CREATE TABLE public.timeline (
 	id int8 NOT NULL,
 	dayofweek int4 NULL,
+	"label" varchar(255) NULL,
 	"start" time NULL,
 	stop time NULL,
 	schedule_id int8 NULL,
