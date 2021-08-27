@@ -70,7 +70,15 @@ public class TutorControllerTest {
 	@Test
 	@Order(3)
 	public void readTest() {
-		// TODO
+		Tutor temporaryTutor  = RestAssured.given()
+				.when()
+				.get("/tutor/{id}", TutorControllerTest.getTutor().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Tutor.class);
+		Assertions.assertNotNull(temporaryTutor.getId());
+		Assertions.assertTrue(temporaryTutor.getName().contentEquals("something"));
 	}
 
 	@Test
