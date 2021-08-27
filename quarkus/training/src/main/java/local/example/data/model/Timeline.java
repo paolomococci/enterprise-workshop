@@ -40,6 +40,8 @@ public class Timeline {
 	@GeneratedValue
 	private Long id;
 
+	private String label;
+
 	private DayOfWeek dayOfWeek;
 
 	private LocalTime start;
@@ -59,40 +61,48 @@ public class Timeline {
 		return id;
 	}
 
-	public DayOfWeek getDayOfWeek() {
-		return dayOfWeek;
+	public String getLabel() {
+		return label;
 	}
 
-	public void setDayOfWeek(DayOfWeek dayOfWeek) {
-		this.dayOfWeek = dayOfWeek;
+	public DayOfWeek getDayOfWeek() {
+		return dayOfWeek;
 	}
 
 	public LocalTime getStart() {
 		return start;
 	}
 
-	public void setStart(LocalTime start) {
-		this.start = start;
-	}
-
 	public LocalTime getStop() {
 		return stop;
-	}
-
-	public void setStop(LocalTime stop) {
-		this.stop = stop;
 	}
 
 	public Schedule getSchedule() {
 		return schedule;
 	}
 
-	public void setSchedule(Schedule schedule) {
-		this.schedule = schedule;
-	}
-
 	public List<Tutorial> getTutorials() {
 		return tutorials;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
+	public void setDayOfWeek(DayOfWeek dayOfWeek) {
+		this.dayOfWeek = dayOfWeek;
+	}
+
+	public void setStart(LocalTime start) {
+		this.start = start;
+	}
+
+	public void setStop(LocalTime stop) {
+		this.stop = stop;
+	}
+
+	public void setSchedule(Schedule schedule) {
+		this.schedule = schedule;
 	}
 
 	public void setTutorials(List<Tutorial> tutorials) {
