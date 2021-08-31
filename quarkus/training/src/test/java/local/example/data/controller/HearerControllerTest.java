@@ -16,7 +16,7 @@
  *
  */
 
-package local.example.controller;
+package local.example.data.controller;
 
 import java.util.List;
 
