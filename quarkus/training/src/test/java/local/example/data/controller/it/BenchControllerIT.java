@@ -20,7 +20,7 @@ package local.example.data.controller.it;
 
 import io.quarkus.test.junit.NativeImageTest;
 
-import local.example.controller.BenchControllerTest;
+import local.example.data.controller.BenchControllerTest;
 
 @NativeImageTest
 public class BenchControllerIT 
