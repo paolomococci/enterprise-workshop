@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
-public class ScheduleConstraintTest {
+public class ScheduleConstraintTests {
 
 	@Test
 	public void constraintTetst() {
