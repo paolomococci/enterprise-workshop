@@ -19,6 +19,7 @@
 package local.example.solver.it;
 
 import io.quarkus.test.junit.NativeImageTest;
+
 import local.example.solver.ScheduleBenchmarkTests;
 
 @NativeImageTest
