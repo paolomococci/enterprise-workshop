@@ -18,15 +18,21 @@
 
 package local.example.solver;
 
+import javax.inject.Inject;
+
 import org.junit.jupiter.api.Test;
+import org.optaplanner.benchmark.api.PlannerBenchmarkFactory;
 
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
-public class ScheduleBenchmarkTest {
+public class ScheduleBenchmarkTests {
+
+	@Inject
+	PlannerBenchmarkFactory plannerBenchmarkFactory;
 
 	@Test
-	public void benchmarkTest() {
+	public void plannerBenchmarkTest() {
 		// TODO
 	}
 }
