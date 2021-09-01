@@ -34,7 +34,7 @@ import local.example.data.model.Schedule;
 
 @QuarkusTest
 @TestMethodOrder(OrderAnnotation.class)
-public class ScheduleControllerTest {
+public class ScheduleControllerTests {
 
 	private static Schedule schedule;
 
@@ -55,7 +55,7 @@ public class ScheduleControllerTest {
 	@Test
 	@Order(2)
 	public void createTest() {
-		ScheduleControllerTest.setSchedule(RestAssured.given()
+		ScheduleControllerTests.setSchedule(RestAssured.given()
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"name\":\"something\"}")
@@ -64,7 +64,7 @@ public class ScheduleControllerTest {
 				.statusCode(201)
 				.extract()
 				.as(Schedule.class));
-		Assertions.assertNotNull(ScheduleControllerTest.getSchedule().getId());
+		Assertions.assertNotNull(ScheduleControllerTests.getSchedule().getId());
 	}
 
 	@Test
@@ -72,7 +72,7 @@ public class ScheduleControllerTest {
 	public void readTest() {
 		Schedule temporarySchedule  = RestAssured.given()
 				.when()
-				.get("/schedule/{id}", ScheduleControllerTest.getSchedule().getId())
+				.get("/schedule/{id}", ScheduleControllerTests.getSchedule().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -102,12 +102,12 @@ public class ScheduleControllerTest {
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"name\":\"something else\"}")
-				.put("/schedule/{id}", ScheduleControllerTest.getSchedule().getId())
+				.put("/schedule/{id}", ScheduleControllerTests.getSchedule().getId())
 				.then()
 				.statusCode(204);
 		Schedule temporarySchedule  = RestAssured.given()
 				.when()
-				.get("/schedule/{id}", ScheduleControllerTest.getSchedule().getId())
+				.get("/schedule/{id}", ScheduleControllerTests.getSchedule().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -120,7 +120,7 @@ public class ScheduleControllerTest {
 	public void deleteTest() {
 		RestAssured.given()
 				.when()
-				.delete("/schedule/{id}", ScheduleControllerTest.getSchedule().getId())
+				.delete("/schedule/{id}", ScheduleControllerTests.getSchedule().getId())
 				.then()
 				.statusCode(204);
 	}
@@ -130,6 +130,6 @@ public class ScheduleControllerTest {
 	}
 
 	public static void setSchedule(Schedule schedule) {
-		ScheduleControllerTest.schedule = schedule;
+		ScheduleControllerTests.schedule = schedule;
 	}
 }
