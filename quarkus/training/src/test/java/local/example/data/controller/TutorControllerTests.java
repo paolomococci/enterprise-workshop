@@ -34,7 +34,7 @@ import local.example.data.model.Tutor;
 
 @QuarkusTest
 @TestMethodOrder(OrderAnnotation.class)
-public class TutorControllerTest {
+public class TutorControllerTests {
 
 	private static Tutor tutor;
 
@@ -55,7 +55,7 @@ public class TutorControllerTest {
 	@Test
 	@Order(2)
 	public void createTest() {
-		TutorControllerTest.setTutor(RestAssured.given()
+		TutorControllerTests.setTutor(RestAssured.given()
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"name\":\"somebody\"}")
@@ -64,7 +64,7 @@ public class TutorControllerTest {
 				.statusCode(201)
 				.extract()
 				.as(Tutor.class));
-		Assertions.assertNotNull(TutorControllerTest.getTutor().getId());
+		Assertions.assertNotNull(TutorControllerTests.getTutor().getId());
 	}
 
 	@Test
@@ -72,7 +72,7 @@ public class TutorControllerTest {
 	public void readTest() {
 		Tutor temporaryTutor  = RestAssured.given()
 				.when()
-				.get("/tutor/{id}", TutorControllerTest.getTutor().getId())
+				.get("/tutor/{id}", TutorControllerTests.getTutor().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -102,12 +102,12 @@ public class TutorControllerTest {
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"name\":\"somebody else\"}")
-				.put("/tutor/{id}", TutorControllerTest.getTutor().getId())
+				.put("/tutor/{id}", TutorControllerTests.getTutor().getId())
 				.then()
 				.statusCode(204);
 		Tutor temporaryTutor  = RestAssured.given()
 				.when()
-				.get("/tutor/{id}", TutorControllerTest.getTutor().getId())
+				.get("/tutor/{id}", TutorControllerTests.getTutor().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -120,7 +120,7 @@ public class TutorControllerTest {
 	public void deleteTest() {
 		RestAssured.given()
 				.when()
-				.delete("/tutor/{id}", TutorControllerTest.getTutor().getId())
+				.delete("/tutor/{id}", TutorControllerTests.getTutor().getId())
 				.then()
 				.statusCode(204);
 	}
@@ -130,6 +130,6 @@ public class TutorControllerTest {
 	}
 
 	public static void setTutor(Tutor tutor) {
-		TutorControllerTest.tutor = tutor;
+		TutorControllerTests.tutor = tutor;
 	}
 }
