@@ -20,10 +20,10 @@ package local.example.data.controller.it;
 
 import io.quarkus.test.junit.NativeImageTest;
 
-import local.example.data.controller.ScheduleControllerTest;
+import local.example.data.controller.ScheduleControllerTests;
 
 @NativeImageTest
 public class ScheduleControllerIT 
-		extends ScheduleControllerTest {
+		extends ScheduleControllerTests {
 
 }
