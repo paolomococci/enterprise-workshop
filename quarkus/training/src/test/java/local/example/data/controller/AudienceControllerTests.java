@@ -35,7 +35,7 @@ import local.example.data.model.Audience;
 
 @QuarkusTest
 @TestMethodOrder(OrderAnnotation.class)
-public class AudienceControllerTest {
+public class AudienceControllerTests {
 
 	private static Audience audience;
 
@@ -57,7 +57,7 @@ public class AudienceControllerTest {
 	@Test
 	@Order(2)
 	public void createTest() {
-		AudienceControllerTest.setAudience(RestAssured.given()
+		AudienceControllerTests.setAudience(RestAssured.given()
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"name\":\"something\"}")
@@ -66,7 +66,7 @@ public class AudienceControllerTest {
 				.statusCode(201)
 				.extract()
 				.as(Audience.class));
-		Assertions.assertNotNull(AudienceControllerTest.getAudience().getId());
+		Assertions.assertNotNull(AudienceControllerTests.getAudience().getId());
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class AudienceControllerTest {
 	public void readTest() {
 		Audience temporaryAudience  = RestAssured.given()
 				.when()
-				.get("/audience/{id}", AudienceControllerTest.getAudience().getId())
+				.get("/audience/{id}", AudienceControllerTests.getAudience().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -104,12 +104,12 @@ public class AudienceControllerTest {
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"name\":\"something else\"}")
-				.put("/audience/{id}", AudienceControllerTest.getAudience().getId())
+				.put("/audience/{id}", AudienceControllerTests.getAudience().getId())
 				.then()
 				.statusCode(204);
 		Audience temporaryAudience  = RestAssured.given()
 				.when()
-				.get("/audience/{id}", AudienceControllerTest.getAudience().getId())
+				.get("/audience/{id}", AudienceControllerTests.getAudience().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -122,7 +122,7 @@ public class AudienceControllerTest {
 	public void deleteTest() {
 		RestAssured.given()
 				.when()
-				.delete("/audience/{id}", AudienceControllerTest.getAudience().getId())
+				.delete("/audience/{id}", AudienceControllerTests.getAudience().getId())
 				.then()
 				.statusCode(204);
 	}
@@ -132,6 +132,6 @@ public class AudienceControllerTest {
 	}
 
 	public static void setAudience(Audience audience) {
-		AudienceControllerTest.audience = audience;
+		AudienceControllerTests.audience = audience;
 	}
 }
