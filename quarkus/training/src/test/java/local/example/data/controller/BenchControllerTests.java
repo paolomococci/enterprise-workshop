@@ -34,7 +34,7 @@ import local.example.data.model.Bench;
 
 @QuarkusTest
 @TestMethodOrder(OrderAnnotation.class)
-public class BenchControllerTest {
+public class BenchControllerTests {
 
 	private static Bench bench;
 
@@ -55,7 +55,7 @@ public class BenchControllerTest {
 	@Test
 	@Order(2)
 	public void createTest() {
-		BenchControllerTest.setBench(RestAssured.given()
+		BenchControllerTests.setBench(RestAssured.given()
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"name\":\"something\"}")
@@ -64,7 +64,7 @@ public class BenchControllerTest {
 				.statusCode(201)
 				.extract()
 				.as(Bench.class));
-		Assertions.assertNotNull(BenchControllerTest.getBench().getId());
+		Assertions.assertNotNull(BenchControllerTests.getBench().getId());
 	}
 
 	@Test
@@ -72,7 +72,7 @@ public class BenchControllerTest {
 	public void readTest() {
 		Bench temporaryBench  = RestAssured.given()
 				.when()
-				.get("/bench/{id}", BenchControllerTest.getBench().getId())
+				.get("/bench/{id}", BenchControllerTests.getBench().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -102,12 +102,12 @@ public class BenchControllerTest {
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"name\":\"something else\"}")
-				.put("/bench/{id}", BenchControllerTest.getBench().getId())
+				.put("/bench/{id}", BenchControllerTests.getBench().getId())
 				.then()
 				.statusCode(204);
 		Bench temporaryBench  = RestAssured.given()
 				.when()
-				.get("/bench/{id}", BenchControllerTest.getBench().getId())
+				.get("/bench/{id}", BenchControllerTests.getBench().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -120,7 +120,7 @@ public class BenchControllerTest {
 	public void deleteTest() {
 		RestAssured.given()
 				.when()
-				.delete("/bench/{id}", BenchControllerTest.getBench().getId())
+				.delete("/bench/{id}", BenchControllerTests.getBench().getId())
 				.then()
 				.statusCode(204);
 	}
@@ -130,6 +130,6 @@ public class BenchControllerTest {
 	}
 
 	public static void setBench(Bench bench) {
-		BenchControllerTest.bench = bench;
+		BenchControllerTests.bench = bench;
 	}
 }
