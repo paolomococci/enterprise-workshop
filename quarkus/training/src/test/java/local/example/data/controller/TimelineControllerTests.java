@@ -34,7 +34,7 @@ import local.example.data.model.Timeline;
 
 @QuarkusTest
 @TestMethodOrder(OrderAnnotation.class)
-public class TimelineControllerTest {
+public class TimelineControllerTests {
 
 	private static Timeline timeline;
 
@@ -55,7 +55,7 @@ public class TimelineControllerTest {
 	@Test
 	@Order(2)
 	public void createTest() {
-		TimelineControllerTest.setTimeline(RestAssured.given()
+		TimelineControllerTests.setTimeline(RestAssured.given()
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"label\":\"something\"}")
@@ -64,7 +64,7 @@ public class TimelineControllerTest {
 				.statusCode(201)
 				.extract()
 				.as(Timeline.class));
-		Assertions.assertNotNull(TimelineControllerTest.getTimeline().getId());
+		Assertions.assertNotNull(TimelineControllerTests.getTimeline().getId());
 	}
 
 	@Test
@@ -72,7 +72,7 @@ public class TimelineControllerTest {
 	public void readTest() {
 		Timeline temporaryTimeline  = RestAssured.given()
 				.when()
-				.get("/timeline/{id}", TimelineControllerTest.getTimeline().getId())
+				.get("/timeline/{id}", TimelineControllerTests.getTimeline().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -102,12 +102,12 @@ public class TimelineControllerTest {
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"label\":\"something else\"}")
-				.put("/timeline/{id}", TimelineControllerTest.getTimeline().getId())
+				.put("/timeline/{id}", TimelineControllerTests.getTimeline().getId())
 				.then()
 				.statusCode(204);
 		Timeline temporaryTimeline  = RestAssured.given()
 				.when()
-				.get("/timeline/{id}", TimelineControllerTest.getTimeline().getId())
+				.get("/timeline/{id}", TimelineControllerTests.getTimeline().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -120,7 +120,7 @@ public class TimelineControllerTest {
 	public void deleteTest() {
 		RestAssured.given()
 				.when()
-				.delete("/timeline/{id}", TimelineControllerTest.getTimeline().getId())
+				.delete("/timeline/{id}", TimelineControllerTests.getTimeline().getId())
 				.then()
 				.statusCode(204);
 	}
@@ -130,6 +130,6 @@ public class TimelineControllerTest {
 	}
 
 	public static void setTimeline(Timeline timeline) {
-		TimelineControllerTest.timeline = timeline;
+		TimelineControllerTests.timeline = timeline;
 	}
 }
