@@ -20,10 +20,10 @@ package local.example.data.controller.it;
 
 import io.quarkus.test.junit.NativeImageTest;
 
-import local.example.data.controller.TutorControllerTest;
+import local.example.data.controller.TutorControllerTests;
 
 @NativeImageTest
 public class TutorControllerIT 
-		extends TutorControllerTest {
+		extends TutorControllerTests {
 
 }
