@@ -28,11 +28,9 @@ import io.quarkus.test.junit.QuarkusTest;
 @QuarkusTest
 public class ScheduleBenchmarkTests {
 
-	@Inject
-	PlannerBenchmarkFactory plannerBenchmarkFactory;
-
-	@Test
-	public void plannerBenchmarkTest() {
-		// TODO
-	}
+	/*
+	 * @Inject PlannerBenchmarkFactory plannerBenchmarkFactory;
+	 * 
+	 * @Test public void plannerBenchmarkTest() { // TODO }
+	 */
 }
