@@ -34,7 +34,7 @@ import local.example.data.model.Hearer;
 
 @QuarkusTest
 @TestMethodOrder(OrderAnnotation.class)
-public class HearerControllerTest {
+public class HearerControllerTests {
 
 	private static Hearer hearer;
 
@@ -55,7 +55,7 @@ public class HearerControllerTest {
 	@Test
 	@Order(2)
 	public void createTest() {
-		HearerControllerTest.setHearer(RestAssured.given()
+		HearerControllerTests.setHearer(RestAssured.given()
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"name\":\"somebody\"}")
@@ -64,7 +64,7 @@ public class HearerControllerTest {
 				.statusCode(201)
 				.extract()
 				.as(Hearer.class));
-		Assertions.assertNotNull(HearerControllerTest.getHearer().getId());
+		Assertions.assertNotNull(HearerControllerTests.getHearer().getId());
 	}
 
 	@Test
@@ -72,7 +72,7 @@ public class HearerControllerTest {
 	public void readTest() {
 		Hearer temporaryHearer  = RestAssured.given()
 				.when()
-				.get("/hearer/{id}", HearerControllerTest.getHearer().getId())
+				.get("/hearer/{id}", HearerControllerTests.getHearer().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -102,12 +102,12 @@ public class HearerControllerTest {
 			.when()
 			.contentType(ContentType.JSON)
 			.body("{\"name\":\"somebody else\"}")
-			.put("/hearer/{id}", HearerControllerTest.getHearer().getId())
+			.put("/hearer/{id}", HearerControllerTests.getHearer().getId())
 			.then()
 			.statusCode(204);
 		Hearer temporaryHearer  = RestAssured.given()
 				.when()
-				.get("/hearer/{id}", HearerControllerTest.getHearer().getId())
+				.get("/hearer/{id}", HearerControllerTests.getHearer().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -120,7 +120,7 @@ public class HearerControllerTest {
 	public void deleteTest() {
 		RestAssured.given()
 				.when()
-				.delete("/hearer/{id}", HearerControllerTest.getHearer().getId())
+				.delete("/hearer/{id}", HearerControllerTests.getHearer().getId())
 				.then()
 				.statusCode(204);
 	}
@@ -130,6 +130,6 @@ public class HearerControllerTest {
 	}
 
 	public static void setHearer(Hearer hearer) {
-		HearerControllerTest.hearer = hearer;
+		HearerControllerTests.hearer = hearer;
 	}
 }
