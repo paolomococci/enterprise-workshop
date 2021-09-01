@@ -34,7 +34,7 @@ import local.example.data.model.Tutorial;
 
 @QuarkusTest
 @TestMethodOrder(OrderAnnotation.class)
-public class TutorialControllerTest {
+public class TutorialControllerTests {
 
 	private static Tutorial tutorial;
 
@@ -55,7 +55,7 @@ public class TutorialControllerTest {
 	@Test
 	@Order(2)
 	public void createTest() {
-		TutorialControllerTest.setTutorial(RestAssured.given()
+		TutorialControllerTests.setTutorial(RestAssured.given()
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"title\":\"some title\"}")
@@ -64,7 +64,7 @@ public class TutorialControllerTest {
 				.statusCode(201)
 				.extract()
 				.as(Tutorial.class));
-		Assertions.assertNotNull(TutorialControllerTest.getTutorial().getId());
+		Assertions.assertNotNull(TutorialControllerTests.getTutorial().getId());
 	}
 
 	@Test
@@ -72,7 +72,7 @@ public class TutorialControllerTest {
 	public void readTest() {
 		Tutorial temporaryTutorial  = RestAssured.given()
 				.when()
-				.get("/tutorial/{id}", TutorialControllerTest.getTutorial().getId())
+				.get("/tutorial/{id}", TutorialControllerTests.getTutorial().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -102,12 +102,12 @@ public class TutorialControllerTest {
 				.when()
 				.contentType(ContentType.JSON)
 				.body("{\"title\":\"some other title\"}")
-				.put("/tutorial/{id}", TutorialControllerTest.getTutorial().getId())
+				.put("/tutorial/{id}", TutorialControllerTests.getTutorial().getId())
 				.then()
 				.statusCode(204);
 		Tutorial temporaryTutorial  = RestAssured.given()
 				.when()
-				.get("/tutorial/{id}", TutorialControllerTest.getTutorial().getId())
+				.get("/tutorial/{id}", TutorialControllerTests.getTutorial().getId())
 				.then()
 				.statusCode(200)
 				.extract()
@@ -120,7 +120,7 @@ public class TutorialControllerTest {
 	public void deleteTest() {
 		RestAssured.given()
 				.when()
-				.delete("/tutorial/{id}", TutorialControllerTest.getTutorial().getId())
+				.delete("/tutorial/{id}", TutorialControllerTests.getTutorial().getId())
 				.then()
 				.statusCode(204);
 	}
@@ -130,6 +130,6 @@ public class TutorialControllerTest {
 	}
 
 	public static void setTutorial(Tutorial tutorial) {
-		TutorialControllerTest.tutorial = tutorial;
+		TutorialControllerTests.tutorial = tutorial;
 	}
 }
