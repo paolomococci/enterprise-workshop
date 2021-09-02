@@ -18,6 +18,11 @@
 
 package local.example.data.resource.it;
 
-public class HearerResourceIT {
+import io.quarkus.test.junit.NativeImageTest;
+import local.example.data.resource.HearerResourceTests;
+
+@NativeImageTest
+public class HearerResourceIT 
+		extends HearerResourceTests {
 
 }
