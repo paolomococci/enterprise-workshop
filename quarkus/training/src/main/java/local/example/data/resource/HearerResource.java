@@ -21,6 +21,6 @@ package local.example.data.resource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
 @ResourceProperties(path = "hearers")
-public class HearerResource {
+public interface HearerResource {
 
 }
