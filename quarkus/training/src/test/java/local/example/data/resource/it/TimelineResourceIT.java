@@ -18,6 +18,11 @@
 
 package local.example.data.resource.it;
 
-public class TimelineResourceIT {
+import io.quarkus.test.junit.NativeImageTest;
+import local.example.data.resource.TimelineResourceTests;
+
+@NativeImageTest
+public class TimelineResourceIT 
+		extends TimelineResourceTests {
 
 }
