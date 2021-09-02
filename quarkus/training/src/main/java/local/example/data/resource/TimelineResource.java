@@ -18,9 +18,14 @@
 
 package local.example.data.resource;
 
+import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
+import local.example.data.model.Timeline;
+import local.example.data.repository.TimelineRepository;
+
 @ResourceProperties(path = "timelines")
-public interface TimelineResource {
+public interface TimelineResource 
+		extends PanacheRepositoryResource<TimelineRepository, Timeline, Long> {
 
 }
