@@ -18,6 +18,9 @@
 
 package local.example.data.resource;
 
+import io.quarkus.rest.data.panache.ResourceProperties;
+
+@ResourceProperties(path = "schedules")
 public class ScheduleResource {
 
 }
