@@ -18,6 +18,11 @@
 
 package local.example.data.resource.it;
 
-public class TutorialResourceIT {
+import io.quarkus.test.junit.NativeImageTest;
+import local.example.data.resource.TutorialResourceTests;
+
+@NativeImageTest
+public class TutorialResourceIT 
+		extends TutorialResourceTests {
 
 }
