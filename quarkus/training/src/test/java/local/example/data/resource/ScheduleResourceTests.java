@@ -18,9 +18,15 @@
 
 package local.example.data.resource;
 
+import org.junit.jupiter.api.Test;
+
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
 public class ScheduleResourceTests {
 
+	@Test
+	public void fetchAllDataResources() {
+		
+	}
 }
