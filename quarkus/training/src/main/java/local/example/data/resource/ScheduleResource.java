@@ -18,9 +18,14 @@
 
 package local.example.data.resource;
 
+import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
+import local.example.data.model.Schedule;
+import local.example.data.repository.ScheduleRepository;
+
 @ResourceProperties(path = "schedules")
-public interface ScheduleResource {
+public interface ScheduleResource 
+		extends PanacheRepositoryResource<ScheduleRepository, Schedule, Long> {
 
 }
