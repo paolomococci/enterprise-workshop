@@ -18,6 +18,9 @@
 
 package local.example.data.resource;
 
+import io.quarkus.test.junit.QuarkusTest;
+
+@QuarkusTest
 public class AudienceResourceTests {
 
 }
