@@ -18,6 +18,11 @@
 
 package local.example.data.resource.it;
 
-public class ScheduleResourceIT {
+import io.quarkus.test.junit.NativeImageTest;
+import local.example.data.resource.ScheduleResourceTests;
+
+@NativeImageTest
+public class ScheduleResourceIT 
+		extends ScheduleResourceTests {
 
 }
