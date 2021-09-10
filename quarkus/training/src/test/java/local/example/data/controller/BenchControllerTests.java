@@ -125,11 +125,11 @@ public class BenchControllerTests {
 				.statusCode(204);
 	}
 
-	public static Bench getBench() {
+	protected static Bench getBench() {
 		return bench;
 	}
 
-	public static void setBench(Bench bench) {
+	protected static void setBench(Bench bench) {
 		BenchControllerTests.bench = bench;
 	}
 }
