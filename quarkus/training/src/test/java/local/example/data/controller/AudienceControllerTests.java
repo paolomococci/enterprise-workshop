@@ -127,11 +127,11 @@ public class AudienceControllerTests {
 				.statusCode(204);
 	}
 
-	public static Audience getAudience() {
+	protected static Audience getAudience() {
 		return audience;
 	}
 
-	public static void setAudience(Audience audience) {
+	protected static void setAudience(Audience audience) {
 		AudienceControllerTests.audience = audience;
 	}
 }
