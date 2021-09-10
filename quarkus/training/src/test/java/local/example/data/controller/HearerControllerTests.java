@@ -125,11 +125,11 @@ public class HearerControllerTests {
 				.statusCode(204);
 	}
 
-	public static Hearer getHearer() {
+	protected static Hearer getHearer() {
 		return hearer;
 	}
 
-	public static void setHearer(Hearer hearer) {
+	protected static void setHearer(Hearer hearer) {
 		HearerControllerTests.hearer = hearer;
 	}
 }
