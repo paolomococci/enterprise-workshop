@@ -125,11 +125,11 @@ public class TimelineControllerTests {
 				.statusCode(204);
 	}
 
-	public static Timeline getTimeline() {
+	protected static Timeline getTimeline() {
 		return timeline;
 	}
 
-	public static void setTimeline(Timeline timeline) {
+	protected static void setTimeline(Timeline timeline) {
 		TimelineControllerTests.timeline = timeline;
 	}
 }
