@@ -125,11 +125,11 @@ public class ScheduleControllerTests {
 				.statusCode(204);
 	}
 
-	public static Schedule getSchedule() {
+	protected static Schedule getSchedule() {
 		return schedule;
 	}
 
-	public static void setSchedule(Schedule schedule) {
+	protected static void setSchedule(Schedule schedule) {
 		ScheduleControllerTests.schedule = schedule;
 	}
 }
