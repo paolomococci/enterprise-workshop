@@ -125,11 +125,11 @@ public class TutorControllerTests {
 				.statusCode(204);
 	}
 
-	public static Tutor getTutor() {
+	protected static Tutor getTutor() {
 		return tutor;
 	}
 
-	public static void setTutor(Tutor tutor) {
+	protected static void setTutor(Tutor tutor) {
 		TutorControllerTests.tutor = tutor;
 	}
 }
