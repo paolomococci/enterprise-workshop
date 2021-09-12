@@ -20,6 +20,11 @@ package sample.rest.data
 
 class Address {
 
+    String country;
+    String location;
+    String street;
+    String civic;
+
     static constraints = {
     }
 }
