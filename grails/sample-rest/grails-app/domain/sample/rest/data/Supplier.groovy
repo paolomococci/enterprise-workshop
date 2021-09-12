@@ -20,6 +20,9 @@ package sample.rest.data
 
 class Supplier {
 
+    String name;
+    String compartment;
+
     static constraints = {
     }
 }
