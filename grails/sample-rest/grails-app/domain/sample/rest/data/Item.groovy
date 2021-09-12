@@ -20,6 +20,11 @@ package sample.rest.data
 
 class Item {
 
+    String code;
+    String name;
+    String description;
+    Double value;
+
     static constraints = {
     }
 }
