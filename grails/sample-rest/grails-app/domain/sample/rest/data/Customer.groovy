@@ -20,6 +20,11 @@ package sample.rest.data
 
 class Customer {
 
+    String name;
+    String surname;
+    String gender;
+    Integer age;
+
     static constraints = {
     }
 }
