@@ -25,6 +25,9 @@ class Customer {
     String gender;
     Integer age;
 
+    static hasManyItems = [items: Item]
+    static hasManyAddresses = [addresses: Address]
+
     static constraints = {
     }
 }
