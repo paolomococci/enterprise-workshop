@@ -23,6 +23,9 @@ class Supplier {
     String name;
     String compartment;
 
+    static hasManyItems = [items: Item]
+    static hasManyAddresses = [addresses: Address]
+
     static constraints = {
     }
 }
