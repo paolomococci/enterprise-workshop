@@ -19,7 +19,7 @@
 package local.example.users.data.endpoint;
 
 import com.vaadin.flow.server.auth.AnonymousAllowed;
-import com.vaadin.flow.server.connect.Endpoint;
+import com.vaadin.fusion.Endpoint;
 
 import local.example.users.data.entity.User;
 import local.example.users.data.security.auth.UserAuth;
