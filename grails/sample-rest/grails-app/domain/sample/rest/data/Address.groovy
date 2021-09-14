@@ -31,4 +31,8 @@ class Address {
         street size: 2..32
         civic size: 1..8
     }
+
+    String toString() {
+
+    }
 }
