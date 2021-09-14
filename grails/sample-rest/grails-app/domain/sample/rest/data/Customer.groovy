@@ -29,5 +29,8 @@ class Customer {
     static hasManyAddresses = [addresses: Address]
 
     static constraints = {
+        name size: 2..32
+        surname size: 2.32
+        gender size: 4..16
     }
 }
