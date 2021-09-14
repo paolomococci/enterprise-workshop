@@ -25,6 +25,9 @@ class Item {
     String description;
     Double value;
 
+    static belongsToTheCustomer = [customer: Customer]
+    static belongsToTheSupplier = [supplier: Supplier]
+
     static constraints = {
         code size: 8..32
         name size: 4..32
