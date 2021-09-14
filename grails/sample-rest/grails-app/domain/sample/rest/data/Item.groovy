@@ -26,5 +26,8 @@ class Item {
     Double value;
 
     static constraints = {
+        code size: 8..32
+        name size: 4..32
+        description size: 8..64
     }
 }
