@@ -59,7 +59,7 @@ class SupplierController {
 
         try {
             supplierService.save(supplier)
-        } catch (ValidationException e) {
+        } catch (ValidationException validationException) {
             respond supplier.errors
             return
         }
@@ -81,7 +81,7 @@ class SupplierController {
 
         try {
             supplierService.save(supplier)
-        } catch (ValidationException e) {
+        } catch (ValidationException validationException) {
             respond supplier.errors
             return
         }
