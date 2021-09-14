@@ -1,0 +1,7 @@
+import sample.rest.data.Supplier
+
+model {
+	Supplier supplier
+}
+
+json tmpl.supplier(supplier)
