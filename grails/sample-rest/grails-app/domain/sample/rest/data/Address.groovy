@@ -20,15 +20,17 @@ package sample.rest.data
 
 class Address {
 
-    String country;
-    String location;
-    String street;
-    String civic;
+    String code
+    String country
+    String location
+    String street
+    String civic
 
     static belongsToTheCustomer = [customer: Customer]
     static belongsToTheSupplier = [supplier: Supplier]
 
     static constraints = {
+        code size: 8..32, blank: false
         country size: 2..32
         location size: 2..32
         street size: 2..32
@@ -36,6 +38,6 @@ class Address {
     }
 
     String toString() {
-
+        code
     }
 }
