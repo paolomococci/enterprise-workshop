@@ -25,6 +25,9 @@ class Address {
     String street;
     String civic;
 
+    static belongsToTheCustomer = [customer: Customer]
+    static belongsToTheSupplier = [supplier: Supplier]
+
     static constraints = {
         country size: 2..32
         location size: 2..32
