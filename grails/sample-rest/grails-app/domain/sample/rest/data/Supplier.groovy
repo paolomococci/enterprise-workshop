@@ -30,4 +30,8 @@ class Supplier {
         name size: 2..32
         compartment size: 2..32
     }
+
+    String toString() {
+
+    }
 }
