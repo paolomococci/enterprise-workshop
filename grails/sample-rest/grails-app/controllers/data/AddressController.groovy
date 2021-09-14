@@ -59,7 +59,7 @@ class AddressController {
 
         try {
             addressService.save(address)
-        } catch (ValidationException e) {
+        } catch (ValidationException validationException) {
             respond address.errors
             return
         }
@@ -81,7 +81,7 @@ class AddressController {
 
         try {
             addressService.save(address)
-        } catch (ValidationException e) {
+        } catch (ValidationException validationException) {
             respond address.errors
             return
         }
