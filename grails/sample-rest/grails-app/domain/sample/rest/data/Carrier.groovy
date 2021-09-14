@@ -20,6 +20,15 @@ package sample.rest.data
 
 class Carrier {
 
+    String code
+    String name
+
     static constraints = {
+        code size: 8..32, blank: false
+        name size: 2..32, blank: false
+    }
+
+    String toString() {
+        code
     }
 }
