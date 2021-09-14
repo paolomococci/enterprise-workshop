@@ -30,4 +30,8 @@ class Item {
         name size: 4..32
         description size: 8..64
     }
+
+    String toString() {
+
+    }
 }
