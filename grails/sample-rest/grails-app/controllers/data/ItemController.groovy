@@ -59,7 +59,7 @@ class ItemController {
 
         try {
             itemService.save(item)
-        } catch (ValidationException e) {
+        } catch (ValidationException validationException) {
             respond item.errors
             return
         }
@@ -81,7 +81,7 @@ class ItemController {
 
         try {
             itemService.save(item)
-        } catch (ValidationException e) {
+        } catch (ValidationException validationException) {
             respond item.errors
             return
         }
