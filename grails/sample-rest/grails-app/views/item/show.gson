@@ -1,0 +1,7 @@
+import sample.rest.data.Item
+
+model {
+	Item item
+}
+
+json tmpl.item(item)
