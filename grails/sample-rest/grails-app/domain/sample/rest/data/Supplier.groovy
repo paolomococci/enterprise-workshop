@@ -27,5 +27,7 @@ class Supplier {
     static hasManyAddresses = [addresses: Address]
 
     static constraints = {
+        name size: 2..32
+        compartment size: 2..32
     }
 }
