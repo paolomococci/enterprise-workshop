@@ -20,21 +20,22 @@ package sample.rest.data
 
 class Item {
 
-    String code;
-    String name;
-    String description;
-    Double value;
+    String code
+    String name
+    String description
+    Double value
 
     static belongsToTheCustomer = [customer: Customer]
     static belongsToTheSupplier = [supplier: Supplier]
 
     static constraints = {
-        code size: 8..32
+        code size: 8..32, blank: false
         name size: 4..32
         description size: 8..64
+        value min: 0
     }
 
     String toString() {
-
+        code
     }
 }
