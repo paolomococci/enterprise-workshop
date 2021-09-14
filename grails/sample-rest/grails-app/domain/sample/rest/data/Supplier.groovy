@@ -20,18 +20,20 @@ package sample.rest.data
 
 class Supplier {
 
-    String name;
-    String compartment;
+    String code
+    String name
+    String compartment
 
     static hasManyItems = [items: Item]
     static hasManyAddresses = [addresses: Address]
 
     static constraints = {
-        name size: 2..32
+        code size: 8..32, blank: false
+        name size: 2..32, blank: false
         compartment size: 2..32
     }
 
     String toString() {
-
+        code
     }
 }
