@@ -33,4 +33,8 @@ class Customer {
         surname size: 2.32
         gender size: 4..16
     }
+
+    String toString() {
+
+    }
 }
