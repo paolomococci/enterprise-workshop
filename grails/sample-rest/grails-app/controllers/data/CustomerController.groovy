@@ -59,7 +59,7 @@ class CustomerController {
 
         try {
             customerService.save(customer)
-        } catch (ValidationException e) {
+        } catch (ValidationException validationException) {
             respond customer.errors
             return
         }
@@ -81,7 +81,7 @@ class CustomerController {
 
         try {
             customerService.save(customer)
-        } catch (ValidationException e) {
+        } catch (ValidationException validationException) {
             respond customer.errors
             return
         }
