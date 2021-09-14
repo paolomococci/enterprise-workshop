@@ -1,0 +1,7 @@
+import sample.rest.data.Address
+
+model {
+	Address address
+}
+
+json tmpl.address(address)
