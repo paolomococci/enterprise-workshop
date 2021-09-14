@@ -59,7 +59,7 @@ class CarrierController {
 
         try {
             carrierService.save(carrier)
-        } catch (ValidationException e) {
+        } catch (ValidationException validationException) {
             respond carrier.errors
             return
         }
@@ -81,7 +81,7 @@ class CarrierController {
 
         try {
             carrierService.save(carrier)
-        } catch (ValidationException e) {
+        } catch (ValidationException validationException) {
             respond carrier.errors
             return
         }
