@@ -26,5 +26,9 @@ class Address {
     String civic;
 
     static constraints = {
+        country size: 2..32
+        location size: 2..32
+        street size: 2..32
+        civic size: 1..8
     }
 }
