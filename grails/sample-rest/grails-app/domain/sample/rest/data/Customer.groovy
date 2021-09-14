@@ -20,21 +20,24 @@ package sample.rest.data
 
 class Customer {
 
-    String name;
-    String surname;
-    String gender;
-    Integer age;
+    String code
+    String name
+    String surname
+    String gender
+    Integer age
 
     static hasManyItems = [items: Item]
     static hasManyAddresses = [addresses: Address]
 
     static constraints = {
+        code size: 8..32, blank: false
         name size: 2..32
         surname size: 2.32
         gender size: 4..16
+        age min: 18
     }
 
     String toString() {
-
+        code
     }
 }
