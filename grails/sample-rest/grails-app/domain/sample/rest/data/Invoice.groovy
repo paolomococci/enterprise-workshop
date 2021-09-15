@@ -29,6 +29,7 @@ class Invoice {
 
     static belongsToTheCustomer = [customer: Customer]
     static belongsToTheSupplier = [supplier: Supplier]
+    static belongsToTheCarrier = [carrier: Carrier]
     static hasManyItems = [items: Item]
 
     static constraints = {
