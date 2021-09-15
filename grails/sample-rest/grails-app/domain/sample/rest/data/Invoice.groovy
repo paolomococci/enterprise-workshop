@@ -33,4 +33,8 @@ class Invoice {
         emission nullable: false
         promise nullable: true
     }
+
+    String toString() {
+        code
+    }
 }
