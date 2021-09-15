@@ -30,11 +30,11 @@ class Customer {
     static hasManyAddresses = [addresses: Address]
 
     static constraints = {
-        code size: 8..32, blank: false
-        name size: 2..32
-        surname size: 2.32
-        gender size: 4..16
-        age min: 18
+        code size: 8..32, blank: false, unique: true
+        name size: 2..32, nullable: true
+        surname size: 2.32, nullable: true
+        gender size: 4..16, nullable: true
+        age min: 18, nullable: true
     }
 
     String toString() {
