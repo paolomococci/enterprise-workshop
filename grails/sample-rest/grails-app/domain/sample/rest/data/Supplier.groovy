@@ -25,6 +25,7 @@ class Supplier {
     String compartment
 
     static hasManyItems = [items: Item]
+    static hasManyInvoices = [invoices: Invoice]
     static hasManyAddresses = [addresses: Address]
 
     static constraints = {
