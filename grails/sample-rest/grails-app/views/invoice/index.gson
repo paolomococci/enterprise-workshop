@@ -1,0 +1,7 @@
+import sample.rest.data.Invoice
+
+model {
+	Iterable<Invoice> invoiceList
+}
+
+json tmpl.invoice(invoiceList ?: [])
