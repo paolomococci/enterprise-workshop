@@ -27,6 +27,7 @@ class Item {
 
     static belongsToTheCustomer = [customer: Customer]
     static belongsToTheSupplier = [supplier: Supplier]
+    static hasManyInvoices = [invoices: Invoice]
 
     static constraints = {
         code size: 8..32, blank: false, unique: true
