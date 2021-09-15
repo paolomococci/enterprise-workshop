@@ -23,16 +23,16 @@ class Item {
     String code
     String name
     String description
-    Double value
+    Double value = 0.0
 
     static belongsToTheCustomer = [customer: Customer]
     static belongsToTheSupplier = [supplier: Supplier]
 
     static constraints = {
-        code size: 8..32, blank: false
-        name size: 4..32
-        description size: 8..64
-        value min: 0
+        code size: 8..32, blank: false, unique: true
+        name size: 4..32, nullable: true
+        description size: 8..64, nullable: true
+        value min: 0, nullable: true
     }
 
     String toString() {
