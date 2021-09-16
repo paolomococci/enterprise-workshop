@@ -1,0 +1,7 @@
+import sample.vue.data.Item
+
+model {
+	Item item
+}
+
+json g.render(item, [resolveTemplate: false])
