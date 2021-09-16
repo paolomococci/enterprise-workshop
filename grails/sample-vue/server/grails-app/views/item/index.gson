@@ -1,0 +1,7 @@
+import sample.vue.data.Item
+
+model {
+	Iterable<Item> itemList
+}
+
+json tmpl.item(itemList ?: [])
