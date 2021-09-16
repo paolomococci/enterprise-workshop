@@ -1,0 +1,7 @@
+import sample.vue.data.Customer
+
+model {
+	Iterable<Customer> customerList
+}
+
+json tmpl.customer(customerList ?: [])
