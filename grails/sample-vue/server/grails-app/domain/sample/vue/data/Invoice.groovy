@@ -18,8 +18,28 @@
 
 package sample.vue.data
 
+import java.sql.Date
+
 class Invoice {
 
+    String code
+    String cause
+    Date emission
+    Date promise
+
+    static belongsToTheCustomer = [customer: Customer]
+    static belongsToTheSupplier = [supplier: Supplier]
+    static belongsToTheCarrier = [carrier: Carrier]
+    static hasManyItems = [items: Item]
+
     static constraints = {
+        code size: 8..32, blank: false, unique: true
+        cause nullable: true
+        emission nullable: false
+        promise nullable: true
+    }
+
+    String toString() {
+        code
     }
 }
