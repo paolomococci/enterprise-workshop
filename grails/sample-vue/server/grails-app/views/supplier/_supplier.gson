@@ -1,0 +1,7 @@
+import sample.vue.data.Supplier
+
+model {
+	Supplier supplier
+}
+
+json g.render(supplier, [resolveTemplate: false])
