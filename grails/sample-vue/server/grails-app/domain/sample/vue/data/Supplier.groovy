@@ -20,6 +20,21 @@ package sample.vue.data
 
 class Supplier {
 
+    String code
+    String name
+    String compartment
+
+    static hasManyItems = [items: Item]
+    static hasManyInvoices = [invoices: Invoice]
+    static hasManyAddresses = [addresses: Address]
+
     static constraints = {
+        code size: 8..32, blank: false, unique: true
+        name size: 2..32, blank: false
+        compartment size: 2..32, nullable: true
+    }
+
+    String toString() {
+        code
     }
 }
