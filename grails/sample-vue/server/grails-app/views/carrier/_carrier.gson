@@ -1,0 +1,7 @@
+import sample.vue.data.Carrier
+
+model {
+	Carrier carrier
+}
+
+json g.render(carrier, [resolveTemplate: false])
