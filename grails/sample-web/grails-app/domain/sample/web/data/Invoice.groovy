@@ -34,4 +34,8 @@ class Invoice {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }
