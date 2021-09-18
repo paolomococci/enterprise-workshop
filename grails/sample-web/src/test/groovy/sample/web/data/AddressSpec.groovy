@@ -36,4 +36,8 @@ class AddressSpec
         expect:"fix me"
             true == false
     }
+
+    String toString() {
+        code
+    }
 }
