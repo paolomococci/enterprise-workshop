@@ -20,6 +20,16 @@ package sample.web.data
 
 class Customer {
 
+    String code
+    String name
+    String surname
+    String gender
+    Integer age
+
+    static hasManyItems = [items: Item]
+    static hasManyInvoices = [invoices: Invoice]
+    static hasManyAddresses = [addresses: Address]
+
     static constraints = {
     }
 }
