@@ -33,6 +33,10 @@ class Invoice {
     static hasManyItems = [items: Item]
 
     static constraints = {
+        code size: 8..32, blank: false, unique: true
+        cause nullable: true
+        emission nullable: false
+        promise nullable: true
     }
 
     String toString() {
