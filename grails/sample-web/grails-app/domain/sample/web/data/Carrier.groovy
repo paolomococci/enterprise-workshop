@@ -20,6 +20,11 @@ package sample.web.data
 
 class Carrier {
 
+    String code
+    String name
+
+    static hasManyInvoices = [invoices: Invoice]
+
     static constraints = {
     }
 }
