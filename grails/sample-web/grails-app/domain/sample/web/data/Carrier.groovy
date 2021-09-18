@@ -27,4 +27,8 @@ class Carrier {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }
