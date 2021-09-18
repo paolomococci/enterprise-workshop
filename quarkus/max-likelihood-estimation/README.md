@@ -2,7 +2,7 @@
 
 ## Scaffolding:
 ```
-mvn io.quarkus:quarkus-maven-plugin:2.2.2.Final:create -DprojectGroupId=local.example.likelihood -DprojectArtifactId=max-likelihood-estimation -DclassName="local.example.likelihood.MaxLikelihoodEstimation" -Dpath="/likelihood" -DnoExamples
+mvn io.quarkus:quarkus-maven-plugin:2.2.3.Final:create -DprojectGroupId=local.example.likelihood -DprojectArtifactId=max-likelihood-estimation -DclassName="local.example.likelihood.MaxLikelihoodEstimation" -Dpath="/likelihood" -DnoExamples
 ```
 
 ## Development mode:
