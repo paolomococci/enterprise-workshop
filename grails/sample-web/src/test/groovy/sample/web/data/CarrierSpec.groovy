@@ -36,8 +36,4 @@ class CarrierSpec
         expect:"fix me"
             true == false
     }
-
-    String toString() {
-        code
-    }
 }
