@@ -31,4 +31,8 @@ class Address {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }
