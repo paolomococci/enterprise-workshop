@@ -20,6 +20,15 @@ package sample.web.data
 
 class Item {
 
+    String code
+    String name
+    String description
+    Double value = 0.0
+
+    static belongsToTheCustomer = [customer: Customer]
+    static belongsToTheSupplier = [supplier: Supplier]
+    static hasManyInvoices = [invoices: Invoice]
+
     static constraints = {
     }
 }
