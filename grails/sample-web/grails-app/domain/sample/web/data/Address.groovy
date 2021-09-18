@@ -20,6 +20,15 @@ package sample.web.data
 
 class Address {
 
+    String code
+    String country
+    String location
+    String street
+    String civic
+
+    static belongsToTheCustomer = [customer: Customer]
+    static belongsToTheSupplier = [supplier: Supplier]
+
     static constraints = {
     }
 }
