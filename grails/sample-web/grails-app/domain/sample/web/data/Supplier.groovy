@@ -30,4 +30,8 @@ class Supplier {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }
