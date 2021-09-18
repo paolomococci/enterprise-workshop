@@ -26,6 +26,8 @@ class Carrier {
     static hasManyInvoices = [invoices: Invoice]
 
     static constraints = {
+        code size: 8..32, blank: false, unique: true
+        name size: 2..32, blank: false
     }
 
     String toString() {
