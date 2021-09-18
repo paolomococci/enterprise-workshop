@@ -20,6 +20,14 @@ package sample.web.data
 
 class Supplier {
 
+    String code
+    String name
+    String compartment
+
+    static hasManyItems = [items: Item]
+    static hasManyInvoices = [invoices: Invoice]
+    static hasManyAddresses = [addresses: Address]
+
     static constraints = {
     }
 }
