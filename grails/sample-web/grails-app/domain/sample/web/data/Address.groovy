@@ -30,6 +30,11 @@ class Address {
     static belongsToTheSupplier = [supplier: Supplier]
 
     static constraints = {
+        code size: 8..32, blank: false, unique: true
+        country size: 2..32, nullable: true
+        location size: 2..32, nullable: true
+        street size: 2..32, nullable: true
+        civic size: 1..8, nullable: true
     }
 
     String toString() {
