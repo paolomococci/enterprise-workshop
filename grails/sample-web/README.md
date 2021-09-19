@@ -8,7 +8,7 @@ grails
 grails> create-app sample-web --profile=web
 ```
 
-## make entities:
+## create the entities and add properties, constraints and methods to each of them:
 ```
 ./grailsw create-domain-class sample.web.data.Address
 ./grailsw create-domain-class sample.web.data.Carrier
