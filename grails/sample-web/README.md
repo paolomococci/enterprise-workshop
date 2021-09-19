@@ -32,3 +32,5 @@ grails> create-app sample-web --profile=web
 ```
 ./grailsw run-app
 ```
+
+![address view](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_grails_sample-web_address.png)
