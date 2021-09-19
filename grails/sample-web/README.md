@@ -24,4 +24,5 @@ grails> create-app sample-web --profile=web
 ./grailsw generate-all sample.web.data.Carrier
 ./grailsw generate-all sample.web.data.Customer
 ./grailsw generate-all sample.web.data.Invoice
+./grailsw generate-all sample.web.data.Item
 ```
