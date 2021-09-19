@@ -27,3 +27,8 @@ grails> create-app sample-web --profile=web
 ./grailsw generate-all sample.web.data.Item
 ./grailsw generate-all sample.web.data.Supplier
 ```
+
+## finally, start:
+```
+./grailsw run-app
+```
