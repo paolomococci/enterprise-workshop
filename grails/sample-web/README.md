@@ -17,3 +17,8 @@ grails> create-app sample-web --profile=web
 ./grailsw create-domain-class sample.web.data.Item
 ./grailsw create-domain-class sample.web.data.Supplier
 ```
+
+## and now everything else:
+```
+./grailsw generate-all sample.web.data.Address
+```
