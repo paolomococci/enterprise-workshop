@@ -21,4 +21,5 @@ grails> create-app sample-web --profile=web
 ## and now everything else:
 ```
 ./grailsw generate-all sample.web.data.Address
+./grailsw generate-all sample.web.data.Carrier
 ```
