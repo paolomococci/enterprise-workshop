@@ -1,0 +1,7 @@
+import sample.react.data.Address
+
+model {
+	Address address
+}
+
+json g.render(address, [resolveTemplate: false])
