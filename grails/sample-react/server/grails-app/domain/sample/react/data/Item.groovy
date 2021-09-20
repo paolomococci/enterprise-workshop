@@ -20,6 +20,23 @@ package sample.react.data
 
 class Item {
 
+    String code
+    String name
+    String description
+    Double value = 0.0
+
+    static belongsToTheCustomer = [customer: Customer]
+    static belongsToTheSupplier = [supplier: Supplier]
+    static hasManyInvoices = [invoices: Invoice]
+
     static constraints = {
+        code size: 8..32, blank: false, unique: true
+        name size: 4..32, nullable: true
+        description size: 8..64, nullable: true
+        value min: 0, nullable: true
+    }
+
+    String toString() {
+        code
     }
 }
