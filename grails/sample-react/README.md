@@ -26,3 +26,8 @@ grails> create-domain-class sample.react.data.Item
 grails> create-domain-class sample.react.data.Supplier
 grails> exit
 ```
+
+## and now everything else:
+```
+grails> generate-all sample.react.data.Address
+```
