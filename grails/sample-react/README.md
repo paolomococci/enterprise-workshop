@@ -34,4 +34,5 @@ grails> generate-all sample.react.data.Carrier
 grails> generate-all sample.react.data.Customer
 grails> generate-all sample.react.data.Invoice
 grails> generate-all sample.react.data.Item
+grails> generate-all sample.react.data.Supplier
 ```
