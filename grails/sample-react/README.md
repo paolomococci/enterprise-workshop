@@ -31,4 +31,5 @@ grails> exit
 ```
 grails> generate-all sample.react.data.Address
 grails> generate-all sample.react.data.Carrier
+grails> generate-all sample.react.data.Customer
 ```
