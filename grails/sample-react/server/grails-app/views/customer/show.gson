@@ -1,0 +1,7 @@
+import sample.react.data.Customer
+
+model {
+	Customer customer
+}
+
+json tmpl.customer(customer)
