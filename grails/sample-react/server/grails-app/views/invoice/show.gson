@@ -1,0 +1,7 @@
+import sample.react.data.Invoice
+
+model {
+	Invoice invoice
+}
+
+json tmpl.invoice(invoice)
