@@ -1,0 +1,7 @@
+import sample.react.data.Supplier
+
+model {
+	Supplier supplier
+}
+
+json tmpl.supplier(supplier)
