@@ -1,0 +1,7 @@
+import sample.react.data.Invoice
+
+model {
+	Iterable<Invoice> invoiceList
+}
+
+json tmpl.invoice(invoiceList ?: [])
