@@ -30,4 +30,5 @@ grails> exit
 ## and now everything else:
 ```
 grails> generate-all sample.react.data.Address
+grails> generate-all sample.react.data.Carrier
 ```
