@@ -1,0 +1,7 @@
+import sample.react.data.Customer
+
+model {
+	Customer customer
+}
+
+json g.render(customer, [resolveTemplate: false])
