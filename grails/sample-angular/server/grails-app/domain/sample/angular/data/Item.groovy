@@ -26,5 +26,9 @@ class Item {
     Double value = 0.0
 
     static constraints = {
+        code size: 8..32, blank: false, unique: true
+        name size: 4..32, nullable: true
+        description size: 8..64, nullable: true
+        value min: 0, nullable: true
     }
 }
