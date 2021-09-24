@@ -25,5 +25,8 @@ class Supplier {
     String compartment
 
     static constraints = {
+        code size: 8..32, blank: false, unique: true
+        name size: 2..32, blank: false
+        compartment size: 2..32, nullable: true
     }
 }
