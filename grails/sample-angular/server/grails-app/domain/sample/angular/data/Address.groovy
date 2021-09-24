@@ -20,6 +20,12 @@ package sample.angular.data
 
 class Address {
 
+    String code
+    String country
+    String location
+    String street
+    String civic
+
     static constraints = {
     }
 }
