@@ -20,6 +20,9 @@ package sample.angular.data
 
 class Carrier {
 
+    String code
+    String name
+
     static constraints = {
     }
 }
