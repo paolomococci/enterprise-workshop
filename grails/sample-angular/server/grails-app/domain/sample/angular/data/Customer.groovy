@@ -20,6 +20,12 @@ package sample.angular.data
 
 class Customer {
 
+    String code
+    String name
+    String surname
+    String gender
+    Integer age
+
     static constraints = {
     }
 }
