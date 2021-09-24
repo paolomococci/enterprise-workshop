@@ -20,6 +20,11 @@ package sample.angular.data
 
 class Item {
 
+    String code
+    String name
+    String description
+    Double value = 0.0
+
     static constraints = {
     }
 }
