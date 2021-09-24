@@ -20,6 +20,10 @@ package sample.angular.data
 
 class Supplier {
 
+    String code
+    String name
+    String compartment
+
     static constraints = {
     }
 }
