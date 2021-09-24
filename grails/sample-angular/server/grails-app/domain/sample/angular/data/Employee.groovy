@@ -28,4 +28,6 @@ import grails.rest.*
 )
 class Employee {
 
+    String code
+
 }
