@@ -21,7 +21,11 @@ package sample.angular.data
 
 import grails.rest.*
 
-@Resource(readOnly = false, formats = ['json', 'xml'])
+@Resource(
+        readOnly = false, 
+        formats = ['json', 'xml'], 
+        uri = '/api/manager'
+)
 class Manager {
 
 }
