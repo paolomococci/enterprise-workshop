@@ -18,7 +18,14 @@
 
 package sample.angular.data
 
+import java.sql.Date
+
 class Invoice {
+
+    String code
+    String cause
+    Date emission
+    Date promise
 
     static constraints = {
     }
