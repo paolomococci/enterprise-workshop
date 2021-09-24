@@ -28,5 +28,9 @@ class Invoice {
     Date promise
 
     static constraints = {
+        code size: 8..32, blank: false, unique: true
+        cause nullable: true
+        emission nullable: false
+        promise nullable: true
     }
 }
