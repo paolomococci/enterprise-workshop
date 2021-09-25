@@ -32,4 +32,9 @@ class Manager {
     String name
     String surname
 
+    static constraints = {
+        code size: 8..32, blank: false, unique: true
+        name size: 2..32, nullable: true
+        surname size: 2.32, nullable: true
+    }
 }
