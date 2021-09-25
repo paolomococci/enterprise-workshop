@@ -26,8 +26,11 @@ class Address {
     String street
     String civic
 
-    static belongsToTheCustomer = [customer: Customer]
-    static belongsToTheSupplier = [supplier: Supplier]
+    static belongsTo = [
+            customer: Customer,
+            supplier: Supplier,
+            warehouse: Warehouse
+    ]
 
     static constraints = {
         code size: 8..32, blank: false, unique: true
