@@ -1,0 +1,7 @@
+import sample.angular.data.Warehouse
+
+model {
+	Iterable<Warehouse> warehouseList
+}
+
+json tmpl.warehouse(warehouseList ?: [])
