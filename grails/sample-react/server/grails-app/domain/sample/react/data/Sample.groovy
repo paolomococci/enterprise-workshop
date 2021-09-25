@@ -21,7 +21,11 @@ package sample.react.data
 
 import grails.rest.*
 
-@Resource(readOnly = false, formats = ['json', 'xml'])
+@Resource(
+        readOnly = false,
+        formats = ['json', 'xml'],
+        uri = '/api/sample'
+)
 class Sample {
 
 }
