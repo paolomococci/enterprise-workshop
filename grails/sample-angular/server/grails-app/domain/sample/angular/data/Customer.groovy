@@ -26,6 +26,10 @@ class Customer {
     String gender
     Integer age
 
+    SortedSet items
+    SortedSet invoices
+    SortedSet addresses
+
     static hasMany = [
             items: Item,
             invoices: Invoice,
