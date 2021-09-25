@@ -27,6 +27,8 @@ class Invoice {
     Date emission
     Date promise
 
+    SortedSet items
+
     static belongsTo = [
             customer: Customer,
             supplier: Supplier,
