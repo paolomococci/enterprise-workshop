@@ -1,0 +1,7 @@
+import sample.angular.data.Carrier
+
+model {
+	Carrier carrier
+}
+
+json tmpl.carrier(carrier)
