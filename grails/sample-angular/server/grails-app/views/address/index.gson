@@ -1,0 +1,7 @@
+import sample.angular.data.Address
+
+model {
+	Iterable<Address> addressList
+}
+
+json tmpl.address(addressList ?: [])
