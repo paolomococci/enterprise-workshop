@@ -29,5 +29,7 @@ import grails.rest.*
 class Employee {
 
     String code
+    String name
+    String surname
 
 }
