@@ -1,0 +1,7 @@
+import sample.angular.data.Supplier
+
+model {
+	Iterable<Supplier> supplierList
+}
+
+json tmpl.supplier(supplierList ?: [])
