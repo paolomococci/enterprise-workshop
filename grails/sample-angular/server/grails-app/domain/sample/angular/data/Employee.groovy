@@ -32,6 +32,12 @@ class Employee {
     String name
     String surname
 
+    static hasMany = [
+            invoices: Invoice,
+            warehouses: Warehouse
+    ]
+    static belongsTo = [manager: Manager]
+
     static constraints = {
         code size: 8..32, blank: false, unique: true
         name size: 2..32, nullable: true
