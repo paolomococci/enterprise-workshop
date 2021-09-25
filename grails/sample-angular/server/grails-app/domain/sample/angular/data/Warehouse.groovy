@@ -29,5 +29,6 @@ import grails.rest.*
 class Warehouse {
 
     String code
+    String name
 
 }
