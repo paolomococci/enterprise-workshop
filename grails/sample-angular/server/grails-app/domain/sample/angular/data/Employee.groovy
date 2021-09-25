@@ -32,6 +32,9 @@ class Employee {
     String name
     String surname
 
+    SortedSet invoices
+    SortedSet warehouses
+
     static hasMany = [
             invoices: Invoice,
             warehouses: Warehouse
