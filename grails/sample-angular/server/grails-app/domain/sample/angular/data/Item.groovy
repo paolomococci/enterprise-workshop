@@ -31,4 +31,8 @@ class Item {
         description size: 8..64, nullable: true
         value min: 0, nullable: true
     }
+
+    String toString() {
+        code
+    }
 }
