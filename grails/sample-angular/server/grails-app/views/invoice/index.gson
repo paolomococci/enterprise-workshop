@@ -1,0 +1,7 @@
+import sample.angular.data.Invoice
+
+model {
+	Iterable<Invoice> invoiceList
+}
+
+json tmpl.invoice(invoiceList ?: [])
