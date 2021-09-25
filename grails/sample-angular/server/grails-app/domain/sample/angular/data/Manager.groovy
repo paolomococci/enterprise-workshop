@@ -29,5 +29,7 @@ import grails.rest.*
 class Manager {
 
     String code
+    String name
+    String surname
 
 }
