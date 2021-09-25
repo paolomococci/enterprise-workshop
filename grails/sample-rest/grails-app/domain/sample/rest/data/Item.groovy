@@ -25,9 +25,11 @@ class Item {
     String description
     Double value = 0.0
 
-    static belongsToTheCustomer = [customer: Customer]
-    static belongsToTheSupplier = [supplier: Supplier]
-    static hasManyInvoices = [invoices: Invoice]
+    static belongsTo = [
+            customer: Customer,
+            supplier: Supplier
+    ]
+    static hasMany = [invoices: Invoice]
 
     static constraints = {
         code size: 8..32, blank: false, unique: true
