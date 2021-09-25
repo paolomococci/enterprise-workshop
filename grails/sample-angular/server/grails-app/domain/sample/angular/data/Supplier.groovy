@@ -29,4 +29,8 @@ class Supplier {
         name size: 2..32, blank: false
         compartment size: 2..32, nullable: true
     }
+
+    String toString() {
+        code
+    }
 }
