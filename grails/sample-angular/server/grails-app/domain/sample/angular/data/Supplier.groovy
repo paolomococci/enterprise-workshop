@@ -24,6 +24,10 @@ class Supplier {
     String name
     String compartment
 
+    SortedSet items
+    SortedSet invoices
+    SortedSet addresses
+
     static hasMany = [
             items: Item,
             invoices: Invoice,
