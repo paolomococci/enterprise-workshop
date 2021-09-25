@@ -22,8 +22,8 @@ package sample.angular.data
 import grails.rest.*
 
 @Resource(
-        readOnly = false, 
-        formats = ['json', 'xml'], 
+        readOnly = false,
+        formats = ['json', 'xml'],
         uri = '/api/warehouse'
 )
 class Warehouse {
@@ -31,4 +31,8 @@ class Warehouse {
     String code
     String name
 
+    static constraints = {
+        code size: 8..32, blank: false, unique: true
+        name size: 2..32, blank: false
+    }
 }
