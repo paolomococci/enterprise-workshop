@@ -1,0 +1,7 @@
+import sample.angular.data.Warehouse
+
+model {
+	Warehouse warehouse
+}
+
+json tmpl.warehouse(warehouse)
