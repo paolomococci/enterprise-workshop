@@ -33,4 +33,8 @@ class Address {
         street size: 2..32, nullable: true
         civic size: 1..8, nullable: true
     }
+
+    String toString() {
+        code
+    }
 }
