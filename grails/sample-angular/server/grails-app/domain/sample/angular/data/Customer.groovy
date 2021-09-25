@@ -33,4 +33,8 @@ class Customer {
         gender size: 4..16, nullable: true
         age min: 18, nullable: true
     }
+
+    String toString() {
+        code
+    }
 }
