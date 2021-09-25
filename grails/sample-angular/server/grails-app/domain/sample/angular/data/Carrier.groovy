@@ -23,6 +23,8 @@ class Carrier {
     String code
     String name
 
+    SortedSet invoices
+
     static hasMany = [invoices: Invoice]
 
     static constraints = {
