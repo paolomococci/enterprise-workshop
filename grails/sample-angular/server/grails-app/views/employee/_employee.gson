@@ -1,0 +1,7 @@
+import sample.angular.data.Employee
+
+model {
+	Employee employee
+}
+
+json g.render(employee, [resolveTemplate: false])
