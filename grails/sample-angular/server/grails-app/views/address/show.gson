@@ -1,0 +1,7 @@
+import sample.angular.data.Address
+
+model {
+	Address address
+}
+
+json tmpl.address(address)
