@@ -26,9 +26,11 @@ class Customer {
     String gender
     Integer age
 
-    static hasManyItems = [items: Item]
-    static hasManyInvoices = [invoices: Invoice]
-    static hasManyAddresses = [addresses: Address]
+    static hasMany = [
+            items: Item,
+            invoices: Invoice,
+            addresses: Address
+    ]
 
     static constraints = {
         code size: 8..32, blank: false, unique: true
