@@ -25,6 +25,8 @@ class Item {
     String description
     Double value = 0.0
 
+    SortedSet invoices
+
     static belongsTo = [
             customer: Customer,
             supplier: Supplier
