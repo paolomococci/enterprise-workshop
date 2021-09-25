@@ -32,6 +32,8 @@ class Manager {
     String name
     String surname
 
+    SortedSet employees
+
     static hasMany = [employees: Employee]
 
     static constraints = {
