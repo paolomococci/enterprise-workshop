@@ -22,8 +22,8 @@ package sample.angular.data
 import grails.rest.*
 
 @Resource(
-        readOnly = false, 
-        formats = ['json', 'xml'], 
+        readOnly = false,
+        formats = ['json', 'xml'],
         uri = '/api/employee'
 )
 class Employee {
@@ -36,5 +36,9 @@ class Employee {
         code size: 8..32, blank: false, unique: true
         name size: 2..32, nullable: true
         surname size: 2.32, nullable: true
+    }
+
+    String toString() {
+        code
     }
 }
