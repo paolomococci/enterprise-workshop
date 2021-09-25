@@ -1,0 +1,7 @@
+import sample.angular.data.Manager
+
+model {
+	Manager manager
+}
+
+json tmpl.manager(manager)
