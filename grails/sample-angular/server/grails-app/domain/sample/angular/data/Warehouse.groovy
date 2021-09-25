@@ -31,12 +31,15 @@ class Warehouse {
     String code
     String name
 
+    Address address
+
     static hasOne = [address: Address]
     static belongsTo = [employee: Employee]
 
     static constraints = {
         code size: 8..32, blank: false, unique: true
         name size: 2..32, blank: false
+        address unique: true, nullable: true
     }
 
     String toString() {
