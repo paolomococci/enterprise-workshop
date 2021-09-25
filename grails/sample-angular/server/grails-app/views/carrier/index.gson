@@ -1,0 +1,7 @@
+import sample.angular.data.Carrier
+
+model {
+	Iterable<Carrier> carrierList
+}
+
+json tmpl.carrier(carrierList ?: [])
