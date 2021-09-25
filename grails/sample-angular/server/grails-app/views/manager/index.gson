@@ -1,0 +1,7 @@
+import sample.angular.data.Manager
+
+model {
+	Iterable<Manager> managerList
+}
+
+json tmpl.manager(managerList ?: [])
