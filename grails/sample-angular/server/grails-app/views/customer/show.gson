@@ -1,0 +1,7 @@
+import sample.angular.data.Customer
+
+model {
+	Customer customer
+}
+
+json tmpl.customer(customer)
