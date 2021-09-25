@@ -27,10 +27,12 @@ class Invoice {
     Date emission
     Date promise
 
-    static belongsToTheCustomer = [customer: Customer]
-    static belongsToTheSupplier = [supplier: Supplier]
-    static belongsToTheCarrier = [carrier: Carrier]
-    static hasManyItems = [items: Item]
+    static belongsTo = [
+            customer: Customer,
+            supplier: Supplier,
+            carrier: Carrier
+    ]
+    static hasMany = [items: Item]
 
     static constraints = {
         code size: 8..32, blank: false, unique: true
