@@ -41,3 +41,11 @@ grails> generate-all sample.angular.data.Manager
 grails> generate-all sample.angular.data.Supplier
 grails> generate-all sample.angular.data.Warehouse
 ```
+
+## Client side:
+```
+cd ../client
+ng help
+ng generate --help
+ng generate component Address
+```
