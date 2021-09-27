@@ -10,6 +10,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {HttpClientModule} from "@angular/common/http";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import { AddressComponent } from './address/address.component';
+import { CarrierComponent } from './carrier/carrier.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AddressComponent } from './address/address.component';
     AppComponent,
     IndexComponent,
     NavComponent,
-    AddressComponent
+    AddressComponent,
+    CarrierComponent
   ],
   imports: [
     BrowserModule,
