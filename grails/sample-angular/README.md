@@ -52,4 +52,5 @@ ng help
 ng generate --help
 ng generate component Address
 ng generate component Carrier
+ng generate component Customer
 ```
