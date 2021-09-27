@@ -15,6 +15,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { ItemComponent } from './item/item.component';
+import { ManagerComponent } from './manager/manager.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ItemComponent } from './item/item.component';
     CustomerComponent,
     EmployeeComponent,
     InvoiceComponent,
-    ItemComponent
+    ItemComponent,
+    ManagerComponent
   ],
   imports: [
     BrowserModule,
