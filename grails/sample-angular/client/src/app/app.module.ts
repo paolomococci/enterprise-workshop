@@ -13,6 +13,7 @@ import { AddressComponent } from './address/address.component';
 import { CarrierComponent } from './carrier/carrier.component';
 import { CustomerComponent } from './customer/customer.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { EmployeeComponent } from './employee/employee.component';
     AddressComponent,
     CarrierComponent,
     CustomerComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,
