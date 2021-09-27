@@ -8,8 +8,9 @@ grails
 grails> create-app sample-angular --profile=angular
 grails> exit
 ```
+## Server side
 
-## create the domain resources:
+### create the domain resources:
 ```
 cd server
 grails
@@ -18,7 +19,7 @@ grails> create-domain-resource sample.angular.data.Manager
 grails> create-domain-resource sample.angular.data.Warehouse
 ```
 
-## create the domain classes:
+### create the domain classes:
 ```
 grails> create-domain-class sample.angular.data.Address
 grails> create-domain-class sample.angular.data.Carrier
@@ -29,7 +30,7 @@ grails> create-domain-class sample.angular.data.Supplier
 grails> exit
 ```
 
-## after adding properties, constraints and methods to each entity:
+### after adding properties, constraints and methods to each entity:
 ```
 grails> generate-all sample.angular.data.Address
 grails> generate-all sample.angular.data.Carrier
@@ -42,7 +43,9 @@ grails> generate-all sample.angular.data.Supplier
 grails> generate-all sample.angular.data.Warehouse
 ```
 
-## Client side:
+## Client side
+
+### generate components:
 ```
 cd ../client
 ng help
