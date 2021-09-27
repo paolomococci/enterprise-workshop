@@ -16,6 +16,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { ItemComponent } from './item/item.component';
 import { ManagerComponent } from './manager/manager.component';
+import { SupplierComponent } from './supplier/supplier.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ManagerComponent } from './manager/manager.component';
     EmployeeComponent,
     InvoiceComponent,
     ItemComponent,
-    ManagerComponent
+    ManagerComponent,
+    SupplierComponent
   ],
   imports: [
     BrowserModule,
