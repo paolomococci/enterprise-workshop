@@ -12,6 +12,7 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import { AddressComponent } from './address/address.component';
 import { CarrierComponent } from './carrier/carrier.component';
 import { CustomerComponent } from './customer/customer.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CustomerComponent } from './customer/customer.component';
     NavComponent,
     AddressComponent,
     CarrierComponent,
-    CustomerComponent
+    CustomerComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
