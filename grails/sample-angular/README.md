@@ -58,4 +58,5 @@ ng generate component Invoice
 ng generate component Item
 ng generate component Manager
 ng generate component Supplier
+ng generate component Warehouse
 ```
