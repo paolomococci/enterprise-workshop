@@ -51,4 +51,5 @@ cd ../client
 ng help
 ng generate --help
 ng generate component Address
+ng generate component Carrier
 ```
