@@ -56,4 +56,5 @@ ng generate component Customer
 ng generate component Employee
 ng generate component Invoice
 ng generate component Item
+ng generate component Manager
 ```
