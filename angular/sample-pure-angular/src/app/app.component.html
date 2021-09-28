@@ -1,1 +1,82 @@
 
+<style>
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #17d;
+    color: white;
+    font-weight: 600;
+  }
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card.highlight-card {
+    background-color: #17d;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <span></span>
+</div>
+
+<div class="content" role="main">
+
+  <!-- Highlight Card -->
+  <div class="card highlight-card card-small">
+
+    <span>{{ title }} web app at work!</span>
+
+  </div>
+
+  <!-- TODO -->
+  <h2>To do</h2>
+
+</div>
+
+<!-- Footer -->
+<footer>
+
+</footer>
+
+<router-outlet></router-outlet>
