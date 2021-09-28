@@ -10,3 +10,8 @@ ng new sample-pure-angular
 cd sample-pure-angular
 ng serve --open
 ```
+
+## Here's generating a sample component
+```
+ng generate component Sample
+```
