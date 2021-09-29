@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Assertions;
 import jakarta.inject.Inject;
 
 @MicronautTest
-class SampleTest {
+class ItWorkTest {
 
     @Inject
     EmbeddedApplication<?> application;
@@ -36,5 +36,4 @@ class SampleTest {
     void testItWorks() {
         Assertions.assertTrue(application.isRunning());
     }
-
 }
