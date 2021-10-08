@@ -5,7 +5,7 @@
 From the shell I used the following commands:
 ```
 dotnet new webapp -o ETryst --no-https
-cd Course
+cd ETryst
 dotnet watch run
 ```
 ## I add what is needed to connect this demo to a database server MariaDB
