@@ -21,7 +21,7 @@
     "@vaadin/vaadin-checkbox": "21.0.3",
     "@vaadin/vaadin-combo-box": "21.0.3",
     "@vaadin/vaadin-context-menu": "21.0.3",
-    "@vaadin/vaadin-core-shrinkwrap": "21.0.3",
+    "@vaadin/vaadin-core-shrinkwrap": "21.0.4",
     "@vaadin/vaadin-custom-field": "21.0.3",
     "@vaadin/vaadin-date-picker": "21.0.3",
     "@vaadin/vaadin-date-time-picker": "21.0.3",
@@ -50,7 +50,7 @@
     "@vaadin/vaadin-time-picker": "21.0.3",
     "@vaadin/vaadin-upload": "21.0.3",
     "@vaadin/vaadin-virtual-list": "21.0.3",
-    "construct-style-sheets-polyfill": "2.4.16",
+    "construct-style-sheets-polyfill": "3.0.4",
     "lit": "2.0.0"
   },
   "description": "example of Vaadin web application",
@@ -96,7 +96,7 @@
       "@vaadin/vaadin-checkbox": "21.0.3",
       "@vaadin/vaadin-combo-box": "21.0.3",
       "@vaadin/vaadin-context-menu": "21.0.3",
-      "@vaadin/vaadin-core-shrinkwrap": "21.0.3",
+      "@vaadin/vaadin-core-shrinkwrap": "21.0.4",
       "@vaadin/vaadin-custom-field": "21.0.3",
       "@vaadin/vaadin-date-picker": "21.0.3",
       "@vaadin/vaadin-date-time-picker": "21.0.3",
@@ -125,7 +125,7 @@
       "@vaadin/vaadin-time-picker": "21.0.3",
       "@vaadin/vaadin-upload": "21.0.3",
       "@vaadin/vaadin-virtual-list": "21.0.3",
-      "construct-style-sheets-polyfill": "2.4.16",
+      "construct-style-sheets-polyfill": "3.0.4",
       "lit": "2.0.0"
     },
     "devDependencies": {
