@@ -6,7 +6,7 @@ plugins {
 
 group = 'local.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '17'
 
 compileJava.options.compilerArgs = ['-Xlint:unchecked','-Xlint:deprecation']
 
@@ -21,7 +21,7 @@ repositories {
 }
 
 ext {
-	set('vaadinVersion', "21.0.4")
+	set('vaadinVersion', "21.0.7")
 }
 
 dependencies {
