@@ -18,15 +18,15 @@
 
 package local.example.said.view.component;
 
-import com.vaadin.flow.component.combobox.ComboBox;
+//import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.customfield.CustomField;
-import com.vaadin.flow.component.textfield.TextField;
+//import com.vaadin.flow.component.textfield.TextField;
 
 public class PhoneNumberComponent
         extends CustomField<String> {
 
-    private ComboBox<String> countryCode = new ComboBox<>();
-    private TextField number = new TextField();
+    //private ComboBox<String> countryCode = new ComboBox<>();
+    //private TextField number = new TextField();
 
     public PhoneNumberComponent(String label) {
         this.setLabel(label);
