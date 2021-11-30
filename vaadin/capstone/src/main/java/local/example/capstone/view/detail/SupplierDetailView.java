@@ -18,7 +18,6 @@
 
 package local.example.capstone.view.detail;
 
-import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -52,7 +51,7 @@ import java.util.Optional;
 @JsModule("./views/details/supplier-detail-view.ts")
 public class SupplierDetailView
         extends LitTemplate
-        implements HasStyle, BeforeEnterObserver {
+        implements BeforeEnterObserver {
 
     private final String SUPPLIER_ID = "supplierID";
     private final String SUPPLIER_EDIT_ROUTE_TEMPLATE = "supplier-detail/%d/edit";
