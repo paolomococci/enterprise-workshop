@@ -47,13 +47,12 @@ import local.example.capstone.view.helper.HorizontalMenuItemHelper;
 public class MainView
         extends AppLayout {
 
-    private final Tabs horizontalMenuTabs;
     private final Tabs verticalMenuTabs;
     private H1 appTitle;
 
     public MainView() {
         this.setPrimarySection(Section.DRAWER);
-        this.horizontalMenuTabs = this.createHorizontalMenu();
+        this.createHorizontalMenu();
         this.addToNavbar(
                 true,
                 this.createTopNavbar(
