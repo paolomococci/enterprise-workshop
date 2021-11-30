@@ -18,7 +18,6 @@
 
 package local.example.capstone.view.detail;
 
-import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -52,7 +51,7 @@ import java.util.Optional;
 @JsModule("./views/details/crew-detail-view.ts")
 public class CrewDetailView
         extends LitTemplate
-        implements HasStyle, BeforeEnterObserver {
+        implements BeforeEnterObserver {
 
     private final String CREW_ID = "crewID";
     private final String CREW_EDIT_ROUTE_TEMPLATE = "crew-detail/%d/edit";
