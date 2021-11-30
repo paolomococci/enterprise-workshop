@@ -18,7 +18,6 @@
 
 package local.example.capstone.view.detail;
 
-import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -53,7 +52,7 @@ import java.util.Optional;
 @JsModule("./views/details/invoice-detail-view.ts")
 public class InvoiceDetailView
         extends LitTemplate
-        implements HasStyle, BeforeEnterObserver {
+        implements BeforeEnterObserver {
 
     private final String INVOICE_ID = "invoiceID";
     private final String INVOICE_EDIT_ROUTE_TEMPLATE = "invoice-detail/%d/edit";
