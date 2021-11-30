@@ -18,7 +18,6 @@
 
 package local.example.capstone.view.detail;
 
-import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -54,7 +53,7 @@ import java.util.Optional;
 @JsModule("./views/details/contact-detail-view.ts")
 public class ContactDetailView
         extends LitTemplate
-        implements HasStyle, BeforeEnterObserver {
+        implements BeforeEnterObserver {
 
     private final String CONTACT_ID = "contactID";
     private final String CONTACT_EDIT_ROUTE_TEMPLATE = "contact-detail/%d/edit";
