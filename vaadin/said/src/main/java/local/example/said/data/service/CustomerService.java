@@ -33,14 +33,14 @@ public class CustomerService {
     private static final Logger LOGGER = Logger
             .getLogger(CustomerService.class.getName());
     private CustomerRepository customerRepository;
-    private AddressRepository addressRepository;
+    //private AddressRepository addressRepository;
 
     public CustomerService(
             CustomerRepository customerRepository,
             AddressRepository addressRepository
     ) {
         this.customerRepository = customerRepository;
-        this.addressRepository = addressRepository;
+        //this.addressRepository = addressRepository;
     }
 
     public List<Customer> findAll() {
