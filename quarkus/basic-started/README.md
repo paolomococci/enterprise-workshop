@@ -3,17 +3,20 @@
 A simple example to start developing with Quarkus.
 
 ## I proceed with the scaffolding thanks to maven, version 3.8.1:
-```
+
+```shell
 mvn io.quarkus:quarkus-maven-plugin:2.6.0.Final:create -DprojectGroupId=local.example -DprojectArtifactId=basic-started -DclassName="local.example.basic.ApplicationResource" -Dpath="/basic"
 ```
 
 ## I add extensions to access PostgreSQL
-```
+
+```shell
 ./mvnw quarkus:add-extension -Dextensions="quarkus-hibernate-orm-panache,quarkus-jdbc-postgresql,quarkus-resteasy-jackson"
 ```
 
 ## example of use:
-```
+
+```shell
 $ curl -v -i -H "Content-Type:application/json" -d "{\"code\":\"21002347\",\"name\":\"someone\",\"description\":\"some description\"}" http://127.0.0.1:8080/things
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
@@ -94,7 +97,8 @@ HTTP/1.1 204 No Content
 ```
 
 ## when there are no entities registered in the system you will get
-```
+
+```shell
 $ curl -v -i http://127.0.0.1:8080/things
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
