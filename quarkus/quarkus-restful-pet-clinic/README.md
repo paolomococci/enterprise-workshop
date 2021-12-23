@@ -3,12 +3,14 @@
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
-```
+
+```shell
 ./mvnw compile quarkus:dev
 ```
 
 ## Tests:
-```
+
+```shell
 $ curl -d '{"name": "John"}' -H "Content-Type: application/json" http://localhost:8080/rest-owner
 {"id":1,"name":"John"}
 
