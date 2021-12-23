@@ -1,6 +1,6 @@
 # From within the directory where the Dockerfile is, you can run the following commands:
 
-```
+```shell
 sudo docker build --tag mariadb_image .
 sudo docker image ls
 sudo docker run -d --name example_store -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 mariadb_image
