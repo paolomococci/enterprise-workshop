@@ -1,19 +1,23 @@
 # demo web application developed thanks to Symfony
 
 ## I make a new Symfony project with website-skeleton
-```
+
+```shell
 $ composer create-project symfony/website-skeleton sample_web
 ...
 ```
+
 ## and I edit .env
-```
+
+```text
 ...
 DATABASE_URL="mysql://username:password@127.0.0.1:3306/sample_web_db"
 ...
 ```
 
 ## I add a controller
-```
+
+```shell
 $ php bin/console make:controller
 
  Choose a name for your controller class (e.g. TinyChefController):
@@ -28,8 +32,10 @@ $ php bin/console make:controller
 
  Next: Open your new controller class and add some pages!
 ```
+
 ## now I add the web server component
-```
+
+```shell
 $ composer require symfony/web-server-bundle 4.4
 ./composer.json has been updated
 Running composer update symfony/web-server-bundle
@@ -49,8 +55,10 @@ composer/package-versions-deprecated: ...done generating version class
 Use the `composer fund` command to find out more!
 ...
 ```
+
 ## I start the server, really useful in this development phase
-```
+
+```shell
 $ php bin/console server:run
 
                                                                                                                         
@@ -64,8 +72,10 @@ Listening on http://127.0.0.1:8000
 Document root is /home/paolo/Workbench/workspace/enterprise-workshop/symfony/sample_web/public
 Press Ctrl-C to quit.
 ```
+
 ## after stopping the server, I integrate an bug fixing component
-```
+
+```shell
 $ composer require friendsofphp/php-cs-fixer
 Using version ^2.18 for friendsofphp/php-cs-fixer
 ./composer.json has been updated
@@ -94,8 +104,10 @@ Executing script assets:install public [OK]
 
 Nothing to unpack
 ```
+
 ## list of available commands
-```
+
+```shell
 $ php bin/console list
 Symfony 5.2.6 (env: dev, debug: true)
 
@@ -221,8 +233,10 @@ Available commands:
  translation
   translation:update                         Update the translation file
 ```
+
 ## now I check the route /sample
-```
+
+```shell
 $ php bin/console router:match /sample
 
 
@@ -247,8 +261,10 @@ $ php bin/console router:match /sample
 |              | utf8: true                                              |
 +--------------+---------------------------------------------------------+
 ```
+
 ## after having additional controllers, I check all routes
-```
+
+```shell
 $ php bin/console debug:router
  -------------------------- ---------- -------- ------ ----------------------------------- 
   Name                       Method     Scheme   Host   Path                               
@@ -270,8 +286,10 @@ $ php bin/console debug:router
   sample                     GET|HEAD   ANY      ANY    /sample                            
  -------------------------- ---------- -------- ------ ----------------------------------- 
 ```
+
 ## finally I create an entity giving it the name Item
-```
+
+```shell
 $ php bin/console make:entity
 
  Class name of the entity to create or update (e.g. GentlePuppy):
@@ -332,8 +350,10 @@ $ php bin/console make:entity
 
  Next: When you're ready, create a migration with php bin/console make:migration
 ```
+
 ## now I create the file necessary for the so-called "migration"
-```
+
+```shell
 $ php bin/console make:migration
 
 
@@ -345,8 +365,10 @@ $ php bin/console make:migration
  Then: Run the migration with php bin/console doctrine:migrations:migrate
  ...
 ```
+
 ## and I carry out the actual "migration"
-```
+
+```shell
 $ php bin/console doctrine:migrations:migrate
 
  WARNING! You are about to execute a migration in database "sample_web_db" that could result in schema changes and data loss. Are you sure you wish to continue? (yes/no) [yes]:
@@ -355,8 +377,10 @@ $ php bin/console doctrine:migrations:migrate
 [notice] Migrating up to DoctrineMigrations\Version20210425163729
 [notice] finished in 31.5ms, used 20M memory, 1 migrations executed, 1 sql queries
 ```
+
 ## and now I make the CRUD interface
-```
+
+```shell
 $ php bin/console make:crud Item
 
  Choose a name for your controller class (e.g. ItemController) [ItemController]:
