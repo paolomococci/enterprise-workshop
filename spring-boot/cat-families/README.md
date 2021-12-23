@@ -1,10 +1,12 @@
 # cat-families, example of use standard APIs
+
 web application to manage the relationships between cats, their breeders and the cat shows they participate in
 
 ## relate entities of type OneToMany and ManyToOne
 
 ### having available the two entities mother and son
-```
+
+```shell
 $ curl -v -i -H "Content-Type:application/json" -d "{\"code\":\"0044556677\",\"name\":\"Mommycat\",\"level\":\"AWESOME\",\"birthday\":\"2018-04-18\"}" http://127.0.0.1:9090/mothers
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
@@ -110,7 +112,8 @@ Date: Wed, 07 Jul 2021 13:23:25 GMT
 ```
 
 ### to establish a relationship the OneToMany URI must be sent to the related ManyToOne sub-URI, taking care to use "Content-Type:text/uri-list"
-```
+
+```shell
 $ curl -v -i -X PUT -H "Content-Type:text/uri-list" -d "http://127.0.0.1:9090/mothers/2" http://127.0.0.1:9090/sons/3/mother
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
@@ -244,7 +247,8 @@ Date: Wed, 07 Jul 2021 14:01:24 GMT
 ```
 
 ### finally, to remove a relationship
-```
+
+```shell
 $ curl -i -X DELETE http://127.0.0.1:9090/sons/3/mother
 HTTP/1.1 204 
 Vary: Origin
@@ -318,7 +322,8 @@ Date: Wed, 07 Jul 2021 14:35:08 GMT
 ## relate entities of type ManyToMany
 
 ### having available the two entities breeder and exposure, previously registered in the system
-```
+
+```shell
 $ curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://127.0.0.1:9090/exposures/4" http://127.0.0.1:9090/breeders/1/exposures
 HTTP/1.1 204 
 Vary: Origin
@@ -438,7 +443,8 @@ Date: Wed, 07 Jul 2021 14:50:42 GMT
 ```
 
 ### now, to remove the relationship it will be necessary to indicate at the end of the URI the identifier of the related entity that you want to elide
-```
+
+```shell
 $ curl -i -X DELETE http://127.0.0.1:9090/breeders/1/exposures/4
 HTTP/1.1 204 
 Vary: Origin
