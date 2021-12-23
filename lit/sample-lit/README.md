@@ -4,14 +4,19 @@
 
 
 type the following command and then answer a series of questions
+
+```shell
+npm init @open-wc
 ```
-$ npm init @open-wc
-```
+
 change to the project directory
+
+```shell
+cd sample-lit
 ```
-$ cd sample-lit
-```
+
 start the test server
-```
-$ npm run start
+
+```shell
+npm run start
 ```
