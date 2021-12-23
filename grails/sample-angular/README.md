@@ -1,17 +1,20 @@
 # sample-angular
 
 ## scaffolding:
-```
+
+```shell
 mkdir sample-angular
 cd sample-angular
 grails
 grails> create-app sample-angular --profile=angular
 grails> exit
 ```
+
 ## Server side
 
 ### create the domain resources:
-```
+
+```shell
 cd server
 grails
 grails> create-domain-resource sample.angular.data.Employee
@@ -20,7 +23,8 @@ grails> create-domain-resource sample.angular.data.Warehouse
 ```
 
 ### create the domain classes:
-```
+
+```shell
 grails> create-domain-class sample.angular.data.Address
 grails> create-domain-class sample.angular.data.Carrier
 grails> create-domain-class sample.angular.data.Customer
@@ -31,7 +35,8 @@ grails> exit
 ```
 
 ### after adding properties, constraints and methods to each entity:
-```
+
+```shell
 grails> generate-all sample.angular.data.Address
 grails> generate-all sample.angular.data.Carrier
 grails> generate-all sample.angular.data.Customer
@@ -46,7 +51,8 @@ grails> generate-all sample.angular.data.Warehouse
 ## Client side
 
 ### generate components:
-```
+
+```shell
 cd ../client
 ng help
 ng generate --help
