@@ -30,40 +30,40 @@ Laravel Framework 7.30.4
 ## I created the model of interest
 
 ```shell
-$ php artisan make:model Models/Student -m
-$ php artisan migrate
+php artisan make:model Models/Student -m
+php artisan migrate
 ```
 
 ## I created the controller
 
 ```shell
-$ php artisan make:controller StudentController --resource
+php artisan make:controller StudentController --resource
 ```
 
 ## I added user interface support
 
 ```shell
-$ composer require laravel/ui
-$ php artisan ui bootstrap
-$ npm install
+composer require laravel/ui
+php artisan ui bootstrap
+npm install
 ```
 
 ## possibly, if necessary
 
 ```shell
-$ npm audit fix --force
+npm audit fix --force
 ```
 
 # finally
 
 ```shell
-$ npm run dev
+npm run dev
 ```
 
 ## I check the path of the resources
 
 ```shell
-$ php artisan route:list
+php artisan route:list
 +--------+-----------+-------------------------+------------------+------------------------------------------------+------------+
 | Domain | Method    | URI                     | Name             | Action                                         | Middleware |
 +--------+-----------+-------------------------+------------------+------------------------------------------------+------------+
@@ -83,23 +83,23 @@ $ php artisan route:list
 ## I start the server for the usage test
 
 ```shell
-$ php artisan serve
+php artisan serve
 ```
 
 ## I resize the application by adding five more entities
 
 ```shell
-$ php artisan make:model -a Models/Tutor
-$ php artisan make:model -a Models/Teacher
-$ php artisan make:model -a Models/Employee
-$ php artisan make:model -a Models/Chancellor
-$ php artisan make:model -a Models/President
+php artisan make:model -a Models/Tutor
+php artisan make:model -a Models/Teacher
+php artisan make:model -a Models/Employee
+php artisan make:model -a Models/Chancellor
+php artisan make:model -a Models/President
 ```
 
 ## again, I check the path of the resources
 
 ```shell
-$ php artisan route:list
+php artisan route:list
 +--------+-----------+-------------------------------+---------------------+---------------------------------------------------+------------+
 | Domain | Method    | URI                           | Name                | Action                                            | Middleware |
 +--------+-----------+-------------------------------+---------------------+---------------------------------------------------+------------+
@@ -154,7 +154,7 @@ $ php artisan route:list
 ## migrating
 
 ```shell
-$ php artisan migrate
+php artisan migrate
 Migrating: 2021_04_05_014745_create_tutors_table
 Migrated:  2021_04_05_014745_create_tutors_table (0.02 seconds)
 Migrating: 2021_04_05_014837_create_teachers_table
@@ -170,16 +170,16 @@ Migrated:  2021_04_05_015019_create_presidents_table (0.02 seconds)
 ## if corrections need to be made
 
 ```shell
-$ php artisan migrate:refresh
+php artisan migrate:refresh
 ...
 ```
 
 ## I maked the Faculty entity
 
 ```shell
-$ php artisan make:model -a Models/Faculty
-$ php artisan migrate:refresh
-$ php artisan route:list
+php artisan make:model -a Models/Faculty
+php artisan migrate:refresh
+php artisan route:list
 +--------+-----------+-------------------------------+---------------------+-------------------------------------------------------+------------+
 | Domain | Method    | URI                           | Name                | Action                                                | Middleware |
 +--------+-----------+-------------------------------+---------------------+-------------------------------------------------------+------------+
@@ -241,13 +241,13 @@ $ php artisan route:list
 ## I added the following relationships between entities
 
 ```shell
-$ php artisan make:migration create_students_faculties_relation_table
+php artisan make:migration create_students_faculties_relation_table
 Created Migration: 2021_04_14_091407_create_students_faculties_relation_table
-$ php artisan make:migration create_tutors_faculties_relation_table
+php artisan make:migration create_tutors_faculties_relation_table
 Created Migration: 2021_04_14_091436_create_tutors_faculties_relation_table
-$ php artisan make:migration create_teachers_faculties_relation_table
+php artisan make:migration create_teachers_faculties_relation_table
 Created Migration: 2021_04_14_091507_create_teachers_faculties_relation_table
-$ php artisan migrate
+php artisan migrate
 Migrating: 2021_04_14_091407_create_students_faculties_relation_table
 Migrated:  2021_04_14_091407_create_students_faculties_relation_table (0.02 seconds)
 Migrating: 2021_04_14_091436_create_tutors_faculties_relation_table
@@ -259,7 +259,7 @@ Migrated:  2021_04_14_091507_create_teachers_faculties_relation_table (0.01 seco
 ## I test API from another terminal window
 
 ```shell
-$ curl -v -i http://localhost:8000/api/students
+curl -v -i http://localhost:8000/api/students
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
 * Connected to localhost (127.0.0.1) port 8000 (#0)
@@ -294,7 +294,7 @@ Access-Control-Allow-Origin: *
 < 
 * Closing connection 0
 []
-$ curl -v -i http://localhost:8000/api/tutors
+curl -v -i http://localhost:8000/api/tutors
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
 * Connected to localhost (127.0.0.1) port 8000 (#0)
@@ -339,7 +339,7 @@ Access-Control-Allow-Origin: *
 * 2021_04_14_091507_create_teachers_faculties_relation_table.php
 
 ```shell
-$ php artisan migrate:refresh
+php artisan migrate:refresh
 Rolling back: 2021_04_14_091507_create_teachers_faculties_relation_table
 Rolled back:  2021_04_14_091507_create_teachers_faculties_relation_table (0.01 seconds)
 Rolling back: 2021_04_14_091436_create_tutors_faculties_relation_table
@@ -397,11 +397,11 @@ Migrated:  2021_04_14_091507_create_teachers_faculties_relation_table (0.11 seco
 ## I'm going to structure the relationship between the president and the chancellors
 
 ```shell
-$ php artisan make:migration create_presidents_chancellors_relation_table
+php artisan make:migration create_presidents_chancellors_relation_table
 Created Migration: 2021_04_14_155436_create_presidents_chancellors_relation_table
-$ php artisan migrate
+php artisan migrate
 Migrating: 2021_04_14_155436_create_presidents_chancellors_relation_table
 Migrated:  2021_04_14_155436_create_presidents_chancellors_relation_table (0.02 seconds)
-$ php artisan migrate:refresh
+php artisan migrate:refresh
 ...
 ```
