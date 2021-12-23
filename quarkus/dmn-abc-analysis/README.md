@@ -1,6 +1,7 @@
 # dmn-abc-analysis
 
 ## Premise
+
 Let's imagine, for the sole purpose of practicing web services programming, a company that not only does not care about optimizing its production processes, but that tries to fulfill customer orders as they arrive, without assigning them a priority.
 Imagine a management that forces the production and packaging departments to a continuous reorganization of machinery tooling and the warehouse department to a continuous movement of material that is rarely used in its entirety, therefore leaving cluttered remains on the shelves.
 The most embarrassing thing is that very often the fulfillment of the orders of the best customers is interrupted to satisfy a swarm of small customers, whose work orders of even a few minutes and for a handful of pieces are thrown here and there, at random.
@@ -12,6 +13,7 @@ In other words, eighty percent of sales comes from orders placed by twenty perce
 Furthermore, framing everything in a perspective of logistical efficiency for which the components that are needed are ordered, when they are needed and in the strictly necessary quantity; making sure that there is no reflux of material that is only partially used and potentially contaminated.
 
 ## Scaffolding
-```
+
+```shell
 mvn io.quarkus:quarkus-maven-plugin:2.6.0.Final:create -DprojectGroupId=local.example -DprojectArtifactId=dmn-abc-analysis -Dextensions="dmn" -DnoExamples
 ```
