@@ -1,7 +1,8 @@
 # sample-react
 
 ## scaffolding:
-```
+
+```shell
 mkdir sample-react
 cd sample-react
 grails
@@ -10,14 +11,16 @@ grails> exit
 ```
 
 ## create a sample domain resource:
-```
+
+```shell
 cd server
 grails
 grails> create-domain-resource sample.react.data.Sample
 ```
 
 ## create the domain classes and add properties, constraints and methods to each of them:
-```
+
+```shell
 grails> create-domain-class sample.react.data.Address
 grails> create-domain-class sample.react.data.Carrier
 grails> create-domain-class sample.react.data.Customer
@@ -28,7 +31,8 @@ grails> exit
 ```
 
 ## and now everything else:
-```
+
+```shell
 grails> generate-all sample.react.data.Address
 grails> generate-all sample.react.data.Carrier
 grails> generate-all sample.react.data.Customer
