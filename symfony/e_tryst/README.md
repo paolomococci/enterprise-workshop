@@ -1,8 +1,10 @@
 # e_tryst
+
 ![e_tryst](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_e-tryst_guest.png)
 
 ## I make a new Symfony project with website-skeleton
-```
+
+```shell
 $ composer create-project symfony/website-skeleton e_tryst
 $ cd e_tryst
 $ composer update
@@ -17,12 +19,16 @@ $ php bin/console make:entity
 ...
 $ nano .env
 ```
+
 ## I changed the following line
-```
+
+```text
 DATABASE_URL="mysql://username:password@127.0.0.1:3306/e_tryst_db"
 ```
+
 ## and I continued with the following commands
-```
+
+```shell
 $ php bin/console make:migration
 $ php bin/console doctrine:migrations:migrate
 $ php bin/console make:crud Guest
@@ -71,25 +77,32 @@ $ php bin/console server:run
  // Quit the server with CONTROL-C.                                                                                     
 ...
 ```
+
 ## I add webpack support
-```
+
+```shell
 $ composer require symfony/webpack-encore-bundle
 $ yarn install
 $ yarn add bootstrap --dev
 $ yarn add jquery popper.js --dev
 $ yarn encore dev
 ```
+
 ## I update Guest and add two new entities
-```
+
+```shell
 $ php bin/console make:entity Guest
 $ php bin/console make:entity Post
 $ php bin/console make:entity Tryst
 ```
+
 ## and then continue with the following commands
-```
+
+```shell
 $ php bin/console make:crud Post
 $ php bin/console make:crud Tryst
 $ php bin/console make:admin:crud
 $ php bin/console make:admin:crud
 ```
+
 once for Post and once for Tryst
