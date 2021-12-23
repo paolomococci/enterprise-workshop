@@ -8,5 +8,5 @@ That is: "e_tryst_db".
 ## it begins
 
 ```shell
-$ composer create-project laravel/lumen etryst
+composer create-project laravel/lumen etryst
 ```
