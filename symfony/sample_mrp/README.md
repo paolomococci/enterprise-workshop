@@ -1,7 +1,8 @@
 # Material Requirements Planning demo web application
 
 ## I make a new Symfony project with website-skeleton
-```
+
+```shell
 $ composer create-project symfony/website-skeleton sample_mrp
 $ cd sample_mrp
 $ composer update
@@ -11,12 +12,16 @@ $ composer require easycorp/easyadmin-bundle
 $ php bin/console make:admin:dashboard
 $ nano .env
 ```
+
 ## I changed the following line
-```
+
+```text
 DATABASE_URL="mysql://username:password@127.0.0.1:3306/sample_mrp_db"
 ```
+
 ## and I continued with the following commands
-```
+
+```shell
 $ php bin/console make:entity Commodity
 $ php bin/console make:entity Component
 $ php bin/console make:entity Supplier
@@ -28,8 +33,10 @@ $ php bin/console make:crud Component
 $ php bin/console make:admin:crud
 $ php bin/console make:controller
 ```
+
 ## finally
-```
+
+```shell
 $ php bin/console debug:router                                                                                                                               
  -------------------------- ---------- -------- ------ ----------------------------------- 
   Name                       Method     Scheme   Host   Path                               
@@ -72,8 +79,10 @@ $ php bin/console debug:router
  $ php bin/console server:run
  ...
 ```
+
 ## I add webpack support
-```
+
+```shell
 $ composer require symfony/webpack-encore-bundle
 $ yarn install
 $ yarn add bootstrap --dev
