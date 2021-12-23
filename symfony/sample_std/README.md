@@ -1,7 +1,8 @@
 # sample_std, developed thanks to Symfony version 3.4.47
 
 ## I creare a new project
-```
+
+```shell
 $ composer2 create-project symfony/framework-standard-edition sample_std
 ...
 > Incenteev\ParameterHandler\ScriptHandler::buildParameters
@@ -14,8 +15,10 @@ database_user (root): user
 database_password (null): password
 ...
 ```
+
 ## list of available commands
-```
+
+```shell
 $ php bin/console list
 Symfony 3.4.47 (kernel: app, env: dev, debug: true)
 
