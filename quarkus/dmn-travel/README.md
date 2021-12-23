@@ -2,7 +2,7 @@
 
 ## I will proceed to the scaffold of the project composed of some DMN, (Decision Model and Notation), models
 ```
-mvn io.quarkus:quarkus-maven-plugin:2.5.4.Final:create -DprojectGroupId=local.example -DprojectArtifactId=dmn-travel -Dextensions="dmn" -DnoExamples
+mvn io.quarkus:quarkus-maven-plugin:2.6.0.Final:create -DprojectGroupId=local.example -DprojectArtifactId=dmn-travel -Dextensions="dmn" -DnoExamples
 ```
 
 ## example of use:
