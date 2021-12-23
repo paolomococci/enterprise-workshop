@@ -1,50 +1,68 @@
 # ateneo demo web application
 
 ## screenshot of home page
+
 ![ateneo home page](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_ateneo_home_page.png)
 
 ## screenshot of index of registered students page
+
 ![index of students](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_ateneo_students_index.png)
 
 ## screenshot of form for registering a new student page
+
 ![add student](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/screenshot_ateneo_add_student.png)
 
 ## I started with creating the project
+
+```shell
+composer create-project laravel/laravel ateneo
+cd ateneo
+composer update
 ```
-$ composer create-project laravel/laravel ateneo
-$ cd ateneo
-$ composer update
-```
+
 ## I checked the version of the framework
-```
-$ php artisan --version
+
+```shell
+php artisan --version
 Laravel Framework 7.30.4
 ```
+
 ## I created the model of interest
-```
+
+```shell
 $ php artisan make:model Models/Student -m
 $ php artisan migrate
 ```
+
 ## I created the controller
-```
+
+```shell
 $ php artisan make:controller StudentController --resource
 ```
+
 ## I added user interface support
-```
+
+```shell
 $ composer require laravel/ui
 $ php artisan ui bootstrap
 $ npm install
 ```
+
 ## possibly, if necessary
-```
+
+```shell
 $ npm audit fix --force
 ```
+
 # finally
-```
+
+```shell
 $ npm run dev
 ```
+
 ## I check the path of the resources
-```
+
+```shell
 $ php artisan route:list
 +--------+-----------+-------------------------+------------------+------------------------------------------------+------------+
 | Domain | Method    | URI                     | Name             | Action                                         | Middleware |
@@ -61,20 +79,26 @@ $ php artisan route:list
 |        | GET|HEAD  | students/{student}/edit | students.edit    | App\Http\Controllers\StudentController@edit    | web        |
 +--------+-----------+-------------------------+------------------+------------------------------------------------+------------+
 ```
+
 ## I start the server for the usage test
-```
+
+```shell
 $ php artisan serve
 ```
+
 ## I resize the application by adding five more entities
-```
+
+```shell
 $ php artisan make:model -a Models/Tutor
 $ php artisan make:model -a Models/Teacher
 $ php artisan make:model -a Models/Employee
 $ php artisan make:model -a Models/Chancellor
 $ php artisan make:model -a Models/President
 ```
+
 ## again, I check the path of the resources
-```
+
+```shell
 $ php artisan route:list
 +--------+-----------+-------------------------------+---------------------+---------------------------------------------------+------------+
 | Domain | Method    | URI                           | Name                | Action                                            | Middleware |
@@ -126,8 +150,10 @@ $ php artisan route:list
 |        | GET|HEAD  | tutors/{tutor}/edit           | tutors.edit         | App\Http\Controllers\TutorController@edit         | web        |
 +--------+-----------+-------------------------------+---------------------+---------------------------------------------------+------------+
 ```
+
 ## migrating
-```
+
+```shell
 $ php artisan migrate
 Migrating: 2021_04_05_014745_create_tutors_table
 Migrated:  2021_04_05_014745_create_tutors_table (0.02 seconds)
@@ -140,13 +166,17 @@ Migrated:  2021_04_05_014948_create_chancellors_table (0.02 seconds)
 Migrating: 2021_04_05_015019_create_presidents_table
 Migrated:  2021_04_05_015019_create_presidents_table (0.02 seconds)
 ```
+
 ## if corrections need to be made
-```
+
+```shell
 $ php artisan migrate:refresh
 ...
 ```
+
 ## I maked the Faculty entity
-```
+
+```shell
 $ php artisan make:model -a Models/Faculty
 $ php artisan migrate:refresh
 $ php artisan route:list
@@ -207,8 +237,10 @@ $ php artisan route:list
 |        | GET|HEAD  | tutors/{tutor}/edit           | tutors.edit         | App\Http\Controllers\TutorController@edit             | web        |
 +--------+-----------+-------------------------------+---------------------+-------------------------------------------------------+------------+
 ```
+
 ## I added the following relationships between entities
-```
+
+```shell
 $ php artisan make:migration create_students_faculties_relation_table
 Created Migration: 2021_04_14_091407_create_students_faculties_relation_table
 $ php artisan make:migration create_tutors_faculties_relation_table
@@ -223,8 +255,10 @@ Migrated:  2021_04_14_091436_create_tutors_faculties_relation_table (0.01 second
 Migrating: 2021_04_14_091507_create_teachers_faculties_relation_table
 Migrated:  2021_04_14_091507_create_teachers_faculties_relation_table (0.01 seconds)
 ```
+
 ## I test API from another terminal window
-```
+
+```shell
 $ curl -v -i http://localhost:8000/api/students
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
@@ -297,12 +331,14 @@ Access-Control-Allow-Origin: *
 []
 ...
 ```
+
 ## after I edited the following three files
+
 * 2021_04_14_091407_create_students_faculties_relation_table.php
 * 2021_04_14_091436_create_tutors_faculties_relation_table.php
 * 2021_04_14_091507_create_teachers_faculties_relation_table.php
 
-```
+```shell
 $ php artisan migrate:refresh
 Rolling back: 2021_04_14_091507_create_teachers_faculties_relation_table
 Rolled back:  2021_04_14_091507_create_teachers_faculties_relation_table (0.01 seconds)
@@ -357,8 +393,10 @@ Migrated:  2021_04_14_091436_create_tutors_faculties_relation_table (0.11 second
 Migrating: 2021_04_14_091507_create_teachers_faculties_relation_table
 Migrated:  2021_04_14_091507_create_teachers_faculties_relation_table (0.11 seconds)
 ```
+
 ## I'm going to structure the relationship between the president and the chancellors
-```
+
+```shell
 $ php artisan make:migration create_presidents_chancellors_relation_table
 Created Migration: 2021_04_14_155436_create_presidents_chancellors_relation_table
 $ php artisan migrate
