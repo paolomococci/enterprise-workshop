@@ -1,21 +1,26 @@
 # e_community
 
 ## I make a new Symfony project with website-skeleton
-```
+
+```shell
 $ composer create-project symfony/website-skeleton e_community
 ...
 $ cd e_community
 $ composer update$ nano .env
 ...
 ```
+
 ## I changed the following line 
-```
+
+```text
 ...
 DATABASE_URL="mysql://username:password@127.0.0.1:3306/e_community_db"
 ...
 ```
+
 ## and I continued with the following commands
-```
+
+```shell
 $ composer require symfony/web-server-bundle 4.4
 ...
 $ composer require friendsofphp/php-cs-fixer
@@ -216,4 +221,5 @@ $ php bin/console server:run
  // Quit the server with CONTROL-C.
 ...
 ```
+
 ![admin add user](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/e_community_admin_add_user.png)
