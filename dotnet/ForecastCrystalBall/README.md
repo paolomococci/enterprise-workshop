@@ -2,7 +2,7 @@
 
 ## scaffolding
 
-```text
+```shell
 ./cupcake ForecastCrystalBall 2>error.log 1>out.log
 ```
 
