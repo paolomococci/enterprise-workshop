@@ -1,30 +1,38 @@
 # food-cart demo web application developed thanks to Laravel
+
 ![food-card](https://github.com/paolomococci/enterprise-workshop/blob/main/screenshots/food_cart_screenshot01.png)
 
 ## how I proceeded:
 
 ### I first created the project
+
+```shell
+composer create-project laravel/laravel food-cart
+cd food-cart
+composer update
+php artisan make:model -a Models/Customer
+php artisan make:model -a Models/Ingredient
+php artisan make:model -a Models/Meal
+php artisan make:model -a Models/Recipe
+php artisan make:model -a Models/Supplier
 ```
-$ composer create-project laravel/laravel food-cart
-$ cd food-cart
-$ composer update
-$ php artisan make:model -a Models/Customer
-$ php artisan make:model -a Models/Ingredient
-$ php artisan make:model -a Models/Meal
-$ php artisan make:model -a Models/Recipe
-$ php artisan make:model -a Models/Supplier
-```
+
 ### I generated the tables necessary for the application to work
+
 ```
-$ php artisan migrate
+php artisan migrate
 ```
+
 ### finally, I started the application
+
 ```
-$ php artisan serve
+php artisan serve
 ```
+
 ### to then test its API from another terminal window
+
 ```
-$ curl -v -i http://localhost:8000/api/customers
+curl -v -i http://localhost:8000/api/customers
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
 * Connected to localhost (127.0.0.1) port 8000 (#0)
@@ -59,7 +67,7 @@ Access-Control-Allow-Origin: *
 < 
 * Closing connection 0
 []
-$ curl -v -i http://localhost:8000/api/ingredients
+curl -v -i http://localhost:8000/api/ingredients
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
 * Connected to localhost (127.0.0.1) port 8000 (#0)
@@ -94,7 +102,7 @@ Access-Control-Allow-Origin: *
 < 
 * Closing connection 0
 []
-$ curl -v -i http://localhost:8000/api/meals
+curl -v -i http://localhost:8000/api/meals
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
 * Connected to localhost (127.0.0.1) port 8000 (#0)
@@ -129,7 +137,7 @@ Access-Control-Allow-Origin: *
 < 
 * Closing connection 0
 []
-$ curl -v -i http://localhost:8000/api/recipes
+curl -v -i http://localhost:8000/api/recipes
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
 * Connected to localhost (127.0.0.1) port 8000 (#0)
@@ -164,7 +172,7 @@ Access-Control-Allow-Origin: *
 < 
 * Closing connection 0
 []
-$ curl -v -i http://localhost:8000/api/suppliers
+curl -v -i http://localhost:8000/api/suppliers
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
 * Connected to localhost (127.0.0.1) port 8000 (#0)
@@ -200,7 +208,9 @@ Access-Control-Allow-Origin: *
 * Closing connection 0
 []
 ```
+
 ### I modified composer.json
+
 ```
 ...
     "autoload": {
@@ -213,31 +223,37 @@ Access-Control-Allow-Origin: *
     },
 ...
 ```
+
 ### after editing the files in the directory database/seeds, I ran the command
+
 ```
 $ php artisan db:seed --class=CustomerSeeder
 ```
+
 ### it returns me an error
+
 ```
 ...
 Target class [CustomerSeeder] does not exist.
 ...
 ```
+
 ### I proceeded to create the many-to-many relationship tables
+
 ```
-$ php artisan make:migration create_ingredient_recipe_relation_table
+php artisan make:migration create_ingredient_recipe_relation_table
 Created Migration: 2021_03_24_140125_create_ingredient_recipe_relation_table
 
-$ php artisan make:migration create_recipe_meal_relation_table
+php artisan make:migration create_recipe_meal_relation_table
 Created Migration: 2021_03_24_140424_create_recipe_meal_relation_table
 
-$ php artisan make:migration create_meal_customer_relation_table
+php artisan make:migration create_meal_customer_relation_table
 Created Migration: 2021_03_24_140535_create_meal_customer_relation_table
 
-$ php artisan make:migration create_ingredient_supplier_relation_table
+php artisan make:migration create_ingredient_supplier_relation_table
 Created Migration: 2021_03_24_140608_create_ingredient_supplier_relation_table
 
-$ php artisan migrate:refresh --seed
+php artisan migrate:refresh --seed
 Rolling back: 2021_03_21_082737_create_meals_table
 Rolled back:  2021_03_21_082737_create_meals_table (0.01 seconds)
 Rolling back: 2021_03_21_082128_create_recipes_table
@@ -286,23 +302,27 @@ Migrated:  2021_03_24_140608_create_ingredient_supplier_relation_table (0.01 sec
 ```
 
 ### after I have edited the files dedicated to database modification
+
 ```
-$ php artisan make:model Models/IngredientRecipe
-$ php artisan migrate:refresh
+php artisan make:model Models/IngredientRecipe
+php artisan migrate:refresh
 ...
 ```
+
 # now I have added support to Vue.js
+
 ```
-$ composer require laravel/ui
-$ php artisan ui vue
-$ npm install
-$ npm run dev
-$ npm run watch
+composer require laravel/ui
+php artisan ui vue
+npm install
+npm run dev
+npm run watch
 ```
 
 # when I need to know the route list
+
 ```
-$ php artisan route:list
+php artisan route:list
 +--------+----------+-----------------+------+-------------------------------------------------+------------+
 | Domain | Method   | URI             | Name | Action                                          | Middleware |
 +--------+----------+-----------------+------+-------------------------------------------------+------------+
