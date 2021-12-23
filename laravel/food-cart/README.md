@@ -19,19 +19,19 @@ php artisan make:model -a Models/Supplier
 
 ### I generated the tables necessary for the application to work
 
-```
+```shell
 php artisan migrate
 ```
 
 ### finally, I started the application
 
-```
+```shell
 php artisan serve
 ```
 
 ### to then test its API from another terminal window
 
-```
+```shell
 curl -v -i http://localhost:8000/api/customers
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
@@ -211,7 +211,7 @@ Access-Control-Allow-Origin: *
 
 ### I modified composer.json
 
-```
+```text
 ...
     "autoload": {
         "psr-4": {
@@ -226,13 +226,13 @@ Access-Control-Allow-Origin: *
 
 ### after editing the files in the directory database/seeds, I ran the command
 
-```
-$ php artisan db:seed --class=CustomerSeeder
+```shell
+php artisan db:seed --class=CustomerSeeder
 ```
 
 ### it returns me an error
 
-```
+```text
 ...
 Target class [CustomerSeeder] does not exist.
 ...
@@ -240,7 +240,7 @@ Target class [CustomerSeeder] does not exist.
 
 ### I proceeded to create the many-to-many relationship tables
 
-```
+```shell
 php artisan make:migration create_ingredient_recipe_relation_table
 Created Migration: 2021_03_24_140125_create_ingredient_recipe_relation_table
 
@@ -303,7 +303,7 @@ Migrated:  2021_03_24_140608_create_ingredient_supplier_relation_table (0.01 sec
 
 ### after I have edited the files dedicated to database modification
 
-```
+```shell
 php artisan make:model Models/IngredientRecipe
 php artisan migrate:refresh
 ...
@@ -311,7 +311,7 @@ php artisan migrate:refresh
 
 # now I have added support to Vue.js
 
-```
+```shell
 composer require laravel/ui
 php artisan ui vue
 npm install
@@ -321,7 +321,7 @@ npm run watch
 
 # when I need to know the route list
 
-```
+```shell
 php artisan route:list
 +--------+----------+-----------------+------+-------------------------------------------------+------------+
 | Domain | Method   | URI             | Name | Action                                          | Middleware |
