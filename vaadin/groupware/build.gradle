@@ -19,9 +19,9 @@ configurations {
 
 repositories {
 	mavenCentral()
-	maven {
-		url "https://maven.vaadin.com/vaadin-prereleases/"
-	}
+	//maven {
+	//	url "https://maven.vaadin.com/vaadin-prereleases/"
+	//}
 }
 
 ext {
