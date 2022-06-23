@@ -15,5 +15,5 @@ Furthermore, framing everything in a perspective of logistical efficiency for wh
 ## Scaffolding
 
 ```shell
-mvn io.quarkus:quarkus-maven-plugin:2.9.2.Final:create -DprojectGroupId=local.example -DprojectArtifactId=dmn-abc-analysis -Dextensions="dmn" -DnoExamples
+mvn io.quarkus:quarkus-maven-plugin:2.10.0.Final:create -DprojectGroupId=local.example -DprojectArtifactId=dmn-abc-analysis -Dextensions="dmn" -DnoExamples
 ```
