@@ -1,6 +1,0 @@
-@charset "UTF-8";
-
-.hello-view {
-  display: block;
-  padding: 0 var(--lumo-space-l);
-}
