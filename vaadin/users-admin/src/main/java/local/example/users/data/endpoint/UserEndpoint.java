@@ -19,8 +19,6 @@
 package local.example.users.data.endpoint;
 
 import com.vaadin.flow.server.auth.AnonymousAllowed;
-import com.vaadin.fusion.Endpoint;
-
 import local.example.users.data.entity.User;
 import local.example.users.data.security.auth.UserAuth;
 
@@ -28,7 +26,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
-@Endpoint
 @AnonymousAllowed
 public class UserEndpoint {
 
