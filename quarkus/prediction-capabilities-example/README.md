@@ -3,7 +3,7 @@
 ## scaffolding:
 
 ```shell
-mvn io.quarkus:quarkus-maven-plugin:2.12.1.Final:create -DprojectGroupId=local.example -DprojectArtifactId=prediction-capabilities-example -Dextensions="kogito" -DnoExamples
+mvn io.quarkus:quarkus-maven-plugin:2.12.2.Final:create -DprojectGroupId=local.example -DprojectArtifactId=prediction-capabilities-example -Dextensions="kogito" -DnoExamples
 ```
 ## first start:
 
