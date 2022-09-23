@@ -2,7 +2,7 @@
 
 Example of optimization and planning developed thanks to OptaPlanner, a constraint solver that uses artificial intelligence (AI).
 
-## I proceed with the scaffolding thanks to maven, version 3.8.1:
+## I proceed with the scaffolding thanks to maven, version 3.8.6:
 
 ```shell
 mvn io.quarkus:quarkus-maven-plugin:2.12.3.Final:create -DprojectGroupId=local.example -DprojectArtifactId=training -Dextensions="resteasy,resteasy-jackson,optaplanner-quarkus,optaplanner-quarkus-jackson,quarkus-hibernate-validator,quarkus-jdbc-postgresql,quarkus-hibernate-orm-panache,quarkus-hibernate-orm-rest-data-panache,optaplanner-quarkus-benchmark" -DnoExamples
