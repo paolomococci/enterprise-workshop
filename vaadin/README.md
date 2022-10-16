@@ -5,6 +5,5 @@
 * said
 * capstone
 * users-admin
-* groupware
 * users
 * bookstore
