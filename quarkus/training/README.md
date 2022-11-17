@@ -5,7 +5,7 @@ Example of optimization and planning developed thanks to OptaPlanner, a constrai
 ## I proceed with the scaffolding thanks to maven, version 3.8.6:
 
 ```shell
-mvn io.quarkus:quarkus-maven-plugin:2.13.4.Final:create -DprojectGroupId=local.example -DprojectArtifactId=training -Dextensions="resteasy,resteasy-jackson,optaplanner-quarkus,optaplanner-quarkus-jackson,quarkus-hibernate-validator,quarkus-jdbc-postgresql,quarkus-hibernate-orm-panache,quarkus-hibernate-orm-rest-data-panache,optaplanner-quarkus-benchmark" -DnoExamples
+mvn io.quarkus:quarkus-maven-plugin:2.14.1.Final:create -DprojectGroupId=local.example -DprojectArtifactId=training -Dextensions="resteasy,resteasy-jackson,optaplanner-quarkus,optaplanner-quarkus-jackson,quarkus-hibernate-validator,quarkus-jdbc-postgresql,quarkus-hibernate-orm-panache,quarkus-hibernate-orm-rest-data-panache,optaplanner-quarkus-benchmark" -DnoExamples
 ```
 
 ## then I want to see the list of available extensions:
