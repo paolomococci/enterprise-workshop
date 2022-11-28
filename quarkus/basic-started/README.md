@@ -5,7 +5,7 @@ A simple example to start developing with Quarkus.
 ## I proceed with the scaffolding thanks to maven, version 3.8.6:
 
 ```shell
-mvn io.quarkus:quarkus-maven-plugin:2.14.1.Final:create -DprojectGroupId=local.example -DprojectArtifactId=basic-started -DclassName="local.example.basic.ApplicationResource" -Dpath="/basic"
+mvn io.quarkus:quarkus-maven-plugin:2.14.2.Final:create -DprojectGroupId=local.example -DprojectArtifactId=basic-started -DclassName="local.example.basic.ApplicationResource" -Dpath="/basic"
 ```
 
 ## I add extensions to access PostgreSQL
